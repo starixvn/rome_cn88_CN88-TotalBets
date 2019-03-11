@@ -423,6 +423,9 @@
     <Content Include="App_Data\securitycode.json" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CN88.TotalBets\CN88.TotalBets.csproj">
+      <Project>{3e6592e0-8ba5-43d7-a158-fab938fdf25b}</Project>
+      <Name>CN88.TotalBets</Name>
     <Content Include="assets\styles\totalbets.scss" />
   </ItemGroup>
   <ItemGroup>
