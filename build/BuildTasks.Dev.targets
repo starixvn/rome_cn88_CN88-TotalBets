@@ -5,10 +5,10 @@
          InitialTargets="MyTargets">
 		 
   <Target Name="MyTargets">
-	<Exec Command="..\tools\Nuget\NuGet restore ..\Alpha.ViewLogs.sln"/>
+	<Exec Command="..\tools\Nuget\NuGet restore ..\CN88.TotalBets.sln"/>
 	
-	<MSBuild Projects="..\Alpha.ViewLogs.sln" 
-		Properties="RunNunitTests=true;TreatWarningsAsErrors=true;RunCodeAnalysis=true;StyleCopEnabled=true" />
+	<MSBuild Projects="..\CN88.TotalBets.sln" 
+		Properties="RunXunitTests=true;RunNunitTests=true;TreatWarningsAsErrors=true;RunJSUnitTests=true" />
   </Target>
   
 </Project>

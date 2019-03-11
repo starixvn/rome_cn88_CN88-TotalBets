@@ -1,5 +1,5 @@
 #!/bin/sh
 
-# cmd "/C build\BuildTask.Release.bat"
+# cmd "/C build\assets.build.cmd"
 
 cmd "/C build.cmd"

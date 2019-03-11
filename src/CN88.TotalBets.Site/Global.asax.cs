@@ -1,18 +1,27 @@
 ﻿namespace CN88.TotalBets.Site
 {
-    using Alpha.Auth.Filters;
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.Linq;
+    using System.Reflection;
+    using System.Web.Mvc;
+    using System.Web.Routing;
     using Alpha.Web;
+    using Alpha.Web.Filters;
     using Alpha.Web.Helpers;
     using App_Start;
     using Configurations;
     using Fanex.Data;
+    using Fanex.Data.CrossCutting.WrappingException;
     using Fanex.Data.OldConnectionStringProvider;
+    using Fanex.Logging.Extensions.Web;
+    using Fanex.RemotingRef;
+    using Helpers;
     using ONEbook.UM.Filters;
-    using System.Diagnostics;
-    using System.Reflection;
-    using System.Web.Mvc;
-    using System.Web.Routing;
-
+    using Sunplus.Agent.Model.Entities;
+    using Web.Filters;
+    using CN88CheckBelongingFilter = Web.Filters.CheckBelongingFilter;
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
@@ -23,7 +32,7 @@
 
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-
+            LoggingManager.Init();
             DependencyConfig.Init();
 
             AppSettings.Verify();
@@ -31,17 +40,48 @@
             DbSettingProviderManager
                 .StartNewSession()
                 .Use(new OldConnectionStringProvider())
-                .UseDefaultDbSettingProvider(
-                    resourcePath: AppSettings.StoreProcedurePath,
-                    enableWatching: true)
+                .UseDefaultDbSettingProvider(resourcePath: AppSettings.StoreProcedurePath)
+                .Use((settingKey, commandTimeout) => new WrappingExceptionObjectDb(settingKey, commandTimeout))
                 .Run();
 
             ShareSession.Init();
-
+            ModelBinders.Binders.DefaultBinder = new QueryEntityModelBinder();
             GlobalFilters.Filters.Add(new CheckUMFilter());
-            GlobalFilters.Filters.Add(new CheckBelongingFilter());
+            GlobalFilters.Filters.Add(new AfterLoginFlowFilter());
+            GlobalFilters.Filters.Add(new CN88CheckBelongingFilter());
+            GlobalFilters.Filters.Add(new NoCacheFilter());
 
             StaticResources.Init(GetBuildVersion());
+
+            RefDataTypeContainer
+                .ConnectTo(new Uri(AppSettings.RemoteRefURL))
+                .FromApplication("CN88.TotalBets.Site");
+        }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            if (Request.IsLocal)
+            {
+                return;
+            }
+
+            Exception ex = Server.GetLastError();
+            var currentCustomer = UserSession.Current;
+
+            if (ex is FormatException &&
+                Request.Params.AllKeys.Any(key => Alpha.Auth.Configurations.AuthorizationSection.Instance.CustIdQueryStringParamNames.Any(cf => string.Equals(key, cf, StringComparison.OrdinalIgnoreCase))))
+            {
+                return;
+            }
+
+            ExceptionHandler.Handle(ex,
+                new Dictionary<string, object>
+                {
+                    ["CustId"] = currentCustomer?.CustId,
+                    ["CustName"] = currentCustomer?.UserName,
+                    ["SubAccountName"] = currentCustomer?.SubUserName,
+                    ["AdminName"] = currentCustomer?.AdminName
+                });
         }
 
         private static string GetBuildVersion()

@@ -1,0 +1,10 @@
+﻿{
+  "isActive": false,
+  "siteMainApp": "/site-totalbets",
+  "paths": [
+  ],
+  "sites": [
+  ],
+  "verifyingSecurityCodePath": "SecurityCode/VerifySecurityCode",
+  "resetSecurityCodePath": "SecurityCode/ChangeSecurityCode"
+}

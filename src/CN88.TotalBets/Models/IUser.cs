@@ -6,8 +6,26 @@
 
         string Name { get; }
 
+        string NickName { get; }
+
         string Language { get; }
 
+        string LanguageKey { get; }
+
         byte LevelId { get; }
+
+        bool IsInternal { get; }
+
+        int SubAccountId { get; }
+
+        string IP { get; }
+
+        bool HasUpdatePermission { get; }
+
+        bool HasAddNewPermission { get; }
+
+        bool IsAdminCanViewVNIP { get; }
+
+        int AdminId { get; }
     }
 }

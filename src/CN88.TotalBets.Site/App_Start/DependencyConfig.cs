@@ -6,8 +6,10 @@
     using System.Web.Mvc;
     using Controllers;
     using Fanex.Data.Repository;
+    using Fanex.RemotingRef;
     using MediatR;
     using Models;
+    using Services;
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
@@ -50,13 +52,16 @@
 
             container.RegisterCollection(typeof(INotificationHandler<>), assemblies);
             container.RegisterCollection(typeof(IAsyncNotificationHandler<>), assemblies);
+            container.RegisterCollection(typeof(ICancellableAsyncNotificationHandler<>), assemblies);
+            container.RegisterCollection(typeof(IPipelineBehavior<,>), assemblies);
+
             container.RegisterSingleton(new SingleInstanceFactory(container.GetInstance));
             container.RegisterSingleton(new MultiInstanceFactory(container.GetAllInstances));
         }
 
         private static IEnumerable<Assembly> GetAssemblies()
         {
-            yield return typeof(HomeController).Assembly;
+            yield return typeof(SiteBaseController).Assembly;
         }
 
         private static void RegisterDataAccesses(Container container)
@@ -68,6 +73,11 @@
         {
             container.RegisterSingleton<IUserSession, UserSessionExt>();
             container.RegisterSingleton<IUser, User>();
+            container.RegisterSingleton(Fanex.Logging.Logger.Log);
+            container.RegisterSingleton<IRemotingRefService, RemotingRefService>();
+
+            container.RegisterSingleton<IOverViewService, OverViewService>();
+
         }
     }
 }

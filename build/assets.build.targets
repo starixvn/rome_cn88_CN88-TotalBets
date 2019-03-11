@@ -9,10 +9,10 @@
   <UsingTask AssemblyFile="..\tools\BundlerMinifier\BundlerMinifier.exe" TaskName="BundlerMinifier.BundlerCleanTask"/>
 
   <Target Name="MyTargets">
-    <WebCompiler.CompilerCleanTask FileName="$(MSBuildProjectDirectory)\..\Alpha.ViewLogs.Site\compilerconfig.json" />
-    <WebCompiler.CompilerBuildTask FileName="$(MSBuildProjectDirectory)\..\Alpha.ViewLogs.Site\compilerconfig.json" />
-	<BundlerMinifier.BundlerCleanTask FileName="$(MSBuildProjectDirectory)\..\Alpha.ViewLogs.Site\bundleconfig.json" />
-	<BundlerMinifier.BundlerBuildTask FileName="$(MSBuildProjectDirectory)\..\Alpha.ViewLogs.Site\bundleconfig.json" />
+    <WebCompiler.CompilerCleanTask FileName="$(MSBuildProjectDirectory)\..\src\CN88.TotalBets.Site\compilerconfig.json" />
+    <WebCompiler.CompilerBuildTask FileName="$(MSBuildProjectDirectory)\..\src\CN88.TotalBets.Site\compilerconfig.json" />
+	<BundlerMinifier.BundlerCleanTask FileName="$(MSBuildProjectDirectory)\..\src\CN88.TotalBets.Site\bundleconfig.json" />
+	<BundlerMinifier.BundlerBuildTask FileName="$(MSBuildProjectDirectory)\..\src\CN88.TotalBets.Site\bundleconfig.json" />
   </Target>
   
 </Project>
