@@ -2,5 +2,9 @@
   {
     "outputFile": "assets/styles/totalbets.css",
     "inputFile": "assets/styles/totalbets.scss"
+  },
+  {
+    "outputFile": "assets/styles/outright.css",
+    "inputFile": "assets/styles/outright.scss"
   }
 ]

@@ -5,6 +5,13 @@
       "assets/styles/totalbets.css"
     ]
   },
+    {
+    "outputFileName": "assets/bundles/outright.css",
+    "inputFiles": [
+      "assets/styles/totalbets.css",
+      "assets/styles/outright.css"
+    ]
+  },
   {
     "outputFileName": "assets/bundles/outright/outright.js",
     "inputFiles": [

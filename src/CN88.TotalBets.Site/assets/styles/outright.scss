@@ -1,0 +1,26 @@
+﻿.tbl-outright {
+    width: 720px;
+    tr.league {
+        &:hover {
+            cursor: pointer;
+        }
+        td {
+            padding: 4px;
+        }
+        .icon-chevron-down {
+            font-size: 20px;            
+        }
+        .league-name {
+            position: relative;
+            top: -3px;
+        }
+    }
+    
+    .team-name {
+        width: 250px;
+    }
+    > tbody > tr > td {
+        padding: 4px 8px;
+    }
+}
+
