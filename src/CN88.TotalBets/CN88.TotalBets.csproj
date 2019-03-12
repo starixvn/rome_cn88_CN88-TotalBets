@@ -119,6 +119,7 @@
     <Compile Include="Models\Enumeration.cs" />
     <Compile Include="Models\IUser.cs" />
     <Compile Include="Models\Outright\OutrightItem.cs" />
+    <Compile Include="Models\Outright\OutrightLeague.cs" />
     <Compile Include="Models\League.cs" />
     <Compile Include="Models\OverView\OverViewByParlayModel.cs" />
     <Compile Include="Models\OverView\OverViewModel.cs" />

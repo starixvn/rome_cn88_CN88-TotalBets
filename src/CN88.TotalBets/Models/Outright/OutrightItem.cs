@@ -20,8 +20,6 @@
 
         public int LeagueId { get; }
 
-        public string LeagueName { get; set; }
-
         public int TeamId { get; }
 
         public string TeamName { get; set; }

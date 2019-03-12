@@ -3,7 +3,6 @@
     using System.Diagnostics.CodeAnalysis;
     using System.Threading.Tasks;
     using System.Web.Mvc;
-    using Alpha.Web;
     using MediatR;
     using Requests;
     using Web.Controllers;

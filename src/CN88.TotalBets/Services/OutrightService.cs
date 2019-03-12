@@ -1,6 +1,7 @@
 ﻿namespace CN88.TotalBets.Services
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
     using Criteria;
     using Fanex.Data.Repository;
@@ -9,7 +10,7 @@
 
     public interface OutrightService
     {
-        Task<IEnumerable<OutrightItem>> GetOutrightsAsync(GetOutrightParam param);
+        Task<IEnumerable<OutrightLeague>> GetOutrightsAsync(GetOutrightParam param);
     }
 
     public class OutrightServiceImpl : OutrightService
@@ -25,22 +26,31 @@
             this.cacheRefService = cacheRefService;
         }
 
-        public async Task<IEnumerable<OutrightItem>> GetOutrightsAsync(GetOutrightParam param)
+        public async Task<IEnumerable<OutrightLeague>> GetOutrightsAsync(GetOutrightParam param)
         {
             var outrights = await dynamicRepository.FetchAsync<OutrightItem>(ToGetOutrightCriteria(param));
 
-            foreach (var item in outrights)
-            {
-                SetLeagueNameTeamName(item);
-            }
-
-            return outrights;
+            return outrights.Any()
+                ? GetOutrightLeagues(outrights)
+                : Enumerable.Empty<OutrightLeague>();
         }
 
-        private void SetLeagueNameTeamName(OutrightItem item)
+        private IEnumerable<OutrightLeague> GetOutrightLeagues(IEnumerable<OutrightItem> outrights)
         {
-            item.LeagueName = cacheRefService.GetLeagueName(item.LeagueId);
-            item.TeamName = cacheRefService.GetTeamName(item.TeamId);
+            IList<OutrightLeague> outrightLeagues = new List<OutrightLeague>();
+            var groupLeagues = outrights.GroupBy(item => item.LeagueId);
+
+            foreach (var group in groupLeagues)
+            {
+                foreach (var item in group)
+                {
+                    item.TeamName = cacheRefService.GetTeamName(item.TeamId);
+                }
+
+                outrightLeagues.Add(new OutrightLeague(group.Key, cacheRefService.GetLeagueName(group.Key), group));
+            }
+
+            return outrightLeagues;
         }
 
         private static CriteriaBase ToGetOutrightCriteria(GetOutrightParam param)

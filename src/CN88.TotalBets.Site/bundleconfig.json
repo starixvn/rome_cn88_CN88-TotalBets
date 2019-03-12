@@ -4,5 +4,11 @@
     "inputFiles": [
       "assets/styles/totalbets.css"
     ]
+  },
+  {
+    "outputFileName": "assets/bundles/outright/outright.js",
+    "inputFiles": [
+      "assets/scripts/outright/outright.js"
+    ]
   }
 ]

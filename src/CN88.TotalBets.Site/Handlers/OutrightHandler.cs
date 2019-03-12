@@ -18,9 +18,9 @@
 
         public async Task<OutrightViewModel> Handle(OutrightQuery message)
         {
-            var outrights = await outrightService.GetOutrightsAsync(ToGetOutrightParam(message));
+            var outrightLeagues = await outrightService.GetOutrightsAsync(ToGetOutrightParam(message));
 
-            return new OutrightViewModel(message.ViewerId, message.ActorLevel, outrights);
+            return new OutrightViewModel(message.ViewerId, message.ActorLevel, outrightLeagues);
         }
 
         private static GetOutrightParam ToGetOutrightParam(OutrightQuery message)

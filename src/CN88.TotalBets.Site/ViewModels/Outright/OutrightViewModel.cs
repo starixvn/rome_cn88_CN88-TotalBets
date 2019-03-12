@@ -9,7 +9,7 @@
         public OutrightViewModel(
             int custId,
             UserLevel userLevel,
-            IEnumerable<OutrightItem> outrights)
+            IEnumerable<OutrightLeague> outrights)
         {
             CustId = custId;
             UserLevel = userLevel;
@@ -20,6 +20,6 @@
 
         public UserLevel UserLevel { get; }
 
-        public IEnumerable<OutrightItem> Outrights { get; }
+        public IEnumerable<OutrightLeague> Outrights { get; }
     }
 }
