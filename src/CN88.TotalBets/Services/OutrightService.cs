@@ -31,26 +31,30 @@
             var outrights = await dynamicRepository.FetchAsync<OutrightItem>(ToGetOutrightCriteria(param));
 
             return outrights.Any()
-                ? GetOutrightLeagues(outrights)
+                ? outrights
+                    .GroupBy(item => item.LeagueId)
+                    .Select(group => GetOutrightLeague(group))
                 : Enumerable.Empty<OutrightLeague>();
         }
 
-        private IEnumerable<OutrightLeague> GetOutrightLeagues(IEnumerable<OutrightItem> outrights)
+        private OutrightLeague GetOutrightLeague(IGrouping<int, OutrightItem> groupLeague)
         {
-            IList<OutrightLeague> outrightLeagues = new List<OutrightLeague>();
-            var groupLeagues = outrights.GroupBy(item => item.LeagueId);
+            int totalWager = 0;
+            decimal totalStake = 0;
 
-            foreach (var group in groupLeagues)
+            foreach (var item in groupLeague)
             {
-                foreach (var item in group)
-                {
-                    item.TeamName = cacheRefService.GetTeamName(item.TeamId);
-                }
-
-                outrightLeagues.Add(new OutrightLeague(group.Key, cacheRefService.GetLeagueName(group.Key), group));
+                totalWager += item.Wager;
+                totalStake += item.Stake;
+                item.TeamName = cacheRefService.GetTeamName(item.TeamId);
             }
 
-            return outrightLeagues;
+            return new OutrightLeague(
+                groupLeague.Key,
+                cacheRefService.GetLeagueName(groupLeague.Key),
+                groupLeague,
+                totalWager,
+                totalStake);
         }
 
         private static CriteriaBase ToGetOutrightCriteria(GetOutrightParam param)
