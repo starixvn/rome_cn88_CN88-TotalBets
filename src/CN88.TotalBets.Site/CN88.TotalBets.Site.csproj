@@ -365,6 +365,7 @@
     <Compile Include="App_Start\LoggingManager.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\OutrightController.cs" />
+    <Compile Include="Controllers\InPlayController.cs" />
     <Compile Include="Controllers\OverViewController.cs" />
     <Compile Include="Controllers\SiteBaseController.cs" />
     <Compile Include="Global.asax.cs">
