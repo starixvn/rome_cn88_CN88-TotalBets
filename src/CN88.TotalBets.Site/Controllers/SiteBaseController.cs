@@ -6,9 +6,10 @@
     using Alpha.Web;
     using MediatR;
     using Requests;
+    using Web.Controllers;
 
     [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1304:NonPrivateReadonlyFieldsMustBeginWithUpperCaseLetter", Justification = "Reviewed.")]
-    public abstract class SiteBaseController : BaseController
+    public abstract class SiteBaseController : CN88BaseController
     {
         private const string NoInformationPageViewPath = "~/Shared/Views/NoInformation.cshtml";
         private const string InvalidExcelFileName = "Invalid";
