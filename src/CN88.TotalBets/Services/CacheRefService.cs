@@ -5,6 +5,10 @@ namespace CN88.TotalBets.Services
 {
     public interface CacheRefService
     {
+        string GetLeagueName(int leagueId);
+
+        string GetTeamName(int teamId);
+
         string GetSportName(int sportTypeId);
 
         string GetBetTypeName(int betTypeId);
@@ -18,6 +22,12 @@ namespace CN88.TotalBets.Services
         {
             this.remotingRefService = remotingRefService;
         }
+
+        public string GetLeagueName(int leagueId)
+            => remotingRefService.GetLeagueName(leagueId.ToString(), LanguageCode);
+
+        public string GetTeamName(int teamId)
+            => remotingRefService.GetTeamName(teamId.ToString(), LanguageCode);
 
         public string GetBetTypeName(int betTypeId)
             => remotingRefService.GetBetTypeName(betTypeId.ToString(), LanguageCode);

@@ -77,7 +77,7 @@
             container.RegisterSingleton<IRemotingRefService, RemotingRefService>();
             container.RegisterSingleton<CacheRefService, CacheRefServiceImpl>();
             container.RegisterSingleton<IOverViewService, OverViewService>();
-            container.RegisterPerWebRequest<IOutrightService, OutrightService>();
+            container.RegisterPerWebRequest<OutrightService, OutrightServiceImpl>();
         }
     }
 }

@@ -9,9 +9,9 @@
 
     public class OutrightHandler : IAsyncRequestHandler<OutrightQuery, OutrightViewModel>
     {
-        private readonly IOutrightService outrightService;
+        private readonly OutrightService outrightService;
 
-        public OutrightHandler(IOutrightService outrightService)
+        public OutrightHandler(OutrightService outrightService)
         {
             this.outrightService = outrightService;
         }

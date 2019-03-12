@@ -7,19 +7,19 @@
     using Models.Outright;
     using Params;
 
-    public interface IOutrightService
+    public interface OutrightService
     {
         Task<IEnumerable<OutrightItem>> GetOutrightsAsync(GetOutrightParam param);
     }
 
-    public class OutrightService : IOutrightService
+    public class OutrightServiceImpl : OutrightService
     {
         private readonly IDynamicRepository dynamicRepository;
-        private readonly ICacheRefService cacheRefService;
+        private readonly CacheRefService cacheRefService;
 
-        public OutrightService(
+        public OutrightServiceImpl(
             IDynamicRepository dynamicRepository,
-            ICacheRefService cacheRefService)
+            CacheRefService cacheRefService)
         {
             this.dynamicRepository = dynamicRepository;
             this.cacheRefService = cacheRefService;
