@@ -10,5 +10,12 @@
     "inputFiles": [
       "assets/scripts/outright/outright.js"
     ]
+  },
+  {
+    "outputFileName": "assets/bundles/scripts/overview.js",
+    "inputFiles": [
+      "assets/scripts/overview.js",
+      "assets/scripts/components/single-selection-dropdown.js"
+    ]
   }
 ]

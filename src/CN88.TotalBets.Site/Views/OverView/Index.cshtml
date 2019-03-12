@@ -8,7 +8,9 @@
 }
 <div class="page-overview">
     <div class="page-title">Overview</div>
-    <form class="form-inline filte" role="form"></form>
+    <form class="form-inline filte" role="form" id="overview-form">
+        @PossTypeSelection.Render(Model.UserSelectedViewMode)
+    </form>
     <table class="tbl-style2 tbl-totalbets">
         <tbody>
             <tr>
@@ -153,3 +155,7 @@
         </tbody>
     </table>
 </div>
+
+@section Scripts {
+    @StaticResources.RenderScripts("~/assets/bundles/scripts/overview")
+}

@@ -1,12 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using CN88.TotalBets.Models.OverView;
 using CN88.TotalBets.Site.Requests.OverView;
+using CN88.TotalBets.Site.ViewModels.Filters;
 
 namespace CN88.TotalBets.Site.ViewModels
 {
     public class HomeViewModel
     {
-        public HomeViewModel(OverViewQuery message, OverViewModel overViewModel)
+        public HomeViewModel(
+            OverViewQuery message,
+            OverViewModel overViewModel)
         {
             this.message = message;
             BySportType = new List<OverViewByBaseViewModel>
@@ -21,12 +25,15 @@ namespace CN88.TotalBets.Site.ViewModels
             ByParlay = new OverViewByParlayViewModel(overViewModel.ParlayModel);
         }
 
-        private OverViewQuery message { get; }        
+        private OverViewQuery message { get; }
 
         public IEnumerable<OverViewByBaseViewModel> BySportType { get; }
 
         public OverViewItemModel Total { get; }
 
         public OverViewByParlayViewModel ByParlay { get; }
+
+        public int UserSelectedViewMode => message.viewModeSelectedId;
+
     }
 }

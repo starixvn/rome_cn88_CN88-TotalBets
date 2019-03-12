@@ -321,6 +321,10 @@
     <Content Include="assets\bundles\outright\outright.min.js">
       <DependentUpon>outright.js</DependentUpon>
     </Content>
+    <Content Include="assets\bundles\scripts\overview.js" />
+    <Content Include="assets\bundles\scripts\overview.min.js">
+      <DependentUpon>overview.js</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\totalbets.css" />
     <Content Include="assets\bundles\totalbets.min.css">
       <DependentUpon>totalbets.css</DependentUpon>
@@ -339,7 +343,6 @@
     </Content>
     <Content Include="Global.asax" />
     <Content Include="deployment.ignore" />
-    <Content Include="Totalbets\bundles\totalbets.css" />
     <Content Include="Web.AppSettings.backupMNL.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
@@ -472,6 +475,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="assets\scripts\components\single-selection-dropdown.ts" />
+    <TypeScriptCompile Include="assets\scripts\overview.ts" />
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine-jquery\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine\index.d.ts" />

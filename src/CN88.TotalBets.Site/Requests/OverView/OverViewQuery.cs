@@ -10,6 +10,6 @@ namespace CN88.TotalBets.Site.Requests.OverView
         {
         }
 
-        public int ViewMode { get; set; }
+        public int viewModeSelectedId { get; set; }
     }
 }

@@ -46,3 +46,4 @@ bundles
 */assets/scripts/**/*.js
 */bundles/**/*.js
 .vs/
+*.js
