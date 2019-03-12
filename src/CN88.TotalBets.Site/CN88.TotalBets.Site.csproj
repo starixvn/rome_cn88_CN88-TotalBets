@@ -316,6 +316,9 @@
     <Content Include="App_Data\SPNames\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="assets\bundles\totalbets.css" />
+    <Content Include="assets\bundles\totalbets.min.css">
+      <DependentUpon>totalbets.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\images\1F.gif" />
     <Content Include="assets\styles\images\1L.gif" />
     <Content Include="assets\styles\images\firstGoal.gif" />
