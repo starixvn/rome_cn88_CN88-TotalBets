@@ -75,7 +75,7 @@
             container.RegisterSingleton<IUser, User>();
             container.RegisterSingleton(Fanex.Logging.Logger.Log);
             container.RegisterSingleton<IRemotingRefService, RemotingRefService>();
-
+            container.RegisterSingleton<CacheRefService, CacheRefServiceImpl>();
             container.RegisterSingleton<IOverViewService, OverViewService>();
 
         }
