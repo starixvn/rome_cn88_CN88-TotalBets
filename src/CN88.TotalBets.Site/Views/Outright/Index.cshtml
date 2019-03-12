@@ -3,27 +3,41 @@
     ViewBag.Title = "Outright";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@section Styles {
-    @*@StaticResources.RenderStyles("~/assets/bundles/security/change-password")*@
-}
+
 @section Scripts {
-    @StaticResources.RenderScripts("~/assets/bundles/outright/outright")
+    @*@StaticResources.RenderScripts("~/assets/bundles/outright/outright")*@
+    @StaticResources.RenderStyles("~/assets/bundles/totalbets")
 }
 @model OutrightViewModel
-
-<table class="table">
-    <tbody>
-        @foreach (var league in Model.Outrights)
-        {
-            <tr>
-                <td colspan="2">@league.LeagueName</td>
-            </tr>
-            foreach (var outright in league.Outrights)
+<div class="menu-container">
+    <div class="head-menu"><span class="icon-menu"></span>Menu</div>
+    <ul class="list-sports">
+        <li class="sport">Soccer<div><a class="number-first">26</a>|<a class="number-second">1,300.00</a></div></li>
+        <li class="sport">Basketball/American Football<div><a class="number-first">9</a>|<a class="number-second">3,300.00</a></div></li>
+        <li class="sport">Tennis<div><span class="number-first">0</span>|<span class="number-second">0.00</span></div></li>
+        <li class="sport">Volleyball<div><span class="number-first">0</span>|<span class="number-second">0.00</span></div></li>
+        <li class="sport">Badminton<div><a class="number-first">0</a>|<span class="number-second">0.00</span></div></li>
+        <li class="sport">Table Tennis<div><span class="number-first">0</span>|<span class="number-second">0.00</span></div></li>
+        <li class="sport">Baseball<div><span class="number-first">0</span>|<span class="number-second">0.00</span></div></li>
+        <li class="sport">Snooker<div><span class="number-first">0</span>|<span class="number-second">0.00</span></div></li>
+        <li class="sport">OtherSports<div><span class="number-first">0</span>|<span class="number-second">0.00</span></div></li>
+    </ul>
+</div>
+<div class="main-content">
+    <table class="table">
+        <tbody>
+            @foreach (var league in Model.Outrights)
             {
                 <tr>
-                    <td>@outright.TeamName</td>
+                    <td colspan="2">@league.LeagueName</td>
                 </tr>
+                foreach (var outright in league.Outrights)
+                {
+                    <tr>
+                        <td>@outright.TeamName</td>
+                    </tr>
+                }
             }
-        }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
