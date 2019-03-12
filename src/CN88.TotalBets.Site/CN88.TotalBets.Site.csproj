@@ -414,6 +414,7 @@
     <Content Include="compilerconfig.json" />
     <Content Include="App_Code\Filters\PossTypeSelection.cshtml" />
     <Content Include="App_Code\Filters\LeagueSelection.cshtml" />
+    <Content Include="App_Code\HtmlHelpers.cshtml" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
