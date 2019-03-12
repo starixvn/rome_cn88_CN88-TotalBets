@@ -416,6 +416,7 @@
     <Content Include="Web.uat.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
+    <Content Include="Views\InPlay\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\scripts\" />
