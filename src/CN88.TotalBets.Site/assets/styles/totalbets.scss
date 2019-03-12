@@ -38,3 +38,49 @@
         }
     }
 }
+
+.menu-container {
+    width: 220px;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 0;
+    border: 1px solid #d9d9d9;
+    .head-menu {
+        background-color: #7E1414;
+        color: #fff;
+        padding: 10px;
+        text-transform: uppercase;
+        .icon-menu {
+            padding-right: 16px;
+        }
+    }
+    .list-sports {
+        list-style: none;
+        padding-left: 0;
+        .sport {
+            height: 50px;
+            border-bottom: 1px solid #d9d9d9;
+            line-height: 20px;
+            padding: 5px 8px;
+            position: relative;
+            &:before {
+                content: '';
+                width: 5px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+            }
+            &:hover:before {                
+                background-color: #ca9b3f;
+            }
+            .number-first {
+                padding-right: 4px;
+            }
+            .number-second {
+                padding-left: 4px;
+            }
+        }
+    }
+}
