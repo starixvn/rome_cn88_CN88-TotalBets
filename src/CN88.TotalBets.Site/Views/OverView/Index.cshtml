@@ -1,4 +1,4 @@
-﻿
+﻿@model HomeViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -109,3 +109,113 @@
     </table>
 </div>
 
+<table>
+    <tr>
+        <td>Total Warger</td>
+        <td>@Model.Total.Wagers</td>
+    </tr>
+    <tr>
+        <td>Total Stake</td>
+        <td>@Model.Total.Stake</td>
+    </tr>
+</table>
+
+<table>
+    <thead>
+        <tr>
+            <td colspan="2">All Sports</td>
+            <td>Soccer</td>
+            <td>Basketball</td>
+            <td>Tennis</td>
+            <td>Volleyball</td>
+            <td>Table Tennis</td>
+            <td>Badminton</td>
+            <td>Baseball</td>
+            <td>Snnoker</td>
+            <td>Other Sports</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.BySportType)
+        {
+            <tr>
+                <td>@item.Text</td>
+                <td>
+                    @item.Total.Wagers
+                    <br />@item.Total.Stake
+                </td>
+                <td>
+                    @item.Soccer.Wagers
+                    <br />@item.Soccer.Stake
+                </td>
+                <td>
+                    @item.Basketball.Wagers
+                    <br />@item.Basketball.Stake
+                </td>
+                <td>
+                    @item.Tennis.Wagers
+                    <br />@item.Tennis.Stake
+                </td>
+                <td>
+                    @item.Volleyball.Wagers
+                    <br />@item.Volleyball.Stake
+                </td>
+                <td>
+                    @item.TableTennis.Wagers
+                    <br />@item.TableTennis.Stake
+                </td>
+                <td>
+                    @item.Badminton.Wagers
+                    <br />@item.Badminton.Stake
+                </td>
+                <td>
+                    @item.Baseball.Wagers
+                    <br />@item.Baseball.Stake
+                </td>
+                <td>
+                    @item.Snooker.Wagers
+                    <br />@item.Snooker.Stake
+                </td>
+                <td>
+                    @item.OtherSports.Wagers
+                    <br />@item.OtherSports.Stake
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table>
+    <thead>
+        <tr>
+            <td colspan="2">All Parlays</td>
+            <td>Soccer</td>
+            <td>Non-Soccer</td>
+            <td>Mix Sports</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Model.ByParlay.Total.Wagers
+                <br />
+                @Model.ByParlay.Total.Stake
+            </td>
+            <td>
+                @Model.ByParlay.Soccer.Wagers
+                <br />
+                @Model.ByParlay.Soccer.Stake
+            </td>
+            <td>
+                @Model.ByParlay.NonSoccer.Wagers
+                <br />
+                @Model.ByParlay.NonSoccer.Stake
+            </td>
+            <td>
+                @Model.ByParlay.MixSports.Wagers
+                <br />
+                @Model.ByParlay.MixSports.Stake
+            </td>
+        </tr>
+    </tbody>
+</table>

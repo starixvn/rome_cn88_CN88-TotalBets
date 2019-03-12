@@ -114,7 +114,7 @@
     <Compile Include="Models\Outright\OutrightItem.cs" />
     <Compile Include="Models\OverView\OverViewByParlayModel.cs" />
     <Compile Include="Models\OverView\OverViewModel.cs" />
-    <Compile Include="Models\OverView\TotalOverViewModel.cs" />
+    <Compile Include="Models\OverView\OverViewItemModel.cs" />
     <Compile Include="Models\OverView\OverViewBySportTypeModel.cs" />
     <Compile Include="Models\UserLevel.cs" />
     <Compile Include="Models\ViewMode.cs" />

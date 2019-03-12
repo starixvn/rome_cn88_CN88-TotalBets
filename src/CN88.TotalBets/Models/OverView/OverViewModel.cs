@@ -7,16 +7,16 @@ namespace CN88.TotalBets.Models.OverView
         public OverViewModel(
             IEnumerable<OverViewBySportTypeModel> sportTypeModels,
             OverViewByParlayModel parlayModel,
-            TotalOverViewModel totalOverView)
+            OverViewItemModel totalOverView)
         {
-            TotalOverView = totalOverView ?? new TotalOverViewModel();
+            TotalOverView = totalOverView ?? new OverViewItemModel();
             BySportTypeModels = sportTypeModels;
             ParlayModel = parlayModel ?? new OverViewByParlayModel();
         }
 
-        public TotalOverViewModel TotalOverView { get; }
+        public OverViewItemModel TotalOverView { get; }
 
-        public IEnumerable<OverViewBySportTypeModel> BySportTypeModels { get; }
+        public IEnumerable<OverViewBySportTypeModel> BySportTypeModels { get; }        
 
         public OverViewByParlayModel ParlayModel { get; }
     }

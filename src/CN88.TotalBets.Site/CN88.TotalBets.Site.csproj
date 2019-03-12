@@ -381,7 +381,13 @@
     <Compile Include="Requests\Outright\OutrightQuery.cs" />
     <Compile Include="Requests\OverView\OverViewQuery.cs" />
     <Compile Include="ViewModels\Outright\OutrightViewModel.cs" />
-    <Compile Include="ViewModels\OverView\OverViewViewModel.cs" />
+    <Compile Include="ViewModels\OverView\OverViewByOutrightViewModel.cs" />
+    <Compile Include="ViewModels\OverView\OverViewByEarlyViewModel.cs" />
+    <Compile Include="ViewModels\OverView\OverViewByBaseViewModel.cs" />
+    <Compile Include="ViewModels\OverView\OverViewByTodayViewModel.cs" />
+    <Compile Include="ViewModels\OverView\OverViewByInPlayViewModel.cs" />
+    <Compile Include="ViewModels\OverView\OverViewByParlayViewModel.cs" />
+    <Compile Include="ViewModels\OverView\HomeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
