@@ -3,9 +3,11 @@
     ViewBag.Title = "Outright";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@section Scripts {
-    @*@StaticResources.RenderScripts("~/assets/bundles/outright/outright")*@
+@section Styles {
     @StaticResources.RenderStyles("~/assets/bundles/totalbets")
+}
+@section Scripts {
+    @StaticResources.RenderScripts("~/assets/bundles/outright/outright")
 }
 @model OutrightViewModel
 <div class="menu-container">
@@ -36,12 +38,23 @@
                 <tr>
                     <td colspan="2">@league.LeagueName</td>
                 </tr>
-            int index = 0;
+                int index = 0;
                 foreach (var outright in league.Outrights)
                 {
-                    <tr>
-                        <td>@outright.TeamName</td>
-                    </tr>
+                    index++;
+                    if (index % 2 == 1)
+                    {
+                        @:<tr><td>@outright.TeamName</td>
+                    }
+                    else
+                    {
+                        @:<td>@outright.TeamName</td></tr>
+                    }
+                }
+
+                if (index % 2 == 1)
+                {
+                    @:<td>&nbsp;</td></tr>
                 }
             }
         </tbody>
