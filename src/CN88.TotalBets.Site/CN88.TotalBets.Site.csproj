@@ -391,6 +391,7 @@
     <Compile Include="Requests\Outright\OutrightQuery.cs" />
     <Compile Include="Requests\OverView\OverViewQuery.cs" />
     <Compile Include="ViewModels\Filters\SingleSelectionViewModel.cs" />
+    <Compile Include="ViewModels\Filters\SportTypeGroupMenuViewModel.cs" />
     <Compile Include="ViewModels\Outright\OutrightViewModel.cs" />
     <Compile Include="ViewModels\OverView\OverViewByOutrightViewModel.cs" />
     <Compile Include="ViewModels\Filters\StakeConditionFilterViewModel.cs" />
@@ -415,6 +416,7 @@
     <Content Include="App_Code\Filters\PossTypeSelection.cshtml" />
     <Content Include="App_Code\Filters\LeagueSelection.cshtml" />
     <Content Include="App_Code\HtmlHelpers.cshtml" />
+    <Content Include="App_Code\Filters\SportTypeGroupMenu.cshtml" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>

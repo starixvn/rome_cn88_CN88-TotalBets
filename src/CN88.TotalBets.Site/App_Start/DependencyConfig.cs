@@ -5,6 +5,7 @@
     using System.Reflection;
     using System.Web.Mvc;
     using Controllers;
+    using DataAccesses;
     using Fanex.Data.Repository;
     using Fanex.RemotingRef;
     using MediatR;
@@ -67,6 +68,7 @@
         private static void RegisterDataAccesses(Container container)
         {
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Singleton);
+            container.RegisterSingleton<SportGroupDataAccess, SportGroupDataAccessImpl>();
         }
 
         private static void RegisterServices(Container container)
@@ -79,6 +81,10 @@
             container.RegisterSingleton<IOverViewService, OverViewService>();
             container.RegisterPerWebRequest<OutrightService, OutrightServiceImpl>();
             container.RegisterPerWebRequest<LeagueService, LeagueServiceImpl>();
+            container.Register<SportGroupService>(
+                () => new SportGroupServiceImpl(
+                    container.GetInstance<SportGroupDataAccess>(),
+                    container.GetInstance<CacheRefService>().GetSportName));
         }
     }
 }
