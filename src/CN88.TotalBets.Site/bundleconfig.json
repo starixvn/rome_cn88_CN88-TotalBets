@@ -1,8 +1,8 @@
 ﻿[
   {
-    "outputFileName": "assets/bundles/default.css",
+    "outputFileName": "assets/bundles/totalbets.css",
     "inputFiles": [
-      "assets/styles/site.css"
+      "assets/styles/totalbets.css"
     ]
   }
 ]

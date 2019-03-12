@@ -315,14 +315,25 @@
     <Content Include="App_Data\SPNames\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\DBONUSER.ON_USER.BODBDownlineNet.xml" />
+    <Content Include="assets\bundles\totalbets.css" />
+    <Content Include="assets\bundles\totalbets.min.css">
+      <DependentUpon>totalbets.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\images\1F.gif" />
     <Content Include="assets\styles\images\1L.gif" />
     <Content Include="assets\styles\images\firstGoal.gif" />
     <Content Include="assets\styles\images\green-star.gif" />
     <Content Include="assets\styles\images\lastGoal.gif" />
     <Content Include="assets\styles\images\note_title.gif" />
+    <Content Include="assets\styles\totalbets.css">
+      <DependentUpon>totalbets.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\totalbets.min.css">
+      <DependentUpon>totalbets.css</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="deployment.ignore" />
+    <Content Include="Totalbets\bundles\totalbets.css" />
     <Content Include="Web.AppSettings.backupMNL.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
@@ -375,13 +386,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="App_Data\AuthorizationSection.config" />
     <Content Include="App_Data\SPNames\DBARC.bodb_Archive.BODBDownlineNet" />
-    <Content Include="assets\styles\site.scss" />
     <Content Include="assets\styles\_variables.scss" />
     <Content Include="bundleconfig.json" />
     <Content Include="compilerconfig.json" />
-    <Content Include="compilerconfig.json.defaults">
+    <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
-    </Content>
+    </None>
     <Content Include="Web.AppSettings.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -404,7 +414,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\bundles\" />
     <Folder Include="assets\scripts\" />
   </ItemGroup>
   <ItemGroup>
@@ -412,6 +421,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\securitycode.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\styles\totalbets.scss" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CN88.TotalBets\CN88.TotalBets.csproj">

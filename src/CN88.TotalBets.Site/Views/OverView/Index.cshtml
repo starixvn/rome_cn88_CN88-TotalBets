@@ -3,6 +3,109 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>OverView</h2>
+@section Styles {
+    @StaticResources.RenderStyles("~/assets/bundles/totalbets")
+}
+<div class="page-overview">
+    <div class="page-title">Overview</div>
+    <form class="form-inline filte" role="form"> 
+        
+    </form>
+    <table class="tbl-style2 tbl-totalbets">
+        <tbody>
+            <tr>
+                <td>Total No. of Bets</td>
+                <td>35</td>
+            </tr>
+            <tr>
+                <td>Total Stake</td>
+                <td>4,546</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="tbl-style2 tbl-betdetail">
+        <thead>
+            <tr>
+                <th></th>
+                <th>All Sports</th>
+                <th>Soccers</th>
+                <th>Basketball</th>
+                <th>Tennis</th>
+                <th>Volleyball</th>
+                <th>Table Tennis</th>
+                <th>Badminton</th>
+                <th>Baseball</th>
+                <th>Snooker</th>
+                <th>Others Sports</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>In-Play</td>
+                <td><span>1</span><span>50</span></td>
+                <td><span>1</span><span>50</span></td>
+                <td class="even"><span>0</span><span>0</span></td>
+                <td><span>0</span><span>0</span></td>
+                <td class="even"><span>0</span><span>0</span></td>
+                <td><span>0</span><span>0</span></td>
+                <td class="even"><span>0</span><span>0</span></td>
+                <td><span>0</span><span>0</span></td>
+                <td class="even"><span>0</span><span>0</span></td>
+                <td><span>0</span><span>0</span></td>
+            </tr>
+            <tr>
+                <td>Today</td>
+                <td><span>0</span><span>0</span></td>
+                <td><span>0</span><span>0</span></td>
+                <td class="even"><span>0</span><span>0</span></td>
+                <td><span>0</span><span>0</span></td>
+                <td class="even"><span>0</span><span>0</span></td>
+                <td><span>0</span><span>0</span></td>
+                <td class="even"><span>0</span><span>0</span></td>
+                <td><span>0</span><span>0</span></td>
+                <td class="even"><span>0</span><span>0</span></td>
+                <td><span>0</span><span>0</span></td>
+            </tr>
+            <tr>
+                <td>Early</td>
+                <td><span>0</span><span>0</span></td>
+                <td><span>0</span><span>0</span></td>
+                <td class="even"><span>0</span><span>0</span></td>
+                <td><span>0</span><span>0</span></td>
+                <td class="even"><span>0</span><span>0</span></td>
+                <td><span>0</span><span>0</span></td>
+                <td class="even"><span>0</span><span>0</span></td>
+                <td><span>0</span><span>0</span></td>
+                <td class="even"><span>0</span><span>0</span></td>
+                <td><span>0</span><span>0</span></td>
+            </tr>
+            <tr>
+                <td>Outright</td>
+                <td><span>24</span><span>4,270</span></td>
+                <td><span>15</span><span>1,250</span></td>
+                <td class="even"><span>9</span><span>3,020</span></td>
+                <td><span>24</span><span>4,270</span></td>
+                <td class="even"><span>0</span><span>0</span></td>
+                <td><span>0</span><span>0</span></td>
+                <td class="even"><span>0</span><span>0</span></td>
+                <td><span>0</span><span>0</span></td>
+                <td class="even"><span>0</span><span>0</span></td>
+                <td><span>0</span><span>0</span></td>
+            </tr>
+            <tr>
+                <td>Parlay</td>
+                <td><span>10</span><span>226</span></td>
+                <td><span>10</span><span>226</span></td>
+                <td class="even"><span>0</span><span>0</span></td>
+                <td><span>0</span><span>65</span></td>
+                <td class="even"><span>0</span><span>0</span></td>
+                <td><span>0</span><span>0</span></td>
+                <td class="even"><span>0</span><span>0</span></td>
+                <td><span>0</span><span>0</span></td>
+                <td class="even"><span>0</span><span>0</span></td>
+                <td><span>0</span><span>0</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
