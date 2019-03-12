@@ -8,214 +8,148 @@
 }
 <div class="page-overview">
     <div class="page-title">Overview</div>
-    <form class="form-inline filte" role="form"> 
-        
-    </form>
+    <form class="form-inline filte" role="form"></form>
     <table class="tbl-style2 tbl-totalbets">
         <tbody>
             <tr>
-                <td>Total No. of Bets</td>
-                <td>35</td>
+                <td>Total Warger</td>
+                <td>@HtmlHelpers.FormatNumber(Model.Total.Wagers)</td>
             </tr>
             <tr>
                 <td>Total Stake</td>
-                <td>4,546</td>
+                <td>@HtmlHelpers.FormatNumber(Model.Total.Stake)</td>
             </tr>
         </tbody>
     </table>
+
     <table class="tbl-style2 tbl-betdetail">
         <thead>
             <tr>
                 <th></th>
                 <th>All Sports</th>
-                <th>Soccers</th>
+                <th>Soccer</th>
                 <th>Basketball</th>
                 <th>Tennis</th>
                 <th>Volleyball</th>
                 <th>Table Tennis</th>
                 <th>Badminton</th>
                 <th>Baseball</th>
-                <th>Snooker</th>
-                <th>Others Sports</th>
+                <th>Snnoker</th>
+                <th>Other Sports</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.BySportType)
+            {
+                <tr>
+                    <td>@item.Text</td>
+                    <td>
+                        <span>@HtmlHelpers.FormatNumber(item.Total.Wagers)</span>
+                        <span>@HtmlHelpers.FormatNumber(item.Total.Stake)</span>
+                    </td>
+                    <td>
+                        <span>@HtmlHelpers.FormatNumber(item.Soccer.Wagers)</span>
+                        <span>@HtmlHelpers.FormatNumber(item.Soccer.Stake)</span>
+                    </td>
+                    <td class="even">
+                        <span>
+                            @HtmlHelpers.FormatNumber(item.Basketball.Wagers)
+                        </span>
+                        <span>@HtmlHelpers.FormatNumber(item.Basketball.Stake)</span>
+                    </td>
+                    <td>
+                        <span>
+                            @HtmlHelpers.FormatNumber(item.Tennis.Wagers)
+                        </span>
+                        <span>@HtmlHelpers.FormatNumber(item.Tennis.Stake)</span>
+                    </td>
+                    <td class="even">
+                        <span>
+                            @HtmlHelpers.FormatNumber(item.Volleyball.Wagers)
+                        </span>
+                        <span>@HtmlHelpers.FormatNumber(item.Volleyball.Stake)</span>
+                    </td>
+                    <td>
+                        <span>
+                            @HtmlHelpers.FormatNumber(item.TableTennis.Wagers)
+                        </span>
+                        <span>@HtmlHelpers.FormatNumber(item.TableTennis.Stake)</span>
+                    </td>
+                    <td class="even">
+                        <span>
+                            @HtmlHelpers.FormatNumber(item.Badminton.Wagers)
+                        </span>
+                        <span>@HtmlHelpers.FormatNumber(item.Badminton.Stake)</span>
+                    </td>
+                    <td>
+                        <span>
+                            @HtmlHelpers.FormatNumber(item.Baseball.Wagers)
+                        </span>
+                        <span>@HtmlHelpers.FormatNumber(item.Baseball.Stake)</span>
+                    </td>
+                    <td class="even">
+                        <span>
+                            @HtmlHelpers.FormatNumber(item.Snooker.Wagers)
+                        </span>
+                        <span>@HtmlHelpers.FormatNumber(item.Snooker.Stake)</span>
+                    </td>
+                    <td>
+                        <span>
+                            @HtmlHelpers.FormatNumber(item.OtherSports.Wagers)
+                        </span>
+                        <span>@HtmlHelpers.FormatNumber(item.OtherSports.Stake)</span>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <table class="tbl-style2 tbl-betdetail">
+        <thead>
+            <tr>
+                <th></th>
+                <th>All Parlays</th>
+                <th>Soccer</th>
+                <th>Non-Soccer</th>
+                <th>Mix Sports</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>In-Play</td>
-                <td><span>1</span><span>50</span></td>
-                <td><span>1</span><span>50</span></td>
-                <td class="even"><span>0</span><span>0</span></td>
-                <td><span>0</span><span>0</span></td>
-                <td class="even"><span>0</span><span>0</span></td>
-                <td><span>0</span><span>0</span></td>
-                <td class="even"><span>0</span><span>0</span></td>
-                <td><span>0</span><span>0</span></td>
-                <td class="even"><span>0</span><span>0</span></td>
-                <td><span>0</span><span>0</span></td>
-            </tr>
-            <tr>
-                <td>Today</td>
-                <td><span>0</span><span>0</span></td>
-                <td><span>0</span><span>0</span></td>
-                <td class="even"><span>0</span><span>0</span></td>
-                <td><span>0</span><span>0</span></td>
-                <td class="even"><span>0</span><span>0</span></td>
-                <td><span>0</span><span>0</span></td>
-                <td class="even"><span>0</span><span>0</span></td>
-                <td><span>0</span><span>0</span></td>
-                <td class="even"><span>0</span><span>0</span></td>
-                <td><span>0</span><span>0</span></td>
-            </tr>
-            <tr>
-                <td>Early</td>
-                <td><span>0</span><span>0</span></td>
-                <td><span>0</span><span>0</span></td>
-                <td class="even"><span>0</span><span>0</span></td>
-                <td><span>0</span><span>0</span></td>
-                <td class="even"><span>0</span><span>0</span></td>
-                <td><span>0</span><span>0</span></td>
-                <td class="even"><span>0</span><span>0</span></td>
-                <td><span>0</span><span>0</span></td>
-                <td class="even"><span>0</span><span>0</span></td>
-                <td><span>0</span><span>0</span></td>
-            </tr>
-            <tr>
-                <td>Outright</td>
-                <td><span>24</span><span>4,270</span></td>
-                <td><span>15</span><span>1,250</span></td>
-                <td class="even"><span>9</span><span>3,020</span></td>
-                <td><span>24</span><span>4,270</span></td>
-                <td class="even"><span>0</span><span>0</span></td>
-                <td><span>0</span><span>0</span></td>
-                <td class="even"><span>0</span><span>0</span></td>
-                <td><span>0</span><span>0</span></td>
-                <td class="even"><span>0</span><span>0</span></td>
-                <td><span>0</span><span>0</span></td>
-            </tr>
-            <tr>
-                <td>Parlay</td>
-                <td><span>10</span><span>226</span></td>
-                <td><span>10</span><span>226</span></td>
-                <td class="even"><span>0</span><span>0</span></td>
-                <td><span>0</span><span>65</span></td>
-                <td class="even"><span>0</span><span>0</span></td>
-                <td><span>0</span><span>0</span></td>
-                <td class="even"><span>0</span><span>0</span></td>
-                <td><span>0</span><span>0</span></td>
-                <td class="even"><span>0</span><span>0</span></td>
-                <td><span>0</span><span>0</span></td>
+                <td>@Model.ByParlay.Text</td>
+                <td>
+                    <span>
+                        @HtmlHelpers.FormatNumber(Model.ByParlay.Total.Wagers)
+                    </span>
+                    <span>
+                        @HtmlHelpers.FormatNumber(Model.ByParlay.Total.Stake)
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        @HtmlHelpers.FormatNumber(Model.ByParlay.Soccer.Wagers)
+                    </span>
+                    <span>
+                        @HtmlHelpers.FormatNumber(Model.ByParlay.Soccer.Stake)
+                    </span>
+                </td>
+                <td class="even">
+                    <span>
+                        @HtmlHelpers.FormatNumber(Model.ByParlay.NonSoccer.Wagers)
+                    </span>
+                    <span>
+                        @HtmlHelpers.FormatNumber(Model.ByParlay.NonSoccer.Stake)
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        @HtmlHelpers.FormatNumber(Model.ByParlay.MixSports.Wagers)
+                    </span>
+                    <span>
+                        @HtmlHelpers.FormatNumber(Model.ByParlay.MixSports.Stake)
+                    </span>
+                </td>
             </tr>
         </tbody>
     </table>
 </div>
-
-<table>
-    <tr>
-        <td>Total Warger</td>
-        <td>@Model.Total.Wagers</td>
-    </tr>
-    <tr>
-        <td>Total Stake</td>
-        <td>@Model.Total.Stake</td>
-    </tr>
-</table>
-
-<table>
-    <thead>
-        <tr>
-            <td colspan="2">All Sports</td>
-            <td>Soccer</td>
-            <td>Basketball</td>
-            <td>Tennis</td>
-            <td>Volleyball</td>
-            <td>Table Tennis</td>
-            <td>Badminton</td>
-            <td>Baseball</td>
-            <td>Snnoker</td>
-            <td>Other Sports</td>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.BySportType)
-        {
-            <tr>
-                <td>@item.Text</td>
-                <td>
-                    @item.Total.Wagers
-                    <br />@item.Total.Stake
-                </td>
-                <td>
-                    @item.Soccer.Wagers
-                    <br />@item.Soccer.Stake
-                </td>
-                <td>
-                    @item.Basketball.Wagers
-                    <br />@item.Basketball.Stake
-                </td>
-                <td>
-                    @item.Tennis.Wagers
-                    <br />@item.Tennis.Stake
-                </td>
-                <td>
-                    @item.Volleyball.Wagers
-                    <br />@item.Volleyball.Stake
-                </td>
-                <td>
-                    @item.TableTennis.Wagers
-                    <br />@item.TableTennis.Stake
-                </td>
-                <td>
-                    @item.Badminton.Wagers
-                    <br />@item.Badminton.Stake
-                </td>
-                <td>
-                    @item.Baseball.Wagers
-                    <br />@item.Baseball.Stake
-                </td>
-                <td>
-                    @item.Snooker.Wagers
-                    <br />@item.Snooker.Stake
-                </td>
-                <td>
-                    @item.OtherSports.Wagers
-                    <br />@item.OtherSports.Stake
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-<table>
-    <thead>
-        <tr>
-            <td colspan="2">All Parlays</td>
-            <td>Soccer</td>
-            <td>Non-Soccer</td>
-            <td>Mix Sports</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                @Model.ByParlay.Total.Wagers
-                <br />
-                @Model.ByParlay.Total.Stake
-            </td>
-            <td>
-                @Model.ByParlay.Soccer.Wagers
-                <br />
-                @Model.ByParlay.Soccer.Stake
-            </td>
-            <td>
-                @Model.ByParlay.NonSoccer.Wagers
-                <br />
-                @Model.ByParlay.NonSoccer.Stake
-            </td>
-            <td>
-                @Model.ByParlay.MixSports.Wagers
-                <br />
-                @Model.ByParlay.MixSports.Stake
-            </td>
-        </tr>
-    </tbody>
-</table>
