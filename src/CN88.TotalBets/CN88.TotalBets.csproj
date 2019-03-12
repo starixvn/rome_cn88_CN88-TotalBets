@@ -37,6 +37,10 @@
       <HintPath>..\..\packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Fanex.Caching, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Caching.2.1.0\lib\net461\Fanex.Caching.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Fanex.Data, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Data.3.0.2\lib\net461\Fanex.Data.dll</HintPath>
       <Private>True</Private>
@@ -107,11 +111,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Configurations\AppSettings.cs" />
+    <Compile Include="Constants\PossTypeConstants.cs" />
+    <Compile Include="Criteria\GetLeagueCriteria.cs" />
     <Compile Include="Criteria\GetOutrightCriteria.cs" />
+    <Compile Include="Constants\StakeConditionConstants.cs" />
     <Compile Include="Criteria\GetOverViewCriteria.cs" />
     <Compile Include="Models\Enumeration.cs" />
     <Compile Include="Models\IUser.cs" />
     <Compile Include="Models\Outright\OutrightItem.cs" />
+    <Compile Include="Models\League.cs" />
     <Compile Include="Models\OverView\OverViewByParlayModel.cs" />
     <Compile Include="Models\OverView\OverViewModel.cs" />
     <Compile Include="Models\OverView\OverViewItemModel.cs" />
@@ -121,22 +129,20 @@
     <Compile Include="Params\GetOutrightParam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CacheRefService.cs" />
+    <Compile Include="Services\LeagueService.cs" />
     <Compile Include="Services\OutrightService.cs" />
     <Compile Include="Services\OverViewService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AppResources\Resources.ja-JP.resx" />
-    <EmbeddedResource Include="AppResources\Resources.ko-KR.resx" />
     <EmbeddedResource Include="AppResources\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="AppResources\Resources.th-TH.resx" />
-    <EmbeddedResource Include="AppResources\Resources.vi-VN.resx" />
-    <EmbeddedResource Include="AppResources\Resources.zh-CN.resx" />
+    <EmbeddedResource Include="AppResources\Resources.zh-Hans.resx" />
     <EmbeddedResource Include="AppResources\Resources.zh-TW.resx" />
   </ItemGroup>
   <ItemGroup />

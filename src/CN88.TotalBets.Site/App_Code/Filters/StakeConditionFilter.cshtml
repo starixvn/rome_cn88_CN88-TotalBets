@@ -1,0 +1,16 @@
+﻿@using CN88.TotalBets.AppResources
+@using CN88.TotalBets.Site.ViewModels.Filters
+@helper Render(StakeConditionFilterViewModel model)
+{
+    <div class="form-group">
+        <label>@Resources.Stake</label>
+        <select id="dropdown-operator">
+            @foreach (var item in model.Conditions)
+            {
+                <option value="@item.Value" @(item.Selected ? " selected=\"selected\"" : string.Empty)>@item.Text</option>
+            }
+        </select>
+        <input type="hidden" name="StakeCondition" id="StakeCondition" value="@model.SelectedCondition" />
+        <input type="text" value="@model.Stake" />
+    </div>
+}

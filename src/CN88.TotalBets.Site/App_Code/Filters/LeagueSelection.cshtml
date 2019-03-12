@@ -1,0 +1,15 @@
+﻿@using CN88.TotalBets.AppResources
+@using CN88.TotalBets.Site.ViewModels.Filters
+@helper Render(SingleSelectionViewModel model)
+{
+    <div class="form-group">
+        <label>@Resources.League</label>
+        <select id="dropdown-percentage">
+            @foreach (var item in model.Items)
+            {
+                <option value="@item.Value" @(item.Selected ? " selected=\"selected\"" : string.Empty)>@item.Text</option>
+            }
+        </select>
+        <input type="hidden" name="League" id="League" value="@model.UserSelectedId" />
+    </div>
+}
