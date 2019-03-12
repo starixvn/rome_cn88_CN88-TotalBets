@@ -15,6 +15,6 @@
         }
 
         public async Task<ActionResult> Index(OverViewQuery message)
-            => await ViewAsync(message, "~/Views/OverView/Index.cshtml");
+            => await ViewAsync(message);
     }
 }

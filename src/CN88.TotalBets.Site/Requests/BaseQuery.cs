@@ -9,6 +9,9 @@ namespace CN88.TotalBets.Site.Requests
         protected BaseQuery(IUser viewer)
         {
             this.viewer = viewer;
+            ViewerId = viewer.Id;
+            ViewerLevelId = viewer.LevelId;
+            Language = viewer.Language;
         }
 
         public int CustId { get; set; }
@@ -17,32 +20,18 @@ namespace CN88.TotalBets.Site.Requests
 
         public byte CustLevelId { get; set; }
 
-        public bool IsOwner { get; set; }
-
         public virtual UserLevel CustLevel => Enumeration.FromValue<UserLevel>(CustLevelId);
 
-        public int ViewerId => viewer.Id;
+        public int ViewerId { get; }
 
-        public string ViewerName => viewer.Name;
-
-        public string NickName => viewer.NickName;
-
-        public byte ViewerLevelId => viewer.LevelId;
+        public byte ViewerLevelId { get; }
 
         public virtual UserLevel ActorLevel => Enumeration.FromValue<UserLevel>(ViewerLevelId);
 
-        public int SubAccountId => viewer.SubAccountId;
-
-        public string IP => viewer.IP;
-
-        public string Language => viewer.Language;
-
-        public IUser GetViewer()
-            => viewer;
+        public string Language { get; }
 
         public virtual bool IsValid()
             => ViewerId > 0
-            && !string.IsNullOrWhiteSpace(ViewerName)
             && !string.IsNullOrWhiteSpace(Language);
     }
 }
