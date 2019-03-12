@@ -8,6 +8,7 @@
   {
     "outputFileName": "assets/bundles/outright/outright.js",
     "inputFiles": [
+      "assets/scripts/components/single-selection-dropdown.js",
       "assets/scripts/outright/outright.js"
     ]
   },

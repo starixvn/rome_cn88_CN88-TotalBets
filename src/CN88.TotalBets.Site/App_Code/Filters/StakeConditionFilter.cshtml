@@ -4,7 +4,7 @@
 {
     <div class="form-group">
         <label>@Resources.Stake</label>
-        <select id="dropdown-operator">
+        <select id="dropdown-stake-condition">
             @foreach (var item in model.Conditions)
             {
                 <option value="@item.Value" @(item.Selected ? " selected=\"selected\"" : string.Empty)>@item.Text</option>

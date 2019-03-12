@@ -78,6 +78,7 @@
             container.RegisterSingleton<CacheRefService, CacheRefServiceImpl>();
             container.RegisterSingleton<IOverViewService, OverViewService>();
             container.RegisterPerWebRequest<OutrightService, OutrightServiceImpl>();
+            container.RegisterPerWebRequest<LeagueService, LeagueServiceImpl>();
         }
     }
 }

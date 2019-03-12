@@ -8,7 +8,7 @@
         public StakeConditionFilterViewModel(
             IEnumerable<SelectListItem> conditions,
             int selectedCondition,
-            int stake)
+            decimal stake)
         {
             Conditions = conditions;
             SelectedCondition = selectedCondition;
@@ -19,6 +19,6 @@
 
         public int SelectedCondition { get; }
 
-        public int Stake { get; }
+        public decimal Stake { get; }
     }
 }

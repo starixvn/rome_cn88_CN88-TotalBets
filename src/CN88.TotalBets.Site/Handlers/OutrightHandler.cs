@@ -7,20 +7,23 @@
     using Services;
     using ViewModels.Outright;
 
-    public class OutrightHandler : IAsyncRequestHandler<OutrightQuery, OutrightViewModel>
+    public class OutrightHandler : BaseHandler, IAsyncRequestHandler<OutrightQuery, OutrightViewModel>
     {
         private readonly OutrightService outrightService;
+        private readonly LeagueService leagueService;
 
-        public OutrightHandler(OutrightService outrightService)
+        public OutrightHandler(OutrightService outrightService, LeagueService leagueService)
         {
             this.outrightService = outrightService;
+            this.leagueService = leagueService;
         }
 
         public async Task<OutrightViewModel> Handle(OutrightQuery message)
         {
             var outrightLeagues = await outrightService.GetOutrightsAsync(ToGetOutrightParam(message));
+            var leagues = await leagueService.GetLeagues(message.SportTypeGroup, 1);
 
-            return new OutrightViewModel(message.ViewerId, message.ActorLevel, outrightLeagues);
+            return new OutrightViewModel(message, outrightLeagues, BuildLeagueSelectListItems(leagues, message.LeagueId));
         }
 
         private static GetOutrightParam ToGetOutrightParam(OutrightQuery message)

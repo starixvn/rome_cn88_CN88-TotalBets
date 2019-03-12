@@ -10,4 +10,9 @@
     <Setting Key="CS_TotalBets_Outright_Master" SpName="CS_TotalBets_Outright_Master" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
     <Setting Key="CS_TotalBets_Outright_Agent" SpName="CS_TotalBets_Outright_Agent" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
   </Function>
+  <Function Name="League">
+    <Setting Key="CS_TotalBets_League_Sel" SpName="CS_TotalBets_League_Sel" DbName="DB042.bodb02.BODBDownlineNet" Plain="0">
+      <Mapping DataField="leagueid" ObjectProperty="Id"></Mapping>
+    </Setting>
+  </Function>
 </Functions>

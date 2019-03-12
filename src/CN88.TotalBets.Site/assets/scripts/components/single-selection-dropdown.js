@@ -1,5 +1,5 @@
 "use strict";
-var SingleSelectionDropdownOption = (function () {
+var SingleSelectionDropdownOption = /** @class */ (function () {
     function SingleSelectionDropdownOption(dropdownId, inputId, onChange) {
         if (dropdownId === void 0) { dropdownId = "dropdown-single"; }
         if (inputId === void 0) { inputId = "UserSelectedId"; }
@@ -10,7 +10,7 @@ var SingleSelectionDropdownOption = (function () {
     }
     return SingleSelectionDropdownOption;
 }());
-var SingleSelectionDropdownComponent = (function () {
+var SingleSelectionDropdownComponent = /** @class */ (function () {
     function SingleSelectionDropdownComponent($) {
         var _this = this;
         this.options = new SingleSelectionDropdownOption();

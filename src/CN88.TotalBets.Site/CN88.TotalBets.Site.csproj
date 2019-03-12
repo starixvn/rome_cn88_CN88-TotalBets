@@ -381,6 +381,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Handlers\BaseHandler.cs" />
     <Compile Include="Handlers\OutrightHandler.cs" />
     <Compile Include="Handlers\OverViewHandler.cs" />
     <Compile Include="Helpers\QueryEntityModelBinder.cs" />

@@ -3,7 +3,6 @@
     ViewBag.Title = "Outright";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 @section Scripts {
     @*@StaticResources.RenderScripts("~/assets/bundles/outright/outright")*@
     @StaticResources.RenderStyles("~/assets/bundles/totalbets")
@@ -24,6 +23,12 @@
     </ul>
 </div>
 <div class="main-content">
+    <div class="page-title"></div>
+    <form class="form-inline filter" role="form" id="report-form">
+        @StakeConditionFilter.Render(Model.StakeConditionFilterViewModel)
+        @PossTypeSelection.Render(Model.PossType)
+        @LeagueSelection.Render(Model.LeagueSelectionViewModel)
+    </form>
     <table class="table">
         <tbody>
             @foreach (var league in Model.Outrights)
