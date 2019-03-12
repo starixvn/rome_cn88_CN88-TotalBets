@@ -4,13 +4,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section Styles {
-    @StaticResources.RenderStyles("~/assets/bundles/totalbets")
+    @StaticResources.RenderStyles("~/assets/bundles/outright")
 }
 @section Scripts {
     @StaticResources.RenderScripts("~/assets/bundles/outright/outright")
 }
 @model OutrightViewModel
-<div class="menu-container">
+@*<div class="menu-container">
     <div class="head-menu"><span class="icon-menu"></span>Menu</div>
     <ul class="list-sports">
         <li class="sport">Soccer<div><a class="number-first">26</a>|<a class="number-second">1,300.00</a></div></li>
@@ -23,9 +23,9 @@
         <li class="sport">Snooker<div><span class="number-first">0</span>|<span class="number-second">0.00</span></div></li>
         <li class="sport">OtherSports<div><span class="number-first">0</span>|<span class="number-second">0.00</span></div></li>
     </ul>
-</div>
+</div>*@
 <div class="main-content">
-    <div class="page-title"></div>
+    @*<div class="page-title"></div>
     <form class="form-inline filter" role="form" id="report-form">
         @StakeConditionFilter.Render(Model.StakeConditionFilterViewModel)
         @PossTypeSelection.Render(Model.PossType)
@@ -57,6 +57,26 @@
                     @:<td>&nbsp;</td></tr>
                 }
             }
+        </tbody>
+    </table>*@
+    <table class="tbl-totalbet tbl-outright">
+        <tbody>
+            <tr class="league">
+                <td colspan="3"><span class="icon-chevron-down"></span><span class="league-name">Autralia A League - Grand Final Winner</span></td>
+                <td class="text-right">6 | 300.00</td>
+            </tr>
+            <tr>
+                <td class="team">Melbourne Victory</td>
+                <td class="text-right">2 <a class="stake">100.00</a></td>
+                <td class="team">Perth Glory</td>
+                <td class="text-right">2 <a class="stake">100.00</a></td>
+            </tr>
+            <tr>
+                <td class="team">Sydney</td>
+                <td class="text-right">2 <a class="stake">100.00</a></td>
+                <td></td>
+                <td></td>
+            </tr>
         </tbody>
     </table>
 </div>
