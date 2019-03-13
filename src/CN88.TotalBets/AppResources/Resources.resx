@@ -174,4 +174,28 @@
   <data name="SMA_Percentage" xml:space="preserve">
     <value>SMA %</value>
   </data>
+  <data name="AllParlays" xml:space="preserve">
+    <value>All Parlays</value>
+  </data>
+  <data name="AllSports" xml:space="preserve">
+    <value>All Sports</value>
+  </data>
+  <data name="MixSports" xml:space="preserve">
+    <value>Mix Sports</value>
+  </data>
+  <data name="NonSoccer" xml:space="preserve">
+    <value>Non-Soccer</value>
+  </data>
+  <data name="OverView" xml:space="preserve">
+    <value>OverView</value>
+  </data>
+  <data name="Soccer" xml:space="preserve">
+    <value>Soccer</value>
+  </data>
+  <data name="TotalStake" xml:space="preserve">
+    <value>Total Stake</value>
+  </data>
+  <data name="TotalWarger" xml:space="preserve">
+    <value>Total Wager</value>
+  </data>
 </root>

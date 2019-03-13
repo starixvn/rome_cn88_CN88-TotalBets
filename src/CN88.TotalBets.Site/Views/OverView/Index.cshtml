@@ -7,18 +7,18 @@
     @StaticResources.RenderStyles("~/assets/bundles/overview")
 }
 <div class="page-overview">
-    <div class="page-title">Overview</div>
+    <div class="page-title">@Resources.OverView</div>
     <form class="form-inline filter" role="form" id="overview-form">
         @PossTypeSelection.Render(Model.UserSelectedViewMode)
     </form>
     <table class="tbl-style2 tbl-totalbets">
         <tbody>
             <tr>
-                <td>Total Warger</td>
+                <td>@Resources.TotalWarger</td>
                 <td>@HtmlHelpers.FormatNumber(Model.Total.Wagers)</td>
             </tr>
             <tr>
-                <td>Total Stake</td>
+                <td>@Resources.TotalStake</td>
                 <td>@HtmlHelpers.FormatNumber(Model.Total.Stake)</td>
             </tr>
         </tbody>
@@ -28,9 +28,9 @@
         <thead>
             <tr>
                 <th></th>
-                <th>All Sports</th>
+                <th class="text-center">@Resources.AllSports</th>
                 @for (var i = 0; i < Model.HeadTable.HeaderName.Count; i++)
-		{
+		        {
                     <th><span data-toggle="tooltip" data-placement="top" title="@Model.HeadTable.ToolTip[i]">@Model.HeadTable.HeaderName[i]</span></th>
                 }
 
@@ -106,10 +106,10 @@
         <thead>
             <tr>
                 <th></th>
-                <th>All Parlays</th>
-                <th>Soccer</th>
-                <th>Non-Soccer</th>
-                <th>Mix Sports</th>
+                <th class="text-center">@Resources.AllParlays</th>
+                <th class="text-center">@Resources.Soccer</th>
+                <th class="text-center">@Resources.NonSoccer</th>
+                <th class="text-center">@Resources.MixSports</th>
             </tr>
         </thead>
         <tbody>

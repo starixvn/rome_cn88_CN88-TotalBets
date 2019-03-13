@@ -88,6 +88,24 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All Parlays.
+        /// </summary>
+        public static string AllParlays {
+            get {
+                return ResourceManager.GetString("AllParlays", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All Sports.
+        /// </summary>
+        public static string AllSports {
+            get {
+                return ResourceManager.GetString("AllSports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Company %.
         /// </summary>
         public static string Company_Percentage {
@@ -151,11 +169,38 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mix Sports.
+        /// </summary>
+        public static string MixSports {
+            get {
+                return ResourceManager.GetString("MixSports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No information is available.
         /// </summary>
         public static string NoInformationIsAvailable {
             get {
                 return ResourceManager.GetString("NoInformationIsAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Non-Soccer.
+        /// </summary>
+        public static string NonSoccer {
+            get {
+                return ResourceManager.GetString("NonSoccer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OverView.
+        /// </summary>
+        public static string OverView {
+            get {
+                return ResourceManager.GetString("OverView", resourceCulture);
             }
         }
         
@@ -205,6 +250,15 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Soccer.
+        /// </summary>
+        public static string Soccer {
+            get {
+                return ResourceManager.GetString("Soccer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Stake.
         /// </summary>
         public static string Stake {
@@ -219,6 +273,24 @@ namespace CN88.TotalBets.AppResources {
         public static string Submit {
             get {
                 return ResourceManager.GetString("Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Stake.
+        /// </summary>
+        public static string TotalStake {
+            get {
+                return ResourceManager.GetString("TotalStake", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Wager.
+        /// </summary>
+        public static string TotalWarger {
+            get {
+                return ResourceManager.GetString("TotalWarger", resourceCulture);
             }
         }
         
