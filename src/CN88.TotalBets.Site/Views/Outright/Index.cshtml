@@ -1,4 +1,5 @@
-﻿@using CN88.TotalBets.Site.ViewModels.Outright;
+﻿@using CN88.TotalBets.Models.Outright;
+@using CN88.TotalBets.Site.ViewModels.Outright;
 @{
     ViewBag.Title = "Outright";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -17,13 +18,18 @@
         @PossTypeSelection.Render(Model.PossType)
         @LeagueSelection.Render(Model.LeagueSelectionViewModel)
     </form>
-    @*<table class="tbl-totalbet tbl-outright">
+    <table class="tbl-totalbet tbl-outright">
         <tbody>
             @foreach (var league in Model.Outrights)
             {
                 <tr class="league">
-                    <td><span class="icon-chevron-down"></span><span class="league-name">@league.LeagueName</span></td>
-                    <td class="text-right">@league.TotalWager | @HtmlHelpers.FormatNumber(league.TotalStake)</td>
+                    <td colspan="2">
+                        <span class="league-name-wrapper">
+                            <span class="icon-chevron-down"></span>
+                            <span class="league-name">@league.LeagueName</span>
+                        </span>
+                        <span class="index text-right">@league.TotalWager | @HtmlHelpers.FormatNumber(league.TotalStake)</span>
+                    </td>
                 </tr>
                 var index = 0;
                 foreach (var outright in league.Outrights)
@@ -31,11 +37,11 @@
                     index++;
                     if (index % 2 == 1)
                     {
-                        @:<tr><td class="team"><span class="team-name">@outright.TeamName</span><span class="index text-right">@outright.Wager <a class="stake">@HtmlHelpers.FormatNumber(outright.Stake)</a></span></td>
+                        @:<tr>@RenderOutright(outright)
                     }
                     else
                     {
-                        @:<td class="team"><span class="team-name">@outright.TeamName</span><span class="index text-right">@outright.Wager <a class="stake">@HtmlHelpers.FormatNumber(outright.Stake)</a></span></td></tr>
+                        @:@RenderOutright(outright)</tr>
                     }
                 }
 
@@ -45,32 +51,14 @@
                 }
             }
         </tbody>
-    </table>*@
-    <table class="tbl-totalbet tbl-outright">
-        <tbody>
-            <tr class="league">
-                <td colspan="2">
-                    <span class="league-name-wrapper"><span class="icon-chevron-down"></span><span class="league-name">Autralia A League - Grand Final Winner</span></span>
-                    <span class="index text-right">6 | 300.00</span>
-                </td>
-            </tr>
-            <tr>
-                <td class="team">
-                    <span class="team-name">Melbourne Victory</span>
-                    <span class="index text-right">2 <a class="stake">100.00</a></span>
-                </td>
-                <td class="team">
-                    <span class="team-name">Perth Glory</span>
-                    <span class="index text-right">2 <a class="stake">100.00</a></span>
-                </td>
-            </tr>
-            <tr>
-                <td class="team">
-                    <span class="team-name">Sydney</span>
-                    <span class="index text-right">2 <a class="stake">100.00</a></span>
-                </td>
-                <td></td>
-            </tr>
-        </tbody>
     </table>
 </div>
+@helper RenderOutright(OutrightItem outright)
+{
+    <td class="team">
+        <span class="team-name">@outright.TeamName</span>
+        <span class="index text-right">@outright.Wager
+            <a class="stake">@HtmlHelpers.FormatNumber(outright.Stake)</a>
+        </span>
+    </td>
+}

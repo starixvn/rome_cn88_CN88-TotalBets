@@ -12,24 +12,22 @@
 {
     if (value == 0)
     {
-            @value.ToString("#,##0.00")
+        @value.ToString("#,##0.00")
     }
     else
     {
-            <a href="@link">@value.ToString("#,##0.00")</a>
+        <a href="@link">@value.ToString("#,##0.00")</a>
     }
-
 }
 
 @helper FormatNumberWithLink(int value, string link)
 {
     if (value == 0)
     {
-            @value.ToString("#,##0")
+        @value.ToString("#,##0")
     }
     else
     {
-            <a href="@link">@value.ToString("#,##0")</a>
+        <a href="@link">@value.ToString("#,##0")</a>
     }
-
 }
