@@ -34,6 +34,7 @@
                 ? outrights
                     .GroupBy(item => item.LeagueId)
                     .Select(group => GetOutrightLeague(group))
+                    .ToList()
                 : Enumerable.Empty<OutrightLeague>();
         }
 

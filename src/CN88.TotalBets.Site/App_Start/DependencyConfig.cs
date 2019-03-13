@@ -78,9 +78,15 @@
             container.RegisterSingleton(Fanex.Logging.Logger.Log);
             container.RegisterSingleton<IRemotingRefService, RemotingRefService>();
             container.RegisterSingleton<CacheRefService, CacheRefServiceImpl>();
+
             container.RegisterSingleton<IOverViewService, OverViewService>();
+
+            container.RegisterPerWebRequest<InPlayService, InPlayServiceImpl>();
+
             container.RegisterPerWebRequest<OutrightService, OutrightServiceImpl>();
+
             container.RegisterPerWebRequest<LeagueService, LeagueServiceImpl>();
+
             container.Register<SportTypeGroupService>(
                 () => new SportTypeGroupServiceImpl(
                     container.GetInstance<SportTypeGroupDataAccess>(),

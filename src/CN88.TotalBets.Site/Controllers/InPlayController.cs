@@ -4,7 +4,7 @@
     using System.Web.Mvc;
     using System.Web.SessionState;
     using MediatR;
-    using Requests.OverView;
+    using Requests.InPlay;
 
     [SessionState(SessionStateBehavior.ReadOnly)]
     public class InPlayController : SiteBaseController
@@ -14,7 +14,7 @@
         {
         }
 
-        public ActionResult Index(OverViewQuery message)
-            => View();
+        public async Task<ActionResult> Index(InPlayQuery message)
+            => await ViewAsync(message);
     }
 }

@@ -16,27 +16,34 @@
     @Html.Partial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel)
     <table class="tbl-totalbet tbl-outright" id="tableOutright">
         <tbody>
-            @foreach (var league in Model.Outrights)
+            @if (Model.Outrights.Any())
             {
-                @RenderLeague(league)
-                var index = 0;
-                foreach (var outright in league.Outrights)
+                foreach (var league in Model.Outrights)
                 {
-                    index++;
+                    @RenderLeague(league)
+                    var index = 0;
+                    foreach (var outright in league.Outrights)
+                    {
+                        index++;
+                        if (index % 2 == 1)
+                        {
+                            @:<tr class="childrow-@league.LeagueId">@RenderOutright(outright)
+                        }
+                        else
+                        {
+                            @:@RenderOutright(outright)</tr>
+                        }
+                    }
+
                     if (index % 2 == 1)
                     {
-                        @:<tr class="childrow-@league.LeagueId">@RenderOutright(outright)
-                    }
-                    else
-                    {
-                        @:@RenderOutright(outright)</tr>
+                        @:<td>&nbsp;</td></tr>
                     }
                 }
-
-                if (index % 2 == 1)
-                {
-                    @:<td>&nbsp;</td></tr>
-                }
+            }
+            else
+            {
+                <tr><td colspan="2">@Resources.NoInformationIsAvailable</td></tr>
             }
         </tbody>
     </table>
