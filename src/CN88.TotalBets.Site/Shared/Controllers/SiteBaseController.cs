@@ -24,5 +24,9 @@
              => (message as BaseQuery).IsValid() ?
                 View(await mediator.Send(message).ConfigureAwait(false)) : View(NoInformationPageViewPath);
 
+        protected async Task<ActionResult> ViewAsync<TResponse>(IRequest<TResponse> message, string viewPath)
+             => (message as BaseQuery).IsValid() ?
+                View(viewPath, await mediator.Send(message).ConfigureAwait(false)) : View(NoInformationPageViewPath);
+
     }
 }

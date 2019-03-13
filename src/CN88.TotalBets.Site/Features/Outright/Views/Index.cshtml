@@ -2,7 +2,7 @@
 @using CN88.TotalBets.Site.ViewModels.Outright;
 @{
     ViewBag.Title = "Outright";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Shared/Views/_Layout.cshtml";
 }
 @section Styles {
     @StaticResources.RenderStyles("~/assets/bundles/outright/outright")
@@ -13,7 +13,7 @@
 @model OutrightViewModel
 <div class="main-content">
     <div class="page-title"></div>
-    @Html.Partial("~/Views/Shared/Filter.cshtml", Model.FilterViewModel)
+    @Html.Partial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel)
     <table class="tbl-totalbet tbl-outright" id="tableOutright">
         <tbody>
             @foreach (var league in Model.Outrights)
