@@ -2,22 +2,26 @@
 class Outright {
     $: JQueryStatic;
 
+    summaryMenu: SummaryMenu;
     stakeConditionSelectionComponent: SingleSelectionDropdownComponent;
     possTypeSelectionComponent: SingleSelectionDropdownComponent;
     leagueSelectionComponent: SingleSelectionDropdownComponent;
 
     constructor(
         $: JQueryStatic,
+        summaryMenu: SummaryMenu,
         stakeConditionSelectionComponent: SingleSelectionDropdownComponent,
         possTypeSelectionComponent: SingleSelectionDropdownComponent,
         leagueSelectionComponent: SingleSelectionDropdownComponent) {
         this.$ = $;
+        this.summaryMenu = summaryMenu;
         this.stakeConditionSelectionComponent = stakeConditionSelectionComponent;
         this.possTypeSelectionComponent = possTypeSelectionComponent;
         this.leagueSelectionComponent = leagueSelectionComponent;
     }
 
     init(): void {
+        this.summaryMenu.init();
         this.stakeConditionSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-stake-condition", "StakeCondition"));
         this.possTypeSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-poss-type", "PossType"));
         this.leagueSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-league", "LeagueId"));
@@ -59,6 +63,7 @@ class Outright {
 $(function (): void {
     new Outright(
         $,
+        new SummaryMenu($),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($)).init();

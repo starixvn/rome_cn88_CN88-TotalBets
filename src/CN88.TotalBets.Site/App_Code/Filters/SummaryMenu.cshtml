@@ -1,0 +1,20 @@
+﻿@using CN88.TotalBets.AppResources
+@using CN88.TotalBets.Site.Shared.ViewModels.Filters
+@helper Render(SummaryMenuViewModel model)
+{
+    <div id="summary-menu" class="menu-container">
+        <div class="head-menu"><span id="icon-menu" class="icon-menu"></span>@Resources.Menu</div>
+        <ul class="list-sports">
+            @foreach (var summary in model.Summaries)
+            {
+                <li id="@summary.SportTypeGroup" class="sport @(summary.SportTypeGroup==model.SelectedSportTypeGroup?"selected":string.Empty)">
+                    @summary.SportTypeGroupName
+                    <div>
+                        <span class="number-first">@HtmlHelpers.FormatNumber(summary.Wager)</span>|<span class="number-second">@HtmlHelpers.FormatNumber(summary.Stake)</span>
+                    </div>
+                </li>
+            }
+        </ul>
+        <input type="hidden" id="SportTypeGroup" name="SportTypeGroup" value="@model.SelectedSportTypeGroup" />
+    </div>
+}

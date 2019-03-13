@@ -2,6 +2,7 @@
 {
     using MediatR;
     using Shared.Requests;
+    using TotalBets.Shared.Constants;
     using TotalBets.Shared.Models;
     using ViewModels;
 
@@ -10,6 +11,7 @@
         public OutrightQuery(IUser viewer)
             : base(viewer)
         {
+            SportTypeGroup = SportTypeConstants.Soccer;
         }
 
         public int SportTypeGroup { get; set; }

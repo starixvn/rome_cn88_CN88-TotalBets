@@ -10,7 +10,7 @@
     @StaticResources.RenderScripts("~/assets/bundles/outright/outright")
 }
 @model OutrightViewModel
-@SportTypeGroupMenu.Render()
+@SummaryMenu.Render(Model.SummaryMenuViewModel)
 <div class="main-content">
     <div class="page-title"></div>
     @Html.Partial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel)

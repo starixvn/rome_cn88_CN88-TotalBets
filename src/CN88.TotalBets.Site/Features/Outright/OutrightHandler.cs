@@ -6,6 +6,7 @@
     using TotalBets.Features.Leagues;
     using TotalBets.Features.Outright;
     using TotalBets.Features.Outright.Params;
+    using TotalBets.Features.Summay;
     using TotalBets.Shared.Constants;
     using ViewModels;
 
@@ -13,21 +14,28 @@
     {
         private readonly OutrightService outrightService;
         private readonly LeagueService leagueService;
+        private readonly SummaryService summaryService;
 
-        public OutrightHandler(OutrightService outrightService, LeagueService leagueService)
+        public OutrightHandler(
+            OutrightService outrightService,
+            LeagueService leagueService,
+            SummaryService summaryService)
         {
             this.outrightService = outrightService;
             this.leagueService = leagueService;
+            this.summaryService = summaryService;
         }
 
         public async Task<OutrightViewModel> Handle(OutrightQuery message)
         {
             var outrightLeagues = await outrightService.GetOutrightsAsync(ToGetOutrightParam(message));
             var leagues = await leagueService.GetLeagues(message.SportTypeGroup, TotalBetTypeConstants.Outright);
+            var summaries = await summaryService.GetSummaries(message.ViewerId, message.ActorLevel, TotalBetTypeConstants.Outright);
 
             return new OutrightViewModel(
                 message,
                 outrightLeagues,
+                summaries,
                 BuildLeagueSelectListItems(leagues, message.LeagueId));
         }
 

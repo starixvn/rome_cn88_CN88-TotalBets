@@ -169,6 +169,15 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Menu.
+        /// </summary>
+        public static string Menu {
+            get {
+                return ResourceManager.GetString("Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mix Sports.
         /// </summary>
         public static string MixSports {

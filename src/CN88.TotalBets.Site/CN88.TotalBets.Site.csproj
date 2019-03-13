@@ -352,8 +352,6 @@
     <Content Include="assets\styles\images\green-star.gif" />
     <Content Include="assets\styles\images\lastGoal.gif" />
     <Content Include="assets\styles\images\note_title.gif" />
-    <Content Include="assets\styles\inplay.css" />
-    <Content Include="assets\styles\inplay.min.css" />
     <Content Include="assets\styles\outright.css">
       <DependentUpon>outright.scss</DependentUpon>
     </Content>
@@ -427,6 +425,7 @@
     <Compile Include="Shared\ViewModels\Filters\SingleSelectionViewModel.cs" />
     <Compile Include="Features\Outright\ViewModels\OutrightViewModel.cs" />
     <Compile Include="Features\Overview\ViewModels\OverViewByOutrightViewModel.cs" />
+    <Compile Include="Shared\ViewModels\Filters\SummaryMenuViewModel.cs" />
     <Compile Include="ViewModels\InPlay\InPlayViewModel.cs" />
     <Compile Include="Features\Overview\ViewModels\OverViewByEarlyViewModel.cs" />
     <Compile Include="Features\Overview\ViewModels\OverViewByBaseViewModel.cs" />
@@ -450,7 +449,7 @@
     <Content Include="App_Code\Filters\PossTypeSelection.cshtml" />
     <Content Include="App_Code\Filters\LeagueSelection.cshtml" />
     <Content Include="App_Code\HtmlHelpers.cshtml" />
-    <Content Include="App_Code\Filters\SportTypeGroupMenu.cshtml" />
+    <Content Include="App_Code\Filters\SummaryMenu.cshtml" />
     <Content Include="assets\styles\overview.scss" />
     <Content Include="App_Code\Filters\MarketSelection.cshtml" />
     <Content Include="assets\styles\outright.scss" />
@@ -524,6 +523,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="assets\scripts\components\single-selection-dropdown.ts" />
+    <TypeScriptCompile Include="assets\scripts\components\summary-menu.ts" />
     <TypeScriptCompile Include="assets\scripts\overview.ts" />
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine-jquery\index.d.ts" />

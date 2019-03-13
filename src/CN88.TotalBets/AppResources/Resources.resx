@@ -198,4 +198,7 @@
   <data name="TotalWarger" xml:space="preserve">
     <value>Total Wagers</value>
   </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
 </root>

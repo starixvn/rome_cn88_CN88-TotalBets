@@ -1,11 +1,12 @@
 ﻿@import "variables";
 
-
 .tbl-totalbets {
     border: 1px solid #ccc;
     margin-bottom: 12px;
+
     tbody td {
         padding: 10px 8px;
+
         &:first-child {
             background-color: #6b6b6b;
             color: #fff;
@@ -18,9 +19,11 @@
         position: relative;
         top: 3px;
     }
+
     .dropdown-stake-condition input[type='text'] {
         width: 80px;
     }
+
     .btn-group {
         position: relative;
         top: -1px;
@@ -34,25 +37,30 @@
     left: 0;
     bottom: 0;
     border: 1px solid #d9d9d9;
+
     .head-menu {
         background-color: #7E1414;
         color: #fff;
         padding: 10px;
         text-transform: uppercase;
+
         .icon-menu {
             padding-right: 16px;
             cursor: pointer;
         }
     }
+
     .menu-item {
         padding: 7px 8px;
         border-bottom: 1px solid #d9d9d9;
+
         &.back-to-sum {
             display: block;
             text-decoration: none;
             color: #7E1414;
             padding: 2px 8px 7px 4px;
             cursor: pointer;
+
             .icon-chevron-left {
                 font-size: 18px;
                 position: relative;
@@ -61,32 +69,41 @@
             }
         }
     }
+
     .list-sports {
         list-style: none;
         padding-left: 0;
+
         li {
             border-bottom: 1px solid #d9d9d9;
             line-height: 20px;
             padding: 5px 8px;
             position: relative;
-            
-            &.sport:before {
-                content: '';
-                width: 5px;
-                position: absolute;
-                left: 0;
-                top: 0;
-                height: 100%;
+            cursor: pointer;
+
+            &.sport {
+                &:before {
+                    content: '';
+                    width: 5px;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                }
+
+                &.selected:before, &:hover:before {
+                    background-color: #ca9b3f;
+                }
             }
-            &.sport:hover:before {                
-                background-color: #ca9b3f;
-            }
+
             .number-first {
                 padding-right: 4px;
             }
+
             .number-second {
                 padding-left: 4px;
             }
+
             .icon-chevron-down {
                 float: right;
                 position: relative;
@@ -96,8 +113,9 @@
         }
     }
 }
+
 .main-content {
-    margin: 12px 0 0 220px ;
+    margin: 12px 0 0 220px;
     padding: 0 20px;
 }
 
@@ -107,9 +125,11 @@
         color: #fff;
         padding: 8px;
     }
+
     .stake {
         display: block;
     }
+
     > tbody > tr > td {
         border: 1px solid #d9d9d9;
         /*&:nth-child(2n) {
@@ -124,22 +144,20 @@
 .dropdown-stake-condition {
     .multiselect {
         min-width: 40px;
-         .multiselect-selected-text {
+
+        .multiselect-selected-text {
             width: 30px;
         }
     }
+
     .dropdown-menu {
         width: 62px;
         min-width: unset;
     }
 }
-    
 
 .dropdown-league .multiselect {
-     .multiselect-selected-text {
-         width: 200px;
-     }
+    .multiselect-selected-text {
+        width: 200px;
+    }
 }
-   
-
-
