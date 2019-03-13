@@ -352,6 +352,8 @@
     <Content Include="assets\styles\images\green-star.gif" />
     <Content Include="assets\styles\images\lastGoal.gif" />
     <Content Include="assets\styles\images\note_title.gif" />
+    <Content Include="assets\styles\inplay.css" />
+    <Content Include="assets\styles\inplay.min.css" />
     <Content Include="assets\styles\outright.css">
       <DependentUpon>outright.scss</DependentUpon>
     </Content>
@@ -452,6 +454,7 @@
     <Content Include="assets\styles\overview.scss" />
     <Content Include="App_Code\Filters\MarketSelection.cshtml" />
     <Content Include="assets\styles\outright.scss" />
+    <Content Include="assets\styles\inplay.scss" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
@@ -490,7 +493,10 @@
     <Content Include="Features\Outright\Views\web.config" />
     <Content Include="Shared\Views\web.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Outright\" />
+    <Folder Include="Views\OverView\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Features\Overview\Views\Index.cshtml" />
   </ItemGroup>

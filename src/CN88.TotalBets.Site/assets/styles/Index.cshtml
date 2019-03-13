@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Shared/Views/_Layout.cshtml";
+}
+@section Styles {
+    @StaticResources.RenderStyles("~/assets/bundles/inplay")
+}
+
+<div class="menu-container">
+    <div class="head-menu"><span class="icon-menu"></span>Menu</div>
+    <a class="menu-item back-to-sum"><span class="icon-chevron-left"></span>Back to Summary</a>
+    <div class="menu-item">Today</div>
+    <ul class="list-sports">
+        <li class="bettype">Soccer <div><span class="number-first">11</span>|<span class="number-second">520</span></div><span class="icon-chevron-down"></span>
+        </li>
+        <li class="league">AFC CL <div><span class="number-first">5</span>|<span class="number-second">220.00</span></div><span class="icon-chevron-down"></span>
+        </li>
+        <li class="sport">Melboume Victory<div>Daegu</div><div><span class="link number-first">1</span>|<span class="link number-second">50.00</span></div></li>
+        <li class="sport">Kashima Antlers<div>Johor Darul Takzim</div><div><span class="link number-first">1</span>|<span class="link number-second">20.00</span></div></li>
+        <li class="league">AUS QWPL<div><span class="link number-first">5</span>|<span class="link number-second">250.00</span></div><span class="icon-chevron-down"></span>
+        </li>
+        <li class="sport">Kashima Antlers<div>Johor Darul Takzim</div><div><span class="number-first">1</span>|<span class="number-second">20.00</span></div></li>
+    </ul>
+   
+    
+</div>

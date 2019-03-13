@@ -14,7 +14,7 @@
 <div class="main-content">
     <div class="page-title"></div>
     @Html.Partial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel)
-    <table class="tbl-totalbet tbl-outright" id="tableOutright">
+    <table class="tbl-style2 tbl-totalbet tbl-outright" id="tableOutright">
         <tbody>
             @if (Model.Outrights.Any())
             {
@@ -43,7 +43,7 @@
             }
             else
             {
-                <tr><td colspan="2">@Resources.NoInformationIsAvailable</td></tr>
+                <tr><td colspan="2" class="text-center no-info">@Resources.NoInformationIsAvailable</td></tr>
             }
         </tbody>
     </table>
