@@ -16,7 +16,7 @@ class OverView {
         this.viewModeSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-view-mode", "viewModeSelectedId", this.onReportSubmit));
         this.$reportForm = this.$("#overview-form");
         this.$tooltip = this.$('[data-toggle="tooltip"]');
-        this.$tooltip.tooltip('show');
+        this.$tooltip.tooltip();
     }
 
     public onReportSubmit = () => {
