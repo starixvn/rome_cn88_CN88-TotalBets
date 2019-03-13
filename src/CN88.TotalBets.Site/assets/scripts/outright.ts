@@ -38,7 +38,7 @@ class Outright {
                 children.addClass("hide");
             } else {
                 icon.removeClass().addClass("icon-chevron-down");
-                children.removeClass();
+                children.removeClass("hide");
             }
         });
 
