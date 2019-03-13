@@ -100,11 +100,11 @@
     }
     > tbody > tr > td {
         border: 1px solid #d9d9d9;
-        &:nth-child(2n) {
+        /*&:nth-child(2n) {
             border-left: none;
         }
         &:nth-child(2n+1) {
             border-right: none;
-        }
+        }*/
     }
 }

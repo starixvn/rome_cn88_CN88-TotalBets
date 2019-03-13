@@ -317,6 +317,10 @@
     <Content Include="App_Data\SPNames\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\DBONUSER.ON_USER.BODBDownlineNet.xml" />
+    <Content Include="assets\bundles\outright.css" />
+    <Content Include="assets\bundles\outright.min.css">
+      <DependentUpon>outright.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\outright\outright.js" />
     <Content Include="assets\bundles\outright\outright.min.js">
       <DependentUpon>outright.js</DependentUpon>
@@ -335,6 +339,12 @@
     <Content Include="assets\styles\images\green-star.gif" />
     <Content Include="assets\styles\images\lastGoal.gif" />
     <Content Include="assets\styles\images\note_title.gif" />
+    <Content Include="assets\styles\outright.css">
+      <DependentUpon>outright.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\outright.min.css">
+      <DependentUpon>outright.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\totalbets.css">
       <DependentUpon>totalbets.scss</DependentUpon>
     </Content>
@@ -417,6 +427,7 @@
     <Content Include="App_Code\Filters\LeagueSelection.cshtml" />
     <Content Include="App_Code\HtmlHelpers.cshtml" />
     <Content Include="App_Code\Filters\SportTypeGroupMenu.cshtml" />
+     <Content Include="assets\styles\outright.scss" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>

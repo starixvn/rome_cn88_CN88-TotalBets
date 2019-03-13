@@ -6,6 +6,7 @@
         }
         td {
             padding: 4px;
+            border: none;
         }
         .icon-chevron-down {
             font-size: 20px;            
@@ -15,10 +16,21 @@
             top: -3px;
         }
     }
-    
-    .team-name {
-        width: 250px;
+    .team {
+        width: 50%;
+        border-right: 1px solid #d9d9d9;
+        .team-name, .index {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .index {
+            width: 120px;
+        }
+        .team-name {
+            width: calc(100% - 120px - 16px);
+        }
     }
+    
     > tbody > tr > td {
         padding: 4px 8px;
     }
