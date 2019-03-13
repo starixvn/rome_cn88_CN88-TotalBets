@@ -113,7 +113,7 @@
     <Compile Include="Constants\StakeConditionConstants.cs" />
     <Compile Include="Criteria\GetOverViewCriteria.cs" />
     <Compile Include="Criteria\GetSportGroupsCriteria.cs" />
-    <Compile Include="DataAccesses\SportGroupDataAccess.cs" />
+    <Compile Include="DataAccesses\SportTypeGroupDataAccess.cs" />
     <Compile Include="Models\Enumeration.cs" />
     <Compile Include="Models\IUser.cs" />
     <Compile Include="Models\Outright\OutrightItem.cs" />
@@ -132,7 +132,7 @@
     <Compile Include="Services\LeagueService.cs" />
     <Compile Include="Services\OutrightService.cs" />
     <Compile Include="Services\OverViewService.cs" />
-    <Compile Include="Services\SportGroupService.cs" />
+    <Compile Include="Services\SportTypeGroupService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

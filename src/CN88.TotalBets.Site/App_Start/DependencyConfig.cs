@@ -68,7 +68,7 @@
         private static void RegisterDataAccesses(Container container)
         {
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Singleton);
-            container.RegisterSingleton<SportGroupDataAccess, SportGroupDataAccessImpl>();
+            container.RegisterSingleton<SportTypeGroupDataAccess, SportTypeGroupDataAccessImpl>();
         }
 
         private static void RegisterServices(Container container)
@@ -81,9 +81,9 @@
             container.RegisterSingleton<IOverViewService, OverViewService>();
             container.RegisterPerWebRequest<OutrightService, OutrightServiceImpl>();
             container.RegisterPerWebRequest<LeagueService, LeagueServiceImpl>();
-            container.Register<SportGroupService>(
-                () => new SportGroupServiceImpl(
-                    container.GetInstance<SportGroupDataAccess>(),
+            container.Register<SportTypeGroupService>(
+                () => new SportTypeGroupServiceImpl(
+                    container.GetInstance<SportTypeGroupDataAccess>(),
                     container.GetInstance<CacheRefService>().GetSportName));
         }
     }

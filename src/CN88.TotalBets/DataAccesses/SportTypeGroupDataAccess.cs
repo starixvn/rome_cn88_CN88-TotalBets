@@ -7,12 +7,12 @@
     using Fanex.Data;
     using Models;
 
-    public interface SportGroupDataAccess
+    public interface SportTypeGroupDataAccess
     {
         IEnumerable<SportGroup> GetSportGroups(GetSportGroupsCriteria criteria);
     }
 
-    public class SportGroupDataAccessImpl : SportGroupDataAccess
+    public class SportTypeGroupDataAccessImpl : SportTypeGroupDataAccess
     {
         public IEnumerable<SportGroup> GetSportGroups(GetSportGroupsCriteria criteria)
         {

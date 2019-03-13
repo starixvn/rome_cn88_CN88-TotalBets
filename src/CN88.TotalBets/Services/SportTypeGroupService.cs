@@ -3,33 +3,34 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
     using Criteria;
     using DataAccesses;
     using Fanex.Caching;
     using Models;
 
-    public interface SportGroupService
+    public interface SportTypeGroupService
     {
-        IEnumerable<SportGroup> GetSportGroups();
+        Task<IEnumerable<SportGroup>> GetSportGroups();
     }
 
-    public class SportGroupServiceImpl : SportGroupService
+    public class SportTypeGroupServiceImpl : SportTypeGroupService
     {
         private const string SportGroupsCacheKey = "CN88.TotalBets.ServicesCN88.TotalBets.Services.SportGroupServiceImpl.SportGroups";
 
-        private readonly SportGroupDataAccess sportGroupDataAccess;
+        private readonly SportTypeGroupDataAccess sportGroupDataAccess;
         private readonly Func<int, string> getSportDisplayName;
 
-        public SportGroupServiceImpl(
-            SportGroupDataAccess sportGroupDataAccess,
+        public SportTypeGroupServiceImpl(
+            SportTypeGroupDataAccess sportGroupDataAccess,
             Func<int, string> getSportDisplayName)
         {
             this.sportGroupDataAccess = sportGroupDataAccess;
             this.getSportDisplayName = getSportDisplayName;
         }
 
-        public IEnumerable<SportGroup> GetSportGroups()
-            => ConfiguredCacheService.GetOrSet(
+        public async Task<IEnumerable<SportGroup>> GetSportGroups()
+            => await ConfiguredCacheService.GetOrSetAsync(
                 SportGroupsCacheKey,
                 () =>
                 {
