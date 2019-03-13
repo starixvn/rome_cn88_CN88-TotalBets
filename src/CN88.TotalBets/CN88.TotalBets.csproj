@@ -107,6 +107,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Configurations\AppSettings.cs" />
+    <Compile Include="Constants\MarketConstants.cs" />
     <Compile Include="Constants\PossTypeConstants.cs" />
     <Compile Include="Criteria\GetLeagueCriteria.cs" />
     <Compile Include="Criteria\GetOutrightCriteria.cs" />

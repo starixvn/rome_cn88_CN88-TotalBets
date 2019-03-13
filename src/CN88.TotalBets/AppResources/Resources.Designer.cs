@@ -61,6 +61,15 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Agent %.
+        /// </summary>
+        public static string Agent_Percentage {
+            get {
+                return ResourceManager.GetString("Agent_Percentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Leagues.
         /// </summary>
         public static string AllLeagues {
@@ -70,11 +79,74 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All Markets.
+        /// </summary>
+        public static string AllMarkets {
+            get {
+                return ResourceManager.GetString("AllMarkets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Company %.
+        /// </summary>
+        public static string Company_Percentage {
+            get {
+                return ResourceManager.GetString("Company_Percentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full Percentage.
+        /// </summary>
+        public static string Full_Percentage {
+            get {
+                return ResourceManager.GetString("Full_Percentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In-Play.
+        /// </summary>
+        public static string InPlay {
+            get {
+                return ResourceManager.GetString("InPlay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to League.
         /// </summary>
         public static string League {
             get {
                 return ResourceManager.GetString("League", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MA + Agent %.
+        /// </summary>
+        public static string MA_Agent_Percentage {
+            get {
+                return ResourceManager.GetString("MA_Agent_Percentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MA %.
+        /// </summary>
+        public static string MA_Percentage {
+            get {
+                return ResourceManager.GetString("MA_Percentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Market.
+        /// </summary>
+        public static string Market {
+            get {
+                return ResourceManager.GetString("Market", resourceCulture);
             }
         }
         
@@ -93,6 +165,42 @@ namespace CN88.TotalBets.AppResources {
         public static string Parlay {
             get {
                 return ResourceManager.GetString("Parlay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pre-Match.
+        /// </summary>
+        public static string PreMatch {
+            get {
+                return ResourceManager.GetString("PreMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SMA + MA + Agent %.
+        /// </summary>
+        public static string SMA_MA_Agent_Percentage {
+            get {
+                return ResourceManager.GetString("SMA_MA_Agent_Percentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SMA + MA %.
+        /// </summary>
+        public static string SMA_MA_Percentage {
+            get {
+                return ResourceManager.GetString("SMA_MA_Percentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SMA %.
+        /// </summary>
+        public static string SMA_Percentage {
+            get {
+                return ResourceManager.GetString("SMA_Percentage", resourceCulture);
             }
         }
         

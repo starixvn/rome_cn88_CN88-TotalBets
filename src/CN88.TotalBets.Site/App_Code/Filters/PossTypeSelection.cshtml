@@ -4,16 +4,16 @@
 {
     <div class="form-group">
         <label>@Resources.View</label>
-        <select id="dropdown-view-mode">
-            <option value="@PossTypeConstants.Full_Percentage" @(PossTypeConstants.Full_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>Full Percentage</option>
-            <option value="@PossTypeConstants.Company_Percentage" @(PossTypeConstants.Company_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>Company Percentage</option>
-            <option value="@PossTypeConstants.SMA_Percentage" @(PossTypeConstants.SMA_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>SMA Percentage</option>
-            <option value="@PossTypeConstants.MA_Percentage" @(PossTypeConstants.MA_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>MA Percentage</option>
-            <option value="@PossTypeConstants.Agent_Percentage" @(PossTypeConstants.Agent_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>Agent Percentage</option>
-            <option value="@PossTypeConstants.SMA_MA_Agent_Percentage" @(PossTypeConstants.SMA_MA_Agent_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>SMA MA Agent Percentage</option>
-            <option value="@PossTypeConstants.SMA_MA_Percentage" @(PossTypeConstants.SMA_MA_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>SMA MA Percentage</option>
-            <option value="@PossTypeConstants.MA_Agent_Percentage" @(PossTypeConstants.MA_Agent_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>MA Agent Percentage</option>
+        <select id="dropdown-poss-type">
+            <option value="@PossTypeConstants.Full_Percentage" @(PossTypeConstants.Full_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>@Resources.Full_Percentage</option>
+            <option value="@PossTypeConstants.Company_Percentage" @(PossTypeConstants.Company_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>@Resources.Company_Percentage</option>
+            <option value="@PossTypeConstants.SMA_Percentage" @(PossTypeConstants.SMA_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>@Resources.SMA_Percentage</option>
+            <option value="@PossTypeConstants.MA_Percentage" @(PossTypeConstants.MA_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>@Resources.MA_Percentage</option>
+            <option value="@PossTypeConstants.Agent_Percentage" @(PossTypeConstants.Agent_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>@Resources.Agent_Percentage</option>
+            <option value="@PossTypeConstants.SMA_MA_Agent_Percentage" @(PossTypeConstants.SMA_MA_Agent_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>@Resources.SMA_MA_Agent_Percentage</option>
+            <option value="@PossTypeConstants.SMA_MA_Percentage" @(PossTypeConstants.SMA_MA_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>@Resources.SMA_MA_Percentage</option>
+            <option value="@PossTypeConstants.MA_Agent_Percentage" @(PossTypeConstants.MA_Agent_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>@Resources.MA_Agent_Percentage</option>
         </select>
-        <input type="hidden" name="viewModeSelectedId" id="viewModeSelectedId" value="@userSelectedId" />
+        <input type="hidden" name="PossType" id="PossType" value="@userSelectedId" />
     </div>
 }

@@ -11,7 +11,7 @@
 
     public interface LeagueService
     {
-        Task<IEnumerable<League>> GetLeagues(int sportTypeGroup, int type);
+        Task<IEnumerable<League>> GetLeagues(int sportTypeGroup, string typeName);
     }
 
     public class LeagueServiceImpl : LeagueService
@@ -28,12 +28,12 @@
             this.cacheRefService = cacheRefService;
         }
 
-        public async Task<IEnumerable<League>> GetLeagues(int sportTypeGroup, int type)
+        public async Task<IEnumerable<League>> GetLeagues(int sportTypeGroup, string typeName)
             => await ConfiguredCacheService.GetOrSetAsync(
-                $"{LeagueCacheKey}.{type}.{sportTypeGroup}",
+                $"{LeagueCacheKey}.{typeName}.{sportTypeGroup}",
                 () =>
                 {
-                    var leagues = dynamicRepository.Fetch<League>(new GetLeagueCriteria(sportTypeGroup, type));
+                    var leagues = dynamicRepository.Fetch<League>(new GetLeagueCriteria(sportTypeGroup, typeName));
                     return leagues.Select(league => new League(league.Id, cacheRefService.GetLeagueName(league.Id)));
                 },
                 new CacheItemOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(5)));

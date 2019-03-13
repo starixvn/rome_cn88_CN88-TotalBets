@@ -432,7 +432,8 @@
     <Content Include="App_Code\HtmlHelpers.cshtml" />
     <Content Include="assets\styles\outright.scss" />
     <Content Include="App_Code\Filters\SportTypeGroupMenu.cshtml" />
-     <Content Include="assets\styles\outright.scss" />
+    <Content Include="assets\styles\outright.scss" />
+    <Content Include="App_Code\Filters\MarketSelection.cshtml" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>

@@ -21,7 +21,7 @@
         public async Task<OutrightViewModel> Handle(OutrightQuery message)
         {
             var outrightLeagues = await outrightService.GetOutrightsAsync(ToGetOutrightParam(message));
-            var leagues = await leagueService.GetLeagues(message.SportTypeGroup, 1);
+            var leagues = await leagueService.GetLeagues(message.SportTypeGroup, "Outright");
 
             return new OutrightViewModel(message, outrightLeagues, BuildLeagueSelectListItems(leagues, message.LeagueId));
         }
