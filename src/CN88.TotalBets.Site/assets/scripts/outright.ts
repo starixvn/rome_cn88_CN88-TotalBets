@@ -42,7 +42,9 @@ class Outright {
             }
         });
 
-        tableOutright.find(".stake").click(function (): void { });
+        tableOutright.find(".stake").click(function (): void {
+            alert("Comming soon baby!!!");
+        });
     }
 }
 

@@ -15,7 +15,7 @@
 
         public int LeagueId { get; set; }
 
-        public byte StakeCondition { get; set; } = 1;
+        public byte StakeCondition { get; set; }
 
         public decimal Stake { get; set; }
 
