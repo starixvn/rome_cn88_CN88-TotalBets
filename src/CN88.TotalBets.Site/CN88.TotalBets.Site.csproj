@@ -429,6 +429,7 @@
     <Compile Include="ViewModels\OverView\OverViewByInPlayViewModel.cs" />
     <Compile Include="ViewModels\OverView\OverViewByParlayViewModel.cs" />
     <Compile Include="ViewModels\OverView\HomeViewModel.cs" />
+    <Compile Include="ViewModels\OverView\OverViewTitleViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

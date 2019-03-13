@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using CN88.TotalBets.Services;
 using CN88.TotalBets.Site.Requests.OverView;
@@ -8,20 +9,25 @@ using MediatR;
 
 namespace CN88.TotalBets.Site.Handlers
 {
-    public class OverViewHandler : IRequestHandler<OverViewQuery, HomeViewModel>
+    public class OverViewHandler : IAsyncRequestHandler<OverViewQuery, HomeViewModel>
     {
         private readonly IOverViewService overViewService;
+        private readonly SportTypeGroupService sportTypeGroupService;
 
-        public OverViewHandler(IOverViewService overViewService)
+        public OverViewHandler(
+            IOverViewService overViewService,
+            SportTypeGroupService sportTypeGroupService)
         {
             this.overViewService = overViewService;
+            this.sportTypeGroupService = sportTypeGroupService;
         }
 
-        public HomeViewModel Handle(OverViewQuery message)
+        public async Task<HomeViewModel> Handle(OverViewQuery message)
         {
-            var overView = overViewService.Get(message.ViewerId, message.viewModeSelectedId, message.ViewerLevelId);
+            var overView = await overViewService.Get(message.ViewerId, message.viewModeSelectedId, message.ViewerLevelId);
+            var allSportTypeGroup = await sportTypeGroupService.GetSportGroups();
 
-            return new HomeViewModel(message, overView);
+            return new HomeViewModel(message, overView, allSportTypeGroup, message.GetSportDisplayName);
         }
     }
 }

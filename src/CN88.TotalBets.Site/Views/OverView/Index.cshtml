@@ -29,15 +29,11 @@
             <tr>
                 <th></th>
                 <th>All Sports</th>
-                <th>Soccer</th>
-                <th class="text-center"><span data-toggle="tooltip" data-placement="top" title="Basketball/Football"></span>Basketball</th>
-                <th>Tennis</th>
-                <th>Volleyball</th>
-                <th>Table Tennis</th>
-                <th>Badminton</th>
-                <th>Baseball</th>
-                <th>Snnoker</th>
-                <th>Other Sports</th>
+                @for (var i = 0; i < Model.HeadTable.HeaderName.Count; i++)
+		{
+                    <th class="text-center"><span data-toggle="tooltip" data-placement="top" title="@Model.HeadTable.ToolTip[i]"></span>@Model.HeadTable.HeaderName[i]</th>
+                }
+
             </tr>
         </thead>
         <tbody>
@@ -46,60 +42,60 @@
                 <tr>
                     <td>@item.Text</td>
                     <td>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Total.Wagers,"")</span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Total.Stake,"")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.Total.Wagers, "")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.Total.Stake, "")</span>
                     </td>
                     <td>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Soccer.Wagers,"")</span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Soccer.Stake,"")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.Soccer.Wagers, "")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.Soccer.Stake, "")</span>
                     </td>
                     <td class="even">
                         <span>
-                            @HtmlHelpers.FormatNumberWithLink(item.Basketball.Wagers,"")
+                            @HtmlHelpers.FormatNumberWithLink(item.Basketball.Wagers, "")
                         </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Basketball.Stake,"")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.Basketball.Stake, "")</span>
                     </td>
                     <td>
                         <span>
                             @HtmlHelpers.FormatNumberWithLink(item.Tennis.Wagers, "")
                         </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Tennis.Stake,"")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.Tennis.Stake, "")</span>
                     </td>
                     <td class="even">
                         <span>
                             @HtmlHelpers.FormatNumberWithLink(item.Volleyball.Wagers, "")
                         </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Volleyball.Stake,"")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.Volleyball.Stake, "")</span>
                     </td>
                     <td>
                         <span>
                             @HtmlHelpers.FormatNumberWithLink(item.TableTennis.Wagers, "")
                         </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.TableTennis.Stake,"")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.TableTennis.Stake, "")</span>
                     </td>
                     <td class="even">
                         <span>
                             @HtmlHelpers.FormatNumberWithLink(item.Badminton.Wagers, "")
                         </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Badminton.Stake,"")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.Badminton.Stake, "")</span>
                     </td>
                     <td>
                         <span>
                             @HtmlHelpers.FormatNumberWithLink(item.Baseball.Wagers, "")
                         </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Baseball.Stake,"")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.Baseball.Stake, "")</span>
                     </td>
                     <td class="even">
                         <span>
                             @HtmlHelpers.FormatNumberWithLink(item.Snooker.Wagers, "")
                         </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Snooker.Stake,"")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.Snooker.Stake, "")</span>
                     </td>
                     <td>
                         <span>
                             @HtmlHelpers.FormatNumberWithLink(item.OtherSports.Wagers, "")
                         </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.OtherSports.Stake,"")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.OtherSports.Stake, "")</span>
                     </td>
                 </tr>
             }

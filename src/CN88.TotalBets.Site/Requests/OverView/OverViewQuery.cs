@@ -1,4 +1,5 @@
-﻿using CN88.TotalBets.Models;
+﻿using System;
+using CN88.TotalBets.Models;
 using CN88.TotalBets.Site.ViewModels;
 using MediatR;
 
@@ -11,5 +12,7 @@ namespace CN88.TotalBets.Site.Requests.OverView
         }
 
         public int viewModeSelectedId { get; set; }
+
+        public Func<int, string> GetSportDisplayName { get; set; }
     }
 }

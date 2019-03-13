@@ -5,16 +5,22 @@
     using System.Web.SessionState;
     using MediatR;
     using Requests.OverView;
+    using Services;
 
     [SessionState(SessionStateBehavior.ReadOnly)]
     public class OverViewController : SiteBaseController
     {
-        public OverViewController(IMediator mediator)
+        private readonly CacheRefService cacheRefService;
+        public OverViewController(IMediator mediator, CacheRefService cacheRefService)
             : base(mediator)
         {
+            this.cacheRefService = cacheRefService;
         }
 
         public async Task<ActionResult> Index(OverViewQuery message)
-            => await ViewAsync(message);
+        {
+            message.GetSportDisplayName = cacheRefService.GetSportName;
+            return await ViewAsync(message);
+        }
     }
 }
