@@ -444,11 +444,10 @@
     <Content Include="App_Code\Filters\PossTypeSelection.cshtml" />
     <Content Include="App_Code\Filters\LeagueSelection.cshtml" />
     <Content Include="App_Code\HtmlHelpers.cshtml" />
-    <Content Include="assets\styles\outright.scss" />
     <Content Include="App_Code\Filters\SportTypeGroupMenu.cshtml" />
-    <Content Include="assets\styles\outright.scss" />
-     <Content Include="assets\styles\overview.scss" />
+    <Content Include="assets\styles\overview.scss" />
     <Content Include="App_Code\Filters\MarketSelection.cshtml" />
+    <Content Include="assets\styles\outright.scss" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
