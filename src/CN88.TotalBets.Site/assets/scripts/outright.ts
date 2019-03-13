@@ -18,21 +18,30 @@ class Outright {
     }
 
     init(): void {
-        this.stakeConditionSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-stake-condition", "StakeCondition"))
+        this.stakeConditionSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-stake-condition", "StakeCondition"));
         this.possTypeSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-poss-type", "PossType"));
         this.leagueSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-league", "LeagueId"));
 
+        this.bindEvents();
+    }
+
+    private bindEvents(): void {
         let tableOutright: JQuery = this.$("#tableOutright");
+
         tableOutright.find(".league").click(function (): void {
-            let $this = $(this);
-            //icon-chevron-right
-            //icon-chevron-down
-            let icon = $this.find(".league-name-wrapper").first();
-            icon.removeClass().addClass("icon-chevron-right");
-            tableOutright
-                .find(`.team[data-leagueid="${$this.data("leagueid")}"]`)
-                .toggleClass("hide");
+            let $this: JQuery = $(this);
+            let icon: JQuery = $this.find(".league-name-wrapper").children().first();
+            let children: any = $this.siblings(`.childrow-${$this.data("leagueid")}`);
+
+            if (icon.hasClass("icon-chevron-down")) {
+                icon.removeClass().addClass("icon-chevron-right");
+                children.addClass("hide");
+            } else {
+                icon.removeClass().addClass("icon-chevron-down");
+                children.removeClass();
+            }
         });
+
         tableOutright.find(".stake").click(function (): void { });
     }
 }

@@ -29,7 +29,7 @@
                     index++;
                     if (index % 2 == 1)
                     {
-                        @:<tr>@RenderOutright(outright)
+                        @:<tr class="childrow-@league.LeagueId">@RenderOutright(outright)
                     }
                     else
                     {
@@ -39,7 +39,7 @@
 
                 if (index % 2 == 1)
                 {
-                    @:@RenderOutright(league.LeagueId)</tr>
+                    @:<td>&nbsp;</td></tr>
                 }
             }
         </tbody>
@@ -59,14 +59,10 @@
 }
 @helper RenderOutright(OutrightItem outright)
 {
-    <td class="team" data-leagueid="@outright.LeagueId">
+    <td class="team">
         <span class="team-name">@outright.TeamName</span>
         <span class="index text-right">@outright.Wager
             <a href="javascript:;" class="stake">@HtmlHelpers.FormatNumber(outright.Stake)</a>
         </span>
     </td>
-}
-@helper RenderOutright(int leagueId)
-{
-    <td class="team" data-leagueid="@leagueId">&nbsp;</td>
 }
