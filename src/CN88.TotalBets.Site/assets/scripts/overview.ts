@@ -3,6 +3,7 @@ class OverView {
     $: JQueryStatic;
     viewModeSelectionComponent: SingleSelectionDropdownComponent;
     $reportForm: JQuery;
+    $tooltip: JQuery;
 
     constructor(
         $: JQueryStatic,
@@ -14,6 +15,8 @@ class OverView {
     init(): void {
         this.viewModeSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-view-mode", "viewModeSelectedId", this.onReportSubmit));
         this.$reportForm = this.$("#overview-form");
+        this.$tooltip = this.$('[data-toggle="tooltip"]');
+        this.$tooltip.tooltip('show');
     }
 
     public onReportSubmit = () => {
