@@ -11,30 +11,31 @@
 }
 @model OutrightViewModel
 <div class="main-content">
-    @*<div class="page-title"></div>
+    <div class="page-title"></div>
     <form class="form-inline filter" role="form" id="report-form">
         @StakeConditionFilter.Render(Model.StakeConditionFilterViewModel)
         @PossTypeSelection.Render(Model.PossType)
         @LeagueSelection.Render(Model.LeagueSelectionViewModel)
     </form>
-    <table class="table">
+    <table class="tbl-totalbet tbl-outright">
         <tbody>
             @foreach (var league in Model.Outrights)
             {
-                <tr>
-                    <td colspan="2">@league.LeagueName</td>
+                <tr class="league">
+                    <td><span class="icon-chevron-down"></span><span class="league-name">@league.LeagueName</span></td>
+                    <td class="text-right">@league.TotalWager | @HtmlHelpers.FormatNumber(league.TotalStake)</td>
                 </tr>
-                int index = 0;
+                var index = 0;
                 foreach (var outright in league.Outrights)
                 {
                     index++;
                     if (index % 2 == 1)
                     {
-                        @:<tr><td>@outright.TeamName</td>
+                        @:<tr><td class="team"><span class="team-name">@outright.TeamName</span><span class="index text-right">@outright.Wager <a class="stake">@HtmlHelpers.FormatNumber(outright.Stake)</a></span></td>
                     }
                     else
                     {
-                        @:<td>@outright.TeamName</td></tr>
+                        @:<td class="team"><span class="team-name">@outright.TeamName</span><span class="index text-right">@outright.Wager <a class="stake">@HtmlHelpers.FormatNumber(outright.Stake)</a></span></td></tr>
                     }
                 }
 
@@ -44,8 +45,8 @@
                 }
             }
         </tbody>
-    </table>*@
-    <table class="tbl-totalbet tbl-outright">
+    </table>
+    @*<table class="tbl-totalbet tbl-outright">
         <tbody>
             <tr class="league">
                 <td><span class="icon-chevron-down"></span><span class="league-name">Autralia A League - Grand Final Winner</span></td>
@@ -69,5 +70,5 @@
                 <td></td>
             </tr>
         </tbody>
-    </table>
+    </table>*@
 </div>
