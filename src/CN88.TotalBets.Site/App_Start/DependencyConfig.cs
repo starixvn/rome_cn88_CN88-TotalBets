@@ -83,20 +83,18 @@
             container.RegisterSingleton(Fanex.Logging.Logger.Log);
             container.RegisterSingleton<IRemotingRefService, RemotingRefService>();
             container.RegisterSingleton<CacheRefService, CacheRefServiceImpl>();
-
-            container.RegisterSingleton<IOverViewService, OverViewService>();
-
-            container.RegisterPerWebRequest<InPlayService, InPlayServiceImpl>();
-
-            container.RegisterPerWebRequest<OutrightService, OutrightServiceImpl>();
-
-            container.RegisterPerWebRequest<LeagueService, LeagueServiceImpl>();
-
             container.Register<SportTypeGroupService>(
                 () => new SportTypeGroupServiceImpl(
                     container.GetInstance<SportTypeGroupDataAccess>(),
-                    container.GetInstance<CacheRefService>().GetSportName));
-            container.RegisterPerWebRequest<SummaryService, SummaryServiceImpl>();
+                    container.GetInstance<CacheRefService>().GetSportName),
+                Lifestyle.Singleton);
+
+            container.RegisterSingleton<IOverViewService, OverViewService>();
+            container.RegisterSingleton<InPlayService, InPlayServiceImpl>();
+            container.RegisterSingleton<OutrightService, OutrightServiceImpl>();
+            container.RegisterSingleton<LeagueService, LeagueServiceImpl>();
+            container.RegisterSingleton<SummaryService, SummaryServiceImpl>();
+
         }
     }
 }
