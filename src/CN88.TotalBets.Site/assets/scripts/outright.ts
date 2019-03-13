@@ -45,7 +45,15 @@ class Outright {
         tableOutright.find(".stake").click(function (): void {
             alert("Comming soon baby!!!");
         });
+
+        this.$("#filter-form").submit(this.onSubmit);
     }
+
+    onSubmit = () => {
+        this.stakeConditionSelectionComponent.updateSelectedValue();
+        this.possTypeSelectionComponent.updateSelectedValue();
+        this.leagueSelectionComponent.updateSelectedValue();
+    };
 }
 
 $(function (): void {

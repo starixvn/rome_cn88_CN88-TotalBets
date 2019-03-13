@@ -27,7 +27,6 @@
             return new OutrightViewModel(
                 message,
                 outrightLeagues,
-                BuildStakeConditionSelectListItems(message.StakeCondition),
                 BuildLeagueSelectListItems(leagues, message.LeagueId));
         }
 

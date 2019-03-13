@@ -1,16 +1,15 @@
 ﻿@using CN88.TotalBets.AppResources
-@using CN88.TotalBets.Site.ViewModels.Filters
-@helper Render(StakeConditionFilterViewModel model)
+@using CN88.TotalBets.Constants
+@helper Render(byte stakeCondition, decimal stake)
 {
     <div class="form-group dropdown-stake-condition">
         <label>@Resources.Stake</label>
         <select id="dropdown-stake-condition">
-            @foreach (var item in model.Conditions)
-            {
-                <option value="@item.Value" @(item.Selected ? " selected=\"selected\"" : string.Empty)>@item.Text</option>
-            }
+            <option value="@StakeConditionConstants.GreaterThan" @(StakeConditionConstants.GreaterThan == stakeCondition ? " selected=\"selected\"" : string.Empty)>></option>
+            <option value="@StakeConditionConstants.LessThan" @(StakeConditionConstants.LessThan == stakeCondition ? " selected=\"selected\"" : string.Empty)><</option>
+            <option value="@StakeConditionConstants.Equal" @(StakeConditionConstants.Equal == stakeCondition ? " selected=\"selected\"" : string.Empty)>=</option>
         </select>
-        <input type="hidden" name="StakeCondition" id="StakeCondition" value="@model.SelectedCondition" />
-        <input type="text" value="@model.Stake" />
+        <input type="hidden" name="StakeCondition" id="StakeCondition" value="@stakeCondition" />
+        <input type="text" value="@stake" />
     </div>
 }

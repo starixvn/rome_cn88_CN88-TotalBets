@@ -4,9 +4,9 @@
 
     public static class StakeConditionConstants
     {
-        public const int Equal = 0;
-        public const int GreaterThan = 1;
-        public const int LessThan = 2;
+        public const byte Equal = 0;
+        public const byte GreaterThan = 1;
+        public const byte LessThan = 2;
 
         public static IDictionary<int, string> Conditions { get; } = new Dictionary<int, string>
         {

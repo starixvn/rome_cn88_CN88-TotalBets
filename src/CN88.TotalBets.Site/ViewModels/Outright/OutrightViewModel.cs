@@ -13,12 +13,10 @@
         public OutrightViewModel(
             OutrightQuery query,
             IEnumerable<OutrightLeague> outrights,
-            IEnumerable<SelectListItem> stakeConditions,
             IEnumerable<SelectListItem> leagues)
         {
             this.query = query;
             Outrights = outrights;
-            StakeConditionFilterViewModel = new StakeConditionFilterViewModel(stakeConditions, query.StakeCondition, query.Stake);
             LeagueSelectionViewModel = new SingleSelectionViewModel(leagues, query.LeagueId);
         }
 
@@ -26,8 +24,13 @@
 
         public IEnumerable<OutrightLeague> Outrights { get; }
 
-        public StakeConditionFilterViewModel StakeConditionFilterViewModel { get; }
-
         public SingleSelectionViewModel LeagueSelectionViewModel { get; }
+
+        public FilterBaseViewModel FilterViewModel
+            => new FilterBaseViewModel(
+                query.StakeCondition,
+                query.Stake,
+                query.PossType,
+                LeagueSelectionViewModel);
     }
 }
