@@ -17,7 +17,7 @@
         @PossTypeSelection.Render(Model.PossType)
         @LeagueSelection.Render(Model.LeagueSelectionViewModel)
     </form>
-    <table class="tbl-totalbet tbl-outright">
+    @*<table class="tbl-totalbet tbl-outright">
         <tbody>
             @foreach (var league in Model.Outrights)
             {
@@ -45,12 +45,14 @@
                 }
             }
         </tbody>
-    </table>
-    @*<table class="tbl-totalbet tbl-outright">
+    </table>*@
+    <table class="tbl-totalbet tbl-outright">
         <tbody>
             <tr class="league">
-                <td><span class="icon-chevron-down"></span><span class="league-name">Autralia A League - Grand Final Winner</span></td>
-                <td class="text-right">6 | 300.00</td>
+                <td colspan="2">
+                    <span class="league-name-wrapper"><span class="icon-chevron-down"></span><span class="league-name">Autralia A League - Grand Final Winner</span></span>
+                    <span class="index text-right">6 | 300.00</span>
+                </td>
             </tr>
             <tr>
                 <td class="team">
@@ -70,5 +72,5 @@
                 <td></td>
             </tr>
         </tbody>
-    </table>*@
+    </table>
 </div>

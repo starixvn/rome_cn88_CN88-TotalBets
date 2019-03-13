@@ -15,6 +15,16 @@
             position: relative;
             top: -3px;
         }
+        .league-name-wrapper {
+            width: calc(100% - 150px - 8px);    
+            display: inline-block;        
+        }
+        .index {
+            width: 150px;
+            display: inline-block;
+            position: relative;
+            top: -2px;
+        }
     }
     .team {
         width: 50%;
@@ -25,6 +35,10 @@
         }
         .index {
             width: 120px;
+            .stake:hover {
+                cursor: pointer;
+                text-decoration: none;
+            }
         }
         .team-name {
             width: calc(100% - 120px - 8px);
