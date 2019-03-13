@@ -1,4 +1,4 @@
-﻿namespace CN88.TotalBets.Models.Outright
+﻿namespace CN88.TotalBets.Features.Outright.Models
 {
     public class OutrightItem
     {

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web.Mvc;
-using CN88.TotalBets.Models;
-using CN88.TotalBets.Site.Requests;
-using Newtonsoft.Json;
-
-namespace CN88.TotalBets.Site.Helpers
+﻿namespace CN88.TotalBets.Site.Shared.Helpers
 {
+    using System;
+    using System.Web.Mvc;
+    using Requests;
+    using TotalBets.Shared.Models;
+
     public class QueryEntityModelBinder : DefaultModelBinder
     {
         private static readonly Type[] IUserType = { typeof(IUser) };

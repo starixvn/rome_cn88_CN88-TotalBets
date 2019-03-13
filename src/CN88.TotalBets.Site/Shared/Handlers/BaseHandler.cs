@@ -1,10 +1,10 @@
-﻿namespace CN88.TotalBets.Site.Handlers
+﻿namespace CN88.TotalBets.Site.Shared.Handlers
 {
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
     using AppResources;
-    using TotalBets.Models;
+    using TotalBets.Features.Leagues.Models;
 
     public class BaseHandler
     {

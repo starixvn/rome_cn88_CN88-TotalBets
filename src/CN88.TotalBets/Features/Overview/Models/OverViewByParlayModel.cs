@@ -1,4 +1,4 @@
-﻿namespace CN88.TotalBets.Models.OverView
+﻿namespace CN88.TotalBets.Features.Overview.Models
 {
     public class OverViewByParlayModel
     {

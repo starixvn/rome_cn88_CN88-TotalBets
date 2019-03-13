@@ -1,4 +1,4 @@
-﻿namespace CN88.TotalBets.Services
+﻿namespace CN88.TotalBets.Features.Leagues
 {
     using System;
     using System.Collections.Generic;
@@ -8,6 +8,7 @@
     using Fanex.Caching;
     using Fanex.Data.Repository;
     using Models;
+    using Shared.Services;
 
     public interface LeagueService
     {

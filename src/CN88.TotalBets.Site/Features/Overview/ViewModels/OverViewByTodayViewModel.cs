@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using CN88.TotalBets.Models.OverView;
-
-namespace CN88.TotalBets.Site.ViewModels
+﻿namespace CN88.TotalBets.Site.Features.Overview.ViewModels
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using TotalBets.Features.Overview.Models;
+
     public class OverViewByTodayViewModel : OverViewByBaseViewModel
     {
         public OverViewByTodayViewModel(IEnumerable<OverViewBySportTypeModel> model)

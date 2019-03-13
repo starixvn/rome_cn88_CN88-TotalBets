@@ -1,4 +1,4 @@
-﻿namespace CN88.TotalBets.DataAccesses
+﻿namespace CN88.TotalBets.Features.SportTypeGroup
 {
     using System.Collections.Generic;
     using System.Linq;

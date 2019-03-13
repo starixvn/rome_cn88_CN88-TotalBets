@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using CN88.TotalBets.Models.OverView;
-
-namespace CN88.TotalBets.Site.ViewModels
+﻿namespace CN88.TotalBets.Site.Features.Overview.ViewModels
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using TotalBets.Features.Overview.Models;
+
     public class OverViewByEarlyViewModel : OverViewByBaseViewModel
     {
         public OverViewByEarlyViewModel(IEnumerable<OverViewBySportTypeModel> model)
@@ -20,6 +20,5 @@ namespace CN88.TotalBets.Site.ViewModels
         }
 
         public override string Text => "Early";
-
     }
 }

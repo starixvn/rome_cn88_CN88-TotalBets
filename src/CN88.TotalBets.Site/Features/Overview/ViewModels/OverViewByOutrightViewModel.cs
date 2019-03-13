@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using CN88.TotalBets.Models.OverView;
-
-namespace CN88.TotalBets.Site.ViewModels
+﻿namespace CN88.TotalBets.Site.Features.Overview.ViewModels
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using TotalBets.Features.Overview.Models;
+
     public class OverViewByOutrightViewModel : OverViewByBaseViewModel
     {
         public OverViewByOutrightViewModel(IEnumerable<OverViewBySportTypeModel> model)
@@ -19,6 +19,6 @@ namespace CN88.TotalBets.Site.ViewModels
             OtherSports = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 99).OutrightWager, model.FirstOrDefault(i => i.SportTypeGroup == 99).OutrightStake);
         }
 
-        public override string Text => "Outright";        
+        public override string Text => "Outright";
     }
 }

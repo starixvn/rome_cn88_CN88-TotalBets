@@ -1,12 +1,13 @@
-﻿namespace CN88.TotalBets.Services
+﻿namespace CN88.TotalBets.Features.Outright
 {
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using Criteria;
     using Fanex.Data.Repository;
-    using Models.Outright;
+    using Models;
     using Params;
+    using Shared.Services;
 
     public interface OutrightService
     {

@@ -1,4 +1,4 @@
-﻿namespace CN88.TotalBets.Constants
+﻿namespace CN88.TotalBets.Shared.Constants
 {
     using System.Collections.Generic;
 

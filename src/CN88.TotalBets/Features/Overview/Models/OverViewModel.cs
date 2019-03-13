@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace CN88.TotalBets.Models.OverView
+﻿namespace CN88.TotalBets.Features.Overview.Models
 {
+    using System.Collections.Generic;
+
     public class OverViewModel
     {
         public OverViewModel(
@@ -16,7 +16,7 @@ namespace CN88.TotalBets.Models.OverView
 
         public OverViewItemModel Total { get; }
 
-        public IEnumerable<OverViewBySportTypeModel> BySportTypeModels { get; }        
+        public IEnumerable<OverViewBySportTypeModel> BySportTypeModels { get; }
 
         public OverViewByParlayModel ParlayModel { get; }
     }

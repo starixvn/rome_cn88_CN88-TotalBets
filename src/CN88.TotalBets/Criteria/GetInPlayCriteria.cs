@@ -1,6 +1,7 @@
 ﻿namespace CN88.TotalBets.Criteria
 {
-    using Models;
+    using Features.Outright.Criteria;
+    using Shared.Models;
 
     public class GetInPlayCriteria : GetOutrightCriteria
     {

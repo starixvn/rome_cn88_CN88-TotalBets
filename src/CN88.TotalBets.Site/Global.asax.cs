@@ -11,15 +11,15 @@
     using Alpha.Web.Filters;
     using Alpha.Web.Helpers;
     using App_Start;
-    using Configurations;
     using Fanex.Data;
     using Fanex.Data.CrossCutting.WrappingException;
     using Fanex.Data.OldConnectionStringProvider;
     using Fanex.Logging.Extensions.Web;
     using Fanex.RemotingRef;
-    using Helpers;
     using ONEbook.UM.Filters;
+    using Shared.Helpers;
     using Sunplus.Agent.Model.Entities;
+    using TotalBets.Shared.Configurations;
     using Web.Filters;
     using CN88CheckBelongingFilter = Web.Filters.CheckBelongingFilter;
 

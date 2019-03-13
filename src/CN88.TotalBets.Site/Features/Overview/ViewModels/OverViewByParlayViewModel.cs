@@ -1,7 +1,7 @@
-﻿using CN88.TotalBets.Models.OverView;
-
-namespace CN88.TotalBets.Site.ViewModels
+﻿namespace CN88.TotalBets.Site.Features.Overview.ViewModels
 {
+    using TotalBets.Features.Overview.Models;
+
     public class OverViewByParlayViewModel
     {
         public OverViewByParlayViewModel(OverViewByParlayModel model)

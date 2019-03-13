@@ -1,11 +1,12 @@
 ﻿namespace CN88.TotalBets.Site.Handlers
 {
     using System.Threading.Tasks;
-    using Constants;
     using MediatR;
     using Params;
     using Requests.InPlay;
     using Services;
+    using Shared.Handlers;
+    using TotalBets.Features.Leagues;
     using ViewModels.InPlay;
 
     public class InPlayHandler : BaseHandler, IAsyncRequestHandler<InPlayQuery, InPlayViewModel>

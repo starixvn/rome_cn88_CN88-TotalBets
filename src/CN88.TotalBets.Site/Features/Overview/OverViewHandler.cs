@@ -1,11 +1,11 @@
-﻿using System.Threading.Tasks;
-using CN88.TotalBets.Services;
-using CN88.TotalBets.Site.Requests.OverView;
-using CN88.TotalBets.Site.ViewModels;
-using MediatR;
-
-namespace CN88.TotalBets.Site.Handlers
+﻿namespace CN88.TotalBets.Site.Features.Overview
 {
+    using System.Threading.Tasks;
+    using MediatR;
+    using TotalBets.Features.Overview;
+    using TotalBets.Features.SportTypeGroup;
+    using ViewModels;
+
     public class OverViewHandler : IAsyncRequestHandler<OverViewQuery, HomeViewModel>
     {
         private readonly IOverViewService overViewService;
@@ -22,7 +22,7 @@ namespace CN88.TotalBets.Site.Handlers
         public async Task<HomeViewModel> Handle(OverViewQuery message)
         {
             var overView = await overViewService.Get(message.ViewerId, message.PossType, message.ViewerLevelId);
-            var allSportTypeGroup = await sportTypeGroupService.GetSportGroups();
+            var allSportTypeGroup = await sportTypeGroupService.GetSportTypeGroups();
 
             return new HomeViewModel(message, overView, allSportTypeGroup, message.GetSportDisplayName);
         }

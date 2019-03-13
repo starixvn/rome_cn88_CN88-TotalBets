@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using CN88.TotalBets.Models;
-using CN88.TotalBets.Models.OverView;
-using CN88.TotalBets.Site.Requests.OverView;
-using CN88.TotalBets.Site.ViewModels.OverView;
-
-namespace CN88.TotalBets.Site.ViewModels
+﻿namespace CN88.TotalBets.Site.Features.Overview.ViewModels
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Site.ViewModels.OverView;
+    using TotalBets.Features.Overview.Models;
+    using TotalBets.Features.SportTypeGroup.Models;
+
     public class HomeViewModel
     {
         public HomeViewModel(
@@ -44,6 +43,5 @@ namespace CN88.TotalBets.Site.ViewModels
         public int PossType => message.PossType;
 
         public OverViewTitleViewModel HeaderTable { get; }
-
     }
 }

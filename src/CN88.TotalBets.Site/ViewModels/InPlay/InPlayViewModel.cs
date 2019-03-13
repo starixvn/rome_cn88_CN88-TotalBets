@@ -2,9 +2,9 @@
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
-    using Filters;
     using Requests.InPlay;
-    using TotalBets.Models.Outright;
+    using Shared.ViewModels.Filters;
+    using TotalBets.Features.Outright.Models;
 
     public class InPlayViewModel
     {

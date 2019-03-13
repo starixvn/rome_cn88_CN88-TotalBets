@@ -1,8 +1,8 @@
-﻿namespace CN88.TotalBets.Criteria
+﻿namespace CN88.TotalBets.Features.Outright.Criteria
 {
     using Fanex.Data;
     using Fanex.Data.Repository;
-    using Models;
+    using Shared.Models;
 
     public class GetOutrightCriteria : CriteriaBase
     {

@@ -106,6 +106,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Features\Summay\Criteria\GetSummaryCriteria.cs" />
+    <Compile Include="Features\Summay\Models\Summary.cs" />
+    <Compile Include="Features\Summay\SummaryService.cs" />
     <Compile Include="Shared\Configurations\AppSettings.cs" />
     <Compile Include="Shared\Constants\MarketConstants.cs" />
     <Compile Include="Shared\Constants\PossTypeConstants.cs" />
@@ -130,7 +133,6 @@
     <Compile Include="Features\Overview\Models\OverViewBySportTypeModel.cs" />
     <Compile Include="Features\SportTypeGroup\Models\SportGroup.cs" />
     <Compile Include="Shared\Models\UserLevel.cs" />
-    <Compile Include="Shared\Models\ViewMode.cs" />
     <Compile Include="Features\Outright\Params\GetOutrightParam.cs" />
     <Compile Include="Params\GetInPlayParam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

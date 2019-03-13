@@ -1,11 +1,11 @@
-﻿namespace CN88.TotalBets.Site.Controllers
+﻿namespace CN88.TotalBets.Site.Features.Overview
 {
     using System.Threading.Tasks;
     using System.Web.Mvc;
     using System.Web.SessionState;
     using MediatR;
-    using Requests.OverView;
-    using Services;
+    using Shared.Controllers;
+    using TotalBets.Shared.Services;
 
     [SessionState(SessionStateBehavior.ReadOnly)]
     public class OverViewController : SiteBaseController

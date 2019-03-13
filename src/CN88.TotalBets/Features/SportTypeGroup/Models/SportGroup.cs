@@ -1,4 +1,4 @@
-﻿namespace CN88.TotalBets.Models
+﻿namespace CN88.TotalBets.Features.SportTypeGroup.Models
 {
     using System;
     using System.Collections.Generic;

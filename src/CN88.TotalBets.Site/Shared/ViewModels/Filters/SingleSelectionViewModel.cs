@@ -1,4 +1,4 @@
-﻿namespace CN88.TotalBets.Site.ViewModels.Filters
+﻿namespace CN88.TotalBets.Site.Shared.ViewModels.Filters
 {
     using System.Collections.Generic;
     using System.Web.Mvc;

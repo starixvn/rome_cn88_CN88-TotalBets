@@ -1,5 +1,4 @@
-﻿@using CN88.TotalBets.Models.Outright;
-@using CN88.TotalBets.Site.ViewModels.Outright;
+﻿
 @{
     ViewBag.Title = "Outright";
     Layout = "~/Shared/Views/_Layout.cshtml";
@@ -11,6 +10,7 @@
     @StaticResources.RenderScripts("~/assets/bundles/outright/outright")
 }
 @model OutrightViewModel
+@SportTypeGroupMenu.Render()
 <div class="main-content">
     <div class="page-title"></div>
     @Html.Partial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel)

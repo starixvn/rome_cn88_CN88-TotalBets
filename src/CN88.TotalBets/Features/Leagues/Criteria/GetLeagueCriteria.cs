@@ -1,4 +1,4 @@
-﻿namespace CN88.TotalBets.Criteria
+﻿namespace CN88.TotalBets.Features.Leagues.Criteria
 {
     using Fanex.Data.Repository;
 

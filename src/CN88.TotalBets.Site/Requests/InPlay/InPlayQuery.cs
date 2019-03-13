@@ -1,7 +1,8 @@
 ﻿namespace CN88.TotalBets.Site.Requests.InPlay
 {
     using MediatR;
-    using TotalBets.Models;
+    using Shared.Requests;
+    using TotalBets.Shared.Models;
     using ViewModels.InPlay;
 
     public class InPlayQuery : BaseQuery, IRequest<InPlayViewModel>

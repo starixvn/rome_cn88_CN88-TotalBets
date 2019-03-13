@@ -1,8 +1,8 @@
-﻿using System.Threading;
-using Fanex.RemotingRef;
-
-namespace CN88.TotalBets.Services
+﻿namespace CN88.TotalBets.Shared.Services
 {
+    using System.Threading;
+    using Fanex.RemotingRef;
+
     public interface CacheRefService
     {
         string GetLeagueName(int leagueId);

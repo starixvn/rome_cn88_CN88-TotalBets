@@ -4,19 +4,24 @@
     using System.Diagnostics.CodeAnalysis;
     using System.Reflection;
     using System.Web.Mvc;
-    using Controllers;
-    using DataAccesses;
     using Fanex.Data.Repository;
     using Fanex.RemotingRef;
     using MediatR;
-    using Models;
     using Services;
+    using Shared.Controllers;
+    using Shared.Models;
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
     using Sunplus.Agent.Model.Base;
     using Sunplus.Agent.Model.Entities;
-    using TotalBets.Models;
+    using TotalBets.Features.Leagues;
+    using TotalBets.Features.Outright;
+    using TotalBets.Features.Overview;
+    using TotalBets.Features.SportTypeGroup;
+    using TotalBets.Features.Summay;
+    using TotalBets.Shared.Models;
+    using TotalBets.Shared.Services;
 
     public static class DependencyConfig
     {
@@ -91,6 +96,7 @@
                 () => new SportTypeGroupServiceImpl(
                     container.GetInstance<SportTypeGroupDataAccess>(),
                     container.GetInstance<CacheRefService>().GetSportName));
+            container.RegisterPerWebRequest<SummaryService, SummaryServiceImpl>();
         }
     }
 }

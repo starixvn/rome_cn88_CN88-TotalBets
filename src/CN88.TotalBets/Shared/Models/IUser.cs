@@ -1,4 +1,4 @@
-﻿namespace CN88.TotalBets.Models
+﻿namespace CN88.TotalBets.Shared.Models
 {
     public interface IUser
     {

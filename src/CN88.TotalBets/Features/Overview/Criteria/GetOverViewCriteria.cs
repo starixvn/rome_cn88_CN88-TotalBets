@@ -1,9 +1,9 @@
-﻿using CN88.TotalBets.Models;
-using Fanex.Data;
-using Fanex.Data.Repository;
-
-namespace CN88.TotalBets.Criteria
+﻿namespace CN88.TotalBets.Criteria
 {
+    using Fanex.Data;
+    using Fanex.Data.Repository;
+    using Shared.Models;
+
     public class GetOverViewCriteria : CriteriaBase
     {
         public GetOverViewCriteria(int custId, int possType, byte roleId)

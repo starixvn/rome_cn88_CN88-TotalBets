@@ -1,7 +1,7 @@
-﻿namespace CN88.TotalBets.Site.Models
+﻿namespace CN88.TotalBets.Site.Shared.Models
 {
     using Sunplus.Agent.Model.Entities;
-    using TotalBets.Models;
+    using TotalBets.Shared.Models;
 
     public class User : IUser
     {

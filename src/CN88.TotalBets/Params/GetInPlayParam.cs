@@ -1,6 +1,7 @@
 ﻿namespace CN88.TotalBets.Params
 {
-    using Models;
+    using Features.Outright.Params;
+    using Shared.Models;
 
     public class GetInPlayParam : GetOutrightParam
     {

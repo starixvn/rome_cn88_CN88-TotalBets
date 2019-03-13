@@ -1,10 +1,10 @@
-﻿namespace CN88.TotalBets.Site.ViewModels.Outright
+﻿namespace CN88.TotalBets.Site.Features.Outright.ViewModels
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
-    using Filters;
-    using Requests.Outright;
-    using TotalBets.Models.Outright;
+    using Outright;
+    using Shared.ViewModels.Filters;
+    using TotalBets.Features.Outright.Models;
 
     public class OutrightViewModel
     {

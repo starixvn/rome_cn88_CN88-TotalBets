@@ -423,7 +423,6 @@
     <Compile Include="Features\Overview\OverViewQuery.cs" />
     <Compile Include="Shared\ViewModels\Filters\FilterBaseViewModel.cs" />
     <Compile Include="Shared\ViewModels\Filters\SingleSelectionViewModel.cs" />
-    <Compile Include="Shared\ViewModels\Filters\SportTypeGroupMenuViewModel.cs" />
     <Compile Include="Features\Outright\ViewModels\OutrightViewModel.cs" />
     <Compile Include="Features\Overview\ViewModels\OverViewByOutrightViewModel.cs" />
     <Compile Include="ViewModels\InPlay\InPlayViewModel.cs" />

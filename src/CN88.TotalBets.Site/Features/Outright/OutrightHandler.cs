@@ -1,12 +1,13 @@
-﻿namespace CN88.TotalBets.Site.Handlers
+﻿namespace CN88.TotalBets.Site.Features.Outright
 {
     using System.Threading.Tasks;
-    using Constants;
     using MediatR;
-    using Params;
-    using Requests.Outright;
-    using Services;
-    using ViewModels.Outright;
+    using Shared.Handlers;
+    using TotalBets.Features.Leagues;
+    using TotalBets.Features.Outright;
+    using TotalBets.Features.Outright.Params;
+    using TotalBets.Shared.Constants;
+    using ViewModels;
 
     public class OutrightHandler : BaseHandler, IAsyncRequestHandler<OutrightQuery, OutrightViewModel>
     {

@@ -1,7 +1,7 @@
-﻿using CN88.TotalBets.Models;
-
-namespace CN88.TotalBets.Site.Requests
+﻿namespace CN88.TotalBets.Site.Shared.Requests
 {
+    using TotalBets.Shared.Models;
+
     public class BaseQuery
     {
         private readonly IUser viewer;

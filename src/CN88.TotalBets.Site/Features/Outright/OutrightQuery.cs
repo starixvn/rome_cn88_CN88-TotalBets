@@ -1,8 +1,9 @@
-﻿namespace CN88.TotalBets.Site.Requests.Outright
+﻿namespace CN88.TotalBets.Site.Features.Outright
 {
     using MediatR;
-    using TotalBets.Models;
-    using ViewModels.Outright;
+    using Shared.Requests;
+    using TotalBets.Shared.Models;
+    using ViewModels;
 
     public class OutrightQuery : BaseQuery, IRequest<OutrightViewModel>
     {

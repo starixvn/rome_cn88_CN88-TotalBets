@@ -5,6 +5,7 @@
     using System.Web.SessionState;
     using MediatR;
     using Requests.InPlay;
+    using Shared.Controllers;
 
     [SessionState(SessionStateBehavior.ReadOnly)]
     public class InPlayController : SiteBaseController

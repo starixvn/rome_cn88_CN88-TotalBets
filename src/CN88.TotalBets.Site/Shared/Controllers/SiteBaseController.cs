@@ -1,4 +1,4 @@
-﻿namespace CN88.TotalBets.Site.Controllers
+﻿namespace CN88.TotalBets.Site.Shared.Controllers
 {
     using System.Diagnostics.CodeAnalysis;
     using System.Threading.Tasks;

@@ -1,10 +1,10 @@
-﻿namespace CN88.TotalBets.Models.OverView
+﻿namespace CN88.TotalBets.Features.Overview.Models
 {
     public class OverViewBySportTypeModel
     {
         public OverViewBySportTypeModel()
         {
-        }        
+        }
 
         public int SportTypeGroup { get; }
 

@@ -1,10 +1,10 @@
-﻿namespace CN88.TotalBets.Site.Controllers
+﻿namespace CN88.TotalBets.Site.Features.Outright
 {
     using System.Threading.Tasks;
     using System.Web.Mvc;
     using System.Web.SessionState;
     using MediatR;
-    using Requests.Outright;
+    using Shared.Controllers;
 
     [SessionState(SessionStateBehavior.ReadOnly)]
     public class OutrightController : SiteBaseController

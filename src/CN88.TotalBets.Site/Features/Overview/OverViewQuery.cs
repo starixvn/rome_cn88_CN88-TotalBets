@@ -1,10 +1,11 @@
-﻿using System;
-using CN88.TotalBets.Models;
-using CN88.TotalBets.Site.ViewModels;
-using MediatR;
-
-namespace CN88.TotalBets.Site.Requests.OverView
+﻿namespace CN88.TotalBets.Site.Features.Overview
 {
+    using System;
+    using MediatR;
+    using Shared.Requests;
+    using TotalBets.Shared.Models;
+    using ViewModels;
+
     public class OverViewQuery : BaseQuery, IRequest<HomeViewModel>
     {
         public OverViewQuery(IUser viewer) : base(viewer)

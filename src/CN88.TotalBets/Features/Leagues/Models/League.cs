@@ -1,4 +1,4 @@
-﻿namespace CN88.TotalBets.Models
+﻿namespace CN88.TotalBets.Features.Leagues.Models
 {
     public class League
     {

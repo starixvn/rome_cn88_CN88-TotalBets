@@ -1,4 +1,4 @@
-﻿namespace CN88.TotalBets.Constants
+﻿namespace CN88.TotalBets.Shared.Constants
 {
     public static class TotalBetTypeConstants
     {

@@ -1,7 +1,7 @@
-﻿using CN88.TotalBets.Models.OverView;
-
-namespace CN88.TotalBets.Site.ViewModels
+﻿namespace CN88.TotalBets.Site.Features.Overview.ViewModels
 {
+    using TotalBets.Features.Overview.Models;
+
     public abstract class OverViewByBaseViewModel
     {
         public OverViewByBaseViewModel()
@@ -14,9 +14,9 @@ namespace CN88.TotalBets.Site.ViewModels
             Badminton = new OverViewItemModel();
             Baseball = new OverViewItemModel();
             Snooker = new OverViewItemModel();
-            OtherSports = new OverViewItemModel();            
+            OtherSports = new OverViewItemModel();
         }
-        
+
         public abstract string Text { get; }
 
         public OverViewItemModel Soccer { get; protected set; }
@@ -37,7 +37,7 @@ namespace CN88.TotalBets.Site.ViewModels
 
         public OverViewItemModel OtherSports { get; protected set; }
 
-        public OverViewItemModel Total 
+        public OverViewItemModel Total
             => Soccer + Basketball + Tennis + Volleyball + TableTennis + Badminton + Baseball + Snooker + OtherSports;
     }
 }

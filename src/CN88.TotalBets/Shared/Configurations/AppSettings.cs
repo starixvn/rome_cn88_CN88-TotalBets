@@ -1,4 +1,4 @@
-﻿namespace CN88.TotalBets.Configurations
+﻿namespace CN88.TotalBets.Shared.Configurations
 {
     using System;
     using System.Collections.Specialized;
