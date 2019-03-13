@@ -22,6 +22,7 @@
     using Sunplus.Agent.Model.Entities;
     using Web.Filters;
     using CN88CheckBelongingFilter = Web.Filters.CheckBelongingFilter;
+
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
