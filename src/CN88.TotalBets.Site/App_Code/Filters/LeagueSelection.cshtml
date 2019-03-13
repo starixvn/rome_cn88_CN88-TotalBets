@@ -2,7 +2,7 @@
 @using CN88.TotalBets.Site.ViewModels.Filters
 @helper Render(SingleSelectionViewModel model)
 {
-    <div class="form-group">
+    <div class="form-group dropdown-league">
         <label>@Resources.League</label>
         <select id="dropdown-league">
             @foreach (var item in model.Items)

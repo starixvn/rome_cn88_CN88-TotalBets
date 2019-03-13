@@ -2,7 +2,7 @@
 @using CN88.TotalBets.Site.ViewModels.Filters
 @helper Render(StakeConditionFilterViewModel model)
 {
-    <div class="form-group">
+    <div class="form-group dropdown-stake-condition">
         <label>@Resources.Stake</label>
         <select id="dropdown-stake-condition">
             @foreach (var item in model.Conditions)

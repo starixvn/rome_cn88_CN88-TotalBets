@@ -2,7 +2,7 @@
 @using CN88.TotalBets.Constants
 @helper Render(int userSelectedId)
 {
-    <div class="form-group">
+    <div class="form-group dropdown-poss-type">
         <label>@Resources.View</label>
         <select id="dropdown-poss-type">
             <option value="@PossTypeConstants.Full_Percentage" @(PossTypeConstants.Full_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>@Resources.Full_Percentage</option>
