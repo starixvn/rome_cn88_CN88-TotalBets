@@ -39,7 +39,7 @@
 
                 if (index % 2 == 1)
                 {
-                    @:<td>&nbsp;</td></tr>
+                    @:@RenderOutright(league.LeagueId)</tr>
                 }
             }
         </tbody>
@@ -65,4 +65,8 @@
             <a href="javascript:;" class="stake">@HtmlHelpers.FormatNumber(outright.Stake)</a>
         </span>
     </td>
+}
+@helper RenderOutright(int leagueId)
+{
+    <td class="team" data-leagueid="@leagueId">&nbsp;</td>
 }
