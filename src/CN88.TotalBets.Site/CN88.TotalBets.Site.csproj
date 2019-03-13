@@ -317,11 +317,15 @@
     <Content Include="App_Data\SPNames\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\DBONUSER.ON_USER.BODBDownlineNet.xml" />
+    <Content Include="assets\bundles\outright\outright.css" />
     <Content Include="assets\bundles\outright.css" />
     <Content Include="assets\bundles\outright.min.css">
       <DependentUpon>outright.css</DependentUpon>
     </Content>
     <Content Include="assets\bundles\outright\outright.js" />
+    <Content Include="assets\bundles\outright\outright.min.css">
+      <DependentUpon>outright.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\outright\outright.min.js">
       <DependentUpon>outright.js</DependentUpon>
     </Content>
@@ -426,6 +430,7 @@
     <Content Include="App_Code\Filters\PossTypeSelection.cshtml" />
     <Content Include="App_Code\Filters\LeagueSelection.cshtml" />
     <Content Include="App_Code\HtmlHelpers.cshtml" />
+    <Content Include="assets\styles\outright.scss" />
     <Content Include="App_Code\Filters\SportTypeGroupMenu.cshtml" />
      <Content Include="assets\styles\outright.scss" />
     <None Include="compilerconfig.json.defaults">
@@ -506,7 +511,7 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="assets\scripts\outright\outright.ts" />
+    <TypeScriptCompile Include="assets\scripts\outright.ts" />
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine-jquery\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine\index.d.ts" />
