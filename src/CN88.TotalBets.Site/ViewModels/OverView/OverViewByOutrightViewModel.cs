@@ -17,8 +17,6 @@ namespace CN88.TotalBets.Site.ViewModels
             Baseball = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 5).OutrightWager, model.FirstOrDefault(i => i.SportTypeGroup == 5).OutrightStake);
             Snooker = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 8).OutrightWager, model.FirstOrDefault(i => i.SportTypeGroup == 8).OutrightStake);
             OtherSports = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 99).OutrightWager, model.FirstOrDefault(i => i.SportTypeGroup == 99).OutrightStake);
-
-            Total = Soccer + Basketball + Tennis + Volleyball + TableTennis + Badminton + Baseball + Snooker + OtherSports;
         }
 
         public override string Text => "Outright";        

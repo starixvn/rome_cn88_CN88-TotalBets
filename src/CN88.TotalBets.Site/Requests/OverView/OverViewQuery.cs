@@ -11,7 +11,7 @@ namespace CN88.TotalBets.Site.Requests.OverView
         {
         }
 
-        public int viewModeSelectedId { get; set; }
+        public int PossType { get; set; }
 
         public Func<int, string> GetSportDisplayName { get; set; }
     }

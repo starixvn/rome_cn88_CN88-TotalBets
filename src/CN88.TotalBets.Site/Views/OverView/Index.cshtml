@@ -9,7 +9,7 @@
 <div class="page-overview">
     <div class="page-title">@Resources.OverView</div>
     <form class="form-inline filter" role="form" id="overview-form">
-        @PossTypeSelection.Render(Model.UserSelectedViewMode)
+        @PossTypeSelection.Render(Model.PossType)
     </form>
     <table class="tbl-style2 tbl-totalbets">
         <tbody>
@@ -29,9 +29,9 @@
             <tr>
                 <th></th>
                 <th class="text-center">@Resources.AllSports</th>
-                @for (var i = 0; i < Model.HeadTable.HeaderName.Count; i++)
-		        {
-                    <th class="text-center"><span data-toggle="tooltip" data-placement="top" title="@Model.HeadTable.ToolTip[i]">@Model.HeadTable.HeaderName[i]</span></th>
+                @for (var i = 0; i < Model.HeaderTable.HeaderName.Count; i++)
+                {
+                    <th class="text-center"><span data-toggle="tooltip" data-placement="top" title="@Model.HeaderTable.ToolTip[i]">@Model.HeaderTable.HeaderName[i]</span></th>
                 }
 
             </tr>

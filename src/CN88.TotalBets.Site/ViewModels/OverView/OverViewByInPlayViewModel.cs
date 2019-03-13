@@ -17,8 +17,6 @@ namespace CN88.TotalBets.Site.ViewModels
             Baseball = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 5).InplayWager, model.FirstOrDefault(i => i.SportTypeGroup == 5).InplayStake);
             Snooker = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 8).InplayWager, model.FirstOrDefault(i => i.SportTypeGroup == 8).InplayStake);
             OtherSports = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 99).InplayWager, model.FirstOrDefault(i => i.SportTypeGroup == 99).InplayStake);
-
-            Total = Soccer + Basketball + Tennis + Volleyball + TableTennis + Badminton + Baseball + Snooker + OtherSports;
         }
 
         public override string Text => "In-Play";

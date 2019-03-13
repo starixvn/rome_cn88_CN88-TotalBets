@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
-using System.Web.Mvc;
+using System.Linq;
 using CN88.TotalBets.Models;
 using CN88.TotalBets.Models.OverView;
 using CN88.TotalBets.Site.Requests.OverView;
-using CN88.TotalBets.Site.ViewModels.Filters;
 using CN88.TotalBets.Site.ViewModels.OverView;
 
 namespace CN88.TotalBets.Site.ViewModels
@@ -27,9 +25,9 @@ namespace CN88.TotalBets.Site.ViewModels
                 new OverViewByOutrightViewModel(overViewModel.BySportTypeModels)
             };
 
-            Total = overViewModel.TotalOverView;
+            Total = overViewModel.Total;
             ByParlay = new OverViewByParlayViewModel(overViewModel.ParlayModel);
-            HeadTable = new OverViewTitleViewModel(
+            HeaderTable = new OverViewTitleViewModel(
                 overViewModel.BySportTypeModels.Select(i => i.SportTypeGroup),
                 allSportTypeGroup,
                 getSportDisplayName);
@@ -43,9 +41,9 @@ namespace CN88.TotalBets.Site.ViewModels
 
         public OverViewByParlayViewModel ByParlay { get; }
 
-        public int UserSelectedViewMode => message.viewModeSelectedId;
+        public int PossType => message.PossType;
 
-        public OverViewTitleViewModel HeadTable { get; }
+        public OverViewTitleViewModel HeaderTable { get; }
 
     }
 }

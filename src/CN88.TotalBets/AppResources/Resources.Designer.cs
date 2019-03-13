@@ -286,7 +286,7 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Total Wager.
+        ///   Looks up a localized string similar to Total Wagers.
         /// </summary>
         public static string TotalWarger {
             get {

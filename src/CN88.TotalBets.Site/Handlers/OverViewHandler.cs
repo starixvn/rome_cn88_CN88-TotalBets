@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Web.Mvc;
+﻿using System.Threading.Tasks;
 using CN88.TotalBets.Services;
 using CN88.TotalBets.Site.Requests.OverView;
 using CN88.TotalBets.Site.ViewModels;
@@ -24,7 +21,7 @@ namespace CN88.TotalBets.Site.Handlers
 
         public async Task<HomeViewModel> Handle(OverViewQuery message)
         {
-            var overView = await overViewService.Get(message.ViewerId, message.viewModeSelectedId, message.ViewerLevelId);
+            var overView = await overViewService.Get(message.ViewerId, message.PossType, message.ViewerLevelId);
             var allSportTypeGroup = await sportTypeGroupService.GetSportGroups();
 
             return new HomeViewModel(message, overView, allSportTypeGroup, message.GetSportDisplayName);

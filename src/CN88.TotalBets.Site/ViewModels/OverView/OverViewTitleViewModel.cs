@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using CN88.TotalBets.Constants;
 using CN88.TotalBets.Models;
 
 namespace CN88.TotalBets.Site.ViewModels.OverView
@@ -16,15 +16,15 @@ namespace CN88.TotalBets.Site.ViewModels.OverView
             ToolTip = allSportTypeGroup.Where(i => sportTypeGroups.Contains(i.Id)).Select(i => i.DisplayName).ToList();
             HeaderName = new List<string>
             {
-                getSportDisplayName(1),
-                getSportDisplayName(2),
-                getSportDisplayName(5),
-                getSportDisplayName(6),
-                getSportDisplayName(18),
-                getSportDisplayName(9),
-                getSportDisplayName(8),
-                getSportDisplayName(7).Split('/')[0],
-                getSportDisplayName(99)
+                getSportDisplayName(SportTypeConstants.Soccer),
+                getSportDisplayName(SportTypeConstants.Basketball),
+                getSportDisplayName(SportTypeConstants.Tennis),
+                getSportDisplayName(SportTypeConstants.Volleyball),
+                getSportDisplayName(SportTypeConstants.TableTennis),
+                getSportDisplayName(SportTypeConstants.Badminton),
+                getSportDisplayName(SportTypeConstants.Baseball),
+                getSportDisplayName(SportTypeConstants.Snooker).Split('/')[0],
+                getSportDisplayName(SportTypeConstants.OtherSport)
             };
         }
 

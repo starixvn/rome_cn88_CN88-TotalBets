@@ -14,9 +14,7 @@ namespace CN88.TotalBets.Site.ViewModels
             Badminton = new OverViewItemModel();
             Baseball = new OverViewItemModel();
             Snooker = new OverViewItemModel();
-            OtherSports = new OverViewItemModel();
-
-            Total = new OverViewItemModel();
+            OtherSports = new OverViewItemModel();            
         }
         
         public abstract string Text { get; }
@@ -39,6 +37,7 @@ namespace CN88.TotalBets.Site.ViewModels
 
         public OverViewItemModel OtherSports { get; protected set; }
 
-        public OverViewItemModel Total { get; protected set; }
+        public OverViewItemModel Total 
+            => Soccer + Basketball + Tennis + Volleyball + TableTennis + Badminton + Baseball + Snooker + OtherSports;
     }
 }
