@@ -4,11 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section Styles {
-    @StaticResources.RenderStyles("~/assets/bundles/totalbets")
+    @StaticResources.RenderStyles("~/assets/bundles/overview")
 }
 <div class="page-overview">
     <div class="page-title">Overview</div>
-    <form class="form-inline filte" role="form" id="overview-form">
+    <form class="form-inline filter" role="form" id="overview-form">
         @PossTypeSelection.Render(Model.UserSelectedViewMode)
     </form>
     <table class="tbl-style2 tbl-totalbets">

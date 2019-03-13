@@ -6,5 +6,9 @@
   {
     "outputFile": "assets/styles/outright.css",
     "inputFile": "assets/styles/outright.scss"
+  },
+  {
+    "outputFile": "assets/styles/overview.css",
+    "inputFile": "assets/styles/overview.scss"
   }
 ]

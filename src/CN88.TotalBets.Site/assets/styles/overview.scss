@@ -1,0 +1,40 @@
+﻿.page-title, .filter {
+    display: inline-block;
+    vertical-align: middle;
+}
+.page-title {
+    width: unset;
+    margin: 0 20px 19px 0 ;
+}
+.filter {
+    padding-top: 0;
+}
+
+.page-overview {
+    padding: 15px;
+}
+
+.tbl-betdetail {
+    margin-bottom: 12px;
+    tbody td {
+        padding: 3px 8px;
+        span {
+            display: block;
+        }
+        &.even {
+            background-color: #ececec;
+        }
+        &:nth-child(2) {
+            background-color: #ecf4e2;
+        }
+        &:first-child {
+            min-width: 120px;
+            background-color: #6b6b6b;
+            color: #fff;
+        }
+        &:not(:first-child) {
+            width: 110px;
+            text-align: right;
+        }
+    }
+}

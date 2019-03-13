@@ -329,6 +329,14 @@
     <Content Include="assets\bundles\outright\outright.min.js">
       <DependentUpon>outright.js</DependentUpon>
     </Content>
+    <Content Include="assets\bundles\overview.css" />
+    <Content Include="assets\bundles\overview.min.css">
+      <DependentUpon>overview.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\overview\overview.css" />
+    <Content Include="assets\bundles\overview\overview.min.css">
+      <DependentUpon>overview.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\scripts\overview.js" />
     <Content Include="assets\bundles\scripts\overview.min.js">
       <DependentUpon>overview.js</DependentUpon>
@@ -348,6 +356,12 @@
     </Content>
     <Content Include="assets\styles\outright.min.css">
       <DependentUpon>outright.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\overview.css">
+      <DependentUpon>overview.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\overview.min.css">
+      <DependentUpon>overview.css</DependentUpon>
     </Content>
     <Content Include="assets\styles\totalbets.css">
       <DependentUpon>totalbets.scss</DependentUpon>
@@ -433,6 +447,7 @@
     <Content Include="assets\styles\outright.scss" />
     <Content Include="App_Code\Filters\SportTypeGroupMenu.cshtml" />
     <Content Include="assets\styles\outright.scss" />
+     <Content Include="assets\styles\overview.scss" />
     <Content Include="App_Code\Filters\MarketSelection.cshtml" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
