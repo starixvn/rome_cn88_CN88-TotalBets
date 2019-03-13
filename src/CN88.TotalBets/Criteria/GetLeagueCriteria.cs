@@ -4,15 +4,15 @@
 
     public class GetLeagueCriteria : CriteriaBase
     {
-        public GetLeagueCriteria(int sportTypeGroup, string typeName)
+        public GetLeagueCriteria(int sportTypeGroup, int type)
         {
             SportTypeGroup = sportTypeGroup;
-            TypeName = typeName;
+            Type = type;
         }
 
         public int SportTypeGroup { get; }
 
-        public string TypeName { get; }
+        public int Type { get; }
 
         public override string GetSettingKey() => "CS_TotalBets_League_Sel";
 

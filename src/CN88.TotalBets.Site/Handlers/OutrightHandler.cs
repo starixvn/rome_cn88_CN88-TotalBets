@@ -1,6 +1,7 @@
 ﻿namespace CN88.TotalBets.Site.Handlers
 {
     using System.Threading.Tasks;
+    using Constants;
     using MediatR;
     using Params;
     using Requests.Outright;
@@ -21,7 +22,7 @@
         public async Task<OutrightViewModel> Handle(OutrightQuery message)
         {
             var outrightLeagues = await outrightService.GetOutrightsAsync(ToGetOutrightParam(message));
-            var leagues = await leagueService.GetLeagues(message.SportTypeGroup, "Outright");
+            var leagues = await leagueService.GetLeagues(message.SportTypeGroup, TotalBetTypeConstants.Outright);
 
             return new OutrightViewModel(message, outrightLeagues, BuildLeagueSelectListItems(leagues, message.LeagueId));
         }

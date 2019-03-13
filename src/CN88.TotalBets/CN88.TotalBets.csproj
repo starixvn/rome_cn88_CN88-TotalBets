@@ -109,6 +109,7 @@
     <Compile Include="Configurations\AppSettings.cs" />
     <Compile Include="Constants\MarketConstants.cs" />
     <Compile Include="Constants\PossTypeConstants.cs" />
+    <Compile Include="Constants\TotalBetTypeConstants.cs" />
     <Compile Include="Criteria\GetLeagueCriteria.cs" />
     <Compile Include="Criteria\GetOutrightCriteria.cs" />
     <Compile Include="Constants\StakeConditionConstants.cs" />
