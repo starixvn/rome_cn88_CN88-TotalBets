@@ -22,9 +22,13 @@ class Outright {
         this.possTypeSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-poss-type", "PossType"));
         this.leagueSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-league", "LeagueId"));
 
-        this.$(".league").click(function (): void {
-            $(this).nextUntil('tr.header').slideToggle(1000);
+        let tableOutright: JQuery = this.$("#tableOutright");
+        tableOutright.find(".league").click(function (): void {
+            tableOutright
+                .find(`.team[data-leagueid="${$(this).data("leagueid")}"]`)
+                .toggleClass("hide");
         });
+        tableOutright.find(".stake").click(function (): void { });
     }
 }
 

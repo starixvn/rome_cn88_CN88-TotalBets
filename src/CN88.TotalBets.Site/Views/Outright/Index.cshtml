@@ -18,19 +18,11 @@
         @PossTypeSelection.Render(Model.PossType)
         @LeagueSelection.Render(Model.LeagueSelectionViewModel)
     </form>
-    <table class="tbl-totalbet tbl-outright">
+    <table class="tbl-totalbet tbl-outright" id="tableOutright">
         <tbody>
             @foreach (var league in Model.Outrights)
             {
-                <tr class="league">
-                    <td colspan="2">
-                        <span class="league-name-wrapper">
-                            <span class="icon-chevron-down"></span>
-                            <span class="league-name">@league.LeagueName</span>
-                        </span>
-                        <span class="index text-right">@league.TotalWager | @HtmlHelpers.FormatNumber(league.TotalStake)</span>
-                    </td>
-                </tr>
+                @RenderLeague(league)
                 var index = 0;
                 foreach (var outright in league.Outrights)
                 {
@@ -53,12 +45,24 @@
         </tbody>
     </table>
 </div>
+@helper RenderLeague(OutrightLeague league)
+{
+    <tr class="league" data-leagueid="@league.LeagueId">
+        <td colspan="2">
+            <span class="league-name-wrapper">
+                <span class="icon-chevron-down"></span>
+                <span class="league-name">@league.LeagueName</span>
+            </span>
+            <span class="index text-right">@league.TotalWager | @HtmlHelpers.FormatNumber(league.TotalStake)</span>
+        </td>
+    </tr>
+}
 @helper RenderOutright(OutrightItem outright)
 {
-    <td class="team">
+    <td class="team" data-leagueid="@outright.LeagueId">
         <span class="team-name">@outright.TeamName</span>
         <span class="index text-right">@outright.Wager
-            <a class="stake">@HtmlHelpers.FormatNumber(outright.Stake)</a>
+            <a href="javascript:;" class="stake">@HtmlHelpers.FormatNumber(outright.Stake)</a>
         </span>
     </td>
 }
