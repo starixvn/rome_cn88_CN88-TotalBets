@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Web.Mvc;
     using AppResources;
+    using Constants;
     using TotalBets.Models;
 
     public class BaseHandler
@@ -21,5 +22,13 @@
 
             return items;
         }
+
+        protected internal IEnumerable<SelectListItem> BuildStakeConditionSelectListItems(int selectedCondition)
+            => StakeConditionConstants.Conditions.Select(condition => new SelectListItem
+            {
+                Text = condition.Value,
+                Value = condition.Key.ToString(),
+                Selected = condition.Key == selectedCondition
+            });
     }
 }

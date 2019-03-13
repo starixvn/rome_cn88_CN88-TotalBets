@@ -24,7 +24,11 @@
             var outrightLeagues = await outrightService.GetOutrightsAsync(ToGetOutrightParam(message));
             var leagues = await leagueService.GetLeagues(message.SportTypeGroup, TotalBetTypeConstants.Outright);
 
-            return new OutrightViewModel(message, outrightLeagues, BuildLeagueSelectListItems(leagues, message.LeagueId));
+            return new OutrightViewModel(
+                message,
+                outrightLeagues,
+                BuildStakeConditionSelectListItems(message.StakeCondition),
+                BuildLeagueSelectListItems(leagues, message.LeagueId));
         }
 
         private static GetOutrightParam ToGetOutrightParam(OutrightQuery message)
