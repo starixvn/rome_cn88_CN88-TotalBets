@@ -1,19 +1,5 @@
 ﻿@import "variables";
 
-.tbl-totalbets {
-    border: 1px solid #ccc;
-    margin-bottom: 12px;
-
-    tbody td {
-        padding: 10px 8px;
-
-        &:first-child {
-            background-color: #6b6b6b;
-            color: #fff;
-        }
-    }
-}
-
 .filter {
     .btn-submit {
         position: relative;
@@ -149,12 +135,6 @@
 
     > tbody > tr > td {
         border: 1px solid #d9d9d9;
-        /*&:nth-child(2n) {
-            border-left: none;
-        }
-        &:nth-child(2n+1) {
-            border-right: none;
-        }*/
     }
 }
 

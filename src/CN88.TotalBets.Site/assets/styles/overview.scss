@@ -14,6 +14,20 @@
     padding: 15px;
 }
 
+.tbl-total {
+    border: 1px solid #ccc;
+    margin-bottom: 12px;
+
+    tbody td {
+        padding: 10px 8px;
+
+        &:first-child {
+            background-color: #6b6b6b;
+            color: #fff;
+        }
+    }
+}
+
 .tbl-betdetail {
     margin-bottom: 12px;
     tbody td {
