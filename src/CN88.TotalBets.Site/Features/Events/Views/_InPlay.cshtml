@@ -1,16 +1,16 @@
-﻿@*@model MatchLeagueTotal
+﻿@model EventViewModel
 <table class="tbl-style2 tbl-totalbet" id="tableEvents">
     <thead>
         <tr>
-            <th>@Resources.Details</th>
+            <th class="col-100">@Resources.Details</th>
             <th>@Resources.Event</th>
-            <th>@Resources.Wagers [@HtmlHelpers.FormatNumber(matchLeagueTotal.TotalWager)]</th>
-            <th>@Resources.Stake [@HtmlHelpers.FormatNumber(matchLeagueTotal.TotalStake)]</th>
-            <th>&nbsp;</th>
+            <th class="col-100 text-right">@Resources.Wagers [@HtmlHelpers.FormatNumber(Model.EventModel.TotalWager)]</th>
+            <th class="col-180 text-right">@Resources.Stake [@HtmlHelpers.FormatNumber(Model.EventModel.TotalStake)]</th>
+            <th class="col-80">&nbsp;</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var league in matchLeagueTotal.MatchLeagues)
+        @foreach (var league in Model.EventModel.MatchLeagues)
         {
             <tr class="league" data-leagueid="@league.LeagueId">
                 <td colspan="5">
@@ -23,14 +23,27 @@
             foreach (var match in league.Matches)
             {
                 <tr class="childrow-@league.LeagueId">
-                    <td>@match.LiveHomeScore - @match.LiveAwayScore<br /><font style="color:red;font-weight:bold;text-transform:uppercase">@Resources.Live</font></td>
+                    <td>
+                        @match.LiveHomeScore - @match.LiveAwayScore<br />
+                        <span class="live">@Resources.Live</span>
+                    </td>
                     <td>@match.Event</td>
                     <td class="text-right">@HtmlHelpers.FormatNumber(match.Wager)</td>
-                    <td class="text-right"><a href="javascript:;" class="stake link">@HtmlHelpers.FormatNumber(match.Stake)</a></td>
-                    <td class="text-right">@HtmlHelpers.FormatNumber(match.BetTypeCount)</td>
+                    <td class="text-right">
+                        @Html.ActionLink(
+                            HtmlHelpers.FormatNumber(match.Stake).ToHtmlString(),
+                            "Index",
+                            "WagerAccount",
+                            new { custId = Model.ViewerId, custLevelId = Model.ViewerLevelId, matchId = match.MatchId, Stake = Model.FilterViewModel.Stake, StakeCondition = Model.FilterViewModel.StakeCondition },
+                            new { @class = "stake link" })
+                    </td>
+                    <td class="text-right">
+                        <span class="bettypecount">@HtmlHelpers.FormatNumber(match.BetTypeCount)
+                            <span class="icon-chevron-right"></span>
+                        </span>
+                    </td>
                 </tr>
             }
         }
     </tbody>
-</table>*@
-
+</table>

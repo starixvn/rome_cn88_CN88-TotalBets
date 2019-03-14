@@ -8,6 +8,7 @@
 
         public Match(
             int leagueId,
+            int matchId,
             string showTime,
             int homeId,
             int awayId,
@@ -18,6 +19,7 @@
             int betTypeCount)
         {
             LeagueId = leagueId;
+            MatchId = matchId;
             ShowTime = showTime;
             HomeId = homeId;
             AwayId = awayId;
@@ -29,6 +31,8 @@
         }
 
         public int LeagueId { get; }
+
+        public int MatchId { get; }
 
         public string ShowTime { get; }
 

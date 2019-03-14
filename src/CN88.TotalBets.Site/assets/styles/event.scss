@@ -2,15 +2,23 @@
     .league, .bettype {
         cursor: pointer;
     }
+
     .bettype {
         background-color: #585555;
         color: #fff;
     }
+
     .league {
         background-color: #f4f1f1;
     }
 }
 
-#tableInPlay {
+#tableEvents {
     width: 1040px;
+
+    .live {
+        color: #ff0000;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
 }

@@ -51,8 +51,10 @@ class EventTotalBets {
             }
         });
 
-        tableEvents.find(".stake").click(function (): void {
-            alert("Comming soon baby!!!");
+        tableEvents.find(".stake").click(function (e: any): void {
+            e.preventDefault();
+            e.stopPropagation();
+            window.open(this.href, "_blank", "width=400, height=400");
         });
 
         this.$("#filter-form").submit(function (): void {
