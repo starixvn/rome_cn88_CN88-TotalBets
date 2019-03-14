@@ -11,7 +11,7 @@
     using TotalBets.Shared.Constants;
     using ViewModels;
 
-    public class EventHandler : BaseHandler, IAsyncRequestHandler<InPlayQuery, InPlayViewModel>
+    public class EventHandler : BaseHandler, IAsyncRequestHandler<EventQuery, EventViewModel>
     {
         private readonly EventService eventService;
         private readonly LeagueService leagueService;
@@ -27,23 +27,24 @@
             this.summaryService = summaryService;
         }
 
-        public async Task<InPlayViewModel> Handle(InPlayQuery message)
+        public async Task<EventViewModel> Handle(EventQuery message)
         {
-            var matchLeagues = await eventService.GetInPlayAsync(ToGetInPlayParam(message));
+            var eventModel = await eventService.GetEventsAsync(ToEventParam(message));
             var leagues = await leagueService.GetLeagues(message.SportTypeGroup, TotalBetTypeConstants.InPlay);
             var summaries = await summaryService.GetSummaries(message.ViewerId, message.ActorLevel, TotalBetTypeConstants.Outright);
 
-            return new InPlayViewModel(
+            return new EventViewModel(
                 message,
-                matchLeagues,
+                eventModel,
                 summaries,
                 BuildLeagueSelectListItems(leagues, message.LeagueId));
         }
 
-        private static InPlayParam ToGetInPlayParam(InPlayQuery message)
-            => new InPlayParam(
+        private static EventParam ToEventParam(EventQuery message)
+            => new EventParam(
                 message.ViewerId,
                 message.ActorLevel,
+                message.Type,
                 message.SportTypeGroup,
                 message.LeagueId,
                 message.StakeCondition,

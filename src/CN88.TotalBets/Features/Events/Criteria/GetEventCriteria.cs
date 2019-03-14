@@ -1,13 +1,12 @@
 ﻿namespace CN88.TotalBets.Features.Events.Criteria
 {
     using Params;
-    using Shared.Constants;
     using Shared.Criteria;
     using Shared.Models;
 
-    public class GetInPlayCriteria : FilterCriteriaBase
+    public class GetEventCriteria : FilterCriteriaBase
     {
-        public GetInPlayCriteria(InPlayParam param) : base(
+        public GetEventCriteria(EventParam param) : base(
             param.CustId,
             param.UserLevel,
             param.SportTypeGroup,
@@ -16,10 +15,11 @@
             param.Stake,
             param.PossType)
         {
+            Type = param.Type;
             IsLive = param.IsLive;
         }
 
-        public byte Type { get; } = TotalBetTypeConstants.InPlay;
+        public byte Type { get; }
 
         public byte IsLive { get; }
 

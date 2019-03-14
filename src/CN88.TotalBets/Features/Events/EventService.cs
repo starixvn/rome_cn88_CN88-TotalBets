@@ -1,6 +1,5 @@
 ﻿namespace CN88.TotalBets.Features.Events
 {
-    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using Criteria;
@@ -11,7 +10,7 @@
 
     public interface EventService
     {
-        Task<IEnumerable<MatchLeague>> GetInPlayAsync(InPlayParam param);
+        Task<MatchLeagueTotal> GetEventsAsync(EventParam param);
     }
 
     public class EventServiceImpl : EventService
@@ -27,23 +26,28 @@
             this.cacheRefService = cacheRefService;
         }
 
-        public async Task<IEnumerable<MatchLeague>> GetInPlayAsync(InPlayParam param)
+        public async Task<MatchLeagueTotal> GetEventsAsync(EventParam param)
         {
-            var matches = await dynamicRepository.FetchAsync<Match>(new GetInPlayCriteria(param));
+            var matches = await dynamicRepository.FetchAsync<Match>(new GetEventCriteria(param));
 
-            return matches.Any()
-                ? matches
-                    .GroupBy(item => item.LeagueId)
-                    .Select(group => GetMatchLeague(group))
-                    .ToList()
-                : Enumerable.Empty<MatchLeague>();
-        }
-
-        private MatchLeague GetMatchLeague(IGrouping<int, Match> groupLeague)
-        {
             int totalWager = 0;
             decimal totalStake = 0;
 
+            var matchLeagues = matches.Any()
+                ? matches
+                    .GroupBy(item => item.LeagueId)
+                    .Select(group => GetMatchLeague(group, ref totalWager, ref totalStake))
+                    .ToList()
+                : Enumerable.Empty<MatchLeague>();
+
+            return new MatchLeagueTotal(param.Type, matchLeagues, totalWager, totalStake);
+        }
+
+        private MatchLeague GetMatchLeague(
+            IGrouping<int, Match> groupLeague,
+            ref int totalWager,
+            ref decimal totalStake)
+        {
             foreach (var item in groupLeague)
             {
                 totalWager += item.Wager;
@@ -54,9 +58,7 @@
             return new MatchLeague(
                 groupLeague.Key,
                 cacheRefService.GetLeagueName(groupLeague.Key),
-                groupLeague,
-                totalWager,
-                totalStake);
+                groupLeague);
         }
 
         private string GetEvent(int homeId, int awayId)

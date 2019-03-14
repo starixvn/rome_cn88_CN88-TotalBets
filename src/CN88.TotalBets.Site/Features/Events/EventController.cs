@@ -17,16 +17,16 @@
         {
         }
 
-        public async Task<ActionResult> InPlay(InPlayQuery message)
+        public async Task<ActionResult> InPlay(EventQuery message)
             => await ViewAsync(message, string.Format(ViewPath, nameof(InPlay)));
 
-        public async Task<ActionResult> Today(InPlayQuery message)
+        public async Task<ActionResult> Today(EventQuery message)
             => await ViewAsync(message, string.Format(ViewPath, nameof(Today)));
 
-        public async Task<ActionResult> Early(InPlayQuery message)
+        public async Task<ActionResult> Early(EventQuery message)
             => await ViewAsync(message, string.Format(ViewPath, nameof(Early)));
 
-        public async Task<ActionResult> Started(InPlayQuery message)
+        public async Task<ActionResult> Started(EventQuery message)
             => await ViewAsync(message, string.Format(ViewPath, nameof(Started)));
     }
 }

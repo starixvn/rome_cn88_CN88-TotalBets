@@ -7,15 +7,11 @@
         public MatchLeague(
             int leagueId,
             string leagueName,
-            IEnumerable<Match> matches,
-            int totalWager,
-            decimal totalStake)
+            IEnumerable<Match> matches)
         {
             LeagueId = leagueId;
             LeagueName = leagueName;
             Matches = matches;
-            TotalWager = totalWager;
-            TotalStake = totalStake;
         }
 
         public int LeagueId { get; }
@@ -23,9 +19,5 @@
         public string LeagueName { get; }
 
         public IEnumerable<Match> Matches { get; }
-
-        public int TotalWager { get; }
-
-        public decimal TotalStake { get; }
     }
 }

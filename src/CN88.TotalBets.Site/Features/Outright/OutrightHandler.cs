@@ -28,7 +28,7 @@
 
         public async Task<OutrightViewModel> Handle(OutrightQuery message)
         {
-            var outrightLeagues = await outrightService.GetOutrightsAsync(ToGetOutrightParam(message));
+            var outrightLeagues = await outrightService.GetOutrightsAsync(ToOutrightParam(message));
             var leagues = await leagueService.GetLeagues(message.SportTypeGroup, TotalBetTypeConstants.Outright);
             var summaries = await summaryService.GetSummaries(message.ViewerId, message.ActorLevel, TotalBetTypeConstants.Outright);
 
@@ -40,7 +40,7 @@
                 BuildLeagueSelectListItems(leagues, message.LeagueId));
         }
 
-        private static OutrightParam ToGetOutrightParam(OutrightQuery message)
+        private static OutrightParam ToOutrightParam(OutrightQuery message)
             => new OutrightParam(
                 message.ViewerId,
                 message.ActorLevel,

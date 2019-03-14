@@ -418,9 +418,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Features\Events\EventController.cs" />
     <Compile Include="Features\Events\EventHandler.cs" />
-    <Compile Include="Features\Events\Request\InPlayQuery.cs" />
+    <Compile Include="Features\Events\Request\EventQuery.cs" />
+    <Compile Include="Features\Events\ViewModels\EventViewModel.cs" />
     <Compile Include="Features\Events\ViewModels\EventFilterViewModel.cs" />
-    <Compile Include="Features\Events\ViewModels\InPlayViewModel.cs" />
     <Compile Include="Features\Outright\OutrightController.cs" />
     <Compile Include="Features\Overview\OverViewController.cs" />
     <Compile Include="Shared\Controllers\SiteBaseController.cs" />

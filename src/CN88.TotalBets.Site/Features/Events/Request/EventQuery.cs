@@ -5,12 +5,14 @@
     using TotalBets.Shared.Models;
     using ViewModels;
 
-    public class InPlayQuery : FilterQuery, IRequest<InPlayViewModel>
+    public class EventQuery : FilterQuery, IRequest<EventViewModel>
     {
-        public InPlayQuery(IUser viewer)
+        public EventQuery(IUser viewer)
             : base(viewer)
         {
         }
+
+        public byte Type { get; set; }
 
         public byte IsLive { get; set; }
     }

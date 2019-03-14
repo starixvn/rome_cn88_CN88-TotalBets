@@ -7,24 +7,24 @@
     using TotalBets.Features.Events.Models;
     using TotalBets.Features.Summay.Models;
 
-    public class InPlayViewModel
+    public class EventViewModel
     {
-        private readonly InPlayQuery query;
+        private readonly EventQuery query;
 
-        public InPlayViewModel(
-            InPlayQuery query,
-            IEnumerable<MatchLeague> matchLeagues,
+        public EventViewModel(
+            EventQuery query,
+            MatchLeagueTotal eventModel,
             IEnumerable<Summary> summaries,
             IEnumerable<SelectListItem> leagues)
         {
             this.query = query;
-            MatchLeagues = matchLeagues;
+            EventModel = eventModel;
 
             SummaryMenuViewModel = new SummaryMenuViewModel(summaries, query.SportTypeGroup);
             LeagueSelectionViewModel = new SingleSelectionViewModel(leagues, query.LeagueId);
         }
 
-        public IEnumerable<MatchLeague> MatchLeagues { get; }
+        public MatchLeagueTotal EventModel { get; }
 
         public SummaryMenuViewModel SummaryMenuViewModel { get; }
 

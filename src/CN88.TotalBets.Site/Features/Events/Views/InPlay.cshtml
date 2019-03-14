@@ -47,8 +47,8 @@
                     </tr>
                     foreach (var match in league.Matches)
                     {
-                        <tr>
-                            <td>@match.LiveHomeScore - @match.LiveAwayScore <font style="color:red;text-transform:uppercase">@Resources.Live</font></td>
+                        <tr class="childrow-@league.LeagueId">
+                            <td>@match.LiveHomeScore - @match.LiveAwayScore<br/><font style="color:red;font-weight:bold;text-transform:uppercase">@Resources.Live</font></td>
                             <td>@match.Event</td>
                             <td>@HtmlHelpers.FormatNumber(match.Wager)</td>
                             <td>@HtmlHelpers.FormatNumber(match.Stake)</td>

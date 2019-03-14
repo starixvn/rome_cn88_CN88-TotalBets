@@ -3,11 +3,12 @@
     using Shared.Models;
     using Shared.Params;
 
-    public class InPlayParam : FilterParam
+    public class EventParam : FilterParam
     {
-        public InPlayParam(
+        public EventParam(
             int custId,
             UserLevel userLevel,
+            byte type,
             int sportTypeGroup,
             int leagueId,
             byte stakeCondition,
@@ -15,8 +16,11 @@
             byte possType,
             byte isLive) : base(custId, userLevel, sportTypeGroup, leagueId, stakeCondition, stake, possType)
         {
+            Type = type;
             IsLive = isLive;
         }
+
+        public byte Type { get; }
 
         public byte IsLive { get; }
     }
