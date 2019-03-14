@@ -33,18 +33,19 @@
 .menu-container {
     width: 220px;
     position: absolute;
-    top: 12px;
+    top: 0;
     left: 0;
     bottom: 0;
-    border: 1px solid #d9d9d9;
+    border-right: 1px solid #d9d9d9;
+    transition: 0.3s ease;
 
     &.collapsed {
-        width: 40px;
-        background-color: #7E1414;
+        width: 36px;
+        background-color: #7a301c;
     }
 
     .head-menu {
-        background-color: #7E1414;
+        background-color: #7a301c;
         color: #fff;
         padding: 10px;
         text-transform: uppercase;
@@ -121,7 +122,11 @@
 
 .main-content {
     margin: 12px 0 0 220px;
-    padding: 0 20px;
+    padding: 0 12px;
+    transition: 0.3s ease;
+    &.expanded {
+        margin-left: 36px;
+    }
 }
 
 .tbl-totalbet {

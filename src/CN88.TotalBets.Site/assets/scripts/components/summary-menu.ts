@@ -4,6 +4,7 @@ class SummaryMenu {
     $iconMenu: JQuery;
     $summaryMenu: JQuery;
     $summaryMenuItems: JQuery;
+    $mainContent: JQuery;
 
     constructor($: JQueryStatic) {
         this.$ = $;
@@ -18,6 +19,7 @@ class SummaryMenu {
         this.$iconMenu = this.$("#icon-menu");
         this.$summaryMenu = this.$("#summary-menu");
         this.$summaryMenuItems = this.$("#summary-menu-items");
+        this.$mainContent = this.$("#main-content");
     }
 
     registerEvents(): void {
@@ -26,13 +28,16 @@ class SummaryMenu {
 
     collapseSummaryMenu(): void {
         let collapsedClass = 'collapsed';
+        let expandedClass = 'expanded';
         let isCollapsed = this.$summaryMenu.hasClass(collapsedClass);
         if (isCollapsed) {
             this.$summaryMenuItems.show();
             this.$summaryMenu.removeClass(collapsedClass);
+            this.$mainContent.removeClass(expandedClass);
         } else {
             this.$summaryMenuItems.hide();
-            this.$summaryMenu.addClass(collapsedClass)
+            this.$summaryMenu.addClass(collapsedClass);
+            this.$mainContent.addClass(expandedClass);
         }
     }
 }

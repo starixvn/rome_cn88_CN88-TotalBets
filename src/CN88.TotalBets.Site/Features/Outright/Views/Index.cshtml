@@ -10,7 +10,7 @@
 }
 @model OutrightViewModel
 @SummaryMenu.Render(Model.SummaryMenuViewModel)
-<div class="main-content">
+<div class="main-content" id="main-content">
     <div class="page-title"></div>
     @{ Html.RenderPartial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel); }
     <table class="tbl-style2 tbl-totalbet tbl-outright" id="tableOutright">
