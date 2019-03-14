@@ -1,0 +1,36 @@
+﻿@*@model MatchLeagueTotal
+<table class="tbl-style2 tbl-totalbet" id="tableEvents">
+    <thead>
+        <tr>
+            <th>@Resources.Details</th>
+            <th>@Resources.Event</th>
+            <th>@Resources.Wagers [@HtmlHelpers.FormatNumber(matchLeagueTotal.TotalWager)]</th>
+            <th>@Resources.Stake [@HtmlHelpers.FormatNumber(matchLeagueTotal.TotalStake)]</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var league in matchLeagueTotal.MatchLeagues)
+        {
+            <tr class="league" data-leagueid="@league.LeagueId">
+                <td colspan="5">
+                    <span class="league-name-wrapper">
+                        <span class="icon-chevron-down"></span>
+                        <span class="league-name">@league.LeagueName</span>
+                    </span>
+                </td>
+            </tr>
+            foreach (var match in league.Matches)
+            {
+                <tr class="childrow-@league.LeagueId">
+                    <td>@match.LiveHomeScore - @match.LiveAwayScore<br /><font style="color:red;font-weight:bold;text-transform:uppercase">@Resources.Live</font></td>
+                    <td>@match.Event</td>
+                    <td class="text-right">@HtmlHelpers.FormatNumber(match.Wager)</td>
+                    <td class="text-right"><a href="javascript:;" class="stake link">@HtmlHelpers.FormatNumber(match.Stake)</a></td>
+                    <td class="text-right">@HtmlHelpers.FormatNumber(match.BetTypeCount)</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>*@
+

@@ -326,10 +326,6 @@
     <Content Include="assets\bundles\events\event.min.js">
       <DependentUpon>event.js</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\event\event.css" />
-    <Content Include="assets\bundles\event\event.min.css">
-      <DependentUpon>event.css</DependentUpon>
-    </Content>
     <Content Include="assets\bundles\outright\outright.css" />
     <Content Include="assets\bundles\outright\outright.js" />
     <Content Include="assets\bundles\outright\outright.min.css">
@@ -518,6 +514,8 @@
     <Content Include="Features\Events\Views\web.config" />
     <Content Include="Features\Events\Views\Index.cshtml" />
     <Content Include="Features\Events\Views\Filter.cshtml" />
+    <Content Include="Features\Events\Views\_TableNoDataFound.cshtml" />
+    <Content Include="Features\Events\Views\_InPlay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\Outright\Views\" />

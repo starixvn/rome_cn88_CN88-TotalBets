@@ -19,10 +19,14 @@
         {
             TeamLeagues = teamLeagues;
             SubTitle = Resources.Outright;
+
+            WagerAccountLink = $"WagerAccount/Index?CustId={query.ViewerId}&CustLevelId={query.CustLevelId}&Stake={query.Stake}&StakeCondition={query.StakeCondition}&MatchId=";
         }
 
         public string SportGroupName { get; }
 
         public IEnumerable<TeamLeague> TeamLeagues { get; }
+
+        public string WagerAccountLink { get; }
     }
 }

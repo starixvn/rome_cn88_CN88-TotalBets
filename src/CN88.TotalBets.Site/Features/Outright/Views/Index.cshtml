@@ -67,7 +67,7 @@
     <td class="team">
         <span class="team-name">@team.TeamName</span>
         <span class="index text-right">@HtmlHelpers.FormatNumber(team.Wager)
-            <a href="javascript:;" class="stake link">@HtmlHelpers.FormatNumber(team.Stake)</a>
+            <a href="@($"{Url.Content("~")}{Model.WagerAccountLink}{team.MatchId}")" class="stake link" target="_blank">@HtmlHelpers.FormatNumber(team.Stake)</a>
         </span>
     </td>
 }

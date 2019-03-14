@@ -35,9 +35,9 @@ class EventTotalBets {
 
     private bindEvents(): void {
         let self: any = this;
-        let tableOutright: JQuery = this.$("#tableInPlay");
+        let tableEvents: JQuery = this.$("#tableEvents");
 
-        tableOutright.find(".league").click(function (): void {
+        tableEvents.find(".league").click(function (): void {
             let $this: JQuery = $(this);
             let icon: JQuery = $this.find(".league-name-wrapper").children().first();
             let children: any = $this.siblings(`.childrow-${$this.data("leagueid")}`);
@@ -51,7 +51,7 @@ class EventTotalBets {
             }
         });
 
-        tableOutright.find(".stake").click(function (): void {
+        tableEvents.find(".stake").click(function (): void {
             alert("Comming soon baby!!!");
         });
 
