@@ -504,12 +504,7 @@
     <Content Include="Features\Overview\Views\web.config" />
     <Content Include="Features\Outright\Views\web.config" />
     <Content Include="Shared\Views\web.config" />
-    <Content Include="Features\Events\Views\InPlay.cshtml" />
     <Content Include="Features\Events\Views\web.config" />
-    <Content Include="Features\Events\Views\Today.cshtml" />
-    <Content Include="Features\Events\Views\Early.cshtml" />
-    <Content Include="Features\Events\Views\Started.cshtml" />
-    <Content Include="Features\Events\Views\Filter.cshtml" />
     <Content Include="Features\Events\Views\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />

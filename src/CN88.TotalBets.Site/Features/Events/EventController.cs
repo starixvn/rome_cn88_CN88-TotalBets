@@ -9,7 +9,7 @@
     [SessionState(SessionStateBehavior.ReadOnly)]
     public class EventController : SiteBaseController
     {
-        private const string ViewPath = "~/Features/Events/Views/{0}.cshtml";
+        private const string ViewPath = "~/Features/Events/Views/Index.cshtml";
 
         public EventController(IMediator mediator)
             : base(mediator)
@@ -17,18 +17,6 @@
         }
 
         public async Task<ActionResult> Index(EventQuery message)
-            => await ViewAsync(message, string.Format(ViewPath, nameof(Index)));
-
-        public async Task<ActionResult> InPlay(EventQuery message)
-            => await ViewAsync(message, string.Format(ViewPath, nameof(InPlay)));
-
-        public async Task<ActionResult> Today(EventQuery message)
-            => await ViewAsync(message, string.Format(ViewPath, nameof(Today)));
-
-        public async Task<ActionResult> Early(EventQuery message)
-            => await ViewAsync(message, string.Format(ViewPath, nameof(Early)));
-
-        public async Task<ActionResult> Started(EventQuery message)
-            => await ViewAsync(message, string.Format(ViewPath, nameof(Started)));
+            => await ViewAsync(message, ViewPath);
     }
 }
