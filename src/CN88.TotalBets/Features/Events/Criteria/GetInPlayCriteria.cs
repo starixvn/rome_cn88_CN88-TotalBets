@@ -1,6 +1,7 @@
-﻿namespace CN88.TotalBets.Features.InPlay.Criteria
+﻿namespace CN88.TotalBets.Features.Events.Criteria
 {
     using Params;
+    using Shared.Constants;
     using Shared.Criteria;
     using Shared.Models;
 
@@ -15,11 +16,10 @@
             param.Stake,
             param.PossType)
         {
-            Type = param.Type;
             IsLive = param.IsLive;
         }
 
-        public byte Type { get; }
+        public byte Type { get; } = TotalBetTypeConstants.InPlay;
 
         public byte IsLive { get; }
 

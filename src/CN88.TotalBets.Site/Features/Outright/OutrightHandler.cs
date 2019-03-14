@@ -8,7 +8,6 @@
     using TotalBets.Features.Outright.Params;
     using TotalBets.Features.Summay;
     using TotalBets.Shared.Constants;
-    using ViewModels;
 
     public class OutrightHandler : BaseHandler, IAsyncRequestHandler<OutrightQuery, OutrightViewModel>
     {

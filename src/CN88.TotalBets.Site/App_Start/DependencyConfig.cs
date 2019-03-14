@@ -14,7 +14,7 @@
     using SimpleInjector.Integration.Web.Mvc;
     using Sunplus.Agent.Model.Base;
     using Sunplus.Agent.Model.Entities;
-    using TotalBets.Features.InPlay;
+    using TotalBets.Features.Events;
     using TotalBets.Features.Leagues;
     using TotalBets.Features.Outright;
     using TotalBets.Features.Overview;
@@ -90,7 +90,7 @@
                 Lifestyle.Singleton);
 
             container.RegisterSingleton<IOverViewService, OverViewService>();
-            container.RegisterSingleton<InPlayService, InPlayServiceImpl>();
+            container.RegisterSingleton<EventService, EventServiceImpl>();
             container.RegisterSingleton<OutrightService, OutrightServiceImpl>();
             container.RegisterSingleton<LeagueService, LeagueServiceImpl>();
             container.RegisterSingleton<SummaryService, SummaryServiceImpl>();

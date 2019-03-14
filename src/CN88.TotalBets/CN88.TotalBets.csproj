@@ -106,10 +106,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Features\InPlay\Criteria\GetInPlayCriteria.cs" />
-    <Compile Include="Features\InPlay\InPlayService.cs" />
-    <Compile Include="Features\InPlay\Models\InPlayItem.cs" />
-    <Compile Include="Features\InPlay\Params\InPlayParam.cs" />
+    <Compile Include="Features\Events\Criteria\GetInPlayCriteria.cs" />
+    <Compile Include="Features\Events\EventService.cs" />
+    <Compile Include="Features\Events\Models\Match.cs" />
+    <Compile Include="Features\Events\Models\MatchLeague.cs" />
+    <Compile Include="Features\Events\Params\InPlayParam.cs" />
     <Compile Include="Features\Summay\Criteria\GetSummaryCriteria.cs" />
     <Compile Include="Features\Summay\Models\Summary.cs" />
     <Compile Include="Features\Summay\SummaryService.cs" />

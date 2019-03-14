@@ -55,7 +55,7 @@
                 <span class="icon-chevron-down"></span>
                 <span class="league-name">@league.LeagueName</span>
             </span>
-            <span class="index text-right">@league.TotalWager | @HtmlHelpers.FormatNumber(league.TotalStake)</span>
+            <span class="index text-right">@HtmlHelpers.FormatNumber(league.TotalWager) | @HtmlHelpers.FormatNumber(league.TotalStake)</span>
         </td>
     </tr>
 }
@@ -63,7 +63,7 @@
 {
     <td class="team">
         <span class="team-name">@team.TeamName</span>
-        <span class="index text-right">@team.Wager
+        <span class="index text-right">@HtmlHelpers.FormatNumber(team.Wager)
             <a href="javascript:;" class="stake link">@HtmlHelpers.FormatNumber(team.Stake)</a>
         </span>
     </td>

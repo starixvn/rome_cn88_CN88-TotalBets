@@ -115,6 +115,24 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Details.
+        /// </summary>
+        public static string Details {
+            get {
+                return ResourceManager.GetString("Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Event.
+        /// </summary>
+        public static string Event {
+            get {
+                return ResourceManager.GetString("Event", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Full Percentage.
         /// </summary>
         public static string Full_Percentage {
@@ -138,6 +156,15 @@ namespace CN88.TotalBets.AppResources {
         public static string League {
             get {
                 return ResourceManager.GetString("League", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Live.
+        /// </summary>
+        public static string Live {
+            get {
+                return ResourceManager.GetString("Live", resourceCulture);
             }
         }
         
@@ -286,6 +313,15 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Time.
+        /// </summary>
+        public static string Time {
+            get {
+                return ResourceManager.GetString("Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total Stake.
         /// </summary>
         public static string TotalStake {
@@ -309,6 +345,15 @@ namespace CN88.TotalBets.AppResources {
         public static string View {
             get {
                 return ResourceManager.GetString("View", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wagers.
+        /// </summary>
+        public static string Wagers {
+            get {
+                return ResourceManager.GetString("Wagers", resourceCulture);
             }
         }
     }

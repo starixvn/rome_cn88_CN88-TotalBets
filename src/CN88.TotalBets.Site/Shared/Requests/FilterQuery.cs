@@ -1,17 +1,13 @@
-﻿namespace CN88.TotalBets.Site.Features.InPlay
+﻿namespace CN88.TotalBets.Site.Shared.Requests
 {
-    using MediatR;
-    using Shared.Requests;
     using TotalBets.Shared.Models;
 
-    public class InPlayQuery : BaseQuery, IRequest<InPlayViewModel>
+    public abstract class FilterQuery : BaseQuery
     {
-        public InPlayQuery(IUser viewer)
+        public FilterQuery(IUser viewer)
             : base(viewer)
         {
         }
-
-        public byte Type { get; set; }
 
         public int SportTypeGroup { get; set; }
 
@@ -22,7 +18,5 @@
         public decimal Stake { get; set; }
 
         public byte PossType { get; set; }
-
-        public byte IsLive { get; set; }
     }
 }

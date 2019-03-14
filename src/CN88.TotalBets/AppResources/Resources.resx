@@ -201,4 +201,19 @@
   <data name="Menu" xml:space="preserve">
     <value>Menu</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Event" xml:space="preserve">
+    <value>Event</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="Wagers" xml:space="preserve">
+    <value>Wagers</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>Live</value>
+  </data>
 </root>

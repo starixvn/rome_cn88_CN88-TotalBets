@@ -1,9 +1,11 @@
-﻿namespace CN88.TotalBets.Site.Features.InPlay
+﻿namespace CN88.TotalBets.Site.Features.Events.ViewModels
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
+    using Request;
     using Shared.ViewModels.Filters;
-    using TotalBets.Features.Outright.Models;
+    using TotalBets.Features.Events.Models;
+    using TotalBets.Features.Summay.Models;
 
     public class InPlayViewModel
     {
@@ -11,17 +13,22 @@
 
         public InPlayViewModel(
             InPlayQuery query,
-            IEnumerable<TeamLeague> outrights,
+            IEnumerable<MatchLeague> matchLeagues,
+            IEnumerable<Summary> summaries,
             IEnumerable<SelectListItem> leagues)
         {
             this.query = query;
-            Outrights = outrights;
+            MatchLeagues = matchLeagues;
+
+            SummaryMenuViewModel = new SummaryMenuViewModel(summaries, query.SportTypeGroup);
             LeagueSelectionViewModel = new SingleSelectionViewModel(leagues, query.LeagueId);
         }
 
         public int PossType => query.PossType;
 
-        public IEnumerable<TeamLeague> Outrights { get; }
+        public IEnumerable<MatchLeague> MatchLeagues { get; }
+
+        public SummaryMenuViewModel SummaryMenuViewModel { get; }
 
         public SingleSelectionViewModel LeagueSelectionViewModel { get; }
 

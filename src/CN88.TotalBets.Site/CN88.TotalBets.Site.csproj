@@ -402,10 +402,10 @@
     <Compile Include="App_Start\DependencyConfig.cs" />
     <Compile Include="App_Start\LoggingManager.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Features\InPlay\InPlayController.cs" />
-    <Compile Include="Features\InPlay\InPlayHandler.cs" />
-    <Compile Include="Features\InPlay\InPlayQuery.cs" />
-    <Compile Include="Features\InPlay\InPlayViewModel.cs" />
+    <Compile Include="Features\Events\InPlayController.cs" />
+    <Compile Include="Features\Events\EventHandler.cs" />
+    <Compile Include="Features\Events\Request\InPlayQuery.cs" />
+    <Compile Include="Features\Events\ViewModels\InPlayViewModel.cs" />
     <Compile Include="Features\Outright\OutrightController.cs" />
     <Compile Include="Features\Overview\OverViewController.cs" />
     <Compile Include="Shared\Controllers\SiteBaseController.cs" />
@@ -422,6 +422,7 @@
     <Compile Include="Shared\Requests\BaseQuery.cs" />
     <Compile Include="Features\Outright\OutrightQuery.cs" />
     <Compile Include="Features\Overview\OverViewQuery.cs" />
+    <Compile Include="Shared\Requests\FilterQuery.cs" />
     <Compile Include="Shared\ViewModels\Filters\FilterBaseViewModel.cs" />
     <Compile Include="Shared\ViewModels\Filters\SingleSelectionViewModel.cs" />
     <Compile Include="Features\Outright\OutrightViewModel.cs" />
@@ -488,8 +489,8 @@
     <Content Include="Features\Overview\Views\web.config" />
     <Content Include="Features\Outright\Views\web.config" />
     <Content Include="Shared\Views\web.config" />
-    <Content Include="Features\InPlay\Views\Index.cshtml" />
-    <Content Include="Features\InPlay\Views\web.config" />
+    <Content Include="Features\Events\Views\Index.cshtml" />
+    <Content Include="Features\Events\Views\web.config" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
