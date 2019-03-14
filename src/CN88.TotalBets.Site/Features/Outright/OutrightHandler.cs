@@ -1,5 +1,6 @@
 ﻿namespace CN88.TotalBets.Site.Features.Outright
 {
+    using System.Linq;
     using System.Threading.Tasks;
     using MediatR;
     using Shared.Handlers;
@@ -33,6 +34,7 @@
 
             return new OutrightViewModel(
                 message,
+                summaries.FirstOrDefault(x => x.SportTypeGroup == message.SportTypeGroup).SportTypeGroupName,
                 outrightLeagues,
                 summaries,
                 BuildLeagueSelectListItems(leagues, message.LeagueId));

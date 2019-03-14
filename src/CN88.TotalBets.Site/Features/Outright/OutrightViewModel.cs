@@ -12,16 +12,20 @@
 
         public OutrightViewModel(
             OutrightQuery query,
+            string sportGroupName,
             IEnumerable<TeamLeague> teamLeagues,
             IEnumerable<Summary> summaries,
             IEnumerable<SelectListItem> leagues)
         {
             this.query = query;
+            SportGroupName = sportGroupName;
             TeamLeagues = teamLeagues;
 
             SummaryMenuViewModel = new SummaryMenuViewModel(summaries, query.SportTypeGroup);
             LeagueSelectionViewModel = new SingleSelectionViewModel(leagues, query.LeagueId);
         }
+
+        public string SportGroupName { get; }
 
         public IEnumerable<TeamLeague> TeamLeagues { get; }
 
