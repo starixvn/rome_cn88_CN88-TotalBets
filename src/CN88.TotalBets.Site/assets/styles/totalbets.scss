@@ -173,3 +173,12 @@
         width: 200px;
     }
 }
+
+.form-inline {
+    .form-group {
+        label {
+            text-transform: uppercase;
+            display: block;
+        }
+    }
+}
