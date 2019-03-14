@@ -3,5 +3,6 @@
     @StakeConditionFilter.Render(Model.StakeCondition, Model.Stake)
     @PossTypeSelection.Render(Model.PossType)
     @LeagueSelection.Render(Model.LeagueSelectionViewModel)
+    @Html.Hidden(nameof(Model.SportTypeGroup), Model.SportTypeGroup)
     <input type="submit" value="@Resources.Submit" class="btn-submit" />
 </form>

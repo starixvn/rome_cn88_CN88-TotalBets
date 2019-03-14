@@ -11,6 +11,7 @@
             : base(viewer)
         {
             SportTypeGroup = SportTypeConstants.Soccer;
+            StakeCondition = StakeConditionConstants.GreaterThan;
         }
     }
 }

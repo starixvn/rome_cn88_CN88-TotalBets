@@ -34,6 +34,7 @@
 
         public FilterBaseViewModel FilterViewModel
             => new FilterBaseViewModel(
+                query.SportTypeGroup,
                 query.StakeCondition,
                 query.Stake,
                 query.PossType,

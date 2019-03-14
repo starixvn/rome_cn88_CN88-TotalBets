@@ -1,42 +1,57 @@
 ﻿"use strict";
+
+class SummaryMenuOption {
+    constructor(
+        public mainContentId: string = "main-content",
+        public filterFormId: string = "filter-form",
+        public inputId: string = "UserSelectedId") {
+    }
+}
+
 class SummaryMenu {
     $: JQueryStatic;
-    $iconMenu: JQuery;
-    $summaryMenu: JQuery;
-    $summaryMenuItems: JQuery;
+
+    options = new SummaryMenuOption();
     $mainContent: JQuery;
 
     constructor($: JQueryStatic) {
         this.$ = $;
     }
 
-    init(): void {
-        this.cacheDOMElements();
-        this.registerEvents();
+    render = (options: SummaryMenuOption = new SummaryMenuOption()) => {
+        this.options = <SummaryMenuOption>this.$.extend({}, this.options, options);
+
+        this.$mainContent = this.$("#" + this.options.mainContentId);
+
+        let $filterForm = this.$("#" + this.options.filterFormId);
+        let $hiddenInput = this.$("#" + this.options.inputId);
+
+        this.$("#icon-menu").click(() => {
+            this.collapseMenu();
+        });
+
+        let this$ = this.$;
+        this.$("#summary-menu-items .sport").click(function () {
+            var selectedId = this$(this).attr("id");
+            $hiddenInput.val(selectedId);
+            $filterForm.submit();
+        });
     }
 
-    cacheDOMElements(): void {
-        this.$iconMenu = this.$("#icon-menu");
-        this.$summaryMenu = this.$("#summary-menu");
-        this.$summaryMenuItems = this.$("#summary-menu-items");
-        this.$mainContent = this.$("#main-content");
-    }
-
-    registerEvents(): void {
-        this.$iconMenu.click(() => { this.collapseSummaryMenu(); });
-    }
-
-    collapseSummaryMenu(): void {
+    collapseMenu(): void {
         let collapsedClass = 'collapsed';
         let expandedClass = 'expanded';
-        let isCollapsed = this.$summaryMenu.hasClass(collapsedClass);
+        let $summaryMenu = this.$("#summary-menu");
+        let $summaryMenuItems = this.$("#summary-menu-items");
+        let isCollapsed = $summaryMenu.hasClass(collapsedClass);
+
         if (isCollapsed) {
-            this.$summaryMenuItems.show();
-            this.$summaryMenu.removeClass(collapsedClass);
+            $summaryMenuItems.show();
+            $summaryMenu.removeClass(collapsedClass);
             this.$mainContent.removeClass(expandedClass);
         } else {
-            this.$summaryMenuItems.hide();
-            this.$summaryMenu.addClass(collapsedClass);
+            $summaryMenuItems.hide();
+            $summaryMenu.addClass(collapsedClass);
             this.$mainContent.addClass(expandedClass);
         }
     }
