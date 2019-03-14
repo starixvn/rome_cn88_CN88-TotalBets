@@ -1,0 +1,10 @@
+﻿﻿@model EventFilterViewModel
+<form class="form-inline filter" role="form" id="filter-form">
+    @StakeConditionFilter.Render(Model.StakeCondition, Model.Stake)
+    @PossTypeSelection.Render(Model.PossType)
+    @MarketSelection.Render(Model.Market)
+    @LeagueSelection.Render(Model.LeagueSelectionViewModel)
+    @Html.Hidden(nameof(Model.SportTypeGroup), Model.SportTypeGroup)
+    @Html.Hidden(nameof(Model.Type), Model.Type)
+    <input type="submit" value="@Resources.Submit" class="btn-submit" />
+</form>

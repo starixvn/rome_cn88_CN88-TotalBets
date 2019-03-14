@@ -18,8 +18,8 @@
             Market = market;
         }
 
-        public byte Market { get; }
-
         public byte Type { get; }
+
+        public byte Market { get; }
     }
 }
