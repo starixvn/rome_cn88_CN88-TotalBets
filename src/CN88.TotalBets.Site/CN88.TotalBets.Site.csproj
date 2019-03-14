@@ -323,10 +323,6 @@
       <DependentUpon>event.js</DependentUpon>
     </Content>
     <Content Include="assets\bundles\outright\outright.css" />
-    <Content Include="assets\bundles\outright.css" />
-    <Content Include="assets\bundles\outright.min.css">
-      <DependentUpon>outright.css</DependentUpon>
-    </Content>
     <Content Include="assets\bundles\outright\outright.js" />
     <Content Include="assets\bundles\outright\outright.min.css">
       <DependentUpon>outright.css</DependentUpon>
