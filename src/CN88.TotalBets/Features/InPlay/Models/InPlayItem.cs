@@ -1,4 +1,4 @@
-﻿namespace CN88.TotalBets.Models.InPlay
+﻿namespace CN88.TotalBets.Features.InPlay.Models
 {
     using System;
     using System.Collections.Generic;

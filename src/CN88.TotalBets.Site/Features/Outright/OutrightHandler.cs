@@ -39,8 +39,8 @@
                 BuildLeagueSelectListItems(leagues, message.LeagueId));
         }
 
-        private static GetOutrightParam ToGetOutrightParam(OutrightQuery message)
-            => new GetOutrightParam(
+        private static OutrightParam ToGetOutrightParam(OutrightQuery message)
+            => new OutrightParam(
                 message.ViewerId,
                 message.ActorLevel,
                 message.SportTypeGroup,

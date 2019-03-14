@@ -7,7 +7,6 @@
     using Fanex.Data.Repository;
     using Fanex.RemotingRef;
     using MediatR;
-    using Services;
     using Shared.Controllers;
     using Shared.Models;
     using SimpleInjector;
@@ -15,6 +14,7 @@
     using SimpleInjector.Integration.Web.Mvc;
     using Sunplus.Agent.Model.Base;
     using Sunplus.Agent.Model.Entities;
+    using TotalBets.Features.InPlay;
     using TotalBets.Features.Leagues;
     using TotalBets.Features.Outright;
     using TotalBets.Features.Overview;

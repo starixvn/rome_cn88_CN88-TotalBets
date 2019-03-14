@@ -1,13 +1,10 @@
-﻿namespace CN88.TotalBets.Site.Handlers
+﻿namespace CN88.TotalBets.Site.Features.InPlay
 {
     using System.Threading.Tasks;
     using MediatR;
-    using Params;
-    using Requests.InPlay;
-    using Services;
     using Shared.Handlers;
+    using TotalBets.Features.InPlay;
     using TotalBets.Features.Leagues;
-    using ViewModels.InPlay;
 
     public class InPlayHandler : BaseHandler, IAsyncRequestHandler<InPlayQuery, InPlayViewModel>
     {
@@ -29,19 +26,19 @@
             //    message,
             //    inplay,
             //    BuildLeagueSelectListItems(leagues, message.LeagueId));
-            throw new System.NotImplementedException();
+            return new InPlayViewModel(message, null, null);
         }
 
-        private static GetInPlayParam ToGetInPlayParam(InPlayQuery message)
-            => new GetInPlayParam(
-                message.ViewerId,
-                message.ActorLevel,
-                message.Type,
-                message.SportTypeGroup,
-                message.LeagueId,
-                message.StakeCondition,
-                message.Stake,
-                message.PossType,
-                message.IsLive);
+        //private static GetInPlayParam ToGetInPlayParam(InPlayQuery message)
+        //    => new GetInPlayParam(
+        //        message.ViewerId,
+        //        message.ActorLevel,
+        //        message.Type,
+        //        message.SportTypeGroup,
+        //        message.LeagueId,
+        //        message.StakeCondition,
+        //        message.Stake,
+        //        message.PossType,
+        //        message.IsLive);
     }
 }

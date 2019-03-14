@@ -106,6 +106,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Features\InPlay\Criteria\GetInPlayCriteria.cs" />
+    <Compile Include="Features\InPlay\InPlayService.cs" />
+    <Compile Include="Features\InPlay\Models\InPlayItem.cs" />
+    <Compile Include="Features\InPlay\Params\InPlayParam.cs" />
     <Compile Include="Features\Summay\Criteria\GetSummaryCriteria.cs" />
     <Compile Include="Features\Summay\Models\Summary.cs" />
     <Compile Include="Features\Summay\SummaryService.cs" />
@@ -115,7 +119,6 @@
     <Compile Include="Shared\Constants\SportTypeConstants.cs" />
     <Compile Include="Shared\Constants\TotalBetTypeConstants.cs" />
     <Compile Include="Features\Leagues\Criteria\GetLeagueCriteria.cs" />
-    <Compile Include="Criteria\GetInPlayCriteria.cs" />
     <Compile Include="Features\Outright\Criteria\GetOutrightCriteria.cs" />
     <Compile Include="Shared\Constants\StakeConditionConstants.cs" />
     <Compile Include="Features\SportTypeGroup\Criteria\GetSportGroupsCriteria.cs" />
@@ -125,7 +128,6 @@
     <Compile Include="Shared\Models\Enumeration.cs" />
     <Compile Include="Shared\Models\IUser.cs" />
     <Compile Include="Features\Outright\Models\OutrightItem.cs" />
-    <Compile Include="Models\InPlay\InPlayItem.cs" />
     <Compile Include="Features\Outright\Models\OutrightLeague.cs" />
     <Compile Include="Features\Leagues\Models\League.cs" />
     <Compile Include="Features\Overview\Models\OverViewByParlayModel.cs" />
@@ -134,14 +136,12 @@
     <Compile Include="Features\Overview\Models\OverViewBySportTypeModel.cs" />
     <Compile Include="Features\SportTypeGroup\Models\SportGroup.cs" />
     <Compile Include="Shared\Models\UserLevel.cs" />
-    <Compile Include="Features\Outright\Params\GetOutrightParam.cs" />
-    <Compile Include="Params\GetInPlayParam.cs" />
+    <Compile Include="Features\Outright\Params\OutrightParam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\Params\FilterParam.cs" />
     <Compile Include="Shared\Services\CacheRefService.cs" />
     <Compile Include="Features\Leagues\LeagueService.cs" />
     <Compile Include="Features\Outright\OutrightService.cs" />
-    <Compile Include="Services\InPlayService.cs" />
     <Compile Include="Features\Overview\OverViewService.cs" />
     <Compile Include="Features\SportTypeGroup\SportTypeGroupService.cs" />
   </ItemGroup>

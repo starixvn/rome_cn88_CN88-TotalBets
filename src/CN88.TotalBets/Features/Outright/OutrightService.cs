@@ -11,7 +11,7 @@
 
     public interface OutrightService
     {
-        Task<IEnumerable<OutrightLeague>> GetOutrightsAsync(GetOutrightParam param);
+        Task<IEnumerable<OutrightLeague>> GetOutrightsAsync(OutrightParam param);
     }
 
     public class OutrightServiceImpl : OutrightService
@@ -27,9 +27,9 @@
             this.cacheRefService = cacheRefService;
         }
 
-        public async Task<IEnumerable<OutrightLeague>> GetOutrightsAsync(GetOutrightParam param)
+        public async Task<IEnumerable<OutrightLeague>> GetOutrightsAsync(OutrightParam param)
         {
-            var outrights = await dynamicRepository.FetchAsync<OutrightItem>(ToGetOutrightCriteria(param));
+            var outrights = await dynamicRepository.FetchAsync<OutrightItem>(new GetOutrightCriteria(param));
 
             return outrights.Any()
                 ? outrights
@@ -58,15 +58,5 @@
                 totalWager,
                 totalStake);
         }
-
-        private static CriteriaBase ToGetOutrightCriteria(GetOutrightParam param)
-            => new GetOutrightCriteria(
-                param.CustId,
-                param.UserLevel,
-                param.SportTypeGroup,
-                param.LeagueId,
-                param.StakeCondition,
-                param.Stake,
-                param.PossType);
     }
 }

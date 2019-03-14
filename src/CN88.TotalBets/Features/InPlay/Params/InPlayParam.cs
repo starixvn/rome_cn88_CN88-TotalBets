@@ -1,11 +1,11 @@
-﻿namespace CN88.TotalBets.Params
+﻿namespace CN88.TotalBets.Features.InPlay.Params
 {
-    using Features.Outright.Params;
     using Shared.Models;
+    using Shared.Params;
 
-    public class GetInPlayParam : GetOutrightParam
+    public class InPlayParam : FilterParam
     {
-        public GetInPlayParam(
+        public InPlayParam(
             int custId,
             UserLevel userLevel,
             byte type,

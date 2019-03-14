@@ -1,8 +1,7 @@
-﻿namespace CN88.TotalBets.Site.ViewModels.InPlay
+﻿namespace CN88.TotalBets.Site.Features.InPlay
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
-    using Requests.InPlay;
     using Shared.ViewModels.Filters;
     using TotalBets.Features.Outright.Models;
 
