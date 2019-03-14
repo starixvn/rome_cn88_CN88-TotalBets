@@ -20,8 +20,6 @@
 
         public int PossType { get; }
 
-        public string TypeName => "Overview";
-
         public override bool IsValid()
             => CustId > 0 && PossType >= 0;
 

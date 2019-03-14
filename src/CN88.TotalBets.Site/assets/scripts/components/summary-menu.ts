@@ -19,7 +19,7 @@ class SummaryMenu {
     }
 
     registerEvents(): void {
-        this.$iconMenu.click(this.collapseSummaryMenu);
+        this.$iconMenu.click(() => { this.collapseSummaryMenu(); });
     }
 
     collapseSummaryMenu(): void {
