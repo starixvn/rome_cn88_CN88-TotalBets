@@ -4,7 +4,7 @@
 {
     <div id="summary-menu" class="menu-container">
         <div class="head-menu"><span id="icon-menu" class="icon-menu"></span>@Resources.Menu</div>
-        <ul class="list-sports">
+        <ul class="list-sports" id="summary-menu-items">
             @foreach (var summary in model.Summaries)
             {
                 <li id="@summary.SportTypeGroup" class="sport @(summary.SportTypeGroup==model.SelectedSportTypeGroup?"selected":string.Empty)">
