@@ -2,7 +2,7 @@
   {
     "outputFileName": "assets/bundles/events/event.css",
     "inputFiles": [
-      "assets/styles/totalbets.css", 
+      "assets/styles/totalbets.css",
       "assets/styles/event.css"
     ]
   },
@@ -17,6 +17,7 @@
     "inputFiles": [
       "assets/scripts/components/summary-menu.js",
       "assets/scripts/components/single-selection-dropdown.js",
+      "assets/scripts/base-totalbets.js",
       "assets/scripts/event.js"
     ]
   },
@@ -32,6 +33,7 @@
     "inputFiles": [
       "assets/scripts/components/summary-menu.js",
       "assets/scripts/components/single-selection-dropdown.js",
+      "assets/scripts/base-totalbets.js",
       "assets/scripts/outright.js"
     ]
   },

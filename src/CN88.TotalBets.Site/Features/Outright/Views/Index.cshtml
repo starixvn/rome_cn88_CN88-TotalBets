@@ -16,7 +16,7 @@
         <div class="event">@Model.SubTitle</div>
     </div>
     @{ Html.RenderPartial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel); }
-    <table class="tbl-style2 tbl-totalbet tbl-outright" id="tableOutright">
+    <table class="tbl-style2 tbl-totalbet tbl-outright" id="tblTotalBets">
         <tbody>
             @if (Model.TeamLeagues.Any())
             {

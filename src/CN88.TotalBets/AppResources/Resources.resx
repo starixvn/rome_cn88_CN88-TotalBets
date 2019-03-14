@@ -237,4 +237,13 @@
   <data name="Wager" xml:space="preserve">
     <value>Wager</value>
   </data>
+  <data name="Early" xml:space="preserve">
+    <value>Early</value>
+  </data>
+  <data name="Started" xml:space="preserve">
+    <value>Started</value>
+  </data>
+  <data name="Today" xml:space="preserve">
+    <value>Today</value>
+  </data>
 </root>

@@ -124,6 +124,15 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Early.
+        /// </summary>
+        public static string Early {
+            get {
+                return ResourceManager.GetString("Early", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Event.
         /// </summary>
         public static string Event {
@@ -331,6 +340,15 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Started.
+        /// </summary>
+        public static string Started {
+            get {
+                return ResourceManager.GetString("Started", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Submit.
         /// </summary>
         public static string Submit {
@@ -347,6 +365,16 @@ namespace CN88.TotalBets.AppResources {
                 return ResourceManager.GetString("Time", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Today.
+        /// </summary>
+        public static string Today {
+            get {
+                return ResourceManager.GetString("Today", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Total.
         /// </summary>
@@ -355,6 +383,7 @@ namespace CN88.TotalBets.AppResources {
                 return ResourceManager.GetString("Total", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Total Stake.
         /// </summary>
@@ -383,14 +412,6 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wagers.
-        /// </summary>
-        public static string Wagers {
-            get {
-                return ResourceManager.GetString("Wagers", resourceCulture);
-            }
-        }
-        /// <summary>
         ///   Looks up a localized string similar to View by Account.
         /// </summary>
         public static string ViewByAccount {
@@ -398,6 +419,7 @@ namespace CN88.TotalBets.AppResources {
                 return ResourceManager.GetString("ViewByAccount", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to View Wager Details.
         /// </summary>
@@ -413,6 +435,15 @@ namespace CN88.TotalBets.AppResources {
         public static string Wager {
             get {
                 return ResourceManager.GetString("Wager", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wagers.
+        /// </summary>
+        public static string Wagers {
+            get {
+                return ResourceManager.GetString("Wagers", resourceCulture);
             }
         }
     }

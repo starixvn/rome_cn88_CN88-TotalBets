@@ -517,9 +517,7 @@
     <Content Include="Features\Events\Views\_TableNoDataFound.cshtml" />
     <Content Include="Features\Events\Views\_InPlay.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Features\Outright\Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Features\Overview\Views\Index.cshtml" />
   </ItemGroup>
@@ -547,6 +545,7 @@
     <Content Include="App_Code\Filters\StakeConditionFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="assets\scripts\base-totalbets.ts" />
     <TypeScriptCompile Include="assets\scripts\components\single-selection-dropdown.ts" />
     <TypeScriptCompile Include="assets\scripts\components\summary-menu.ts" />
     <TypeScriptCompile Include="assets\scripts\event.ts" />

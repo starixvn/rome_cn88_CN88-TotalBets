@@ -1,5 +1,5 @@
 ﻿@model EventViewModel
-<table class="tbl-style2 tbl-totalbet" id="tableEvents">
+<table class="tbl-style2 tbl-totalbet" id="tblTotalBets">
     <thead>
         <tr>
             <th class="col-100">@Resources.Details</th>
@@ -38,7 +38,8 @@
                             new { @class = "stake link" })
                     </td>
                     <td class="text-right">
-                        <span class="bettypecount">@HtmlHelpers.FormatNumber(match.BetTypeCount)
+                        <span class="bettypecount">
+                            @HtmlHelpers.FormatNumber(match.BetTypeCount)
                             <span class="icon-chevron-right"></span>
                         </span>
                     </td>
