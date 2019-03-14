@@ -57,7 +57,20 @@
                             </td>
                             <td class="text-right">
                                 <span class="bettypecount">
-                                    @HtmlHelpers.FormatNumber(match.BetTypeCount)
+                                    @Html.ActionLink(
+                                        HtmlHelpers.FormatNumber(match.BetTypeCount).ToHtmlString(),
+                                        "Index",
+                                        "ViewByBetType",
+                                        new {
+                                            custId = Model.Query.ViewerId,
+                                            custLevelId = Model.Query.ViewerLevelId,
+                                            matchId = match.MatchId,
+                                            stake = Model.FilterViewModel.Stake,
+                                            stakeCondition = Model.FilterViewModel.StakeCondition,
+                                            type = Model.Query.Type,
+                                            marketType = Model.Query.Market
+                                        },
+                                        new { @class = "stake link" })
                                     <span class="icon-chevron-right"></span>
                                 </span>
                             </td>

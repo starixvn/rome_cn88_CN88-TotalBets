@@ -107,6 +107,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Features\Events\Criteria\GetEventCriteria.cs" />
+    <Compile Include="Features\Events\Criteria\GetEventInfoCriteria.cs" />
     <Compile Include="Features\Events\EventService.cs" />
     <Compile Include="Features\Events\Models\Match.cs" />
     <Compile Include="Features\Events\Models\MatchLeague.cs" />
@@ -119,6 +120,12 @@
     <Compile Include="Features\WagerAccount\WagerAccountModel.cs" />
     <Compile Include="Features\WagerAccount\WagerAccountParam.cs" />
     <Compile Include="Features\WagerAccount\WagerAccountService.cs" />
+    <Compile Include="Features\ViewByBetTypes\Criteria\GetTotalBetsByBetTypeCriteria.cs" />
+    <Compile Include="Features\ViewByBetTypes\Models\BaseBetOption.cs" />
+    <Compile Include="Features\ViewByBetTypes\Models\BetOptionGroup.cs" />
+    <Compile Include="Features\ViewByBetTypes\Models\TotalBetsByBetType.cs" />
+    <Compile Include="Features\ViewByBetTypes\Params\ViewByBetTypeParam.cs" />
+    <Compile Include="Features\ViewByBetTypes\ViewByBetTypeService.cs" />
     <Compile Include="Shared\Configurations\AppSettings.cs" />
     <Compile Include="Shared\Constants\MarketConstants.cs" />
     <Compile Include="Shared\Constants\PossTypeConstants.cs" />
@@ -164,7 +171,9 @@
     <EmbeddedResource Include="AppResources\Resources.zh-Hans.resx" />
     <EmbeddedResource Include="AppResources\Resources.zh-TW.resx" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Features\ViewByBetTypes\Models\BetOptions\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets" Condition="Exists('..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

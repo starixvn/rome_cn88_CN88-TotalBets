@@ -4,6 +4,7 @@
     using System.Diagnostics.CodeAnalysis;
     using System.Reflection;
     using System.Web.Mvc;
+    using CN88.TotalBets.Features.ViewByBetTypes;
     using Fanex.Data.Repository;
     using Fanex.RemotingRef;
     using MediatR;
@@ -96,6 +97,8 @@
             container.RegisterSingleton<LeagueService, LeagueServiceImpl>();
             container.RegisterSingleton<SummaryService, SummaryServiceImpl>();
             container.RegisterSingleton<IWagerAccountService, WagerAccountService>();
+
+            container.RegisterSingleton<ViewByBetTypeService, ViewByBetTypeServiceImpl>();
         }
     }
 }

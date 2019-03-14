@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Web.Mvc;
     using AppResources;
+    using CN88.TotalBets.Shared.Models;
     using Shared.ViewModels;
     using TotalBets.Features.Events.Models;
     using TotalBets.Features.Summay.Models;
@@ -24,7 +25,10 @@
             IsInPlay = eventModel.Type == EventTypeConstants.InPlay;
             HasEventData = eventModel.TotalStake == 0;
             SubTitle = Resources.ResourceManager.GetString(EventTypeConstants.EventTypes[query.Type]);
+            Query = query;
         }
+
+        public EventQuery Query { get; }
 
         public MatchLeagueTotal EventModel { get; }
 

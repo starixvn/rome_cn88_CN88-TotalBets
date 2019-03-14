@@ -14,6 +14,30 @@
         string GetBetTypeName(int betTypeId);
     }
 
+    public static class CacheRefManager
+    {
+        private static CacheRefService remotingRefService;
+
+        public static CacheRefService CacheRefInstance
+        {
+            get
+            {
+                if(remotingRefService == null)
+                {
+                    remotingRefService = new CacheRefServiceImpl(new RemotingRefService());
+                }
+
+                return remotingRefService;
+            }
+
+            internal set
+            {
+                remotingRefService = value;
+            }
+        }
+
+    }
+
     public class CacheRefServiceImpl : CacheRefService
     {
         private readonly IRemotingRefService remotingRefService;

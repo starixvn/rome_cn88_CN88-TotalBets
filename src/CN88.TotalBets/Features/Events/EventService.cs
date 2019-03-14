@@ -1,5 +1,6 @@
 ﻿namespace CN88.TotalBets.Features.Events
 {
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using Criteria;
@@ -11,6 +12,8 @@
     public interface EventService
     {
         Task<MatchLeagueTotal> GetEventsAsync(EventParam param);
+
+        Task<Match> GetMatch(int matchId);
     }
 
     public class EventServiceImpl : EventService
@@ -63,5 +66,8 @@
 
         private string GetEvent(int homeId, int awayId)
             => $"{cacheRefService.GetTeamName(homeId)} v {cacheRefService.GetTeamName(awayId)}";
+
+        public async Task<Match> GetMatch(int matchId)
+            => await dynamicRepository.GetAsync<Match>(new GetEventInfoCriteria(matchId));
     }
 }
