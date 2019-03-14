@@ -10,5 +10,9 @@
   {
     "outputFile": "assets/styles/overview.css",
     "inputFile": "assets/styles/overview.scss"
+  },
+  {
+    "outputFile": "assets/styles/event.css",
+    "inputFile": "assets/styles/event.scss"
   }
 ]

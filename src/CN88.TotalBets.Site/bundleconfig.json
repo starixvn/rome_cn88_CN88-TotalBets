@@ -1,8 +1,9 @@
 ﻿[
   {
-    "outputFileName": "assets/bundles/totalbets.css",
+    "outputFileName": "assets/bundles/events/event.css",
     "inputFiles": [
-      "assets/styles/totalbets.css"
+      "assets/styles/totalbets.css", 
+      "assets/styles/event.css"
     ]
   },
   {
@@ -23,6 +24,7 @@
   {
     "outputFileName": "assets/bundles/outright/outright.css",
     "inputFiles": [
+      "assets/styles/totalbets.css",
       "assets/styles/outright.css"
     ]
   },

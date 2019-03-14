@@ -318,9 +318,17 @@
     <Content Include="App_Data\SPNames\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\DBONUSER.ON_USER.BODBDownlineNet.xml" />
+    <Content Include="assets\bundles\events\event.css" />
     <Content Include="assets\bundles\events\event.js" />
+    <Content Include="assets\bundles\events\event.min.css">
+      <DependentUpon>event.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\events\event.min.js">
       <DependentUpon>event.js</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\event\event.css" />
+    <Content Include="assets\bundles\event\event.min.css">
+      <DependentUpon>event.css</DependentUpon>
     </Content>
     <Content Include="assets\bundles\outright\outright.css" />
     <Content Include="assets\bundles\outright\outright.js" />
@@ -345,6 +353,12 @@
     <Content Include="assets\bundles\totalbets.css" />
     <Content Include="assets\bundles\totalbets.min.css">
       <DependentUpon>totalbets.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\event.css">
+      <DependentUpon>event.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\event.min.css">
+      <DependentUpon>event.css</DependentUpon>
     </Content>
     <Content Include="assets\styles\images\1F.gif" />
     <Content Include="assets\styles\images\1L.gif" />
@@ -452,7 +466,7 @@
     <Content Include="assets\styles\overview.scss" />
     <Content Include="App_Code\Filters\MarketSelection.cshtml" />
     <Content Include="assets\styles\outright.scss" />
-    <Content Include="assets\styles\inplay.scss" />
+    <Content Include="assets\styles\event.scss" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
