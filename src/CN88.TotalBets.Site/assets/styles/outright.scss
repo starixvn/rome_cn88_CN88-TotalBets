@@ -1,21 +1,6 @@
 ﻿.tbl-outright {
     width: 720px;
     tr.league {
-        &:hover {
-            cursor: pointer;
-        }
-        td {
-            padding: 4px;
-            border: none;
-            border-bottom: 1px solid #fff;
-        }
-        .icon-chevron-down, .icon-chevron-right {
-            font-size: 20px;            
-        }
-        .league-name {
-            position: relative;
-            top: -3px;
-        }
         .league-name-wrapper {
             width: calc(100% - 150px - 8px);    
             display: inline-block;        
@@ -48,11 +33,13 @@
     
     > tbody > tr > td {
         padding: 4px 8px;
+        border: 1px solid #d9d9d9;
         &.no-info {
             border: none;
         }
     }
 }
+
 
 
 

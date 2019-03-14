@@ -126,18 +126,32 @@
 }
 
 .tbl-totalbet {
-    tr.league td {
-        background-color: #6b6b6b;
-        color: #fff;
-        padding: 8px;
+    tr.league {
+        td {
+            background-color: #6b6b6b;
+            color: #fff;
+            padding: 8px;
+        }
+         &:hover {
+            cursor: pointer;
+        }
+        td {
+            padding: 4px;
+            border: none;
+            border-bottom: 1px solid #fff;
+        }
+        .icon-chevron-down, .icon-chevron-right {
+            font-size: 20px;            
+        }
+        .league-name {
+            position: relative;
+            top: -3px;
+        }
+    
     }
 
     .stake {
         display: block;
-    }
-
-    > tbody > tr > td {
-        border: 1px solid #d9d9d9;
     }
 }
 
