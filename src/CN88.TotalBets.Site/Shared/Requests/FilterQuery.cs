@@ -1,12 +1,15 @@
 ﻿namespace CN88.TotalBets.Site.Shared.Requests
 {
+    using TotalBets.Shared.Constants;
     using TotalBets.Shared.Models;
 
     public abstract class FilterQuery : BaseQuery
     {
-        public FilterQuery(IUser viewer)
+        protected FilterQuery(IUser viewer)
             : base(viewer)
         {
+            SportTypeGroup = SportTypeConstants.Soccer;
+            StakeCondition = StakeConditionConstants.GreaterThan;
         }
 
         public int SportTypeGroup { get; set; }
