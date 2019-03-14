@@ -42,60 +42,60 @@
                 <tr>
                     <td>@item.Text</td>
                     <td>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Total.Wagers, "")</span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Total.Stake, "")</span>
+                        <span>@HtmlHelpers.FormatNumber(item.Total.Wagers)</span>
+                        <span>@HtmlHelpers.FormatNumber(item.Total.Stake)</span>
                     </td>
                     <td>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Soccer.Wagers, "")</span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Soccer.Stake, "")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.Soccer.Wagers, item.Url(Model.PossType, item.Soccer.Stake))</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.Soccer.Stake, item.Url(Model.PossType, item.Soccer.Stake))</span>
                     </td>
                     <td class="even">
                         <span>
-                            @HtmlHelpers.FormatNumberWithLink(item.Basketball.Wagers, "")
+                            @HtmlHelpers.FormatNumberWithLink(item.Basketball.Wagers, item.Url(Model.PossType, item.Basketball.Stake))
                         </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Basketball.Stake, "")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.Basketball.Stake, item.Url(Model.PossType, item.Basketball.Stake))</span>
                     </td>
                     <td>
                         <span>
-                            @HtmlHelpers.FormatNumberWithLink(item.Tennis.Wagers, "")
+                            @HtmlHelpers.FormatNumberWithLink(item.Tennis.Wagers, item.Url(Model.PossType, item.Tennis.Stake))
                         </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Tennis.Stake, "")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.Tennis.Stake, item.Url(Model.PossType, item.Tennis.Stake))</span>
                     </td>
                     <td class="even">
                         <span>
-                            @HtmlHelpers.FormatNumberWithLink(item.Volleyball.Wagers, "")
+                            @HtmlHelpers.FormatNumberWithLink(item.Volleyball.Wagers, item.Url(Model.PossType, item.Volleyball.Stake))
                         </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Volleyball.Stake, "")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.Volleyball.Stake, item.Url(Model.PossType, item.Volleyball.Stake))</span>
                     </td>
                     <td>
                         <span>
-                            @HtmlHelpers.FormatNumberWithLink(item.TableTennis.Wagers, "")
+                            @HtmlHelpers.FormatNumberWithLink(item.TableTennis.Wagers, item.Url(Model.PossType, item.TableTennis.Stake))
                         </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.TableTennis.Stake, "")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.TableTennis.Stake, item.Url(Model.PossType, item.TableTennis.Stake))</span>
                     </td>
                     <td class="even">
                         <span>
-                            @HtmlHelpers.FormatNumberWithLink(item.Badminton.Wagers, "")
+                            @HtmlHelpers.FormatNumberWithLink(item.Badminton.Wagers, item.Url(Model.PossType, item.Badminton.Stake))
                         </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Badminton.Stake, "")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.Badminton.Stake, item.Url(Model.PossType, item.Badminton.Stake))</span>
                     </td>
                     <td>
                         <span>
-                            @HtmlHelpers.FormatNumberWithLink(item.Baseball.Wagers, "")
+                            @HtmlHelpers.FormatNumberWithLink(item.Baseball.Wagers, item.Url(Model.PossType, item.Baseball.Stake))
                         </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Baseball.Stake, "")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.Baseball.Stake, item.Url(Model.PossType, item.Baseball.Stake))</span>
                     </td>
                     <td class="even">
                         <span>
-                            @HtmlHelpers.FormatNumberWithLink(item.Snooker.Wagers, "")
+                            @HtmlHelpers.FormatNumberWithLink(item.Snooker.Wagers, item.Url(Model.PossType, item.Snooker.Stake))
                         </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Snooker.Stake, "")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.Snooker.Stake, item.Url(Model.PossType, item.Snooker.Stake))</span>
                     </td>
                     <td>
                         <span>
-                            @HtmlHelpers.FormatNumberWithLink(item.OtherSports.Wagers, "")
+                            @HtmlHelpers.FormatNumberWithLink(item.OtherSports.Wagers, item.Url(Model.PossType, item.OtherSports.Stake))
                         </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.OtherSports.Stake, "")</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(item.OtherSports.Stake, item.Url(Model.PossType, item.OtherSports.Stake))</span>
                     </td>
                 </tr>
             }
@@ -117,10 +117,10 @@
                 <td>@Model.ByParlay.Text</td>
                 <td>
                     <span>
-                        @HtmlHelpers.FormatNumberWithLink(Model.ByParlay.Total.Wagers, "")
+                        @HtmlHelpers.FormatNumber(Model.ByParlay.Total.Wagers)
                     </span>
                     <span>
-                        @HtmlHelpers.FormatNumberWithLink(Model.ByParlay.Total.Stake, "")
+                        @HtmlHelpers.FormatNumber(Model.ByParlay.Total.Stake)
                     </span>
                 </td>
                 <td>

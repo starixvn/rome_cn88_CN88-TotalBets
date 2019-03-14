@@ -19,6 +19,8 @@
 
         public abstract string Text { get; }
 
+        public abstract string Url(int possType, decimal stake);
+
         public OverViewItemModel Soccer { get; protected set; }
 
         public OverViewItemModel Basketball { get; protected set; }

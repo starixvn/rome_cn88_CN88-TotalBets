@@ -2,7 +2,11 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using Alpha.Web.Helpers;
+    using Shared.Helpers;
     using TotalBets.Features.Overview.Models;
+    using TotalBets.Shared.Configurations;
+    using TotalBets.Shared.Constants;
 
     public class OverViewByOutrightViewModel : OverViewByBaseViewModel
     {
@@ -20,5 +24,15 @@
         }
 
         public override string Text => "Outright";
+
+        public override string Url(int possType, decimal stake)
+            => UrlHelper.AddQueryStringParamsFunc(
+                AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/Event/Index"),
+                new Dictionary<string, object>
+                {
+                    ["PossType"] = possType,
+                    ["Stake"] = stake,
+                    ["Type"] = EventTypeConstants.Outright
+                });
     }
 }

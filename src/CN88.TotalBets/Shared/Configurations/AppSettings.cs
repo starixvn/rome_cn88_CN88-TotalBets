@@ -22,6 +22,8 @@
 
         public static string RemoteRefURL => GetConfigValue("RemoteRefURL");
 
+        public static string TotalBetsAppPath => GetConfigValue("TotalBetAppPath");
+
         public static string GetConfigValue(string configName) => AppSettingValues[configName];
 
         public static void Verify()
