@@ -22,6 +22,6 @@
     }
     else
     {
-        Html.RenderPartial("~/Features/Events/Views/_InPlay.cshtml", Model);
+        Html.RenderPartial($"~/Features/Events/Views/_{CN88.TotalBets.Shared.Constants.EventTypeConstants.EventTypes[Model.EventModel.Type]}.cshtml", Model);
     }
 </div>
