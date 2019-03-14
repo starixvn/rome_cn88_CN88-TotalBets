@@ -18,7 +18,7 @@
     @{ Html.RenderPartial("~/Features/Events/Views/Filter.cshtml", Model.FilterViewModel); }
     @if (Model.EventModel.TotalWager == 0)
     {
-        <table>
+        <table class="tbl-style2 tbl-totalbet" id="tableInPlay">
             <tbody>
                 <tr><td colspan="5" class="text-center no-info">@Resources.NoInformationIsAvailable</td></tr>
             </tbody>
@@ -29,11 +29,11 @@
         <table class="tbl-style2 tbl-totalbet" id="tableInPlay">
             <thead>
                 <tr>
-                    <th>@Resources.Details</th>
+                    <th class="col-100">@Resources.Details</th>
                     <th>@Resources.Event</th>
-                    <th>@Resources.Wagers [@HtmlHelpers.FormatNumber(Model.EventModel.TotalWager)]</th>
-                    <th>@Resources.Stake [@HtmlHelpers.FormatNumber(Model.EventModel.TotalStake)]</th>
-                    <th>&nbsp;</th>
+                    <th class="col-100 text-right">@Resources.Wagers [@HtmlHelpers.FormatNumber(Model.EventModel.TotalWager)]</th>
+                    <th class="col-180 text-right">@Resources.Stake [@HtmlHelpers.FormatNumber(Model.EventModel.TotalStake)]</th>
+                    <th class="col-80">&nbsp;</th>
                 </tr>
             </thead>
             <tbody>
@@ -52,9 +52,9 @@
                         <tr class="childrow-@league.LeagueId">
                             <td>@match.LiveHomeScore - @match.LiveAwayScore<br /><font style="color:red;font-weight:bold;text-transform:uppercase">@Resources.Live</font></td>
                             <td>@match.Event</td>
-                            <td>@HtmlHelpers.FormatNumber(match.Wager)</td>
-                            <td>@HtmlHelpers.FormatNumber(match.Stake)</td>
-                            <td>@HtmlHelpers.FormatNumber(match.BetTypeCount)</td>
+                            <td class="text-right">@HtmlHelpers.FormatNumber(match.Wager)</td>
+                            <td class="text-right">@HtmlHelpers.FormatNumber(match.Stake)</td>
+                            <td class="text-right"><span class="bettypecount">@HtmlHelpers.FormatNumber(match.BetTypeCount)<span class="icon-chevron-right"></span></span></td>
                         </tr>
                     }
                 }

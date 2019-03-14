@@ -32,11 +32,7 @@
     }
     
     > tbody > tr > td {
-        padding: 4px 8px;
-        border: 1px solid #d9d9d9;
-        &.no-info {
-            border: none;
-        }
+        border: 1px solid #d9d9d9;        
     }
 }
 

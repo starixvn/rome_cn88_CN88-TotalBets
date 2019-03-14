@@ -149,6 +149,27 @@
         }
     
     }
+    > tbody > tr> td {
+        padding: 4px 8px;
+        &.no-info {
+            border: none;
+        }
+    }
+    .bettypecount {
+        border-radius: 4px;
+        background-color: #ca9d49;
+        color: #fff;
+        padding: 6px 8px;
+         position: relative;
+        top: -3px;
+        cursor: pointer;
+        .icon-chevron-right {
+            font-size: 18px;
+            position: relative;
+            top: 3px;
+            right: -6px;
+        }
+    }
 
     .stake {
         display: block;
@@ -183,4 +204,13 @@
             display: block;
         }
     }
+}
+.col-100 {
+    width: 100px;
+}
+.col-180 {
+    width: 180px;
+}
+.col-80 {
+    width: 80px;
 }
