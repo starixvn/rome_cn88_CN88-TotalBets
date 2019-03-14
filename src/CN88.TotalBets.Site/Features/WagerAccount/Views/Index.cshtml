@@ -22,7 +22,7 @@
     
 </ul>
 
-<div class="tab-content display-none">
+<div class="tab-content">
     <div class="tab-panel active" role="tabpanel">       
 
         <table class="tbl-style2">
@@ -33,15 +33,13 @@
                     <th class="text-right">@Resources.Wager</th>
                     <th class="text-right">@Resources.Stake</th>
                 </tr>
-            </thead>
-            <tfoot>
+            </thead>           
+            <tbody>
                 <tr>
                     <td class="text-left" colspan="2">@Resources.Total</td>
                     <td class="text-right">@Model.Total.Wagers</td>
                     <td class="text-right">@HtmlHelpers.FormatNumber(Model.Total.Stake)</td>
                 </tr>
-            </tfoot>
-            <tbody>
                 @foreach(var item in Model.WagerAccounts)
                 {
                     <tr>

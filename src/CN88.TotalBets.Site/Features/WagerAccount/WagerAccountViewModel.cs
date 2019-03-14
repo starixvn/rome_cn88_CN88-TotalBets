@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Alpha.Web.Helpers;
 using CN88.TotalBets.Features.Overview.Models;
 using CN88.TotalBets.Features.WagerAccount;
+using CN88.TotalBets.Shared.Configurations;
 using CN88.TotalBets.Site.Shared.Helpers;
 
 namespace CN88.TotalBets.Site.Features.WagerAccount
@@ -27,7 +29,7 @@ namespace CN88.TotalBets.Site.Features.WagerAccount
 
         public string GetDownLineUrl(int custId)
             => UrlHelper.AddQueryStringParamsFunc(
-                "~/WagerAccount/Index",
+                AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/WagerAccount/Index"),
                 new Dictionary<string, object>
                 {
                     ["CustId"] = custId,
