@@ -21,7 +21,7 @@ class Outright {
     }
 
     init(): void {
-        this.summaryMenu.render(new SummaryMenuOption("main-content", "filter-form", "SportTypeGroup"));
+        this.summaryMenu.render();
         this.stakeConditionSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-stake-condition", "StakeCondition"));
         this.possTypeSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-poss-type", "PossType"));
         this.leagueSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-league", "LeagueId"));

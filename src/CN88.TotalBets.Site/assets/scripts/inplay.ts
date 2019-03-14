@@ -21,7 +21,7 @@ class InPlay {
     }
 
     init(): void {
-        this.summaryMenu.init();
+        this.summaryMenu.render();
         this.stakeConditionSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-stake-condition", "StakeCondition"));
         this.possTypeSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-poss-type", "PossType"));
         this.leagueSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-league", "LeagueId"));

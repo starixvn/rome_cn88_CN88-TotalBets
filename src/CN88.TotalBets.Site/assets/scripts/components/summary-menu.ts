@@ -4,7 +4,7 @@ class SummaryMenuOption {
     constructor(
         public mainContentId: string = "main-content",
         public filterFormId: string = "filter-form",
-        public inputId: string = "UserSelectedId") {
+        public inputId: string = "SportTypeGroup") {
     }
 }
 

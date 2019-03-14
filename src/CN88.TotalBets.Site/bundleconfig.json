@@ -23,7 +23,6 @@
   {
     "outputFileName": "assets/bundles/outright/outright.css",
     "inputFiles": [
-      "assets/styles/totalbets.css",
       "assets/styles/outright.css"
     ]
   },
