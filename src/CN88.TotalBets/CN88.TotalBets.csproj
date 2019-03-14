@@ -123,7 +123,7 @@
     <Compile Include="Shared\Constants\MarketConstants.cs" />
     <Compile Include="Shared\Constants\PossTypeConstants.cs" />
     <Compile Include="Shared\Constants\SportTypeConstants.cs" />
-    <Compile Include="Shared\Constants\TotalBetTypeConstants.cs" />
+    <Compile Include="Shared\Constants\EventTypeConstants.cs" />
     <Compile Include="Features\Leagues\Criteria\GetLeagueCriteria.cs" />
     <Compile Include="Features\Outright\Criteria\GetOutrightCriteria.cs" />
     <Compile Include="Shared\Constants\StakeConditionConstants.cs" />

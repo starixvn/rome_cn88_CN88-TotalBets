@@ -1,12 +1,12 @@
 ﻿namespace CN88.TotalBets.Site.Features.Outright
 {
-    using System.Linq;
     using System.Threading.Tasks;
     using MediatR;
     using Shared.Handlers;
     using TotalBets.Features.Leagues;
     using TotalBets.Features.Outright;
     using TotalBets.Features.Outright.Params;
+    using TotalBets.Features.SportTypeGroup;
     using TotalBets.Features.Summay;
     using TotalBets.Shared.Constants;
 
@@ -15,26 +15,29 @@
         private readonly OutrightService outrightService;
         private readonly LeagueService leagueService;
         private readonly SummaryService summaryService;
+        private readonly SportTypeGroupService sportTypeGroupService;
 
         public OutrightHandler(
             OutrightService outrightService,
             LeagueService leagueService,
-            SummaryService summaryService)
+            SummaryService summaryService,
+            SportTypeGroupService sportTypeGroupService)
         {
             this.outrightService = outrightService;
             this.leagueService = leagueService;
             this.summaryService = summaryService;
+            this.sportTypeGroupService = sportTypeGroupService;
         }
 
         public async Task<OutrightViewModel> Handle(OutrightQuery message)
         {
             var outrightLeagues = await outrightService.GetOutrightsAsync(ToOutrightParam(message));
-            var leagues = await leagueService.GetLeagues(message.SportTypeGroup, TotalBetTypeConstants.Outright);
-            var summaries = await summaryService.GetSummaries(message.ViewerId, message.ActorLevel, TotalBetTypeConstants.Outright);
+            var leagues = await leagueService.GetLeagues(message.SportTypeGroup, EventTypeConstants.Outright);
+            var summaries = await summaryService.GetSummaries(message.ViewerId, message.ActorLevel, EventTypeConstants.Outright);
 
             return new OutrightViewModel(
                 message,
-                summaries.FirstOrDefault(x => x.SportTypeGroup == message.SportTypeGroup).SportTypeGroupName,
+                await sportTypeGroupService.GetSportTypeGroupName(message.SportTypeGroup),
                 outrightLeagues,
                 summaries,
                 BuildLeagueSelectListItems(leagues, message.LeagueId));

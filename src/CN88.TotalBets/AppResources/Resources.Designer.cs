@@ -196,6 +196,15 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Member Stake.
+        /// </summary>
+        public static string MemberStake {
+            get {
+                return ResourceManager.GetString("MemberStake", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Menu.
         /// </summary>
         public static string Menu {

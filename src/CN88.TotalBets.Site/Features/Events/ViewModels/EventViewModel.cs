@@ -2,41 +2,36 @@
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
-    using Shared.ViewModels.Filters;
+    using AppResources;
+    using Shared.ViewModels;
     using TotalBets.Features.Events.Models;
     using TotalBets.Features.Summay.Models;
+    using TotalBets.Shared.Constants;
 
-    public class EventViewModel
+    public class EventViewModel : BaseViewModel
     {
-        private readonly EventQuery query;
-
         public EventViewModel(
             EventQuery query,
+            string sportTypeGroup,
             MatchLeagueTotal eventModel,
             IEnumerable<Summary> summaries,
             IEnumerable<SelectListItem> leagues)
+            : base(query, sportTypeGroup, summaries, leagues)
         {
-            this.query = query;
             EventModel = eventModel;
 
-            SummaryMenuViewModel = new SummaryMenuViewModel(summaries, query.SportTypeGroup);
-            LeagueSelectionViewModel = new SingleSelectionViewModel(leagues, query.LeagueId);
-        }
-
-        public MatchLeagueTotal EventModel { get; }
-
-        public SummaryMenuViewModel SummaryMenuViewModel { get; }
-
-        public SingleSelectionViewModel LeagueSelectionViewModel { get; }
-
-        public EventFilterViewModel FilterViewModel
-            => new EventFilterViewModel(
+            FilterViewModel = new EventFilterViewModel(
                 query.Type,
-                query.IsLive,
+                query.Market,
                 query.SportTypeGroup,
                 query.StakeCondition,
                 query.Stake,
                 query.PossType,
                 LeagueSelectionViewModel);
+
+            SubTitle = Resources.ResourceManager.GetString(EventTypeConstants.EventTypes[query.Type]);
+        }
+
+        public MatchLeagueTotal EventModel { get; }
     }
 }

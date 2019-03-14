@@ -2,8 +2,8 @@
 {
     public static class MarketConstants
     {
-        public const byte AllMarkets = 0;
-        public const byte PreMatch = 1;
-        public const byte InPlay = 2;
+        public const byte PreMatch = 0;
+        public const byte InPlay = 1;
+        public const byte AllMarkets = 2;
     }
 }

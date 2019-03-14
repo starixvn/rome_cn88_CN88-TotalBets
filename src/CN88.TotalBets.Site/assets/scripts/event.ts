@@ -5,6 +5,7 @@ class EventTotalBets {
     summaryMenu: SummaryMenu;
     stakeConditionSelectionComponent: SingleSelectionDropdownComponent;
     possTypeSelectionComponent: SingleSelectionDropdownComponent;
+    marketSelectionComponent: SingleSelectionDropdownComponent;
     leagueSelectionComponent: SingleSelectionDropdownComponent;
 
     constructor(
@@ -12,11 +13,13 @@ class EventTotalBets {
         summaryMenu: SummaryMenu,
         stakeConditionSelectionComponent: SingleSelectionDropdownComponent,
         possTypeSelectionComponent: SingleSelectionDropdownComponent,
+        marketSelectionComponent: SingleSelectionDropdownComponent,
         leagueSelectionComponent: SingleSelectionDropdownComponent) {
         this.$ = $;
         this.summaryMenu = summaryMenu;
         this.stakeConditionSelectionComponent = stakeConditionSelectionComponent;
         this.possTypeSelectionComponent = possTypeSelectionComponent;
+        this.marketSelectionComponent = marketSelectionComponent;
         this.leagueSelectionComponent = leagueSelectionComponent;
     }
 
@@ -24,6 +27,7 @@ class EventTotalBets {
         this.summaryMenu.render();
         this.stakeConditionSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-stake-condition", "StakeCondition"));
         this.possTypeSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-poss-type", "PossType"));
+        this.marketSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-market", "Market"));
         this.leagueSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-league", "LeagueId"));
 
         this.bindEvents();
@@ -54,6 +58,7 @@ class EventTotalBets {
         this.$("#filter-form").submit(function (): void {
             self.stakeConditionSelectionComponent.updateSelectedValue();
             self.possTypeSelectionComponent.updateSelectedValue();
+            self.marketSelectionComponent.updateSelectedValue();
             self.leagueSelectionComponent.updateSelectedValue();
         });
     }
@@ -63,6 +68,7 @@ $(function (): void {
     new EventTotalBets(
         $,
         new SummaryMenu($),
+        new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($)).init();

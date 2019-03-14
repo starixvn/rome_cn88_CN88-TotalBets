@@ -3,7 +3,7 @@
 @helper Render(byte stakeCondition, decimal stake)
 {
     <div class="form-group dropdown-stake-condition">
-        <label>@Resources.Stake</label>
+        <label>@Resources.MemberStake</label>
         <select id="dropdown-stake-condition">
             <option value="@StakeConditionConstants.GreaterThan" @(StakeConditionConstants.GreaterThan == stakeCondition ? " selected=\"selected\"" : string.Empty)>></option>
             <option value="@StakeConditionConstants.LessThan" @(StakeConditionConstants.LessThan == stakeCondition ? " selected=\"selected\"" : string.Empty)><</option>

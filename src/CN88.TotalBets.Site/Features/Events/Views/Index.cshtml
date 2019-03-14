@@ -11,7 +11,10 @@
 @model EventViewModel
 @SummaryMenu.Render(Model.SummaryMenuViewModel)
 <div class="main-content">
-    <div class="page-title"></div>
+    <div class="page-title">
+        <div>@Model.Title</div>
+        <div class="event">@Model.SubTitle</div>
+    </div>
     @{ Html.RenderPartial("~/Features/Events/Views/Filter.cshtml", Model.FilterViewModel); }
     @if (Model.EventModel.TotalWager == 0)
     {
@@ -47,7 +50,7 @@
                     foreach (var match in league.Matches)
                     {
                         <tr class="childrow-@league.LeagueId">
-                            <td>@match.LiveHomeScore - @match.LiveAwayScore<br/><font style="color:red;font-weight:bold;text-transform:uppercase">@Resources.Live</font></td>
+                            <td>@match.LiveHomeScore - @match.LiveAwayScore<br /><font style="color:red;font-weight:bold;text-transform:uppercase">@Resources.Live</font></td>
                             <td>@match.Event</td>
                             <td>@HtmlHelpers.FormatNumber(match.Wager)</td>
                             <td>@HtmlHelpers.FormatNumber(match.Stake)</td>

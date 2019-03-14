@@ -2,43 +2,27 @@
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
-    using Shared.ViewModels.Filters;
+    using AppResources;
+    using Shared.ViewModels;
     using TotalBets.Features.Outright.Models;
     using TotalBets.Features.Summay.Models;
 
-    public class OutrightViewModel
+    public class OutrightViewModel : BaseViewModel
     {
-        private readonly OutrightQuery query;
-
         public OutrightViewModel(
             OutrightQuery query,
             string sportGroupName,
             IEnumerable<TeamLeague> teamLeagues,
             IEnumerable<Summary> summaries,
             IEnumerable<SelectListItem> leagues)
+            : base(query, sportGroupName, summaries, leagues)
         {
-            this.query = query;
-            SportGroupName = sportGroupName;
             TeamLeagues = teamLeagues;
-
-            SummaryMenuViewModel = new SummaryMenuViewModel(summaries, query.SportTypeGroup);
-            LeagueSelectionViewModel = new SingleSelectionViewModel(leagues, query.LeagueId);
+            SubTitle = Resources.Outright;
         }
 
         public string SportGroupName { get; }
 
         public IEnumerable<TeamLeague> TeamLeagues { get; }
-
-        public SummaryMenuViewModel SummaryMenuViewModel { get; }
-
-        public SingleSelectionViewModel LeagueSelectionViewModel { get; }
-
-        public FilterBaseViewModel FilterViewModel
-            => new FilterBaseViewModel(
-                query.SportTypeGroup,
-                query.StakeCondition,
-                query.Stake,
-                query.PossType,
-                LeagueSelectionViewModel);
     }
 }

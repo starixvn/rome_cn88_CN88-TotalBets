@@ -10,6 +10,7 @@
         {
             SportTypeGroup = SportTypeConstants.Soccer;
             StakeCondition = StakeConditionConstants.GreaterThan;
+            PossType = PossTypeConstants.Full_Percentage;
         }
 
         public int SportTypeGroup { get; set; }

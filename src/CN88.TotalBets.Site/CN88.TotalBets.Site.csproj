@@ -447,6 +447,7 @@
     <Compile Include="Features\Outright\OutrightQuery.cs" />
     <Compile Include="Features\Overview\OverViewQuery.cs" />
     <Compile Include="Shared\Requests\FilterQuery.cs" />
+    <Compile Include="Shared\ViewModels\BaseViewModel.cs" />
     <Compile Include="Shared\ViewModels\Filters\FilterBaseViewModel.cs" />
     <Compile Include="Shared\ViewModels\Filters\SingleSelectionViewModel.cs" />
     <Compile Include="Features\Outright\OutrightViewModel.cs" />
