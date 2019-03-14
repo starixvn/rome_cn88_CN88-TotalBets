@@ -419,6 +419,7 @@
     <Compile Include="Features\Events\EventController.cs" />
     <Compile Include="Features\Events\EventHandler.cs" />
     <Compile Include="Features\Events\Request\InPlayQuery.cs" />
+    <Compile Include="Features\Events\ViewModels\EventFilterViewModel.cs" />
     <Compile Include="Features\Events\ViewModels\InPlayViewModel.cs" />
     <Compile Include="Features\Outright\OutrightController.cs" />
     <Compile Include="Features\Overview\OverViewController.cs" />
@@ -508,6 +509,7 @@
     <Content Include="Features\Events\Views\Today.cshtml" />
     <Content Include="Features\Events\Views\Early.cshtml" />
     <Content Include="Features\Events\Views\Started.cshtml" />
+    <Content Include="Features\Events\Views\Filter.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

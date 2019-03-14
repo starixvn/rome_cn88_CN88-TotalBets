@@ -24,16 +24,15 @@
             LeagueSelectionViewModel = new SingleSelectionViewModel(leagues, query.LeagueId);
         }
 
-        public int PossType => query.PossType;
-
         public IEnumerable<MatchLeague> MatchLeagues { get; }
 
         public SummaryMenuViewModel SummaryMenuViewModel { get; }
 
         public SingleSelectionViewModel LeagueSelectionViewModel { get; }
 
-        public FilterBaseViewModel FilterViewModel
-            => new FilterBaseViewModel(
+        public EventFilterViewModel FilterViewModel
+            => new EventFilterViewModel(
+                query.IsLive,
                 query.SportTypeGroup,
                 query.StakeCondition,
                 query.Stake,

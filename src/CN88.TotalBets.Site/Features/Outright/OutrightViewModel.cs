@@ -23,8 +23,6 @@
             LeagueSelectionViewModel = new SingleSelectionViewModel(leagues, query.LeagueId);
         }
 
-        public int PossType => query.PossType;
-
         public IEnumerable<TeamLeague> TeamLeagues { get; }
 
         public SummaryMenuViewModel SummaryMenuViewModel { get; }
