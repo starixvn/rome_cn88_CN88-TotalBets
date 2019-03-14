@@ -34,6 +34,7 @@
         color: #fff;
         padding: 10px;
         text-transform: uppercase;
+        cursor: pointer;
 
         .icon-menu {
             padding-right: 16px;
@@ -108,9 +109,11 @@
 .main-content {
     margin: 12px 0 0 220px;
     padding: 0 12px;
+
     &.expanded {
         margin-left: 36px;
     }
+
     .page-title {
         margin-bottom: 0;
         text-transform: uppercase;

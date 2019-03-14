@@ -3,7 +3,7 @@
 @helper Render(SummaryMenuViewModel model)
 {
     <div id="summary-menu" class="menu-container">
-        <div class="head-menu"><span id="icon-menu" class="icon-menu"></span>@Resources.Menu</div>
+        <div id="head-menu" class="head-menu"><span class="icon-menu"></span>@Resources.Menu</div>
         <ul class="list-sports" id="summary-menu-items">
             @foreach (var summary in model.Summaries)
             {

@@ -26,7 +26,7 @@ class SummaryMenu {
         let $filterForm = this.$("#" + this.options.filterFormId);
         let $hiddenInput = this.$("#" + this.options.inputId);
 
-        this.$("#icon-menu").click(() => {
+        this.$("#head-menu").click(() => {
             this.collapseMenu();
         });
 
