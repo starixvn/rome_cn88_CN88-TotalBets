@@ -418,7 +418,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Features\Events\EventController.cs" />
     <Compile Include="Features\Events\EventHandler.cs" />
-    <Compile Include="Features\Events\Request\EventQuery.cs" />
+    <Compile Include="Features\Events\EventQuery.cs" />
     <Compile Include="Features\Events\ViewModels\EventViewModel.cs" />
     <Compile Include="Features\Events\ViewModels\EventFilterViewModel.cs" />
     <Compile Include="Features\Outright\OutrightController.cs" />
@@ -510,6 +510,7 @@
     <Content Include="Features\Events\Views\Early.cshtml" />
     <Content Include="Features\Events\Views\Started.cshtml" />
     <Content Include="Features\Events\Views\Filter.cshtml" />
+    <Content Include="Features\Events\Views\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

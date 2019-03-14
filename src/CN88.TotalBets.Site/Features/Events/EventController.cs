@@ -4,7 +4,6 @@
     using System.Web.Mvc;
     using System.Web.SessionState;
     using MediatR;
-    using Request;
     using Shared.Controllers;
 
     [SessionState(SessionStateBehavior.ReadOnly)]
@@ -16,6 +15,9 @@
             : base(mediator)
         {
         }
+
+        public async Task<ActionResult> Index(EventQuery message)
+            => await ViewAsync(message, string.Format(ViewPath, nameof(Index)));
 
         public async Task<ActionResult> InPlay(EventQuery message)
             => await ViewAsync(message, string.Format(ViewPath, nameof(InPlay)));

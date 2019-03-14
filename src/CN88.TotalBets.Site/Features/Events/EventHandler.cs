@@ -2,7 +2,6 @@
 {
     using System.Threading.Tasks;
     using MediatR;
-    using Request;
     using Shared.Handlers;
     using TotalBets.Features.Events;
     using TotalBets.Features.Events.Params;

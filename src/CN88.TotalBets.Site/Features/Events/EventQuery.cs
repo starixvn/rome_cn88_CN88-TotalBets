@@ -1,4 +1,4 @@
-﻿namespace CN88.TotalBets.Site.Features.Events.Request
+﻿namespace CN88.TotalBets.Site.Features.Events
 {
     using MediatR;
     using Shared.Requests;

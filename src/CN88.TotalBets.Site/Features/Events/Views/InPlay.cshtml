@@ -8,12 +8,12 @@
 @section Scripts {
     @StaticResources.RenderScripts("~/assets/bundles/events/event")
 }
-@model InPlayViewModel
+@model EventViewModel
 @SummaryMenu.Render(Model.SummaryMenuViewModel)
 <div class="main-content">
     <div class="page-title"></div>
     @{ Html.RenderPartial("~/Features/Events/Views/Filter.cshtml", Model.FilterViewModel); }
-    @if (!Model.MatchLeagues.Any())
+    @if (Model.EventModel.TotalWager == 0)
     {
         <table>
             <tbody>
@@ -28,13 +28,13 @@
                 <tr>
                     <th>@Resources.Details</th>
                     <th>@Resources.Event</th>
-                    <th>@Resources.Wagers</th>
-                    <th>@Resources.Stake</th>
+                    <th>@Resources.Wagers [@HtmlHelpers.FormatNumber(Model.EventModel.TotalWager)]</th>
+                    <th>@Resources.Stake [@HtmlHelpers.FormatNumber(Model.EventModel.TotalStake)]</th>
                     <th>&nbsp;</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var league in Model.MatchLeagues)
+                @foreach (var league in Model.EventModel.MatchLeagues)
                 {
                     <tr class="league" data-leagueid="@league.LeagueId">
                         <td colspan="5">
@@ -42,7 +42,6 @@
                                 <span class="icon-chevron-down"></span>
                                 <span class="league-name">@league.LeagueName</span>
                             </span>
-                            <span class="index text-right">@HtmlHelpers.FormatNumber(league.TotalWager) | @HtmlHelpers.FormatNumber(league.TotalStake)</span>
                         </td>
                     </tr>
                     foreach (var match in league.Matches)

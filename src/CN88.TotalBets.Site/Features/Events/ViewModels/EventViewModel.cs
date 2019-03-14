@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
-    using Request;
     using Shared.ViewModels.Filters;
     using TotalBets.Features.Events.Models;
     using TotalBets.Features.Summay.Models;
@@ -32,6 +31,7 @@
 
         public EventFilterViewModel FilterViewModel
             => new EventFilterViewModel(
+                query.Type,
                 query.IsLive,
                 query.SportTypeGroup,
                 query.StakeCondition,

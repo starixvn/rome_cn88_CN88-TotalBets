@@ -5,6 +5,7 @@
     public class EventFilterViewModel : FilterBaseViewModel
     {
         public EventFilterViewModel(
+            byte type,
             byte market,
             int sportTypeGroup,
             byte stakeCondition,
@@ -13,9 +14,12 @@
             SingleSelectionViewModel leagueSelectionViewModel)
             : base(sportTypeGroup, stakeCondition, stake, possType, leagueSelectionViewModel)
         {
+            Type = type;
             Market = market;
         }
 
         public byte Market { get; }
+
+        public byte Type { get; }
     }
 }
