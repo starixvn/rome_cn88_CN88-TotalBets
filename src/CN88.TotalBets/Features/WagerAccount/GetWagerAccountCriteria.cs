@@ -17,7 +17,6 @@ namespace CN88.TotalBets.Features.WagerAccount
 
         public int CustId { get; }
 
-        [SpParam(SqlParamName = "OrId")]
         public int MatchId { get; }
 
         public int StakeCondition { get; }
