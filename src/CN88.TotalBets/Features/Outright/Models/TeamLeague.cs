@@ -2,18 +2,18 @@
 {
     using System.Collections.Generic;
 
-    public class OutrightLeague
+    public class TeamLeague
     {
-        public OutrightLeague(
+        public TeamLeague(
             int leagueId,
             string leagueName,
-            IEnumerable<OutrightItem> outrights,
+            IEnumerable<Team> teams,
             int totalWager,
             decimal totalStake)
         {
             LeagueId = leagueId;
             LeagueName = leagueName;
-            Outrights = outrights;
+            Teams = teams;
             TotalWager = totalWager;
             TotalStake = totalStake;
         }
@@ -22,7 +22,7 @@
 
         public string LeagueName { get; }
 
-        public IEnumerable<OutrightItem> Outrights { get; }
+        public IEnumerable<Team> Teams { get; }
 
         public int TotalWager { get; }
 

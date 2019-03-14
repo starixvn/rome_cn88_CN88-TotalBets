@@ -11,7 +11,7 @@
 
     public interface OutrightService
     {
-        Task<IEnumerable<OutrightLeague>> GetOutrightsAsync(OutrightParam param);
+        Task<IEnumerable<TeamLeague>> GetOutrightsAsync(OutrightParam param);
     }
 
     public class OutrightServiceImpl : OutrightService
@@ -27,19 +27,19 @@
             this.cacheRefService = cacheRefService;
         }
 
-        public async Task<IEnumerable<OutrightLeague>> GetOutrightsAsync(OutrightParam param)
+        public async Task<IEnumerable<TeamLeague>> GetOutrightsAsync(OutrightParam param)
         {
-            var outrights = await dynamicRepository.FetchAsync<OutrightItem>(new GetOutrightCriteria(param));
+            var teams = await dynamicRepository.FetchAsync<Team>(new GetOutrightCriteria(param));
 
-            return outrights.Any()
-                ? outrights
+            return teams.Any()
+                ? teams
                     .GroupBy(item => item.LeagueId)
-                    .Select(group => GetOutrightLeague(group))
+                    .Select(group => GetTeamLeague(group))
                     .ToList()
-                : Enumerable.Empty<OutrightLeague>();
+                : Enumerable.Empty<TeamLeague>();
         }
 
-        private OutrightLeague GetOutrightLeague(IGrouping<int, OutrightItem> groupLeague)
+        private TeamLeague GetTeamLeague(IGrouping<int, Team> groupLeague)
         {
             int totalWager = 0;
             decimal totalStake = 0;
@@ -51,7 +51,7 @@
                 item.TeamName = cacheRefService.GetTeamName(item.TeamId);
             }
 
-            return new OutrightLeague(
+            return new TeamLeague(
                 groupLeague.Key,
                 cacheRefService.GetLeagueName(groupLeague.Key),
                 groupLeague,

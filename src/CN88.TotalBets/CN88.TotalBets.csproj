@@ -127,8 +127,8 @@
     <Compile Include="Shared\Criteria\FilterCriteriaBase.cs" />
     <Compile Include="Shared\Models\Enumeration.cs" />
     <Compile Include="Shared\Models\IUser.cs" />
-    <Compile Include="Features\Outright\Models\OutrightItem.cs" />
-    <Compile Include="Features\Outright\Models\OutrightLeague.cs" />
+    <Compile Include="Features\Outright\Models\Team.cs" />
+    <Compile Include="Features\Outright\Models\TeamLeague.cs" />
     <Compile Include="Features\Leagues\Models\League.cs" />
     <Compile Include="Features\Overview\Models\OverViewByParlayModel.cs" />
     <Compile Include="Features\Overview\Models\OverViewModel.cs" />

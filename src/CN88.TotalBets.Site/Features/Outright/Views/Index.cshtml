@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Outright";
     Layout = "~/Shared/Views/_Layout.cshtml";
 }
@@ -13,25 +12,25 @@
 @SummaryMenu.Render(Model.SummaryMenuViewModel)
 <div class="main-content">
     <div class="page-title"></div>
-    @Html.Partial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel)
+    @{ Html.RenderPartial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel); }
     <table class="tbl-style2 tbl-totalbet tbl-outright" id="tableOutright">
         <tbody>
-            @if (Model.Outrights.Any())
+            @if (Model.TeamLeagues.Any())
             {
-                foreach (var league in Model.Outrights)
+                foreach (var league in Model.TeamLeagues)
                 {
                     @RenderLeague(league)
                     var index = 0;
-                    foreach (var outright in league.Outrights)
+                    foreach (var team in league.Teams)
                     {
                         index++;
                         if (index % 2 == 1)
                         {
-                            @:<tr class="childrow-@league.LeagueId">@RenderOutright(outright)
+                            @:<tr class="childrow-@league.LeagueId">@RenderOutright(team)
                         }
                         else
                         {
-                            @:@RenderOutright(outright)</tr>
+                            @:@RenderOutright(team)</tr>
                         }
                     }
 
@@ -48,7 +47,7 @@
         </tbody>
     </table>
 </div>
-@helper RenderLeague(OutrightLeague league)
+@helper RenderLeague(TeamLeague league)
 {
     <tr class="league" data-leagueid="@league.LeagueId">
         <td colspan="2">
@@ -60,12 +59,12 @@
         </td>
     </tr>
 }
-@helper RenderOutright(OutrightItem outright)
+@helper RenderOutright(Team team)
 {
     <td class="team">
-        <span class="team-name">@outright.TeamName</span>
-        <span class="index text-right">@outright.Wager
-            <a href="javascript:;" class="stake link">@HtmlHelpers.FormatNumber(outright.Stake)</a>
+        <span class="team-name">@team.TeamName</span>
+        <span class="index text-right">@team.Wager
+            <a href="javascript:;" class="stake link">@HtmlHelpers.FormatNumber(team.Stake)</a>
         </span>
     </td>
 }

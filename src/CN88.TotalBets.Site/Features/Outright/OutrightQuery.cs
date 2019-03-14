@@ -4,7 +4,6 @@
     using Shared.Requests;
     using TotalBets.Shared.Constants;
     using TotalBets.Shared.Models;
-    using ViewModels;
 
     public class OutrightQuery : BaseQuery, IRequest<OutrightViewModel>
     {

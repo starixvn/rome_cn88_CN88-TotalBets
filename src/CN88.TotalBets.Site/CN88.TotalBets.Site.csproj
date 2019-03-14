@@ -424,7 +424,7 @@
     <Compile Include="Features\Overview\OverViewQuery.cs" />
     <Compile Include="Shared\ViewModels\Filters\FilterBaseViewModel.cs" />
     <Compile Include="Shared\ViewModels\Filters\SingleSelectionViewModel.cs" />
-    <Compile Include="Features\Outright\ViewModels\OutrightViewModel.cs" />
+    <Compile Include="Features\Outright\OutrightViewModel.cs" />
     <Compile Include="Features\Overview\ViewModels\OverViewByOutrightViewModel.cs" />
     <Compile Include="Shared\ViewModels\Filters\SummaryMenuViewModel.cs" />
     <Compile Include="Features\Overview\ViewModels\OverViewByEarlyViewModel.cs" />

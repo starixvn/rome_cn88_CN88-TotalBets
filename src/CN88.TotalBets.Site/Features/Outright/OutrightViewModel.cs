@@ -1,8 +1,7 @@
-﻿namespace CN88.TotalBets.Site.Features.Outright.ViewModels
+﻿namespace CN88.TotalBets.Site.Features.Outright
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
-    using Outright;
     using Shared.ViewModels.Filters;
     using TotalBets.Features.Outright.Models;
     using TotalBets.Features.Summay.Models;
@@ -13,12 +12,12 @@
 
         public OutrightViewModel(
             OutrightQuery query,
-            IEnumerable<OutrightLeague> outrights,
+            IEnumerable<TeamLeague> teamLeagues,
             IEnumerable<Summary> summaries,
             IEnumerable<SelectListItem> leagues)
         {
             this.query = query;
-            Outrights = outrights;
+            TeamLeagues = teamLeagues;
 
             SummaryMenuViewModel = new SummaryMenuViewModel(summaries, query.SportTypeGroup);
             LeagueSelectionViewModel = new SingleSelectionViewModel(leagues, query.LeagueId);
@@ -26,7 +25,7 @@
 
         public int PossType => query.PossType;
 
-        public IEnumerable<OutrightLeague> Outrights { get; }
+        public IEnumerable<TeamLeague> TeamLeagues { get; }
 
         public SummaryMenuViewModel SummaryMenuViewModel { get; }
 

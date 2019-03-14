@@ -1,12 +1,12 @@
 ﻿namespace CN88.TotalBets.Features.Outright.Models
 {
-    public class OutrightItem
+    public class Team
     {
-        public OutrightItem()
+        public Team()
         {
         }
 
-        public OutrightItem(
+        public Team(
             int leagueId,
             int teamId,
             int wager,

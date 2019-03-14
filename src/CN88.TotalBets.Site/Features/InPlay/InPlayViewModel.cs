@@ -11,7 +11,7 @@
 
         public InPlayViewModel(
             InPlayQuery query,
-            IEnumerable<OutrightLeague> outrights,
+            IEnumerable<TeamLeague> outrights,
             IEnumerable<SelectListItem> leagues)
         {
             this.query = query;
@@ -21,7 +21,7 @@
 
         public int PossType => query.PossType;
 
-        public IEnumerable<OutrightLeague> Outrights { get; }
+        public IEnumerable<TeamLeague> Outrights { get; }
 
         public SingleSelectionViewModel LeagueSelectionViewModel { get; }
 
