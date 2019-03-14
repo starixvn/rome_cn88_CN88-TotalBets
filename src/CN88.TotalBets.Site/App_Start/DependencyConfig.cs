@@ -20,6 +20,7 @@
     using TotalBets.Features.Overview;
     using TotalBets.Features.SportTypeGroup;
     using TotalBets.Features.Summay;
+    using TotalBets.Features.WagerAccount;
     using TotalBets.Shared.Models;
     using TotalBets.Shared.Services;
 
@@ -94,7 +95,7 @@
             container.RegisterSingleton<OutrightService, OutrightServiceImpl>();
             container.RegisterSingleton<LeagueService, LeagueServiceImpl>();
             container.RegisterSingleton<SummaryService, SummaryServiceImpl>();
-
+            container.RegisterSingleton<IWagerAccountService, WagerAccountService>();
         }
     }
 }

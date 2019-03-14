@@ -214,6 +214,15 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No information is available.
         /// </summary>
         public static string NoInformationIsAvailable {
@@ -329,7 +338,14 @@ namespace CN88.TotalBets.AppResources {
                 return ResourceManager.GetString("Time", resourceCulture);
             }
         }
-        
+        /// <summary>
+        ///   Looks up a localized string similar to Total.
+        /// </summary>
+        public static string Total {
+            get {
+                return ResourceManager.GetString("Total", resourceCulture);
+            }
+        }
         /// <summary>
         ///   Looks up a localized string similar to Total Stake.
         /// </summary>
@@ -363,6 +379,31 @@ namespace CN88.TotalBets.AppResources {
         public static string Wagers {
             get {
                 return ResourceManager.GetString("Wagers", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to View by Account.
+        /// </summary>
+        public static string ViewByAccount {
+            get {
+                return ResourceManager.GetString("ViewByAccount", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to View Wager Details.
+        /// </summary>
+        public static string ViewWagerDetails {
+            get {
+                return ResourceManager.GetString("ViewWagerDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wager.
+        /// </summary>
+        public static string Wager {
+            get {
+                return ResourceManager.GetString("Wager", resourceCulture);
             }
         }
     }

@@ -350,6 +350,10 @@
     <Content Include="assets\bundles\scripts\overview.min.js">
       <DependentUpon>overview.js</DependentUpon>
     </Content>
+    <Content Include="assets\bundles\scripts\wager-account.js" />
+    <Content Include="assets\bundles\scripts\wager-account.min.js">
+      <DependentUpon>wager-account.js</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\totalbets.css" />
     <Content Include="assets\bundles\totalbets.min.css">
       <DependentUpon>totalbets.css</DependentUpon>
@@ -423,6 +427,10 @@
     <Compile Include="Features\Events\ViewModels\EventFilterViewModel.cs" />
     <Compile Include="Features\Outright\OutrightController.cs" />
     <Compile Include="Features\Overview\OverViewController.cs" />
+    <Compile Include="Features\WagerAccount\WagerAccountHandler.cs" />
+    <Compile Include="Features\WagerAccount\WagerAccountController.cs" />
+    <Compile Include="Features\WagerAccount\WagerAccountQuery.cs" />
+    <Compile Include="Features\WagerAccount\WagerAccountViewModel.cs" />
     <Compile Include="Shared\Controllers\SiteBaseController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -432,6 +440,7 @@
     <Compile Include="Features\Outright\OutrightHandler.cs" />
     <Compile Include="Features\Overview\OverViewHandler.cs" />
     <Compile Include="Shared\Helpers\QueryEntityModelBinder.cs" />
+    <Compile Include="Shared\Helpers\UrlHelper.cs" />
     <Compile Include="Shared\Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\Requests\BaseQuery.cs" />
@@ -503,12 +512,15 @@
     <Content Include="Shared\Views\Filter.cshtml" />
     <Content Include="Features\Overview\Views\web.config" />
     <Content Include="Features\Outright\Views\web.config" />
+    <Content Include="Features\WagerAccount\Views\web.config" />
     <Content Include="Shared\Views\web.config" />
     <Content Include="Features\Events\Views\web.config" />
     <Content Include="Features\Events\Views\Index.cshtml" />
     <Content Include="Features\Events\Views\Filter.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Features\Outright\Views\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Features\Overview\Views\Index.cshtml" />
   </ItemGroup>
@@ -532,12 +544,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\Outright\Views\Index.cshtml" />
+    <Content Include="Features\WagerAccount\Views\Index.cshtml" />
     <Content Include="App_Code\Filters\StakeConditionFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="assets\scripts\components\single-selection-dropdown.ts" />
     <TypeScriptCompile Include="assets\scripts\components\summary-menu.ts" />
     <TypeScriptCompile Include="assets\scripts\event.ts" />
+    <TypeScriptCompile Include="assets\scripts\wager-account.ts" />
     <TypeScriptCompile Include="assets\scripts\overview.ts" />
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine-jquery\index.d.ts" />

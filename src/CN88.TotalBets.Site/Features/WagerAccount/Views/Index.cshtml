@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Wager Account";
+    Layout = "~/Shared/Views/_Layout.cshtml";
+}
+@section Styles {
+    @StaticResources.RenderStyles("~/assets/bundles/outright/outright")
+}
+@section Scripts {
+    @StaticResources.RenderScripts("~/assets/bundles/scripts/wager-account")
+}
+@model WagerAccountViewModel
+
+<ul id="nav-tabs" class="nav nav-tabs-style2" role="tablist">
+    
+        <li class="lnk-changetab" role="presentation">
+            <a>@Resources.ViewByAccount</a>
+        </li>
+    
+        <li class="lnk-changetab">
+            <a>@Resources.ViewWagerDetails</a>
+        </li>
+    
+</ul>
+
+<div class="tab-content display-none">
+    <div class="tab-panel active" role="tabpanel">       
+
+        <table class="tbl-style2">
+            <thead>
+                <tr>
+                    <th class="text-left">@Model.Message.CustLevel.GetDirectDownLineLevel().DisplayName</th>
+                    <th class="text-left">@Resources.Name</th>
+                    <th class="text-right">@Resources.Wager</th>
+                    <th class="text-right">@Resources.Stake</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td class="text-left" colspan="2">@Resources.Total</td>
+                    <td class="text-right">@Model.Total.Wagers</td>
+                    <td class="text-right">@HtmlHelpers.FormatNumber(Model.Total.Stake)</td>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach(var item in Model.WagerAccounts)
+                {
+                    <tr>
+                        <td class="text-left"><a href="@Model.GetDownLineUrl(item.CustId)">@item.UserName</a></td>
+                        <td class="text-left">@item.FirstName</td>
+                        <td class="text-right">@item.Wager</td>
+                        <td class="text-right">@HtmlHelpers.FormatNumber(item.Stake)</td>
+                    </tr>
+                }
+            </tbody>
+            
+        </table>
+    </div>
+</div>

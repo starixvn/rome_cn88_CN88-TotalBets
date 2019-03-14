@@ -219,4 +219,19 @@
   <data name="Outright" xml:space="preserve">
     <value>Outright</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="ViewByAccount" xml:space="preserve">
+    <value>View by Account</value>
+  </data>
+  <data name="ViewWagerDetails" xml:space="preserve">
+    <value>View Wager Details</value>
+  </data>
+  <data name="Wager" xml:space="preserve">
+    <value>Wager</value>
+  </data>
 </root>

@@ -41,5 +41,11 @@
       "assets/scripts/overview.js",
       "assets/scripts/components/single-selection-dropdown.js"
     ]
+  },
+  {
+    "outputFileName": "assets/bundles/scripts/wager-account.js",
+    "inputFiles": [
+      "assets/scripts/wager-account.js"
+    ]
   }
 ]

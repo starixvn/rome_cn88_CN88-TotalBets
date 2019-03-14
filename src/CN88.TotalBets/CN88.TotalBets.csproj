@@ -115,6 +115,10 @@
     <Compile Include="Features\Summay\Criteria\GetSummaryCriteria.cs" />
     <Compile Include="Features\Summay\Models\Summary.cs" />
     <Compile Include="Features\Summay\SummaryService.cs" />
+    <Compile Include="Features\WagerAccount\GetWagerAccountCriteria.cs" />
+    <Compile Include="Features\WagerAccount\WagerAccountModel.cs" />
+    <Compile Include="Features\WagerAccount\WagerAccountParam.cs" />
+    <Compile Include="Features\WagerAccount\WagerAccountService.cs" />
     <Compile Include="Shared\Configurations\AppSettings.cs" />
     <Compile Include="Shared\Constants\MarketConstants.cs" />
     <Compile Include="Shared\Constants\PossTypeConstants.cs" />
