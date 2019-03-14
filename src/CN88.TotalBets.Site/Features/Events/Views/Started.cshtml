@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "In-Play";
+    Layout = "~/Shared/Views/_Layout.cshtml";
+}
+@section Styles {
+    @StaticResources.RenderStyles("~/assets/bundles/inplay")
+}
+@section Scripts {
+    @StaticResources.RenderScripts("~/assets/bundles/events/event")
+}
+@model InPlayViewModel
+@SummaryMenu.Render(Model.SummaryMenuViewModel)
+<div class="main-content">
+    <div class="page-title"></div>
+    @{ Html.RenderPartial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel); }
+    <table class="table" id="tableInPlay">
+        <thead>
+            <tr>
+                <th>@Resources.Details</th>
+                <th>@Resources.Event</th>
+                <th>@Resources.Wagers</th>
+                <th>@Resources.Stake</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.MatchLeagues.Any())
+            {
+                foreach (var league in Model.MatchLeagues)
+                {
+                    <tr class="league" data-leagueid="@league.LeagueId">
+                        <td colspan="5">
+                            <span class="league-name-wrapper">
+                                <span class="icon-chevron-down"></span>
+                                <span class="league-name">@league.LeagueName</span>
+                            </span>
+                            <span class="index text-right">@HtmlHelpers.FormatNumber(league.TotalWager) | @HtmlHelpers.FormatNumber(league.TotalStake)</span>
+                        </td>
+                    </tr>
+                    foreach (var match in league.Matches)
+                    {
+                        <tr>
+                            <td>@match.LiveHomeScore - @match.LiveAwayScore <font style="color:red;text-transform:uppercase">@Resources.Live</font></td>
+                            <td>@match.Event</td>
+                            <td>@HtmlHelpers.FormatNumber(match.Wager)</td>
+                            <td>@HtmlHelpers.FormatNumber(match.Stake)</td>
+                            <td>@HtmlHelpers.FormatNumber(match.BetTypeCount)</td>
+                        </tr>
+                    }
+                }
+            }
+            else
+            {
+                <tr><td colspan="5" class="text-center no-info">@Resources.NoInformationIsAvailable</td></tr>
+            }
+        </tbody>
+    </table>
+</div>

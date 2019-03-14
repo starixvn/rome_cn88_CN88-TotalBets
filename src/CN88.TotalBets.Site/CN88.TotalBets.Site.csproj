@@ -318,6 +318,10 @@
     <Content Include="App_Data\SPNames\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\DBONUSER.ON_USER.BODBDownlineNet.xml" />
+    <Content Include="assets\bundles\events\event.js" />
+    <Content Include="assets\bundles\events\event.min.js">
+      <DependentUpon>event.js</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\outright\outright.css" />
     <Content Include="assets\bundles\outright.css" />
     <Content Include="assets\bundles\outright.min.css">
@@ -402,7 +406,7 @@
     <Compile Include="App_Start\DependencyConfig.cs" />
     <Compile Include="App_Start\LoggingManager.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Features\Events\InPlayController.cs" />
+    <Compile Include="Features\Events\EventController.cs" />
     <Compile Include="Features\Events\EventHandler.cs" />
     <Compile Include="Features\Events\Request\InPlayQuery.cs" />
     <Compile Include="Features\Events\ViewModels\InPlayViewModel.cs" />
@@ -489,8 +493,11 @@
     <Content Include="Features\Overview\Views\web.config" />
     <Content Include="Features\Outright\Views\web.config" />
     <Content Include="Shared\Views\web.config" />
-    <Content Include="Features\Events\Views\Index.cshtml" />
+    <Content Include="Features\Events\Views\InPlay.cshtml" />
     <Content Include="Features\Events\Views\web.config" />
+    <Content Include="Features\Events\Views\Today.cshtml" />
+    <Content Include="Features\Events\Views\Early.cshtml" />
+    <Content Include="Features\Events\Views\Started.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -521,6 +528,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="assets\scripts\components\single-selection-dropdown.ts" />
     <TypeScriptCompile Include="assets\scripts\components\summary-menu.ts" />
+    <TypeScriptCompile Include="assets\scripts\inplay.ts" />
     <TypeScriptCompile Include="assets\scripts\overview.ts" />
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine-jquery\index.d.ts" />

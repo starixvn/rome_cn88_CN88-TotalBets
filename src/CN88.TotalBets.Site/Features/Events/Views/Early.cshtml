@@ -6,14 +6,14 @@
     @StaticResources.RenderStyles("~/assets/bundles/inplay")
 }
 @section Scripts {
-    @StaticResources.RenderScripts("~/assets/bundles/inplay/inplay")
+    @StaticResources.RenderScripts("~/assets/bundles/events/event")
 }
 @model InPlayViewModel
 @SummaryMenu.Render(Model.SummaryMenuViewModel)
 <div class="main-content">
     <div class="page-title"></div>
     @{ Html.RenderPartial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel); }
-    <table class="table">
+    <table class="table" id="tableInPlay">
         <thead>
             <tr>
                 <th>@Resources.Details</th>
