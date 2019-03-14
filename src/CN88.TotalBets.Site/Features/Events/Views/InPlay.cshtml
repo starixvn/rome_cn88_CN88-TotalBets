@@ -13,20 +13,28 @@
 <div class="main-content">
     <div class="page-title"></div>
     @{ Html.RenderPartial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel); }
-    <table class="table" id="tableInPlay">
-        <thead>
-            <tr>
-                <th>@Resources.Details</th>
-                <th>@Resources.Event</th>
-                <th>@Resources.Wagers</th>
-                <th>@Resources.Stake</th>
-                <th>&nbsp;</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Model.MatchLeagues.Any())
-            {
-                foreach (var league in Model.MatchLeagues)
+    @if (!Model.MatchLeagues.Any())
+    {
+        <table>
+            <tbody>
+                <tr><td colspan="5" class="text-center no-info">@Resources.NoInformationIsAvailable</td></tr>
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <table class="table" id="tableInPlay">
+            <thead>
+                <tr>
+                    <th>@Resources.Details</th>
+                    <th>@Resources.Event</th>
+                    <th>@Resources.Wagers</th>
+                    <th>@Resources.Stake</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var league in Model.MatchLeagues)
                 {
                     <tr class="league" data-leagueid="@league.LeagueId">
                         <td colspan="5">
@@ -48,11 +56,7 @@
                         </tr>
                     }
                 }
-            }
-            else
-            {
-                <tr><td colspan="5" class="text-center no-info">@Resources.NoInformationIsAvailable</td></tr>
-            }
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    }
 </div>

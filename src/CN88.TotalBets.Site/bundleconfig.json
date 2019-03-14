@@ -17,7 +17,7 @@
     "inputFiles": [
       "assets/scripts/components/summary-menu.js",
       "assets/scripts/components/single-selection-dropdown.js",
-      "assets/scripts/inplay.js"
+      "assets/scripts/event.js"
     ]
   },
   {

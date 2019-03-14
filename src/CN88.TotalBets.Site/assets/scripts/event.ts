@@ -1,5 +1,5 @@
 ﻿"use strict";
-class InPlay {
+class EventTotalBets {
     $: JQueryStatic;
 
     summaryMenu: SummaryMenu;
@@ -60,7 +60,7 @@ class InPlay {
 }
 
 $(function (): void {
-    new InPlay(
+    new EventTotalBets(
         $,
         new SummaryMenu($),
         new SingleSelectionDropdownComponent($),

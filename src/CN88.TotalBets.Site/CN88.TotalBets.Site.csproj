@@ -524,7 +524,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="assets\scripts\components\single-selection-dropdown.ts" />
     <TypeScriptCompile Include="assets\scripts\components\summary-menu.ts" />
-    <TypeScriptCompile Include="assets\scripts\inplay.ts" />
+    <TypeScriptCompile Include="assets\scripts\event.ts" />
     <TypeScriptCompile Include="assets\scripts\overview.ts" />
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine-jquery\index.d.ts" />
