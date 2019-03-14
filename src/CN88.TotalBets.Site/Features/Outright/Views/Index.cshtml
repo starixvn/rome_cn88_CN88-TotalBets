@@ -67,7 +67,12 @@
     <td class="team">
         <span class="team-name">@team.TeamName</span>
         <span class="index text-right">@HtmlHelpers.FormatNumber(team.Wager)
-            <a href="@($"{Url.Content("~")}{Model.WagerAccountLink}{team.MatchId}")" class="stake link" target="_blank">@HtmlHelpers.FormatNumber(team.Stake)</a>
+            @Html.ActionLink(
+                HtmlHelpers.FormatNumber(team.Stake).ToHtmlString(),
+                "Index",
+                "WagerAccount",
+                new { custId = Model.ViewerId, custLevelId = Model.ViewerLevelId, matchId = team.MatchId, Stake = Model.FilterViewModel.Stake, StakeCondition = Model.FilterViewModel.StakeCondition },
+                new { @class = "stake link" })
         </span>
     </td>
 }

@@ -17,6 +17,8 @@
             IEnumerable<SelectListItem> leagues)
         {
             this.query = query;
+            ViewerId = query.ViewerId;
+            ViewerLevelId = query.ViewerLevelId;
             Title = title;
 
             SummaryMenuViewModel = new SummaryMenuViewModel(summaries, query.SportTypeGroup);
@@ -28,6 +30,10 @@
                query.PossType,
                LeagueSelectionViewModel);
         }
+
+        public int ViewerId { get; }
+
+        public byte ViewerLevelId { get; }
 
         public string Title { get; }
 

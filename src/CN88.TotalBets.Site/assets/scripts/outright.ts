@@ -46,6 +46,12 @@ class Outright {
             }
         });
 
+        tableOutright.find(".stake").click(function (e: any): void {
+            e.preventDefault();
+            e.stopPropagation();
+            window.open(this.href, "_blank", "width=400, height=400");
+        });
+
         this.$("#filter-form").submit(this.onSubmit);
     }
 
