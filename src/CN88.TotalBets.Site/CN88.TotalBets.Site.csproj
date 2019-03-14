@@ -506,6 +506,7 @@
     <Content Include="Shared\Views\web.config" />
     <Content Include="Features\Events\Views\web.config" />
     <Content Include="Features\Events\Views\Index.cshtml" />
+    <Content Include="Features\Events\Views\Filter.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
