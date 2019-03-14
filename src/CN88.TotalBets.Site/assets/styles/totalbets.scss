@@ -37,7 +37,6 @@
     left: 0;
     bottom: 0;
     border-right: 1px solid #d9d9d9;
-    transition: 0.3s ease;
 
     &.collapsed {
         width: 36px;
@@ -123,7 +122,6 @@
 .main-content {
     margin: 12px 0 0 220px;
     padding: 0 12px;
-    transition: 0.3s ease;
     &.expanded {
         margin-left: 36px;
     }
