@@ -540,6 +540,7 @@
     <Content Include="App_Code\Filters\StakeConditionFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="assets\scripts\auto-refresh.ts" />
     <TypeScriptCompile Include="assets\scripts\base-totalbets.ts" />
     <TypeScriptCompile Include="assets\scripts\components\single-selection-dropdown.ts" />
     <TypeScriptCompile Include="assets\scripts\components\summary-menu.ts" />
