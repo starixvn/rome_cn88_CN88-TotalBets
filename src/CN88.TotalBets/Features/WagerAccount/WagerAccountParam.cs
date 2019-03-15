@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CN88.TotalBets.Shared.Models;
-
-namespace CN88.TotalBets.Features.WagerAccount
+﻿namespace CN88.TotalBets.Features.WagerAccount
 {
+    using CN88.TotalBets.Shared.Models;
+
     public class WagerAccountParam
     {
         public WagerAccountParam(
