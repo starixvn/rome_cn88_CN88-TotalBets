@@ -48,6 +48,7 @@
             {
                 custId = query.ViewerId,
                 custLevelId = query.ViewerLevelId,
+                custName = query.CustName,
                 matchId = matchId,
                 Stake = FilterViewModel.Stake,
                 StakeCondition = FilterViewModel.StakeCondition

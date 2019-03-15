@@ -48,7 +48,7 @@
                     foreach (var match in league.Matches)
                     {
                         <tr class="childrow-@league.LeagueId">
-                            @(Model.IsInPlay ? RenderScoreColumn(match) : RenderTimeColumn(match))
+                            <td>@RenderScoreColumn(match)</td>
                             <td>@match.Event</td>
                             <td class="text-right">@HtmlHelpers.FormatNumber(match.Wager)</td>
                             <td class="text-right">
@@ -74,12 +74,13 @@
 </div>
 @helper RenderScoreColumn(Match match)
 {
-    <td>
-        @match.LiveHomeScore - @match.LiveAwayScore<br />
+    if (Model.IsInPlay)
+    {
+        @:@match.LiveHomeScore - @match.LiveAwayScore<br/>
         <span class="live">@Resources.Live</span>
-    </td>
-}
-@helper RenderTimeColumn(Match match)
-{
-    <td>@Html.Raw(match.ShowTime)</td>
+    }
+    else
+    {
+        @:@Html.Raw(match.ShowTime)
+    }
 }
