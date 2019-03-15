@@ -9,13 +9,15 @@
 
     public class OutrightViewModel : BaseViewModel
     {
+        private const string outrightVirtualPath = "Outright/Index";
+
         public OutrightViewModel(
             OutrightQuery query,
             string sportGroupName,
             IEnumerable<TeamLeague> teamLeagues,
             IEnumerable<Summary> summaries,
             IEnumerable<SelectListItem> leagues)
-            : base(query, sportGroupName, summaries, leagues)
+            : base(query, sportGroupName, $"{query.AppPath}{outrightVirtualPath}", summaries, leagues)
         {
             TeamLeagues = teamLeagues;
             SubTitle = Resources.Outright;

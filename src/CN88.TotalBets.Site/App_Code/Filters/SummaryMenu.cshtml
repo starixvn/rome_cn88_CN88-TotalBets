@@ -7,11 +7,14 @@
         <ul class="list-sports" id="summary-menu-items">
             @foreach (var summary in model.Summaries)
             {
-                <li id="@summary.SportTypeGroup" class="sport @(summary.SportTypeGroup==model.SelectedSportTypeGroup?"selected":string.Empty)">
-                    <div class="txt">@summary.SportTypeGroupName</div>
-                    <div>
-                        <span class="number-first">@HtmlHelpers.FormatNumber(summary.Wager)</span>|<span class="number-second">@HtmlHelpers.FormatNumber(summary.Stake)</span>
-                    </div>
+                var path = model.AppPath + "&SportTypeGroup=" + summary.SportTypeGroup;
+                <li id="@summary.SportTypeGroup" class="sport @(summary.SportTypeGroup == model.SelectedSportTypeGroup ? "selected" : string.Empty)">
+                    <a href="@path">
+                        <div class="txt">@summary.SportTypeGroupName</div>
+                        <div>
+                            <span class="number-first">@HtmlHelpers.FormatNumber(summary.Wager)</span>|<span class="number-second">@HtmlHelpers.FormatNumber(summary.Stake)</span>
+                        </div>
+                    </a>
                 </li>
             }
         </ul>

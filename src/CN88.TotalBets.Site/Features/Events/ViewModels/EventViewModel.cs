@@ -10,13 +10,15 @@
 
     public class EventViewModel : BaseViewModel
     {
+        private const string eventVirtualPath = "Event/Index";
+
         public EventViewModel(
             EventQuery query,
             string sportTypeGroup,
             MatchLeagueTotal eventModel,
             IEnumerable<Summary> summaries,
             IEnumerable<SelectListItem> leagues)
-            : base(query, sportTypeGroup, summaries, leagues)
+            : base(query, sportTypeGroup, $"{query.AppPath}{eventVirtualPath}", summaries, leagues)
         {
             EventModel = eventModel;
             IsInPlay = eventModel.Type == EventTypeConstants.InPlay;

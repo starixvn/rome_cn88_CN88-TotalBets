@@ -2,9 +2,7 @@
 
 class SummaryMenuOption {
     constructor(
-        public mainContentId: string = "main-content",
-        public filterFormId: string = "filter-form",
-        public inputId: string = "SportTypeGroup") {
+        public mainContentId: string = "main-content") {
     }
 }
 
@@ -23,18 +21,8 @@ class SummaryMenu {
 
         this.$mainContent = this.$("#" + this.options.mainContentId);
 
-        let $filterForm = this.$("#" + this.options.filterFormId);
-        let $hiddenInput = this.$("#" + this.options.inputId);
-
         this.$("#head-menu").click(() => {
             this.collapseMenu();
-        });
-
-        let this$ = this.$;
-        this.$("#summary-menu-items .sport").click(function () {
-            var selectedId = this$(this).attr("id");
-            $hiddenInput.val(selectedId);
-            $filterForm.submit();
         });
     }
 

@@ -14,13 +14,14 @@
         protected BaseViewModel(
             FilterQuery query,
             string title,
+            string appPath,
             IEnumerable<Summary> summaries,
             IEnumerable<SelectListItem> leagues)
         {
             this.query = query;
             Title = title;
 
-            SummaryMenuViewModel = new SummaryMenuViewModel(summaries, query.SportTypeGroup);
+            SummaryMenuViewModel = new SummaryMenuViewModel(summaries, query.SportTypeGroup, $"{appPath}?Type={query.Type}");
             LeagueSelectionViewModel = new SingleSelectionViewModel(leagues, query.LeagueId);
             FilterViewModel = new FilterViewModel(
                 query.Type,

@@ -5,14 +5,20 @@
 
     public class SummaryMenuViewModel
     {
-        public SummaryMenuViewModel(IEnumerable<Summary> summaries, int selectedSportTypeGroup)
+        public SummaryMenuViewModel(
+            IEnumerable<Summary> summaries,
+            int selectedSportTypeGroup,
+            string appPath)
         {
             Summaries = summaries;
             SelectedSportTypeGroup = selectedSportTypeGroup;
+            AppPath = appPath;
         }
 
         public IEnumerable<Summary> Summaries { get; }
 
         public int SelectedSportTypeGroup { get; }
+
+        public string AppPath { get; }
     }
 }
