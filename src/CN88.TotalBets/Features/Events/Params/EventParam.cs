@@ -14,14 +14,14 @@
             byte stakeCondition,
             decimal stake,
             byte possType,
-            byte isLive) : base(custId, userLevel, sportTypeGroup, leagueId, stakeCondition, stake, possType)
+            byte market) : base(custId, userLevel, sportTypeGroup, leagueId, stakeCondition, stake, possType)
         {
             Type = type;
-            IsLive = isLive;
+            Market = market;
         }
 
         public byte Type { get; }
 
-        public byte IsLive { get; }
+        public byte Market { get; }
     }
 }

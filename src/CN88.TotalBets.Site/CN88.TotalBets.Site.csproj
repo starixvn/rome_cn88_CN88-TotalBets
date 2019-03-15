@@ -516,6 +516,7 @@
     <Content Include="Features\Events\Views\Filter.cshtml" />
     <Content Include="Features\Events\Views\_TableNoDataFound.cshtml" />
     <Content Include="Features\Events\Views\_InPlay.cshtml" />
+    <Content Include="Features\Events\Views\_Today.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

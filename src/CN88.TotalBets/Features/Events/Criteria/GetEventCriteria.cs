@@ -1,5 +1,6 @@
 ﻿namespace CN88.TotalBets.Features.Events.Criteria
 {
+    using Fanex.Data;
     using Params;
     using Shared.Criteria;
     using Shared.Models;
@@ -16,12 +17,13 @@
             param.PossType)
         {
             Type = param.Type;
-            IsLive = param.IsLive;
+            Market = param.Market;
         }
 
         public byte Type { get; }
 
-        public byte IsLive { get; }
+        [SpParam(SqlParamName = "islive")]
+        public byte Market { get; }
 
         public override string GetSettingKey()
             => UserLevel.IsSuperLevel()
