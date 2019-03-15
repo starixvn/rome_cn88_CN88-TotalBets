@@ -69,7 +69,7 @@
         <span class="index text-right">@HtmlHelpers.FormatNumber(team.Wager)
             @Html.ActionLink(
                 HtmlHelpers.FormatNumber(team.Stake).ToHtmlString(),
-                "Index",
+                "GetByOutright",
                 "WagerAccount",
                 Model.GetWagerAccountParams(team.MatchId),
                 new { @class = "stake link" })

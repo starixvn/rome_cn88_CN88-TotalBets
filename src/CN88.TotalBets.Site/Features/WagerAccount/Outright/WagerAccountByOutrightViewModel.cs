@@ -10,11 +10,11 @@
     using CN88.TotalBets.Site.Shared.Helpers;
     using CN88.TotalBets.Site.Shared.ViewModels;
 
-    public class WagerAccountViewModel
+    public class WagerAccountByOutrightViewModel
     {
-        public WagerAccountViewModel(
+        public WagerAccountByOutrightViewModel(
             IEnumerable<WagerAccountModel> wagerAccounts,
-            WagerAccountQuery message)
+            WagerAccountByOutrightQuery message)
         {
             WagerAccounts = wagerAccounts;
             Total = new OverViewItemModel(WagerAccounts.Sum(i => i.Wager), WagerAccounts.Sum(i => i.Stake));
@@ -28,7 +28,7 @@
 
         public OverViewItemModel Total { get; }
 
-        public WagerAccountQuery Message { get; }
+        public WagerAccountByOutrightQuery Message { get; }
 
         public BreadcrumbLevelViewModel BreadcrumbLevelViewModel
             => new BreadcrumbLevelViewModel(breadcrumbLevel);
@@ -60,7 +60,7 @@
                 ["CustLevelId"] = Message.CustLevel.GetDirectDownLineLevel().Value,
                 ["BreadcrumbLevelJson"] = JsonHelper.ToJsonFunc(breadcrumbLevel)
             };
-            var url = AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/WagerAccount/Index");
+            var url = AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/WagerAccount/GetByOutright");
             if (Message.CustLevel.GetDirectDownLineLevel().IsMemberLevel())
             {
                 url = AppPathHelper.GetAppPath(AppSettings.FeaturesAppPath, "~/BetLists/OutrightWagerByAccount");

@@ -122,9 +122,9 @@
     <Compile Include="Features\Summaries\SummaryService.cs" />
     <Compile Include="Features\WagerAccount\Event\GetWagerAccountByEventCriteria.cs" />
     <Compile Include="Features\WagerAccount\Event\WagerAccountByEventParam.cs" />
-    <Compile Include="Features\WagerAccount\GetWagerAccountCriteria.cs" />
+    <Compile Include="Features\WagerAccount\Outright\GetWagerAccountCriteria.cs" />
     <Compile Include="Features\WagerAccount\WagerAccountModel.cs" />
-    <Compile Include="Features\WagerAccount\WagerAccountParam.cs" />
+    <Compile Include="Features\WagerAccount\Outright\WagerAccountParam.cs" />
     <Compile Include="Features\WagerAccount\WagerAccountService.cs" />
     <Compile Include="Features\ViewByBetTypes\Criteria\GetTotalBetsByBetTypeCriteria.cs" />
     <Compile Include="Features\ViewByBetTypes\Models\BaseBetOption.cs" />

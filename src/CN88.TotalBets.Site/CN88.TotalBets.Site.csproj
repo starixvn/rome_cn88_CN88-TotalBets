@@ -435,8 +435,8 @@
     <Compile Include="Features\WagerAccount\WagerAccountHandler.cs" />
     <Compile Include="Features\WagerAccount\WagerAccountController.cs" />
     <Compile Include="Features\WagerAccount\WagerAccountBaseQuery.cs" />
-    <Compile Include="Features\WagerAccount\WagerAccountQuery.cs" />
-    <Compile Include="Features\WagerAccount\WagerAccountViewModel.cs" />
+    <Compile Include="Features\WagerAccount\Outright\WagerAccountByOutrightQuery.cs" />
+    <Compile Include="Features\WagerAccount\Outright\WagerAccountByOutrightViewModel.cs" />
     <Compile Include="Shared\Controllers\SiteBaseController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -524,13 +524,14 @@
     <Content Include="Shared\Views\Filter.cshtml" />
     <Content Include="Features\Overview\Views\web.config" />
     <Content Include="Features\Outright\Views\web.config" />
-    <Content Include="Features\WagerAccount\Views\web.config" />
+    <Content Include="Features\WagerAccount\Outright\Views\web.config" />
     <Content Include="Shared\Views\web.config" />
     <Content Include="Features\Events\Views\web.config" />
     <Content Include="Features\Events\Views\Index.cshtml" />
     <Content Include="Features\ViewByBetType\Views\Index.cshtml" />
     <Content Include="Features\ViewByBetType\Views\web.config" />
-    <Content Include="Features\WagerAccount\Views\Event.cshtml" />
+    <Content Include="Features\WagerAccount\Event\Views\Index.cshtml" />
+    <Content Include="Features\WagerAccount\Event\Views\web.config" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -556,7 +557,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\Outright\Views\Index.cshtml" />
-    <Content Include="Features\WagerAccount\Views\Index.cshtml" />
+    <Content Include="Features\WagerAccount\Outright\Views\Index.cshtml" />
     <Content Include="App_Code\Filters\StakeConditionFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>

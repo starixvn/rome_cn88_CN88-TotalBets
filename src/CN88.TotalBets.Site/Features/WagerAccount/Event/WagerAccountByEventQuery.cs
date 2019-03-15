@@ -16,6 +16,6 @@
 
         public string BetTeam { get; set; }
 
-        public bool LiveIndicator { get; set; }        
+        public int LiveIndicator { get; set; }        
     }
 }

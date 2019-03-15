@@ -9,18 +9,18 @@
     [SessionState(SessionStateBehavior.ReadOnly)]
     public class WagerAccountController : SiteBaseController
     {
-        private const string ViewPath = "~/Features/WagerAccount/Views/Index.cshtml";
-        private const string EventView = "~/Features/WagerAccount/Views/Event.cshtml";
+        private const string OurightViewPath = "~/Features/WagerAccount/Outright/Views/Index.cshtml";
+        private const string EventViewPath = "~/Features/WagerAccount/Event/Views/Index.cshtml";
 
         public WagerAccountController(IMediator mediator)
             : base(mediator)
         {
         }
 
-        public async Task<ActionResult> Index(WagerAccountQuery message)
-            => await ViewAsync(message, ViewPath);
+        public async Task<ActionResult> GetByOutright(WagerAccountByOutrightQuery message)
+            => await ViewAsync(message, OurightViewPath);
 
         public async Task<ActionResult> GetByEvent(WagerAccountByEventQuery message)
-            => await ViewAsync(message, EventView);
+            => await ViewAsync(message, EventViewPath);
     }
 }

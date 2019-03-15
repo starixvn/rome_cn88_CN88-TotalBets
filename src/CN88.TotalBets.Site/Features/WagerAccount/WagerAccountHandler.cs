@@ -6,7 +6,7 @@
     using TotalBets.Features.WagerAccount;
 
     public class WagerAccountHandler : BaseHandler, 
-        IAsyncRequestHandler<WagerAccountQuery, WagerAccountViewModel>,
+        IAsyncRequestHandler<WagerAccountByOutrightQuery, WagerAccountByOutrightViewModel>,
         IAsyncRequestHandler<WagerAccountByEventQuery, WagerAccountByEventViewModel>
     {
         private readonly IWagerAccountService wagerAccountService;
@@ -16,7 +16,7 @@
             this.wagerAccountService = wagerAccountService;
         }
 
-        public async Task<WagerAccountViewModel> Handle(WagerAccountQuery message)
+        public async Task<WagerAccountByOutrightViewModel> Handle(WagerAccountByOutrightQuery message)
         {
             var param = new WagerAccountParam(
                 message.CustId,
@@ -25,9 +25,9 @@
                 message.StakeCondition,
                 message.CustLevelId);
 
-            var wagerAccounts = await wagerAccountService.GetOutright(param);
+            var wagerAccounts = await wagerAccountService.GetByOutright(param);
 
-            return new WagerAccountViewModel(wagerAccounts, message);
+            return new WagerAccountByOutrightViewModel(wagerAccounts, message);
         }
 
         public async Task<WagerAccountByEventViewModel> Handle(WagerAccountByEventQuery message)
@@ -42,7 +42,7 @@
                 message.BetTeam,
                 message.LiveIndicator);
 
-            var wagerAccounts = await wagerAccountService.GetEvent(param);
+            var wagerAccounts = await wagerAccountService.GetByEvent(param);
 
             return new WagerAccountByEventViewModel(wagerAccounts, message);
         }

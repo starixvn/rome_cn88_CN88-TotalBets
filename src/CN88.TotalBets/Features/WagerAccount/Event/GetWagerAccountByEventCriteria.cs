@@ -27,7 +27,7 @@ namespace CN88.TotalBets.Features.WagerAccount
 
         public string BetTeam { get; }
 
-        public bool LiveIndicator { get; }
+        public int LiveIndicator { get; }
 
         public int StakeCondition { get; }
 

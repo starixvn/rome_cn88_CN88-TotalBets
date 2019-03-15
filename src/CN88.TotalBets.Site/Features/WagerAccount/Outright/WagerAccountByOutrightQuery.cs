@@ -5,9 +5,9 @@
     using Shared.Requests;
     using TotalBets.Shared.Models;
 
-    public class WagerAccountQuery : WagerAccountBaseQuery, IRequest<WagerAccountViewModel>
+    public class WagerAccountByOutrightQuery : WagerAccountBaseQuery, IRequest<WagerAccountByOutrightViewModel>
     {
-        public WagerAccountQuery(IUser viewer)
+        public WagerAccountByOutrightQuery(IUser viewer)
             : base(viewer)
         {            
         }       
