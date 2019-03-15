@@ -52,11 +52,11 @@
 </div>
 @helper RenderLeague(TeamLeague league)
 {
-    <tr class="league" data-leagueid="@league.LeagueId">
+    <tr class="group" data-leagueid="@league.LeagueId">
         <td colspan="2">
-            <span class="league-name-wrapper">
+            <span class="group-name-wrapper">
                 <span class="icon-chevron-down"></span>
-                <span class="league-name">@league.LeagueName</span>
+                <span class="group-name">@league.LeagueName</span>
             </span>
             <span class="index text-right">@HtmlHelpers.FormatNumber(league.TotalWager) | @HtmlHelpers.FormatNumber(league.TotalStake)</span>
         </td>

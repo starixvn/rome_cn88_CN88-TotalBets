@@ -1,4 +1,13 @@
 ﻿[
+  
+  {
+    "outputFileName": "assets/bundles/events/viewbybettype.css",
+    "inputFiles": [
+      "assets/styles/totalbets.css",
+      "assets/styles/event.css",
+      "assets/styles/viewbybettype.css"
+    ]
+  },
   {
     "outputFileName": "assets/bundles/events/event.css",
     "inputFiles": [

@@ -14,5 +14,9 @@
   {
     "outputFile": "assets/styles/event.css",
     "inputFile": "assets/styles/event.scss"
+  },
+  {
+    "outputFile": "assets/styles/viewbybettype.css",
+    "inputFile": "assets/styles/viewbybettype.scss"
   }
 ]

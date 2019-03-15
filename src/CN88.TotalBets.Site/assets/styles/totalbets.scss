@@ -157,11 +157,12 @@
 }
 
 .tbl-totalbet {
-    tr.league {
+    tr.group {
         td {
             background-color: #6b6b6b;
             color: #fff;
             padding: 8px;
+            height: 30px;
         }
          &:hover {
             cursor: pointer;
@@ -174,9 +175,15 @@
         .icon-chevron-down, .icon-chevron-right {
             font-size: 20px;            
         }
-        .league-name {
+        .group-name {
             position: relative;
             top: -3px;
+        }
+        .index {
+            width: 150px;
+            display: inline-block;
+            position: relative;
+            top: -2px;
         }
     
     }

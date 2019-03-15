@@ -35,9 +35,9 @@ abstract class BaseTotalBets {
     }
 
     protected bindEvents(): void {
-        this.$tblTotalBets.find(".league").click(function (): void {
+        this.$tblTotalBets.find(".group").click(function (): void {
             let $this: JQuery = $(this);
-            let icon: JQuery = $this.find(".league-name-wrapper").children().first();
+            let icon: JQuery = $this.find(".group-name-wrapper").children().first();
             let children: any = $this.siblings(`.childrow-${$this.data("leagueid")}`);
 
             if (icon.hasClass("icon-chevron-down")) {
