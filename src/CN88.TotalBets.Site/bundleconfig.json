@@ -13,6 +13,12 @@
     ]
   },
   {
+    "outputFileName": "assets/bundles/totalbets.css",
+    "inputFiles": [
+      "assets/styles/totalbets.css"
+    ]
+  },
+  {
     "outputFileName": "assets/bundles/events/event.js",
     "inputFiles": [
       "assets/scripts/components/summary-menu.js",
