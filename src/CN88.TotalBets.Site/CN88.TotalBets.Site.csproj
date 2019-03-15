@@ -326,6 +326,10 @@
     <Content Include="assets\bundles\events\event.min.js">
       <DependentUpon>event.js</DependentUpon>
     </Content>
+    <Content Include="assets\bundles\events\viewbybettype.css" />
+    <Content Include="assets\bundles\events\viewbybettype.min.css">
+      <DependentUpon>viewbybettype.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\outright\outright.css" />
     <Content Include="assets\bundles\outright\outright.js" />
     <Content Include="assets\bundles\outright\outright.min.css">

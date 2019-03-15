@@ -24,6 +24,9 @@
                 text-decoration: none;
             }
         }
+        .stake {
+            display: block;
+        }
         .team-name {
             width: calc(100% - 120px - 8px);
         }
@@ -33,6 +36,7 @@
         background-color: #f4f1f1;
         height: 30px;
     }
+   
 }
 .head-match {
    background: url("images/Soccer_goal.png");

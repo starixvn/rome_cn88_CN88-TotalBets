@@ -16,7 +16,7 @@
     <div class="league">@Model.LeagueName <span class="index pull-right"><span>@Model.TotalWager</span> | <span class="link">@Model.TotalStake</span></span></div>
     
     <div class="head-match">
-        <div class="show-time">@Model.Match.ShowTime</div>
+        <div class="show-time">@Html.Raw(@Model.Match.ShowTime)</div>
         <div class="match"><span class="score">@Model.Match.LiveHomeScore - @Model.Match.LiveAwayScore</span></div>
     </div>
     <table class="tbl-style2 tbl-totalbet tbl-viewbettype" id="tblTotalBets">
@@ -49,7 +49,7 @@
                                     <span class="team-name">@betOption.BetTeam</span>
                                     <span class="index text-right">
                                         @HtmlHelpers.FormatNumber(betOption.Wager)
-                                        <div class="stake link">@HtmlHelpers.FormatNumber(betOption.Stake)</div>
+                                        <span class="stake link">@HtmlHelpers.FormatNumber(betOption.Stake)</span>
                                     </span>
                                 </td>
                             </tr>
@@ -60,4 +60,4 @@
         </tbody>
     </table>
 </div>
-
+</div>
