@@ -75,21 +75,28 @@
         li {
             border-bottom: 1px solid #d9d9d9;
             line-height: 20px;
-            padding: 5px 12px;
+            
             position: relative;
             cursor: pointer;
 
             &.sport {
-                &:before {
-                    content: '';
-                    width: 4px;
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    height: 100%;
+                a {
+                    padding: 5px 12px;
+                    display: inline-block;
+                    width: 100%;
+                    color: unset;
+                    text-decoration: none;
+                     &:before {
+                        content: '';
+                        width: 4px;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        height: 100%;
+                    }
                 }
-
-                &.selected:before, &:hover:before {
+                
+                &.selected a:before, &:hover a:before {
                     background-color: #ca9b3f;
                 }
                 &:hover .txt, &.selected .txt {
