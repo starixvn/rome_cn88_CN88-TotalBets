@@ -439,6 +439,15 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wager Details.
+        /// </summary>
+        public static string WagerDetails {
+            get {
+                return ResourceManager.GetString("WagerDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wagers.
         /// </summary>
         public static string Wagers {
