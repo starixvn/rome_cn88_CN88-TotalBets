@@ -26,5 +26,16 @@
         public string SportGroupName { get; }
 
         public IEnumerable<TeamLeague> TeamLeagues { get; }
+
+        public object GetWagerAccountParams(int matchId)
+            => new
+            {
+                custId = query.ViewerId,
+                custLevelId = query.ViewerLevelId,
+                custName = query.CustName,
+                matchId = matchId,
+                Stake = FilterViewModel.Stake,
+                StakeCondition = FilterViewModel.StakeCondition
+            };
     }
 }

@@ -49,12 +49,6 @@ abstract class BaseTotalBets {
             }
         });
 
-        this.$tblTotalBets.find(".stake").click(function (e: any): void {
-            e.preventDefault();
-            e.stopPropagation();
-            window.open(this.href, "_blank", "width=1000, height=500");
-        });
-
         this.$filterForm.submit(() => { this.onSubmit(); });
     }
 

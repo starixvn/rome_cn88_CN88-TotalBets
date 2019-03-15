@@ -43,16 +43,5 @@
         public SingleSelectionViewModel LeagueSelectionViewModel { get; }
 
         public FilterViewModel FilterViewModel { get; protected set; }
-
-        public object GetWagerAccountParams(int matchId)
-            => new
-            {
-                custId = query.ViewerId,
-                custLevelId = query.ViewerLevelId,
-                custName = query.CustName,
-                matchId = matchId,
-                Stake = FilterViewModel.Stake,
-                StakeCondition = FilterViewModel.StakeCondition
-            };
-        }
+    }
 }

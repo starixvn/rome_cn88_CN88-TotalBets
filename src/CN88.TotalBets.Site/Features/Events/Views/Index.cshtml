@@ -52,12 +52,7 @@
                             <td>@match.Event</td>
                             <td class="text-right">@HtmlHelpers.FormatNumber(match.Wager)</td>
                             <td class="text-right">
-                                @Html.ActionLink(
-                                    HtmlHelpers.FormatNumber(match.Stake).ToHtmlString(),
-                                    "Index",
-                                    "WagerAccount",
-                                    Model.GetWagerAccountParams(match.MatchId),
-                                    new { @class = "stake link" })
+                                <a href="javascript:;" class="stake link">@HtmlHelpers.FormatNumber(match.Stake)</a>
                             </td>
                             <td class="text-right">
                                 <span class="bettypecount">
