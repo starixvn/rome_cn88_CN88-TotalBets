@@ -1,12 +1,12 @@
-﻿namespace CN88.TotalBets.Features.Summay.Criteria
+﻿namespace CN88.TotalBets.Features.Summaries.Criteria
 {
     using Fanex.Data;
     using Fanex.Data.Repository;
     using Shared.Models;
 
-    public class GetSummaryCriteria : CriteriaBase
+    public class GetSummaryByEventCriteria : CriteriaBase
     {
-        public GetSummaryCriteria(
+        public GetSummaryByEventCriteria(
             int custId,
             byte type,
             UserLevel custLevel)

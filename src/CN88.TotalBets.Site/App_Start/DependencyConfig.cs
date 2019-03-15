@@ -20,7 +20,7 @@
     using TotalBets.Features.Outright;
     using TotalBets.Features.Overview;
     using TotalBets.Features.SportTypeGroup;
-    using TotalBets.Features.Summay;
+    using TotalBets.Features.Summaries;
     using TotalBets.Features.WagerAccount;
     using TotalBets.Shared.Models;
     using TotalBets.Shared.Services;

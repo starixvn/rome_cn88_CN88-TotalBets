@@ -4,7 +4,7 @@
     using System.Web.Mvc;
     using Filters;
     using Requests;
-    using TotalBets.Features.Summay.Models;
+    using TotalBets.Features.Summaries.Models;
     using TotalBets.Shared.Constants;
 
     public abstract class BaseViewModel
@@ -15,7 +15,7 @@
             FilterQuery query,
             string title,
             string appPath,
-            IEnumerable<Summary> summaries,
+            IEnumerable<SummaryByEvent> summaries,
             IEnumerable<SelectListItem> leagues)
         {
             this.query = query;

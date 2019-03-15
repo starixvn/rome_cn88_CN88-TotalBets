@@ -7,7 +7,7 @@
     using TotalBets.Features.Outright;
     using TotalBets.Features.Outright.Params;
     using TotalBets.Features.SportTypeGroup;
-    using TotalBets.Features.Summay;
+    using TotalBets.Features.Summaries;
     using TotalBets.Shared.Constants;
 
     public class OutrightHandler : BaseHandler, IAsyncRequestHandler<OutrightQuery, OutrightViewModel>
@@ -33,7 +33,7 @@
         {
             var outrightLeagues = await outrightService.GetOutrightsAsync(ToOutrightParam(message));
             var leagues = await leagueService.GetLeagues(message.SportTypeGroup, EventTypeConstants.Outright);
-            var summaries = await summaryService.GetSummaries(message.ViewerId, message.ActorLevel, EventTypeConstants.Outright);
+            var summaries = await summaryService.GetSummaryByEventType(message.ViewerId, message.ActorLevel, EventTypeConstants.Outright);
 
             return new OutrightViewModel(
                 message,

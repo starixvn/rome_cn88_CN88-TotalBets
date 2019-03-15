@@ -6,7 +6,7 @@
     using CN88.TotalBets.Shared.Models;
     using Shared.ViewModels;
     using TotalBets.Features.Events.Models;
-    using TotalBets.Features.Summay.Models;
+    using TotalBets.Features.Summaries.Models;
     using TotalBets.Shared.Constants;
 
     public class EventViewModel : BaseViewModel
@@ -17,7 +17,7 @@
             EventQuery query,
             string sportTypeGroup,
             MatchLeagueTotal eventModel,
-            IEnumerable<Summary> summaries,
+            IEnumerable<SummaryByEvent> summaries,
             IEnumerable<SelectListItem> leagues)
             : base(query, sportTypeGroup, $"{query.AppPath}{eventVirtualPath}", summaries, leagues)
         {

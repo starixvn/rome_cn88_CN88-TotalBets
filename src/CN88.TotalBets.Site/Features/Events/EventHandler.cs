@@ -7,7 +7,7 @@
     using TotalBets.Features.Events.Params;
     using TotalBets.Features.Leagues;
     using TotalBets.Features.SportTypeGroup;
-    using TotalBets.Features.Summay;
+    using TotalBets.Features.Summaries;
     using ViewModels;
 
     public class EventHandler : BaseHandler, IAsyncRequestHandler<EventQuery, EventViewModel>
@@ -33,7 +33,7 @@
         {
             var eventModel = await eventService.GetEventsAsync(ToEventParam(message));
             var leagues = await leagueService.GetLeagues(message.SportTypeGroup, message.Type);
-            var summaries = await summaryService.GetSummaries(message.ViewerId, message.ActorLevel, message.Type);
+            var summaries = await summaryService.GetSummaryByEventType(message.ViewerId, message.ActorLevel, message.Type);
 
             return new EventViewModel(
                 message,

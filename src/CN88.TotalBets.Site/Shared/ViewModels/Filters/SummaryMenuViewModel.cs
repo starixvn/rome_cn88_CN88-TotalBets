@@ -1,12 +1,12 @@
 ﻿namespace CN88.TotalBets.Site.Shared.ViewModels.Filters
 {
     using System.Collections.Generic;
-    using TotalBets.Features.Summay.Models;
+    using TotalBets.Features.Summaries.Models;
 
     public class SummaryMenuViewModel
     {
         public SummaryMenuViewModel(
-            IEnumerable<Summary> summaries,
+            IEnumerable<SummaryByEvent> summaries,
             int selectedSportTypeGroup,
             string appPath)
         {
@@ -15,7 +15,7 @@
             AppPath = appPath;
         }
 
-        public IEnumerable<Summary> Summaries { get; }
+        public IEnumerable<SummaryByEvent> Summaries { get; }
 
         public int SelectedSportTypeGroup { get; }
 

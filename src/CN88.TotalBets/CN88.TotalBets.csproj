@@ -113,9 +113,11 @@
     <Compile Include="Features\Events\Models\MatchLeague.cs" />
     <Compile Include="Features\Events\Models\MatchLeagueTotal.cs" />
     <Compile Include="Features\Events\Params\EventParam.cs" />
-    <Compile Include="Features\Summay\Criteria\GetSummaryCriteria.cs" />
-    <Compile Include="Features\Summay\Models\Summary.cs" />
-    <Compile Include="Features\Summay\SummaryService.cs" />
+    <Compile Include="Features\Summaries\Criteria\GetSummaryByEventCriteria.cs" />
+    <Compile Include="Features\Summaries\Criteria\GetSummaryBySportTypeGroupCriteria.cs" />
+    <Compile Include="Features\Summaries\Models\SummaryBySportTypeGroup.cs" />
+    <Compile Include="Features\Summaries\Models\SummaryByEvent.cs" />
+    <Compile Include="Features\Summaries\SummaryService.cs" />
     <Compile Include="Features\WagerAccount\GetWagerAccountCriteria.cs" />
     <Compile Include="Features\WagerAccount\WagerAccountModel.cs" />
     <Compile Include="Features\WagerAccount\WagerAccountParam.cs" />

@@ -9,7 +9,7 @@
     public class SportGroup
     {
         private const int ParlaySportGroupId = 9;
-        private readonly Func<int, string> getSportGroupDisplayName;
+        private readonly Func<int, string> getSportDisplayName;
 
         public SportGroup()
         {
@@ -26,10 +26,10 @@
         internal SportGroup(
             int id,
             IEnumerable<int> displaySportIds,
-            Func<int, string> getSportGroupDisplayName)
+            Func<int, string> getSportDisplayName)
             : this(id, displaySportIds)
         {
-            this.getSportGroupDisplayName = getSportGroupDisplayName;
+            this.getSportDisplayName = getSportDisplayName;
         }
 
         public int Id { get; }
@@ -50,7 +50,7 @@
 
             for (int i = 0; i < length; i++)
             {
-                stringBuilder.Append($"{getSportGroupDisplayName(DisplaySportIds.ElementAt(i))}");
+                stringBuilder.Append($"{getSportDisplayName(DisplaySportIds.ElementAt(i))}");
 
                 if (i != length - 1)
                 {

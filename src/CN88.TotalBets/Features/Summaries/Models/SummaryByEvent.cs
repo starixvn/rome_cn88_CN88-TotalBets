@@ -1,13 +1,13 @@
-﻿namespace CN88.TotalBets.Features.Summay.Models
+﻿namespace CN88.TotalBets.Features.Summaries.Models
 {
-    public class Summary
+    public class SummaryByEvent
     {
-        public Summary()
+        public SummaryByEvent()
         {
         }
 
-        public Summary(
-            int sportTypeGroup,
+        public SummaryByEvent(
+            byte sportTypeGroup,
             int wager,
             decimal stake)
         {
@@ -16,13 +16,12 @@
             Stake = stake;
         }
 
-        public int SportTypeGroup { get; }
+        public byte SportTypeGroup { get; }
 
         public string SportTypeGroupName { get; internal set; }
 
         public int Wager { get; }
 
         public decimal Stake { get; }
-
     }
 }

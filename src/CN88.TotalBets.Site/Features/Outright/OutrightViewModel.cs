@@ -5,7 +5,7 @@
     using AppResources;
     using Shared.ViewModels;
     using TotalBets.Features.Outright.Models;
-    using TotalBets.Features.Summay.Models;
+    using TotalBets.Features.Summaries.Models;
 
     public class OutrightViewModel : BaseViewModel
     {
@@ -15,7 +15,7 @@
             OutrightQuery query,
             string sportGroupName,
             IEnumerable<TeamLeague> teamLeagues,
-            IEnumerable<Summary> summaries,
+            IEnumerable<SummaryByEvent> summaries,
             IEnumerable<SelectListItem> leagues)
             : base(query, sportGroupName, $"{query.AppPath}{outrightVirtualPath}", summaries, leagues)
         {
