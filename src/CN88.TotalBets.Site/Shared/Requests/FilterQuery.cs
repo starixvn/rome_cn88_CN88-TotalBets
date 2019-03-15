@@ -18,7 +18,7 @@
 
         public byte Type { get; set; }
 
-        public int SportTypeGroup { get; set; }
+        public byte SportTypeGroup { get; set; }
 
         public int LeagueId { get; set; }
 

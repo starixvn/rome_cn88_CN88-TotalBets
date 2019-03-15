@@ -2,22 +2,19 @@
     ViewBag.Title = Model.Title;
     Layout = "~/Shared/Views/_Layout.cshtml";
 }
-
 @section Styles {
     @StaticResources.RenderStyles("~/assets/bundles/outright/outright")
 }
 @section Scripts {
     @StaticResources.RenderScripts("~/assets/bundles/outright/outright")
 }
-
 @model ViewByBetTypeViewModel
-
-@Html.Partial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel)
-
-<div class="league">@Model.LeagueName <span>@Model.TotalWager</span>|<span>@Model.TotalStake</span></div>
-<div class="show-time">@Model.Match.ShowTime</div>
-<div class="score">@Model.Match.LiveHomeScore - @Model.Match.LiveAwayScore</div>
-
+@MatchSummaryMenu.Render(Model.MatchSummaryMenuViewModel)
+<div class="main-content" id="main-content">
+    @Html.Partial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel)
+    <div class="league">@Model.LeagueName <span>@Model.TotalWager</span>|<span>@Model.TotalStake</span></div>
+    <div class="show-time">@Model.Match.ShowTime</div>
+    <div class="score">@Model.Match.LiveHomeScore - @Model.Match.LiveAwayScore</div>
 
 <table class="tbl-style2 tbl-totalbet tbl-outright" id="tblTotalBets">
     <tbody>

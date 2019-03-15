@@ -14,7 +14,7 @@
     {
         Task<IEnumerable<SportGroupSummary>> GetSportGroupSummaries(int custId, UserLevel custLevel, byte eventType);
 
-        Task<SportGroupSummary> GetSportGroupSummary(int custId, UserLevel custLevel, byte eventType, byte sportTypeGroup);
+        Task<SportGroupSummary> GetSportGroupSummary(int custId, UserLevel custLevel, byte eventType, byte sportGroup);
     }
 
     public class SummaryServiceImpl : SummaryService
@@ -50,10 +50,10 @@
             return summaries;
         }
 
-        public async Task<SportGroupSummary> GetSportGroupSummary(int custId, UserLevel custLevel, byte eventType, byte sportTypeGroup)
+        public async Task<SportGroupSummary> GetSportGroupSummary(int custId, UserLevel custLevel, byte eventType, byte sportGroup)
         {
             var dtos = await dynamicRepository.FetchAsync<SummaryByMatchDto>(
-                new GetSummaryBySportTypeGroupCriteria(custId, eventType, sportTypeGroup, custLevel));
+                new GetSummaryBySportTypeGroupCriteria(custId, eventType, sportGroup, custLevel));
 
             if (dtos == null || !dtos.Any())
             {
@@ -78,8 +78,8 @@
             }
 
             return new SportGroupSummary(
-                sportTypeGroup,
-                await sportTypeGroupService.GetSportTypeGroupName(sportTypeGroup),
+                sportGroup,
+                await sportTypeGroupService.GetSportTypeGroupName(sportGroup),
                 leagueSummaries);
         }
     }

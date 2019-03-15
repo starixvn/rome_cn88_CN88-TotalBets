@@ -1,23 +1,27 @@
 ﻿namespace CN88.TotalBets.Site.Features.ViewByBetType
 {
     using System.Threading.Tasks;
-    using CN88.TotalBets.Features.Events;
-    using CN88.TotalBets.Features.ViewByBetTypes;
-    using CN88.TotalBets.Features.ViewByBetTypes.Params;
-    using CN88.TotalBets.Site.Features.ViewByBetType.ViewModels;
     using MediatR;
+    using TotalBets.Features.Events;
+    using TotalBets.Features.Summaries;
+    using TotalBets.Features.ViewByBetTypes;
+    using TotalBets.Features.ViewByBetTypes.Params;
+    using ViewModels;
 
     public class ViewByBetTypeHandler : IAsyncRequestHandler<ViewByBetTypeQuery, ViewByBetTypeViewModel>
     {
         private readonly ViewByBetTypeService viewByBetTypeService;
         private readonly EventService eventService;
+        private readonly SummaryService summaryService;
 
         public ViewByBetTypeHandler(
             ViewByBetTypeService viewByBetTypeService,
-            EventService eventService)
+            EventService eventService,
+            SummaryService summaryService)
         {
             this.viewByBetTypeService = viewByBetTypeService;
             this.eventService = eventService;
+            this.summaryService = summaryService;
         }
 
         public async Task<ViewByBetTypeViewModel> Handle(ViewByBetTypeQuery message)
@@ -34,7 +38,9 @@
                 message.PossType,
                 message.MarketType));
 
-            return new ViewByBetTypeViewModel(totalBetByBetTypes.Values, match, message);
+            var summary = await summaryService.GetSportGroupSummary(message.ViewerId, message.ActorLevel, message.Type, message.SportTypeGroup);
+
+            return new ViewByBetTypeViewModel(totalBetByBetTypes.Values, match, summary, message);
         }
     }
 }

@@ -21,7 +21,7 @@
 
         public IEnumerable<MatchSummary> MatchSummaries { get; }
 
-        public int Wagers => MatchSummaries.Select(s => s.Wager).Sum();
+        public int Wager => MatchSummaries.Select(s => s.Wager).Sum();
 
         public decimal Stake => MatchSummaries.Select(s => s.Stake).Sum();
     }

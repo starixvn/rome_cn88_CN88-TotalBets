@@ -5,19 +5,22 @@
     using CN88.TotalBets.Features.Events.Models;
     using CN88.TotalBets.Features.ViewByBetTypes.Models;
     using CN88.TotalBets.Shared.Services;
-    using CN88.TotalBets.Site.Shared.Requests;
     using CN88.TotalBets.Site.Shared.ViewModels;
+    using Shared.ViewModels.Filters;
+    using TotalBets.Features.Summaries.Models;
 
     public class ViewByBetTypeViewModel : BaseViewModel
     {
         public ViewByBetTypeViewModel(
             IEnumerable<TotalBetsByBetType> totalBetsByBetTypes,
             Match match,
-            FilterQuery filterQuery)
+            SportGroupSummary summary,
+            ViewByBetTypeQuery filterQuery)
             : base(filterQuery, "View By Bet Type")
         {
             TotalBetsByBetTypes = totalBetsByBetTypes;
             Match = match;
+            MatchSummaryMenuViewModel = new MatchSummaryMenuViewModel(summary, filterQuery.MatchId);
         }
 
         public Match Match { get; }
@@ -33,5 +36,7 @@
         public string AwayName => CacheRefManager.CacheRefInstance.GetTeamName(Match.AwayId);
 
         public IEnumerable<TotalBetsByBetType> TotalBetsByBetTypes { get; }
+
+        public MatchSummaryMenuViewModel MatchSummaryMenuViewModel { get; }
     }
 }

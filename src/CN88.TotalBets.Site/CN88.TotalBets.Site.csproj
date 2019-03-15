@@ -446,6 +446,7 @@
     <Compile Include="Shared\ViewModels\BaseViewModel.cs" />
     <Compile Include="Shared\ViewModels\BreadcrumbLevelViewModel.cs" />
     <Compile Include="Shared\ViewModels\Filters\FilterViewModel.cs" />
+    <Compile Include="Shared\ViewModels\Filters\MatchSummaryMenuViewModel.cs" />
     <Compile Include="Shared\ViewModels\Filters\SingleSelectionViewModel.cs" />
     <Compile Include="Features\Outright\OutrightViewModel.cs" />
     <Compile Include="Features\Overview\ViewModels\OverViewByOutrightViewModel.cs" />
@@ -476,6 +477,7 @@
     <Content Include="assets\styles\outright.scss" />
     <Content Include="assets\styles\event.scss" />
     <Content Include="App_Code\Breadcrumb.cshtml" />
+    <Content Include="App_Code\Filters\MatchSummaryMenu.cshtml" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>

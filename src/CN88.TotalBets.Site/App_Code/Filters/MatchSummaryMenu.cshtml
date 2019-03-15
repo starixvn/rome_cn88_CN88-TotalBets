@@ -1,0 +1,41 @@
+﻿@using CN88.TotalBets.AppResources
+@using CN88.TotalBets.Site.Shared.ViewModels.Filters
+@helper Render(MatchSummaryMenuViewModel model)
+{
+    <div id="summary-menu" class="menu-container">
+        <div id="head-menu" class="head-menu"><span class="icon-menu"></span>@Resources.Menu</div>
+        <a href="#">@Resources.BackToSummary</a>
+        @{
+            var summary = model.Summary;
+            <div class="sport">
+                <div class="txt">@summary.SportTypeGroupName</div>
+                <div>
+                    <span class="number-first">@HtmlHelpers.FormatNumber(summary.Wager)</span>|<span class="number-second">@HtmlHelpers.FormatNumber(summary.Stake)</span>
+                </div>
+            </div>
+            foreach (var league in summary.LeagueSummaries)
+            {
+                <div class="league">
+                    <div class="txt">@league.LeagueName</div>
+                    <div>
+                        <span class="number-first">@HtmlHelpers.FormatNumber(league.Wager)</span>|<span class="number-second">@HtmlHelpers.FormatNumber(league.Stake)</span>
+                    </div>
+                </div>
+                <ul class="list-sports">
+                    @foreach (var match in league.MatchSummaries)
+                    {
+                        <li id="@match.MatchId" class="sport @(match.MatchId==model.SelectedMatchId ? "selected" : string.Empty)">
+                            <a href="#">
+                                <div class="txt">@match.HomeTeamName</div>
+                                <div class="txt">@match.AwayTeamName</div>
+                                <div>
+                                    <span class="number-first">@HtmlHelpers.FormatNumber(summary.Wager)</span>|<span class="number-second">@HtmlHelpers.FormatNumber(summary.Stake)</span>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            }
+        }
+    </div>
+}

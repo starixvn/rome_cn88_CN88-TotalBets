@@ -246,6 +246,9 @@
   <data name="Today" xml:space="preserve">
     <value>Today</value>
   </data>
+  <data name="BackToSummary" xml:space="preserve">
+    <value>Back To Summary</value>
+  </data>
   <data name="WagerDetails" xml:space="preserve">
     <value>Wager Details</value>
   </data>

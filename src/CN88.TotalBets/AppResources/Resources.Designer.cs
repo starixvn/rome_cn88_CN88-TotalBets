@@ -106,6 +106,15 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back To Summary.
+        /// </summary>
+        public static string BackToSummary {
+            get {
+                return ResourceManager.GetString("BackToSummary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Company %.
         /// </summary>
         public static string Company_Percentage {
