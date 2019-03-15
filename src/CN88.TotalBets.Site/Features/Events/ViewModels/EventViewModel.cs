@@ -19,16 +19,6 @@
             : base(query, sportTypeGroup, summaries, leagues)
         {
             EventModel = eventModel;
-
-            FilterViewModel = new EventFilterViewModel(
-                query.Type,
-                query.Market,
-                query.SportTypeGroup,
-                query.StakeCondition,
-                query.Stake,
-                query.PossType,
-                LeagueSelectionViewModel);
-
             SubTitle = Resources.ResourceManager.GetString(EventTypeConstants.EventTypes[query.Type]);
         }
 

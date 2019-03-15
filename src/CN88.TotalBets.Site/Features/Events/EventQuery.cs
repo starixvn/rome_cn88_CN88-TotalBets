@@ -2,7 +2,6 @@
 {
     using MediatR;
     using Shared.Requests;
-    using TotalBets.Shared.Constants;
     using TotalBets.Shared.Models;
     using ViewModels;
 
@@ -11,11 +10,6 @@
         public EventQuery(IUser viewer)
             : base(viewer)
         {
-            Market = MarketConstants.AllMarkets;
         }
-
-        public byte Type { get; set; }
-
-        public byte Market { get; set; }
     }
 }

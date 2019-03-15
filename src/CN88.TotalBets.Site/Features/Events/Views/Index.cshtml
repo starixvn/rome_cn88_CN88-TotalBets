@@ -15,7 +15,7 @@
         <div>@Model.Title</div>
         <div class="event">@Model.SubTitle</div>
     </div>
-    @{ Html.RenderPartial("~/Features/Events/Views/Filter.cshtml", Model.FilterViewModel); }
+    @{ Html.RenderPartial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel); }
     @if (Model.EventModel.TotalWager == 0)
     {
         Html.RenderPartial("~/Features/Events/Views/_TableNoDataFound.cshtml", 5);

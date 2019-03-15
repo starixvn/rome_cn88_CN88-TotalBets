@@ -420,7 +420,6 @@
     <Compile Include="Features\Events\EventHandler.cs" />
     <Compile Include="Features\Events\EventQuery.cs" />
     <Compile Include="Features\Events\ViewModels\EventViewModel.cs" />
-    <Compile Include="Features\Events\ViewModels\EventFilterViewModel.cs" />
     <Compile Include="Features\Outright\OutrightController.cs" />
     <Compile Include="Features\Overview\OverViewController.cs" />
     <Compile Include="Features\WagerAccount\WagerAccountHandler.cs" />
@@ -444,7 +443,7 @@
     <Compile Include="Features\Overview\OverViewQuery.cs" />
     <Compile Include="Shared\Requests\FilterQuery.cs" />
     <Compile Include="Shared\ViewModels\BaseViewModel.cs" />
-    <Compile Include="Shared\ViewModels\Filters\FilterBaseViewModel.cs" />
+    <Compile Include="Shared\ViewModels\Filters\FilterViewModel.cs" />
     <Compile Include="Shared\ViewModels\Filters\SingleSelectionViewModel.cs" />
     <Compile Include="Features\Outright\OutrightViewModel.cs" />
     <Compile Include="Features\Overview\ViewModels\OverViewByOutrightViewModel.cs" />
@@ -513,7 +512,6 @@
     <Content Include="Shared\Views\web.config" />
     <Content Include="Features\Events\Views\web.config" />
     <Content Include="Features\Events\Views\Index.cshtml" />
-    <Content Include="Features\Events\Views\Filter.cshtml" />
     <Content Include="Features\Events\Views\_TableNoDataFound.cshtml" />
     <Content Include="Features\Events\Views\_InPlay.cshtml" />
     <Content Include="Features\Events\Views\_Today.cshtml" />

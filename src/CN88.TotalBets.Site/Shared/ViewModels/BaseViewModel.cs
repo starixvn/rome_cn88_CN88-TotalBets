@@ -5,6 +5,7 @@
     using Filters;
     using Requests;
     using TotalBets.Features.Summay.Models;
+    using TotalBets.Shared.Constants;
 
     public abstract class BaseViewModel
     {
@@ -23,12 +24,15 @@
 
             SummaryMenuViewModel = new SummaryMenuViewModel(summaries, query.SportTypeGroup);
             LeagueSelectionViewModel = new SingleSelectionViewModel(leagues, query.LeagueId);
-            FilterViewModel = new FilterBaseViewModel(
-               query.SportTypeGroup,
-               query.StakeCondition,
-               query.Stake,
-               query.PossType,
-               LeagueSelectionViewModel);
+            FilterViewModel = new FilterViewModel(
+                query.Type,
+                query.SportTypeGroup,
+                query.StakeCondition,
+                query.Stake,
+                query.PossType,
+                query.Type == EventTypeConstants.InPlay,
+                query.Market,
+                LeagueSelectionViewModel);
         }
 
         public int ViewerId { get; }
@@ -43,6 +47,6 @@
 
         public SingleSelectionViewModel LeagueSelectionViewModel { get; }
 
-        public FilterBaseViewModel FilterViewModel { get; protected set; }
+        public FilterViewModel FilterViewModel { get; protected set; }
     }
 }
