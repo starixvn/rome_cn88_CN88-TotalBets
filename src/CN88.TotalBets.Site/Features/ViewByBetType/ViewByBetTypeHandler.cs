@@ -1,12 +1,7 @@
 ﻿namespace CN88.TotalBets.Site.Features.ViewByBetType
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
-    using System.Web;
     using CN88.TotalBets.Features.Events;
-    using CN88.TotalBets.Features.Events.Params;
     using CN88.TotalBets.Features.ViewByBetTypes;
     using CN88.TotalBets.Features.ViewByBetTypes.Params;
     using CN88.TotalBets.Site.Features.ViewByBetType.ViewModels;
@@ -25,7 +20,6 @@
             this.eventService = eventService;
         }
 
-
         public async Task<ViewByBetTypeViewModel> Handle(ViewByBetTypeQuery message)
         {
             var match = await eventService.GetMatch(message.MatchId);
@@ -40,7 +34,7 @@
                 message.PossType,
                 message.MarketType));
 
-            return new ViewByBetTypeViewModel(totalBetByBetTypes.Values, match);
+            return new ViewByBetTypeViewModel(totalBetByBetTypes.Values, match, message);
         }
     }
 }

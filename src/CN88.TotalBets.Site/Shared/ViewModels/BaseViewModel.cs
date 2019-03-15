@@ -34,6 +34,26 @@
                 LeagueSelectionViewModel);
         }
 
+        protected BaseViewModel(
+            FilterQuery filterQuery,
+            string title,
+            bool isShowLeague = false)
+        {
+            query = filterQuery;
+            Title = title;
+
+            FilterViewModel = new FilterViewModel(
+                query.Type,
+                query.SportTypeGroup,
+                query.StakeCondition,
+                query.Stake,
+                query.PossType,
+                query.Type == EventTypeConstants.InPlay,
+                query.Market,
+                isShowLeague);
+        }
+
+
         public string Title { get; }
 
         public string SubTitle { get; protected set; }

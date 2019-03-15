@@ -1,9 +1,18 @@
 ﻿@{
-    ViewBag.Title = "View By Bet Type";
+    ViewBag.Title = Model.Title;
     Layout = "~/Shared/Views/_Layout.cshtml";
 }
 
+@section Styles {
+    @StaticResources.RenderStyles("~/assets/bundles/events/event")
+}
+@section Scripts {
+    @StaticResources.RenderScripts("~/assets/bundles/events/event")
+}
+
 @model ViewByBetTypeViewModel
+
+@Html.Partial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel)
 
 <div class="league">@Model.LeagueName <span>@Model.TotalWager</span>|<span>@Model.TotalStake</span></div>
 <div class="show-time">@Model.Match.ShowTime</div>
@@ -17,17 +26,17 @@
     {
         if (betOptionGroup.BetOptions.Any())
         {
-            <div>@(betOptionGroup.IsLive ? "In-Play" : "Pre-Match")</div>
+            <div>@(betOptionGroup.LiveText)</div>
             <div>
                 @foreach (var betOption in betOptionGroup.BetOptions)
                 {
-                <span>
-                    <span>@betOption.BetTeam</span>
-                    <span>@betOption.Wager</span>
-                    <span>@betOption.Stake</span>
-                </span>
+                    <span>
+                        <span>@betOption.BetTeam</span>
+                        <span>@betOption.Wager</span>
+                        <span>@betOption.Stake</span>
+                    </span>
                 }
             </div>
-            }
         }
+    }
 }

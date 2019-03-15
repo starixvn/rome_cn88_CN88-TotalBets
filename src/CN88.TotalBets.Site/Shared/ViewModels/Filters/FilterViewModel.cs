@@ -10,7 +10,22 @@
             byte possType,
             bool isShowMarket,
             byte market,
-            SingleSelectionViewModel leagueSelectionViewModel)
+            SingleSelectionViewModel leagueSelectionViewModel,
+            bool isShowLeague = true)
+            : this(type, sportTypeGroup, stakeCondition, stake, possType, isShowMarket, market, isShowLeague)
+        {
+            LeagueSelectionViewModel = leagueSelectionViewModel;
+        }
+
+        public FilterViewModel(
+            byte type,
+            int sportTypeGroup,
+            byte stakeCondition,
+            decimal stake,
+            byte possType,
+            bool isShowMarket,
+            byte market,
+            bool isShowLeague)
         {
             Type = type;
             SportTypeGroup = sportTypeGroup;
@@ -19,7 +34,7 @@
             PossType = possType;
             IsShowMarket = isShowMarket;
             Market = market;
-            LeagueSelectionViewModel = leagueSelectionViewModel;
+            IsShowLeague = isShowLeague;
         }
 
         public byte Type { get; }
@@ -35,6 +50,8 @@
         public bool IsShowMarket { get; }
 
         public byte Market { get; }
+
+        public bool IsShowLeague { get; }
 
         public SingleSelectionViewModel LeagueSelectionViewModel { get; }
     }

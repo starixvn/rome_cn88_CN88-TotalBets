@@ -5,12 +5,16 @@
     using CN88.TotalBets.Features.Events.Models;
     using CN88.TotalBets.Features.ViewByBetTypes.Models;
     using CN88.TotalBets.Shared.Services;
+    using CN88.TotalBets.Site.Shared.Requests;
+    using CN88.TotalBets.Site.Shared.ViewModels;
 
-    public class ViewByBetTypeViewModel
+    public class ViewByBetTypeViewModel : BaseViewModel
     {
         public ViewByBetTypeViewModel(
             IEnumerable<TotalBetsByBetType> totalBetsByBetTypes,
-            Match match)
+            Match match,
+            FilterQuery filterQuery)
+            : base(filterQuery, "View By Bet Type")
         {
             TotalBetsByBetTypes = totalBetsByBetTypes;
             Match = match;
