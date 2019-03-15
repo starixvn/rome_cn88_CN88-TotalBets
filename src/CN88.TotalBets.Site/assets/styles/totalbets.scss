@@ -253,7 +253,7 @@
         margin: 15px 0;
     }
     #nav-tabs {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
     .tbl-wager {
         width: 100%;
@@ -261,5 +261,9 @@
             background-color: #ecf4e2;
             font-weight: bold;
         }
+    }
+    .breadcrumb-container {
+        float: right;
+        margin-bottom: 15px;
     }
 }
