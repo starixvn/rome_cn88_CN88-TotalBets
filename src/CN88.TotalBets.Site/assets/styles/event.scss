@@ -1,16 +1,20 @@
-﻿.list-sports {
-    .league, .bettype {
-        cursor: pointer;
-    }
+﻿.league, .sport {
+    cursor: pointer;
+}
 
-    .bettype {
-        background-color: #585555;
-        color: #fff;
-    }
+.menu-item.sport {
+    background-color: #585555;
+    color: #fff;
+}
 
-    .league {
-        background-color: #f4f1f1;
-    }
+.league {
+    background-color: #f4f1f1;
+}
+.icon-chevron-down {
+    float: right;
+    position: relative;
+    top: -30px;
+    font-size: 18px;
 }
 
 #tblTotalBets {
