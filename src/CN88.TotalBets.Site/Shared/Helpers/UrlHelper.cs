@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
+using Alpha.Web.Helpers;
+using CN88.TotalBets.Shared.Configurations;
 
 namespace CN88.TotalBets.Site.Shared.Helpers
 {
@@ -39,6 +41,8 @@ namespace CN88.TotalBets.Site.Shared.Helpers
                 replaceOrAddQueryStringParamsFunc = value;
             }
         }
+
+        public static Func<string, string, string> GetSiteUrl { get; internal set; } = GetLink;
 
         internal static string ReplaceOrAddQueryStringParams(string link, IDictionary<string, object> routeValues)
         {
@@ -86,6 +90,12 @@ namespace CN88.TotalBets.Site.Shared.Helpers
             }
 
             return link + $"&{paramName}={paramValue}";
-        }       
+        }
+
+        public static string GetTotalBetsAppPath(string virtualPath = "~/")
+            => AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, virtualPath);
+
+        internal static string GetLink(string action, string currentQuery)
+            => GetTotalBetsAppPath(action + currentQuery);
     }
 }

@@ -430,6 +430,7 @@
     <Compile Include="Shared\Handlers\BaseHandler.cs" />
     <Compile Include="Features\Outright\OutrightHandler.cs" />
     <Compile Include="Features\Overview\OverViewHandler.cs" />
+    <Compile Include="Shared\Helpers\JsonHelper.cs" />
     <Compile Include="Shared\Helpers\QueryEntityModelBinder.cs" />
     <Compile Include="Shared\Helpers\UrlHelper.cs" />
     <Compile Include="Shared\Models\User.cs" />
@@ -439,6 +440,7 @@
     <Compile Include="Features\Overview\OverViewQuery.cs" />
     <Compile Include="Shared\Requests\FilterQuery.cs" />
     <Compile Include="Shared\ViewModels\BaseViewModel.cs" />
+    <Compile Include="Shared\ViewModels\BreadcrumbLevelViewModel.cs" />
     <Compile Include="Shared\ViewModels\Filters\FilterViewModel.cs" />
     <Compile Include="Shared\ViewModels\Filters\SingleSelectionViewModel.cs" />
     <Compile Include="Features\Outright\OutrightViewModel.cs" />
@@ -469,6 +471,7 @@
     <Content Include="App_Code\Filters\MarketSelection.cshtml" />
     <Content Include="assets\styles\outright.scss" />
     <Content Include="assets\styles\event.scss" />
+    <Content Include="App_Code\Breadcrumb.cshtml" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>

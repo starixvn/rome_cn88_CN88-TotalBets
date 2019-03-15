@@ -1,0 +1,25 @@
+﻿@using CN88.TotalBets.AppResources
+@using CN88.TotalBets.Site.Shared.ViewModels
+
+
+@helper Render(BreadcrumbLevelViewModel viewModel, string currentRequestUrl, IEnumerable<string> breadcrumbParamByLevel)
+{
+var linkLength = viewModel.BreadcrumbLevel != null ? viewModel.BreadcrumbLevel.Count() : 0;
+var linkIndex = 0;
+
+    <div class="breadcrumb-container">
+        <ul class="breadcrumb">            
+            @foreach (var custinfo in viewModel.BreadcrumbLevel)
+            {
+                <li>
+                    <a class="breadcrumb-link"
+                       href="@(viewModel.BuildBreadcrumbLink(custinfo, currentRequestUrl, breadcrumbParamByLevel, linkIndex))">
+                        @(custinfo.CustName)
+                    </a>
+                </li>
+
+                linkIndex++;
+            }
+        </ul>
+    </div>
+}
