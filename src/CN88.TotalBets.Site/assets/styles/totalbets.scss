@@ -27,6 +27,12 @@
     &.collapsed {
         width: 36px;
         background-color: #7a301c;
+        .head-menu {
+            font-size: 0;
+            .icon-menu {
+                font-size: 13px;
+            }
+        }
     }
 
     .head-menu {
@@ -85,6 +91,9 @@
 
                 &.selected:before, &:hover:before {
                     background-color: #ca9b3f;
+                }
+                &:hover .txt, &.selected .txt {
+                    color: #7E1414;
                 }
             }
 

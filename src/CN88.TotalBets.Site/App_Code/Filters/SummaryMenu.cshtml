@@ -8,7 +8,7 @@
             @foreach (var summary in model.Summaries)
             {
                 <li id="@summary.SportTypeGroup" class="sport @(summary.SportTypeGroup==model.SelectedSportTypeGroup?"selected":string.Empty)">
-                    @summary.SportTypeGroupName
+                    <div class="txt">@summary.SportTypeGroupName</div>
                     <div>
                         <span class="number-first">@HtmlHelpers.FormatNumber(summary.Wager)</span>|<span class="number-second">@HtmlHelpers.FormatNumber(summary.Stake)</span>
                     </div>
