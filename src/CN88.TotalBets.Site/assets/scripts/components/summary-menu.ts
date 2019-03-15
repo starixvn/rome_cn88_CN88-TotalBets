@@ -10,6 +10,8 @@ class SummaryMenu {
     $: JQueryStatic;
 
     options = new SummaryMenuOption();
+    $summaryMenu: JQuery;
+    $summaryMenuItems: JQuery;
     $mainContent: JQuery;
 
     constructor($: JQueryStatic) {
@@ -20,26 +22,42 @@ class SummaryMenu {
         this.options = <SummaryMenuOption>this.$.extend({}, this.options, options);
 
         this.$mainContent = this.$("#" + this.options.mainContentId);
+        this.$summaryMenu = this.$("#summary-menu");
+        this.$summaryMenuItems = this.$("#summary-menu-items");
 
         this.$("#head-menu").click(() => {
             this.collapseMenu();
+        });
+
+        let self = this.$;
+        this.$summaryMenuItems.find(".league").click(function (): void {
+            let $this: JQuery = self(this);
+            let icon = $this.children().last();
+            let child = $this.siblings(`.child-${$this.attr("id")}`);
+
+            if (icon.hasClass("icon-chevron-down")) {
+                icon.removeClass().addClass("icon-chevron-right");
+                child.addClass("hide");
+            } else {
+                icon.removeClass().addClass("icon-chevron-down");
+                child.removeClass("hide");
+            }
         });
     }
 
     collapseMenu(): void {
         let collapsedClass = 'collapsed';
         let expandedClass = 'expanded';
-        let $summaryMenu = this.$("#summary-menu");
-        let $summaryMenuItems = this.$("#summary-menu-items");
-        let isCollapsed = $summaryMenu.hasClass(collapsedClass);
+
+        let isCollapsed = this.$summaryMenu.hasClass(collapsedClass);
 
         if (isCollapsed) {
-            $summaryMenuItems.show();
-            $summaryMenu.removeClass(collapsedClass);
+            this.$summaryMenuItems.show();
+            this.$summaryMenu.removeClass(collapsedClass);
             this.$mainContent.removeClass(expandedClass);
         } else {
-            $summaryMenuItems.hide();
-            $summaryMenu.addClass(collapsedClass);
+            this.$summaryMenuItems.hide();
+            this.$summaryMenu.addClass(collapsedClass);
             this.$mainContent.addClass(expandedClass);
         }
     }

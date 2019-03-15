@@ -27,15 +27,17 @@
     &.collapsed {
         width: 36px;
         background-color: #7a301c;
+
         .head-menu {
             font-size: 0;
+
             .icon-menu {
                 font-size: 13px;
             }
         }
     }
 
-    .icon-chevron-down {
+    .icon-chevron-down, .icon-chevron-right {
         float: right;
         position: relative;
         top: -30px;
@@ -82,7 +84,6 @@
         li {
             border-bottom: 1px solid #d9d9d9;
             line-height: 20px;
-            
             position: relative;
             cursor: pointer;
 
@@ -93,7 +94,8 @@
                     width: 100%;
                     color: unset;
                     text-decoration: none;
-                     &:before {
+
+                    &:before {
                         content: '';
                         width: 4px;
                         position: absolute;
@@ -102,10 +104,11 @@
                         height: 100%;
                     }
                 }
-                
+
                 &.selected a:before, &:hover a:before {
                     background-color: #ca9b3f;
                 }
+
                 &:hover .txt, &.selected .txt {
                     color: #7E1414;
                 }
@@ -113,7 +116,7 @@
         }
     }
 
-     .number-first {
+    .number-first {
         padding-right: 4px;
     }
 
@@ -133,20 +136,24 @@
     .page-title {
         margin-bottom: 0;
         text-transform: uppercase;
+
         .event {
             text-transform: capitalize;
             font-size: 13px;
             padding-top: 2px;
         }
     }
+
     .filter {
-        display: inline-block;        
+        display: inline-block;
     }
+
     .btn-refresh {
         min-width: unset;
         padding-left: 8px;
         position: relative;
         top: 4px;
+
         .icon-refresh {
             font-size: 16px;
             padding-right: 8px;
@@ -164,50 +171,59 @@
             padding: 8px;
             height: 30px;
         }
-         &:hover {
+
+        &:hover {
             cursor: pointer;
         }
+
         td {
             padding: 4px;
             border: none;
             border-bottom: 1px solid #fff;
         }
+
         .icon-chevron-down, .icon-chevron-right {
-            font-size: 20px;            
+            font-size: 20px;
         }
+
         .group-name {
             position: relative;
             top: -3px;
         }
+
         .index {
             width: 150px;
             display: inline-block;
             position: relative;
             top: -2px;
         }
-    
     }
-    > tbody > tr> td {
+
+    > tbody > tr > td {
         padding: 4px 8px;
         height: 40px;
+
         &.no-info {
             border: none;
         }
     }
+
     .bettypecount {
         border-radius: 4px;
         background-color: #ca9d49;
         color: #fff;
         padding: 6px;
-         position: relative;
+        position: relative;
         top: -3px;
         cursor: pointer;
+
         .icon-chevron-right {
             font-size: 18px;
             position: relative;
             top: 3px;
             right: -6px;
         }
+
         .link {
             color: inherit;
             text-decoration: none;
@@ -244,34 +260,43 @@
         }
     }
 }
+
 .col-100 {
     width: 100px;
 }
+
 .col-180 {
     width: 180px;
 }
+
 .col-80 {
     width: 80px;
 }
+
 .col-300 {
     width: 300px;
 }
 
 .window-page {
     padding: 0 15px;
+
     .page-title {
         margin: 15px 0;
     }
+
     #nav-tabs {
         margin-bottom: 15px;
     }
+
     .tbl-wager {
         width: 100%;
+
         tr.total td {
             background-color: #ecf4e2;
             font-weight: bold;
         }
     }
+
     .breadcrumb-container {
         float: right;
         margin-bottom: 15px;

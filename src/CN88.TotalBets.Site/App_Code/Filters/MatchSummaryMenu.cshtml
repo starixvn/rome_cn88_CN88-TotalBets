@@ -16,14 +16,14 @@
                 </div>
                 foreach (var league in summary.LeagueSummaries)
                 {
-                    <div class="menu-item league">
+                    <div class="menu-item league" id="@league.LeagueId">
                         <div class="txt">@league.LeagueName</div>
                         <div>
                             <span class="number-first">@HtmlHelpers.FormatNumber(league.Wager)</span>|<span class="number-second">@HtmlHelpers.FormatNumber(league.Stake)</span>
                         </div>
                         <span class="icon-chevron-down"></span>
                     </div>
-                    <ul class="list-sports">
+                    <ul class="list-sports child-@league.LeagueId">
                         @foreach (var match in league.MatchSummaries)
                         {
                             <li id="@match.MatchId" class="sport @(match.MatchId==model.SelectedMatchId ? "selected" : string.Empty)">
