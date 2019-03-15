@@ -11,6 +11,7 @@
             this.viewer = viewer;
             ViewerId = viewer.Id;
             ViewerLevelId = viewer.LevelId;
+            ViewerName = viewer.Name;
             Language = viewer.Language;
         }
 
@@ -25,6 +26,8 @@
         public int ViewerId { get; }
 
         public byte ViewerLevelId { get; }
+
+        public string ViewerName { get; }
 
         public virtual UserLevel ActorLevel => Enumeration.FromValue<UserLevel>(ViewerLevelId);
 

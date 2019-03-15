@@ -65,7 +65,7 @@ namespace CN88.TotalBets.Site.Features.WagerAccount
                     ["StakeCondition"] = Message.StakeCondition,
                     ["Stake"] = Message.Stake,
                     ["CustLevelId"] = Message.CustLevel.GetDirectDownLineLevel().Value,
-                    ["BreadcrumbLevel"] = JsonHelper.ToJsonFunc(GetBreadcrumbLevel())
+                    ["BreadcrumbLevelJson"] = JsonHelper.ToJsonFunc(GetBreadcrumbLevel())
                 });
         }
 

@@ -1,7 +1,10 @@
 ﻿namespace CN88.TotalBets.Site.Shared.Helpers
 {
     using System;
+    using System.Collections.Generic;
     using System.Web.Mvc;
+    using Features.WagerAccount;
+    using Newtonsoft.Json;
     using Requests;
     using TotalBets.Shared.Models;
 
@@ -37,7 +40,7 @@
         {
             var boundModel = CallBaseBindModel(controllerContext, bindingContext);
 
-            var baseQuery = boundModel as BaseQuery;
+            var baseQuery = boundModel as WagerAccountQuery;
             if (baseQuery != null)
             {
                 var breadcrumbLevelJson = GetBreadcrumbLevelJson(controllerContext);
@@ -45,12 +48,12 @@
                 if (!string.IsNullOrWhiteSpace(breadcrumbLevelJson)
                    && breadcrumbLevelJson.LastIndexOf(",[", StringComparison.OrdinalIgnoreCase) < 0)
                 {
-                    //baseQuery.BreadcrumbLevel = JsonConvert.DeserializeObject<IEnumerable<CustInfo>>(
-                    //    breadcrumbLevelJson,
-                    //    new JsonSerializerSettings
-                    //    {
-                    //        Error = (sender, errorArgs) => { errorArgs.ErrorContext.Handled = true; }
-                    //    });
+                    baseQuery.BreadcrumbLevel = JsonConvert.DeserializeObject<IEnumerable<CustInfo>>(
+                        breadcrumbLevelJson,
+                        new JsonSerializerSettings
+                        {
+                            Error = (sender, errorArgs) => { errorArgs.ErrorContext.Handled = true; }
+                        });
                 }
 
                 return baseQuery;
