@@ -139,6 +139,21 @@
             padding-top: 2px;
         }
     }
+    .filter {
+        display: inline-block;        
+    }
+    .btn-refresh {
+        min-width: unset;
+        padding-left: 8px;
+        position: relative;
+        top: 4px;
+        .icon-refresh {
+            font-size: 16px;
+            padding-right: 8px;
+            position: relative;
+            top: 1px;
+        }
+    }
 }
 
 .tbl-totalbet {

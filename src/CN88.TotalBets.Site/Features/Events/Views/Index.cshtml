@@ -16,6 +16,7 @@
         <div class="event">@Model.SubTitle</div>
     </div>
     @{ Html.RenderPartial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel); }
+    <button class="btn-submit btn-refresh"><span class="icon-refresh"></span>5</button>
     <table class="tbl-style2 tbl-totalbet" id="tblTotalBets">
         @if (Model.HasEventData)
         {
