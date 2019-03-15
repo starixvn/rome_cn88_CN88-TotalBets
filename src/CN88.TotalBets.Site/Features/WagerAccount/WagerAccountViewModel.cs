@@ -36,7 +36,7 @@
         public string GetWagerDetailUrl()
         {
             return UrlHelper.AddQueryStringParamsFunc(
-                AppPathHelper.GetAppPath(AppSettings.FeaturesAppPath, "~/BetLists/WagerDetails"),
+                AppPathHelper.GetAppPath(AppSettings.FeaturesAppPath, "~/BetLists/OutrightWagerDetails"),
                 new Dictionary<string, object>
                 {
                     ["CustId"] = Message.ViewerId,
@@ -63,7 +63,7 @@
             var url = AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/WagerAccount/Index");
             if (Message.CustLevel.GetDirectDownLineLevel().IsMemberLevel())
             {
-                url = AppPathHelper.GetAppPath(AppSettings.FeaturesAppPath, "~/BetLists/BetListByAccount");
+                url = AppPathHelper.GetAppPath(AppSettings.FeaturesAppPath, "~/BetLists/OutrightWagerByAccount");
             }
 
             return UrlHelper.AddQueryStringParamsFunc(url, param);
