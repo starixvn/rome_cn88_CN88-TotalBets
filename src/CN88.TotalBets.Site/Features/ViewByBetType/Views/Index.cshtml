@@ -4,10 +4,10 @@
 }
 
 @section Styles {
-    @StaticResources.RenderStyles("~/assets/bundles/events/event")
+    @StaticResources.RenderStyles("~/assets/bundles/outright/outright")
 }
 @section Scripts {
-    @StaticResources.RenderScripts("~/assets/bundles/events/event")
+    @StaticResources.RenderScripts("~/assets/bundles/outright/outright")
 }
 
 @model ViewByBetTypeViewModel
@@ -18,25 +18,44 @@
 <div class="show-time">@Model.Match.ShowTime</div>
 <div class="score">@Model.Match.LiveHomeScore - @Model.Match.LiveAwayScore</div>
 
-@foreach (var bettype in Model.TotalBetsByBetTypes)
-{
-    <div>@CacheRefManager.CacheRefInstance.GetBetTypeName(bettype.BetTypeId)</div>
 
-    foreach (var betOptionGroup in bettype.BetOptionGroups)
-    {
-        if (betOptionGroup.BetOptions.Any())
+<table class="tbl-style2 tbl-totalbet tbl-outright" id="tblTotalBets">
+    <tbody>
+        @foreach (var bettype in Model.TotalBetsByBetTypes)
         {
-            <div>@(betOptionGroup.LiveText)</div>
-            <div>
-                @foreach (var betOption in betOptionGroup.BetOptions)
-                {
-                    <span>
-                        <span>@betOption.BetTeam</span>
-                        <span>@betOption.Wager</span>
-                        <span>@betOption.Stake</span>
+
+            <tr class="league">
+                <td colspan="2">
+                    <span class="league-name-wrapper">
+                        <span class="icon-chevron-down"></span>
+                        <span class="league-name">@CacheRefManager.CacheRefInstance.GetBetTypeName(bettype.BetTypeId)</span>
                     </span>
+                    <span class="index text-right">@HtmlHelpers.FormatNumber(bettype.TotalWager) | @HtmlHelpers.FormatNumber(bettype.TotalStake)</span>
+                </td>
+            </tr>
+
+            foreach (var betOptionGroup in bettype.BetOptionGroups)
+            {
+                if (betOptionGroup.BetOptions.Any())
+                {
+                    <tr class="team-name">
+                        <td class="team" colspan="2">@(betOptionGroup.LiveText)</td>
+                    </tr>
+
+                    foreach (var betOption in betOptionGroup.BetOptions)
+                    {
+                        <tr class="bet-option">
+                            <td class="team">
+                                <span class="team-name">@betOption.BetTeam</span>
+                                <span class="index text-right">
+                                    @HtmlHelpers.FormatNumber(betOption.Wager)
+                                    @HtmlHelpers.FormatNumber(betOption.Stake)
+                                </span>
+                            </td>
+                        </tr>
+                    }
                 }
-            </div>
+            }
         }
-    }
-}
+    </tbody>
+</table>

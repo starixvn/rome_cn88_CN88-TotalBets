@@ -37,7 +37,8 @@
         protected BaseViewModel(
             FilterQuery filterQuery,
             string title,
-            bool isShowLeague = false)
+            bool isShowLeague = false,
+            bool isShowMarket = true)
         {
             query = filterQuery;
             Title = title;
@@ -48,7 +49,7 @@
                 query.StakeCondition,
                 query.Stake,
                 query.PossType,
-                query.Type == EventTypeConstants.InPlay,
+                isShowMarket,
                 query.Market,
                 isShowLeague);
         }
