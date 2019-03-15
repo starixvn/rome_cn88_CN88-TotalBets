@@ -26,7 +26,9 @@ abstract class BaseTotalBets {
         this.summaryMenu.render();
         this.stakeConditionSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-stake-condition", "StakeCondition"));
         this.possTypeSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-poss-type", "PossType"));
-        this.leagueSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-league", "LeagueId"));
+        if (this.leagueSelectionComponent != null) {
+            this.leagueSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-league", "LeagueId"));
+        }
     }
 
     protected cacheDOMElements(): void {
@@ -55,6 +57,8 @@ abstract class BaseTotalBets {
     protected onSubmit(): void {
         this.stakeConditionSelectionComponent.updateSelectedValue();
         this.possTypeSelectionComponent.updateSelectedValue();
-        this.leagueSelectionComponent.updateSelectedValue();
+        if (this.leagueSelectionComponent != null) {
+            this.leagueSelectionComponent.updateSelectedValue();
+        }
     };
 }

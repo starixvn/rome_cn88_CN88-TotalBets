@@ -14,8 +14,6 @@
 
         public byte MarketType { get; set; }
 
-        public byte Type { get; set; }
-
         public int MatchId { get; set; }
     }
 }

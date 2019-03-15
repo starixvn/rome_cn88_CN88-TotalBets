@@ -17,5 +17,10 @@
     @Html.Hidden(nameof(Model.Type), Model.Type)
     @Html.Hidden(nameof(Model.SportTypeGroup), Model.SportTypeGroup)
 
+    @foreach (var keyValue in Model.HiddenParams)
+    {
+        @Html.Hidden(keyValue.Key, keyValue.Value)
+    }
+
     <input type="submit" value="@Resources.Submit" class="btn-submit" />
 </form>

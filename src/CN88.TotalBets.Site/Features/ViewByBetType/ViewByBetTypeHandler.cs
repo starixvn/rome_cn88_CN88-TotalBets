@@ -30,7 +30,7 @@
 
             var totalBetByBetTypes = await viewByBetTypeService.GetBetTypes(
                 new ViewByBetTypeParam(
-                message.CustId,
+                message.ViewerId,
                 message.ActorLevel,
                 message.MatchId,
                 message.StakeCondition,

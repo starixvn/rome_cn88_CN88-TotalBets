@@ -354,6 +354,10 @@
     <Content Include="assets\bundles\totalbets.min.css">
       <DependentUpon>totalbets.css</DependentUpon>
     </Content>
+    <Content Include="assets\bundles\viewbybettype\index.js" />
+    <Content Include="assets\bundles\viewbybettype\index.min.js">
+      <DependentUpon>index.js</DependentUpon>
+    </Content>
     <Content Include="assets\styles\event.css">
       <DependentUpon>event.scss</DependentUpon>
     </Content>
@@ -559,6 +563,7 @@
     <TypeScriptCompile Include="assets\scripts\event.ts" />
     <TypeScriptCompile Include="assets\scripts\wager-account.ts" />
     <TypeScriptCompile Include="assets\scripts\overview.ts" />
+    <TypeScriptCompile Include="Features\ViewByBetType\Scripts\view-by-bet-type.ts" />
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine-jquery\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine\index.d.ts" />

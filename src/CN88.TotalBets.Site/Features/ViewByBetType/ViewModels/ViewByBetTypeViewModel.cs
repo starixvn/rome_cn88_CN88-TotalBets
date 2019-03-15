@@ -4,6 +4,7 @@
     using System.Linq;
     using CN88.TotalBets.Features.Events.Models;
     using CN88.TotalBets.Features.ViewByBetTypes.Models;
+    using CN88.TotalBets.Shared.Constants;
     using CN88.TotalBets.Shared.Services;
     using CN88.TotalBets.Site.Shared.ViewModels;
     using Shared.ViewModels.Filters;
@@ -16,11 +17,16 @@
             Match match,
             SportGroupSummary summary,
             ViewByBetTypeQuery filterQuery)
-            : base(filterQuery, "View By Bet Type")
+            : base(filterQuery, "View By Bet Type", new Dictionary<string, object>
+            {
+                { nameof(filterQuery.MatchId), filterQuery.MatchId },
+                { nameof(filterQuery.MarketType), filterQuery.MarketType }
+            })
         {
             TotalBetsByBetTypes = totalBetsByBetTypes;
             Match = match;
             MatchSummaryMenuViewModel = new MatchSummaryMenuViewModel(summary, filterQuery.MatchId);
+            IsInPlay = filterQuery.Type == EventTypeConstants.InPlay;
         }
 
         public Match Match { get; }
@@ -38,5 +44,7 @@
         public IEnumerable<TotalBetsByBetType> TotalBetsByBetTypes { get; }
 
         public MatchSummaryMenuViewModel MatchSummaryMenuViewModel { get; }
+        
+        public bool IsInPlay { get; }
     }
 }

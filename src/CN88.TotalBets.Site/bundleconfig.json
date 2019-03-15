@@ -1,5 +1,4 @@
-﻿[
-  
+[
   {
     "outputFileName": "assets/bundles/events/viewbybettype.css",
     "inputFiles": [
@@ -64,6 +63,16 @@
     "outputFileName": "assets/bundles/scripts/wager-account.js",
     "inputFiles": [
       "assets/scripts/wager-account.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/viewbybettype/index.js",
+    "inputFiles": [
+      "assets/scripts/components/summary-menu.js",
+      "assets/scripts/components/single-selection-dropdown.js",
+      "assets/scripts/base-totalbets.js",
+      "assets/scripts/auto-refresh.js",
+      "Features/ViewByBetType/Scripts/view-by-bet-type.js"
     ]
   }
 ]

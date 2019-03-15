@@ -37,6 +37,7 @@
         protected BaseViewModel(
             FilterQuery filterQuery,
             string title,
+            IDictionary<string, object> hiddenParams,
             bool isShowLeague = false,
             bool isShowMarket = true)
         {
@@ -51,7 +52,8 @@
                 query.PossType,
                 isShowMarket,
                 query.Market,
-                isShowLeague);
+                isShowLeague,
+                hiddenParams);
         }
 
 
