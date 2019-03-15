@@ -512,9 +512,6 @@
     <Content Include="Shared\Views\web.config" />
     <Content Include="Features\Events\Views\web.config" />
     <Content Include="Features\Events\Views\Index.cshtml" />
-    <Content Include="Features\Events\Views\_TableNoDataFound.cshtml" />
-    <Content Include="Features\Events\Views\_InPlay.cshtml" />
-    <Content Include="Features\Events\Views\_Today.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

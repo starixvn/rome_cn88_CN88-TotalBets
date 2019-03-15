@@ -71,7 +71,7 @@
                 HtmlHelpers.FormatNumber(team.Stake).ToHtmlString(),
                 "Index",
                 "WagerAccount",
-                new { custId = Model.ViewerId, custLevelId = Model.ViewerLevelId, matchId = team.MatchId, Stake = Model.FilterViewModel.Stake, StakeCondition = Model.FilterViewModel.StakeCondition },
+                Model.GetWagerAccountParams(team.MatchId),
                 new { @class = "stake link" })
         </span>
     </td>

@@ -19,9 +19,15 @@
             : base(query, sportTypeGroup, summaries, leagues)
         {
             EventModel = eventModel;
+            IsInPlay = eventModel.Type == EventTypeConstants.InPlay;
+            HasEventData = eventModel.TotalStake == 0;
             SubTitle = Resources.ResourceManager.GetString(EventTypeConstants.EventTypes[query.Type]);
         }
 
         public MatchLeagueTotal EventModel { get; }
+
+        public bool IsInPlay { get; }
+
+        public bool HasEventData { get; }
     }
 }

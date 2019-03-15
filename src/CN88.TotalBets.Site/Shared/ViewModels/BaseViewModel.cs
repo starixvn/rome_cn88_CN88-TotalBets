@@ -18,8 +18,6 @@
             IEnumerable<SelectListItem> leagues)
         {
             this.query = query;
-            ViewerId = query.ViewerId;
-            ViewerLevelId = query.ViewerLevelId;
             Title = title;
 
             SummaryMenuViewModel = new SummaryMenuViewModel(summaries, query.SportTypeGroup);
@@ -35,10 +33,6 @@
                 LeagueSelectionViewModel);
         }
 
-        public int ViewerId { get; }
-
-        public byte ViewerLevelId { get; }
-
         public string Title { get; }
 
         public string SubTitle { get; protected set; }
@@ -48,5 +42,15 @@
         public SingleSelectionViewModel LeagueSelectionViewModel { get; }
 
         public FilterViewModel FilterViewModel { get; protected set; }
-    }
+
+        public object GetWagerAccountParams(int matchId)
+            => new
+            {
+                custId = query.ViewerId,
+                custLevelId = query.ViewerLevelId,
+                matchId = matchId,
+                Stake = FilterViewModel.Stake,
+                StakeCondition = FilterViewModel.StakeCondition
+            };
+        }
 }
