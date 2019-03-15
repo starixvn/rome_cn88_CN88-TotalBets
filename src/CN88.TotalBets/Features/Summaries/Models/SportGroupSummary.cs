@@ -28,7 +28,7 @@
             SportTypeGroupName = sportTypeGroupName;
             LeagueSummaries = leagueSummaries;
             Wager = leagueSummaries.Select(s => s.Wager).Sum();
-            Stake = leagueSummaries.Select(s => Stake).Sum();
+            Stake = leagueSummaries.Select(s => s.Stake).Sum();
         }
 
         public byte SportTypeGroup { get; }
