@@ -24,7 +24,8 @@
       "assets/scripts/components/summary-menu.js",
       "assets/scripts/components/single-selection-dropdown.js",
       "assets/scripts/base-totalbets.js",
-      "assets/scripts/event.js"
+      "assets/scripts/event.js",
+      "assets/scripts/auto-refresh.js"
     ]
   },
   {

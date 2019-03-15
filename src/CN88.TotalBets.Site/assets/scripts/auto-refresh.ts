@@ -1,12 +1,12 @@
 ﻿"use strict";
 class AutoRefresh {
     private countDownContainer: JQuery;
-    private onSubmit: Function;
+    private filterForm: JQuery;
     private timerId: number = 0;
 
-    constructor(countDownContainer: JQuery, onSubmit: Function) {
+    constructor(countDownContainer: JQuery, filterForm: JQuery) {
         this.countDownContainer = countDownContainer;
-        this.onSubmit = onSubmit;
+        this.filterForm = filterForm;
     }
 
     start(interval: number): void {
@@ -22,8 +22,8 @@ class AutoRefresh {
     }
 
     private tick(interval: number): void {
-        if (interval === 1 && this.onSubmit) {
-            this.onSubmit();
+        if (interval === 1 && this.filterForm.length) {
+            this.filterForm.trigger("submit");
         }
         else {
             this.setCountDown(--interval);
