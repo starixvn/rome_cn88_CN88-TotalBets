@@ -214,3 +214,20 @@
 .col-80 {
     width: 80px;
 }
+
+.window-page {
+    padding: 0 20px;
+    .page-title {
+        margin: 20px 0;
+    }
+    #nav-tabs {
+        margin-bottom: 20px;
+    }
+    .tbl-wager {
+        width: 100%;
+        tr.total td {
+            background-color: #ecf4e2;
+            font-weight: bold;
+        }
+    }
+}
