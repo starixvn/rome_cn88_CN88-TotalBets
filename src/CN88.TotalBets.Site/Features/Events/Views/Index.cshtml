@@ -62,10 +62,7 @@
                                 @RenderViewByBetTypeLink(HtmlHelpers.FormatNumber(match.Stake).ToHtmlString(), match.MatchId)
                             </td>
                             <td class="text-right">
-                                <span class="bettypecount">
-                                    @RenderViewByBetTypeLink(HtmlHelpers.FormatNumber(match.BetTypeCount).ToHtmlString(), match.MatchId)
-                                    <span class="icon-chevron-right"></span>
-                                </span>
+                                @RenderViewByBetTypeLink(HtmlHelpers.FormatNumber(match.BetTypeCount).ToHtmlString(), match.MatchId, "bettypecount")
                             </td>
                         </tr>
                     }
@@ -86,11 +83,10 @@
         @:@Html.Raw(match.ShowTime)
     }
 }
-@helper RenderViewByBetTypeLink(string title, int matchId)
+@helper RenderViewByBetTypeLink(string title, int matchId, string className = null)
 {
-    @:@Html.ActionLink(
-        title,
-        "Index",
+    <a href="@Url.Action(
+        "Index", 
         "ViewByBetType",
         new
         {
@@ -101,6 +97,10 @@
             stakeCondition = Model.FilterViewModel.StakeCondition,
             type = Model.Query.Type,
             marketType = Model.Query.Market
-        },
-        new { @class = "stake link" })
+        })" class="link @className">@title
+        @if (className != null)
+        {
+            <span class="icon-chevron-right"></span>
+        }
+    </a>
 }
