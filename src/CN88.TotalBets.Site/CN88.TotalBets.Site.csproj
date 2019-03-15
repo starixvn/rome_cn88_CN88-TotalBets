@@ -338,10 +338,6 @@
     <Content Include="assets\bundles\overview.min.css">
       <DependentUpon>overview.css</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\overview\overview.css" />
-    <Content Include="assets\bundles\overview\overview.min.css">
-      <DependentUpon>overview.css</DependentUpon>
-    </Content>
     <Content Include="assets\bundles\scripts\overview.js" />
     <Content Include="assets\bundles\scripts\overview.min.js">
       <DependentUpon>overview.js</DependentUpon>
