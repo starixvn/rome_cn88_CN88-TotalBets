@@ -32,11 +32,18 @@
 
         <table class="tbl-style2 tbl-totalbet tbl-viewbettype" id="tblTotalBets">
             <tbody>
-                @foreach (var bettype in Model.TotalBetsByBetTypes)
+                @if (Model.TotalBetsByBetTypes.Any())
                 {
+                    foreach (var bettype in Model.TotalBetsByBetTypes)
+                    {
 
-                    @RenderBetType(bettype)
-                    @RenderBetOptions(bettype)
+                        @RenderBetType(bettype)
+                        @RenderBetOptions(bettype)
+                    }
+                }
+                else
+                {
+                    <tr><td class="text-center no-info">@Resources.NoInformationIsAvailable</td></tr>
                 }
             </tbody>
         </table>
@@ -49,7 +56,11 @@
 
     <div class="head-match">
         <div class="show-time">@Html.Raw(@Model.Match.ShowTime)</div>
-        <div class="match"><span class="score">@Model.Match.LiveHomeScore - @Model.Match.LiveAwayScore</span></div>
+        <div class="match">
+            <span class="team-name">@Model.HomeName</span>
+            <span class="score">@Model.Match.LiveHomeScore - @Model.Match.LiveAwayScore</span>
+            <span class="team-name">@Model.AwayName</span>
+        </div>
     </div>
 }
 
