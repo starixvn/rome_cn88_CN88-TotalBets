@@ -120,6 +120,8 @@
     <Compile Include="Features\Summaries\Models\SummaryByMatchDto.cs" />
     <Compile Include="Features\Summaries\Models\SportGroupSummary.cs" />
     <Compile Include="Features\Summaries\SummaryService.cs" />
+    <Compile Include="Features\WagerAccount\Event\GetWagerAccountByEventCriteria.cs" />
+    <Compile Include="Features\WagerAccount\Event\WagerAccountByEventParam.cs" />
     <Compile Include="Features\WagerAccount\GetWagerAccountCriteria.cs" />
     <Compile Include="Features\WagerAccount\WagerAccountModel.cs" />
     <Compile Include="Features\WagerAccount\WagerAccountParam.cs" />

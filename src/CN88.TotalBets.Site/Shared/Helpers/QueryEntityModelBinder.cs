@@ -40,7 +40,7 @@
         {
             var boundModel = CallBaseBindModel(controllerContext, bindingContext);
 
-            var baseQuery = boundModel as WagerAccountQuery;
+            var baseQuery = boundModel as WagerAccountBaseQuery;
             if (baseQuery != null)
             {
                 var breadcrumbLevelJson = GetBreadcrumbLevelJson(controllerContext);

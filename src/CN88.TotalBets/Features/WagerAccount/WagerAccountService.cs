@@ -6,7 +6,9 @@
 
     public interface IWagerAccountService
     {
-        Task<IEnumerable<WagerAccountModel>> Get(WagerAccountParam param);
+        Task<IEnumerable<WagerAccountModel>> GetOutright(WagerAccountParam param);
+
+        Task<IEnumerable<WagerAccountModel>> GetEvent(WagerAccountByEventParam param);
     }
 
     public class WagerAccountService : IWagerAccountService
@@ -18,7 +20,10 @@
             this.dynamicRepository = dynamicRepository;
         }
 
-        public async Task<IEnumerable<WagerAccountModel>> Get(WagerAccountParam param)
+        public async Task<IEnumerable<WagerAccountModel>> GetOutright(WagerAccountParam param)
             => await dynamicRepository.FetchAsync<WagerAccountModel>(new GetWagerAccountCriteria(param));
+
+        public async Task<IEnumerable<WagerAccountModel>> GetEvent(WagerAccountByEventParam param)
+            => await dynamicRepository.FetchAsync<WagerAccountModel>(new GetWagerAccountByEventCriteria(param));
     }
 }

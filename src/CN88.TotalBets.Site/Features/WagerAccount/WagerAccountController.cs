@@ -10,6 +10,7 @@
     public class WagerAccountController : SiteBaseController
     {
         private const string ViewPath = "~/Features/WagerAccount/Views/Index.cshtml";
+        private const string EventView = "~/Features/WagerAccount/Views/Event.cshtml";
 
         public WagerAccountController(IMediator mediator)
             : base(mediator)
@@ -18,5 +19,8 @@
 
         public async Task<ActionResult> Index(WagerAccountQuery message)
             => await ViewAsync(message, ViewPath);
+
+        public async Task<ActionResult> GetByEvent(WagerAccountByEventQuery message)
+            => await ViewAsync(message, EventView);
     }
 }

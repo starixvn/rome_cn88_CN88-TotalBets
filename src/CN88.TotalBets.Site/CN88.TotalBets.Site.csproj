@@ -430,8 +430,11 @@
     <Compile Include="Features\ViewByBetType\ViewByBetTypeHandler.cs" />
     <Compile Include="Features\ViewByBetType\ViewByBetTypeQuery.cs" />
     <Compile Include="Features\ViewByBetType\ViewModels\ViewByBetTypeViewModel.cs" />
+    <Compile Include="Features\WagerAccount\Event\WagerAccountByEventQuery.cs" />
+    <Compile Include="Features\WagerAccount\Event\WagerAccountByEventViewModel.cs" />
     <Compile Include="Features\WagerAccount\WagerAccountHandler.cs" />
     <Compile Include="Features\WagerAccount\WagerAccountController.cs" />
+    <Compile Include="Features\WagerAccount\WagerAccountBaseQuery.cs" />
     <Compile Include="Features\WagerAccount\WagerAccountQuery.cs" />
     <Compile Include="Features\WagerAccount\WagerAccountViewModel.cs" />
     <Compile Include="Shared\Controllers\SiteBaseController.cs" />
@@ -527,6 +530,7 @@
     <Content Include="Features\Events\Views\Index.cshtml" />
     <Content Include="Features\ViewByBetType\Views\Index.cshtml" />
     <Content Include="Features\ViewByBetType\Views\web.config" />
+    <Content Include="Features\WagerAccount\Views\Event.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
