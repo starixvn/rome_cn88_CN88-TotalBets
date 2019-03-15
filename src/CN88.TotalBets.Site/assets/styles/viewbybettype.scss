@@ -1,5 +1,8 @@
 ﻿.viewbettype-content {
     width: 1040px;
+    .league {
+        margin-bottom: 6px;
+    }
 }
 .tbl-viewbettype {
     
@@ -53,7 +56,10 @@
             font-weight: bold;
        }
    }
+   .show-time {
+       display: inline-block;
+       margin-left: 12px;
+       padding-top: 4px;
+   }
 }
-.league {
-    margin-bottom: 6px;
-}
+

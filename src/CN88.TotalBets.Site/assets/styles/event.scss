@@ -1,21 +1,19 @@
-﻿.league, .sport {
-    cursor: pointer;
+﻿.menu-container {
+    .league, .sport {
+        cursor: pointer;
+    }
+
+    .menu-item.sport {
+        background-color: #585555;
+        color: #fff;
+    }
+
+    .league {
+        background-color: #f4f1f1;
+    }
 }
 
-.menu-item.sport {
-    background-color: #585555;
-    color: #fff;
-}
 
-.league {
-    background-color: #f4f1f1;
-}
-.icon-chevron-down {
-    float: right;
-    position: relative;
-    top: -30px;
-    font-size: 18px;
-}
 
 #tblTotalBets {
     width: 1040px;
