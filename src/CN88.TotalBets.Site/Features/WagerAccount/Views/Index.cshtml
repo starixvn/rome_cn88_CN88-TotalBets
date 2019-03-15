@@ -19,7 +19,7 @@
         </li>
 
         <li class="lnk-changetab">
-            <a href="#wager-detail">@Resources.ViewWagerDetails</a>
+            <a href="@Model.GetWagerDetailUrl()">@Resources.ViewWagerDetails</a>
         </li>
 
     </ul>
@@ -44,7 +44,7 @@
                     @foreach (var item in Model.WagerAccounts)
                     {
                         <tr>
-                            <td class="text-left"><a href="@Model.GetDownLineUrl(item.CustId)">@item.UserName</a></td>
+                            <td class="text-left"><a href="@Model.GetDownLineUrl(item.CustId,item.UserName)">@item.UserName</a></td>
                             <td class="text-left">@item.FirstName</td>
                             <td class="text-right">@item.Wager</td>
                             <td class="text-right">@HtmlHelpers.FormatNumber(item.Stake)</td>

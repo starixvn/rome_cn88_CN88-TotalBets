@@ -27,16 +27,41 @@ namespace CN88.TotalBets.Site.Features.WagerAccount
 
         public WagerAccountQuery Message { get; }
 
-        public string GetDownLineUrl(int custId)
-            => UrlHelper.AddQueryStringParamsFunc(
-                AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/WagerAccount/Index"),
+        public string GetWagerDetailUrl()
+        {
+            return UrlHelper.AddQueryStringParamsFunc(
+                AppPathHelper.GetAppPath(AppSettings.FeaturesAppPath, "~/BetLists/WagerDetails"),
+                new Dictionary<string, object>
+                {
+                    ["CustId"] = Message.CustId,
+                    ["CustName"] = Message.CustName,
+                    ["MatchId"] = Message.MatchId,
+                    ["StakeCondition"] = Message.StakeCondition,
+                    ["Stake"] = Message.Stake,
+                    ["CustLevelId"] = Message.CustLevel.Value
+                });
+        }
+
+        public string GetDownLineUrl(int custId, string custName)
+        {
+            var url = AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/WagerAccount/Index");
+            if (Message.CustLevel.GetDirectDownLineLevel().IsMemberLevel())
+            {
+                url = AppPathHelper.GetAppPath(AppSettings.FeaturesAppPath, "~/BetLists/BetListByAccount");
+            }
+
+            return UrlHelper.AddQueryStringParamsFunc(
+                url,
                 new Dictionary<string, object>
                 {
                     ["CustId"] = custId,
+                    ["CustName"] = custName,
                     ["MatchId"] = Message.MatchId,
                     ["StakeCondition"] = Message.StakeCondition,
                     ["Stake"] = Message.Stake,
                     ["CustLevelId"] = Message.CustLevel.GetDirectDownLineLevel().Value
                 });
+        }
+
     }
 }
