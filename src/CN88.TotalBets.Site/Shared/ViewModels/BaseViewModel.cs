@@ -15,7 +15,7 @@
             FilterQuery query,
             string title,
             string appPath,
-            IEnumerable<SummaryByEvent> summaries,
+            IEnumerable<SportGroupSummary> summaries,
             IEnumerable<SelectListItem> leagues)
         {
             this.query = query;

@@ -6,7 +6,7 @@
     public class SummaryMenuViewModel
     {
         public SummaryMenuViewModel(
-            IEnumerable<SummaryByEvent> summaries,
+            IEnumerable<SportGroupSummary> summaries,
             int selectedSportTypeGroup,
             string appPath)
         {
@@ -15,7 +15,7 @@
             AppPath = appPath;
         }
 
-        public IEnumerable<SummaryByEvent> Summaries { get; }
+        public IEnumerable<SportGroupSummary> Summaries { get; }
 
         public int SelectedSportTypeGroup { get; }
 

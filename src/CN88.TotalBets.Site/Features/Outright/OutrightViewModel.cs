@@ -15,7 +15,7 @@
             OutrightQuery query,
             string sportGroupName,
             IEnumerable<TeamLeague> teamLeagues,
-            IEnumerable<SummaryByEvent> summaries,
+            IEnumerable<SportGroupSummary> summaries,
             IEnumerable<SelectListItem> leagues)
             : base(query, sportGroupName, $"{query.AppPath}{outrightVirtualPath}", summaries, leagues)
         {

@@ -33,7 +33,7 @@
         {
             var outrightLeagues = await outrightService.GetOutrightsAsync(ToOutrightParam(message));
             var leagues = await leagueService.GetLeagues(message.SportTypeGroup, EventTypeConstants.Outright);
-            var summaries = await summaryService.GetSummaryByEventType(message.ViewerId, message.ActorLevel, EventTypeConstants.Outright);
+            var summaries = await summaryService.GetSportGroupSummaries(message.ViewerId, message.ActorLevel, EventTypeConstants.Outright);
 
             return new OutrightViewModel(
                 message,

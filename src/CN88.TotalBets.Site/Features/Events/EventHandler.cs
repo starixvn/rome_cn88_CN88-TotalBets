@@ -33,7 +33,7 @@
         {
             var eventModel = await eventService.GetEventsAsync(ToEventParam(message));
             var leagues = await leagueService.GetLeagues(message.SportTypeGroup, message.Type);
-            var summaries = await summaryService.GetSummaryByEventType(message.ViewerId, message.ActorLevel, message.Type);
+            var summaries = await summaryService.GetSportGroupSummaries(message.ViewerId, message.ActorLevel, message.Type);
 
             return new EventViewModel(
                 message,

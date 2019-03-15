@@ -12,9 +12,9 @@
 
     public interface SummaryService
     {
-        Task<IEnumerable<SummaryByEvent>> GetSummaryByEventType(int custId, UserLevel custLevel, byte eventType);
+        Task<IEnumerable<SportGroupSummary>> GetSportGroupSummaries(int custId, UserLevel custLevel, byte eventType);
 
-        Task<IEnumerable<SummaryBySportTypeGroup>> GetSummaryBySportTypeGroup(int custId, UserLevel custLevel, byte eventType, byte sportTypeGroup);
+        Task<SportGroupSummary> GetSportGroupSummary(int custId, UserLevel custLevel, byte eventType, byte sportTypeGroup);
     }
 
     public class SummaryServiceImpl : SummaryService
@@ -33,13 +33,13 @@
             this.sportTypeGroupService = sportTypeGroupService;
         }
 
-        public async Task<IEnumerable<SummaryByEvent>> GetSummaryByEventType(int custId, UserLevel custLevel, byte eventType)
+        public async Task<IEnumerable<SportGroupSummary>> GetSportGroupSummaries(int custId, UserLevel custLevel, byte eventType)
         {
-            var summaries = await dynamicRepository.FetchAsync<SummaryByEvent>(new GetSummaryByEventCriteria(custId, eventType, custLevel));
+            var summaries = await dynamicRepository.FetchAsync<SportGroupSummary>(new GetSummaryByEventCriteria(custId, eventType, custLevel));
 
             if (summaries == null || !summaries.Any())
             {
-                return Enumerable.Empty<SummaryByEvent>();
+                return Enumerable.Empty<SportGroupSummary>();
             }
 
             foreach (var summary in summaries)
@@ -50,24 +50,37 @@
             return summaries;
         }
 
-        public async Task<IEnumerable<SummaryBySportTypeGroup>> GetSummaryBySportTypeGroup(int custId, UserLevel custLevel, byte eventType, byte sportTypeGroup)
+        public async Task<SportGroupSummary> GetSportGroupSummary(int custId, UserLevel custLevel, byte eventType, byte sportTypeGroup)
         {
-            var summaries = await dynamicRepository.FetchAsync<SummaryBySportTypeGroup>(new GetSummaryBySportTypeGroupCriteria(custId, eventType, sportTypeGroup, custLevel));
+            var dtos = await dynamicRepository.FetchAsync<SummaryByMatchDto>(
+                new GetSummaryBySportTypeGroupCriteria(custId, eventType, sportTypeGroup, custLevel));
 
-            if (summaries == null || !summaries.Any())
+            if (dtos == null || !dtos.Any())
             {
-                return Enumerable.Empty<SummaryBySportTypeGroup>();
+                return null;
             }
 
-            foreach (var summary in summaries)
+            var leagueGroups = dtos.GroupBy(x => x.LeagueId);
+            var leagueSummaries = new List<LeagueSummary>();
+
+            foreach (var group in leagueGroups)
             {
-                summary.SportTypeGroupName = await sportTypeGroupService.GetSportTypeGroupName(summary.SportTypeGroup);
-                summary.LeagueName = cacheRefService.GetLeagueName(summary.LeagueId);
-                summary.HomeTeamName = cacheRefService.GetTeamName(summary.HomeId);
-                summary.AwayTeamName = cacheRefService.GetTeamName(summary.AwayId);
+                var matchSummaries = group.Select(
+                    g => new MatchSummary(
+                        g.MatchId,
+                        g.HomeId,
+                        cacheRefService.GetTeamName(g.HomeId),
+                        g.AwayId,
+                        cacheRefService.GetTeamName(g.AwayId),
+                        g.Wager, g.Stake));
+
+                leagueSummaries.Add(new LeagueSummary(group.Key, cacheRefService.GetLeagueName(group.Key), matchSummaries));
             }
 
-            return summaries;
+            return new SportGroupSummary(
+                sportTypeGroup,
+                await sportTypeGroupService.GetSportTypeGroupName(sportTypeGroup),
+                leagueSummaries);
         }
     }
 }

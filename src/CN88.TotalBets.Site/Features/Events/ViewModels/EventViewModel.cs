@@ -17,7 +17,7 @@
             EventQuery query,
             string sportTypeGroup,
             MatchLeagueTotal eventModel,
-            IEnumerable<SummaryByEvent> summaries,
+            IEnumerable<SportGroupSummary> summaries,
             IEnumerable<SelectListItem> leagues)
             : base(query, sportTypeGroup, $"{query.AppPath}{eventVirtualPath}", summaries, leagues)
         {
