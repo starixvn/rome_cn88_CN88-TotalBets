@@ -56,7 +56,7 @@
 }
 @helper RenderBetType(TotalBetsByBetType betType)
 {
-    <tr class="group">
+    <tr class="group" data-leagueid="@betType.BetTypeId">
         <td colspan="2">
             <span class="group-name-wrapper">
                 <span class="icon-chevron-down"></span>
@@ -75,13 +75,13 @@ foreach (var betOptionGroup in betType.BetOptionGroups)
 {
     if (betOptionGroup.BetOptions.Any())
     {
-            <tr class="bet-option">
+            <tr class="bet-option childrow-@betType.BetTypeId">
                 <td colspan="2">@(betOptionGroup.LiveText)</td>
             </tr>
 
         foreach (var betOption in betOptionGroup.BetOptions)
         {
-                <tr>
+                <tr class="childrow-@betType.BetTypeId">
                     <td class="team">
                         <span class="team-name">
                             @(betOptionBuilderFactory
