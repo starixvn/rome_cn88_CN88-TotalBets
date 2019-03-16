@@ -51,6 +51,6 @@
 #pragma warning restore S3358 // Ternary operators should not be nested
 
         public override bool IsValid()
-            => CustId > 0 & MatchId > 0;
+            => CustId > 0 && MatchId > 0;
     }
 }

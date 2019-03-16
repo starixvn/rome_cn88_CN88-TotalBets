@@ -2,13 +2,12 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using CN88.TotalBets.Features.Events.Models;
-    using CN88.TotalBets.Features.ViewByBetTypes.Models;
-    using CN88.TotalBets.Shared.Constants;
-    using CN88.TotalBets.Shared.Services;
-    using CN88.TotalBets.Site.Shared.ViewModels;
-    using Shared.ViewModels.Filters;
+    using Shared.ViewModels;
+    using TotalBets.Features.Events.Models;
     using TotalBets.Features.Summaries.Models;
+    using TotalBets.Features.ViewByBetTypes.Models;
+    using TotalBets.Shared.Constants;
+    using TotalBets.Shared.Services;
 
     public class ViewByBetTypeViewModel : BaseViewModel
     {
@@ -25,7 +24,11 @@
         {
             TotalBetsByBetTypes = totalBetsByBetTypes;
             Match = match;
-            MatchSummaryMenuViewModel = new MatchSummaryMenuViewModel(summary, filterQuery.MatchId);
+            MatchSummaryMenuViewModel = new MatchSummaryMenuViewModel(
+                summary,
+                filterQuery.MatchId,
+                $"{filterQuery.AppPath}Event?Type={filterQuery.Type}&SportTypeGroup={filterQuery.SportTypeGroup}",
+                $"{filterQuery.AppPath}ViewByBetType?Type={filterQuery.Type}&SportTypeGroup={filterQuery.SportTypeGroup}");
             IsInPlay = filterQuery.Type == EventTypeConstants.InPlay;
         }
 
@@ -44,7 +47,7 @@
         public IEnumerable<TotalBetsByBetType> TotalBetsByBetTypes { get; }
 
         public MatchSummaryMenuViewModel MatchSummaryMenuViewModel { get; }
-        
+
         public bool IsInPlay { get; }
     }
 }
