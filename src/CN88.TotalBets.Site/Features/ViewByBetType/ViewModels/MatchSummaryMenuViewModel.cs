@@ -1,4 +1,4 @@
-﻿namespace CN88.TotalBets.Site.Shared.ViewModels.Filters
+﻿namespace CN88.TotalBets.Site.Features.ViewByBetType.ViewModels
 {
     using TotalBets.Features.Summaries.Models;
 

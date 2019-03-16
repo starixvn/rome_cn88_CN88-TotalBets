@@ -319,74 +319,76 @@
     <Content Include="App_Data\SPNames\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="assets\bundles\events\event.css" />
-    <Content Include="assets\bundles\events\event.js" />
     <Content Include="assets\bundles\events\event.min.css">
       <DependentUpon>event.css</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\events\event.min.js">
-      <DependentUpon>event.js</DependentUpon>
+    <Content Include="assets\bundles\events\index.js" />
+    <Content Include="assets\bundles\events\index.min.js">
+      <DependentUpon>index.js</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\events\viewbybettype.css" />
-    <Content Include="assets\bundles\events\viewbybettype.min.css">
-      <DependentUpon>viewbybettype.css</DependentUpon>
+    <Content Include="assets\bundles\outright\index.js" />
+    <Content Include="assets\bundles\outright\index.min.js">
+      <DependentUpon>index.js</DependentUpon>
     </Content>
     <Content Include="assets\bundles\outright\outright.css" />
-    <Content Include="assets\bundles\outright\outright.js" />
     <Content Include="assets\bundles\outright\outright.min.css">
       <DependentUpon>outright.css</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\outright\outright.min.js">
-      <DependentUpon>outright.js</DependentUpon>
+    <Content Include="assets\bundles\overview\index.js" />
+    <Content Include="assets\bundles\overview\index.min.js">
+      <DependentUpon>index.js</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\overview.css" />
-    <Content Include="assets\bundles\overview.min.css">
+    <Content Include="assets\bundles\overview\overview.css" />
+    <Content Include="assets\bundles\overview\overview.min.css">
       <DependentUpon>overview.css</DependentUpon>
-    </Content>
-    <Content Include="assets\bundles\scripts\overview.js" />
-    <Content Include="assets\bundles\scripts\overview.min.js">
-      <DependentUpon>overview.js</DependentUpon>
-    </Content>
-    <Content Include="assets\bundles\scripts\wager-account.js" />
-    <Content Include="assets\bundles\scripts\wager-account.min.js">
-      <DependentUpon>wager-account.js</DependentUpon>
-    </Content>
-    <Content Include="assets\bundles\totalbets.css" />
-    <Content Include="assets\bundles\totalbets.min.css">
-      <DependentUpon>totalbets.css</DependentUpon>
     </Content>
     <Content Include="assets\bundles\viewbybettype\index.js" />
     <Content Include="assets\bundles\viewbybettype\index.min.js">
       <DependentUpon>index.js</DependentUpon>
     </Content>
-    <Content Include="assets\styles\event.css">
+    <Content Include="assets\bundles\viewbybettype\viewbybettype.css" />
+    <Content Include="assets\bundles\viewbybettype\viewbybettype.min.css">
+      <DependentUpon>viewbybettype.css</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\wageraccount\wager-account.js" />
+    <Content Include="assets\bundles\wageraccount\wager-account.min.js">
+      <DependentUpon>wager-account.js</DependentUpon>
+    </Content>
+    <Content Include="Features\ViewByBetType\Styles\viewbybettype.min.css">
+      <DependentUpon>viewbybettype.css</DependentUpon>
+    </Content>
+    <Content Include="Features\Events\Styles\event.css">
       <DependentUpon>event.scss</DependentUpon>
     </Content>
-    <Content Include="assets\styles\event.min.css">
+    <Content Include="Features\Events\Styles\event.min.css">
       <DependentUpon>event.css</DependentUpon>
     </Content>
-    <Content Include="assets\styles\images\1F.gif" />
-    <Content Include="assets\styles\images\1L.gif" />
-    <Content Include="assets\styles\images\firstGoal.gif" />
-    <Content Include="assets\styles\images\green-star.gif" />
-    <Content Include="assets\styles\images\lastGoal.gif" />
-    <Content Include="assets\styles\images\note_title.gif" />
-    <Content Include="assets\styles\outright.css">
+    <Content Include="Features\ViewByBetType\Styles\images\1F.gif" />
+    <Content Include="Features\ViewByBetType\Styles\images\1L.gif" />
+    <Content Include="Features\ViewByBetType\Styles\images\firstGoal.gif" />
+    <Content Include="Features\ViewByBetType\Styles\images\green-star.gif" />
+    <Content Include="Features\ViewByBetType\Styles\images\lastGoal.gif" />
+    <Content Include="Features\ViewByBetType\Styles\images\note_title.gif" />
+    <Content Include="Features\Outright\Styles\outright.css">
       <DependentUpon>outright.scss</DependentUpon>
     </Content>
-    <Content Include="assets\styles\outright.min.css">
+    <Content Include="Features\Outright\Styles\outright.min.css">
       <DependentUpon>outright.css</DependentUpon>
     </Content>
-    <Content Include="assets\styles\overview.css">
+    <Content Include="Features\Overview\Styles\overview.css">
       <DependentUpon>overview.scss</DependentUpon>
     </Content>
-    <Content Include="assets\styles\overview.min.css">
+    <Content Include="Features\Overview\Styles\overview.min.css">
       <DependentUpon>overview.css</DependentUpon>
     </Content>
-    <Content Include="assets\styles\totalbets.css">
+    <Content Include="Shared\Styles\totalbets.css">
       <DependentUpon>totalbets.scss</DependentUpon>
     </Content>
-    <Content Include="assets\styles\totalbets.min.css">
+    <Content Include="Shared\Styles\totalbets.min.css">
       <DependentUpon>totalbets.css</DependentUpon>
+    </Content>
+    <Content Include="Features\ViewByBetType\Styles\viewbybettype.css">
+      <DependentUpon>viewbybettype.scss</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
     <Content Include="deployment.ignore" />
@@ -457,7 +459,7 @@
     <Compile Include="Shared\ViewModels\BaseViewModel.cs" />
     <Compile Include="Shared\ViewModels\BreadcrumbLevelViewModel.cs" />
     <Compile Include="Shared\ViewModels\Filters\FilterViewModel.cs" />
-    <Compile Include="Shared\ViewModels\Filters\MatchSummaryMenuViewModel.cs" />
+    <Compile Include="Features\ViewByBetType\ViewModels\MatchSummaryMenuViewModel.cs" />
     <Compile Include="Shared\ViewModels\Filters\SingleSelectionViewModel.cs" />
     <Compile Include="Features\Outright\OutrightViewModel.cs" />
     <Compile Include="Features\Overview\ViewModels\OverViewByOutrightViewModel.cs" />
@@ -476,19 +478,18 @@
     <Content Include="Shared\Views\_Layout.cshtml" />
     <Content Include="App_Data\AuthorizationSection.config" />
     <Content Include="App_Data\SPNames\DBARC.bodb_Archive.BODBDownlineNet" />
-    <Content Include="assets\styles\_variables.scss" />
     <Content Include="bundleconfig.json" />
     <Content Include="compilerconfig.json" />
     <Content Include="App_Code\Filters\PossTypeSelection.cshtml" />
     <Content Include="App_Code\Filters\LeagueSelection.cshtml" />
     <Content Include="App_Code\HtmlHelpers.cshtml" />
     <Content Include="App_Code\Filters\SummaryMenu.cshtml" />
-    <Content Include="assets\styles\overview.scss" />
+    <Content Include="Features\Overview\Styles\overview.scss" />
     <Content Include="App_Code\Filters\MarketSelection.cshtml" />
-    <Content Include="assets\styles\outright.scss" />
-    <Content Include="assets\styles\event.scss" />
+    <Content Include="Features\Outright\Styles\outright.scss" />
+    <Content Include="Features\Events\Styles\event.scss" />
     <Content Include="App_Code\Breadcrumb.cshtml" />
-    <Content Include="App_Code\Filters\MatchSummaryMenu.cshtml" />
+    <Content Include="Features\ViewByBetType\Styles\viewbybettype.scss" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
@@ -532,6 +533,7 @@
     <Content Include="Features\ViewByBetType\Views\web.config" />
     <Content Include="Features\WagerAccount\Event\Views\Index.cshtml" />
     <Content Include="Features\WagerAccount\Event\Views\web.config" />
+    <Content Include="Features\ViewByBetType\Views\MatchSummaryMenu.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -547,7 +549,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\styles\totalbets.scss" />
+    <Content Include="Shared\Styles\totalbets.scss" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CN88.TotalBets\CN88.TotalBets.csproj">
@@ -561,13 +563,13 @@
     <Content Include="App_Code\Filters\StakeConditionFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="assets\scripts\auto-refresh.ts" />
-    <TypeScriptCompile Include="assets\scripts\base-totalbets.ts" />
-    <TypeScriptCompile Include="assets\scripts\components\single-selection-dropdown.ts" />
-    <TypeScriptCompile Include="assets\scripts\components\summary-menu.ts" />
-    <TypeScriptCompile Include="assets\scripts\event.ts" />
-    <TypeScriptCompile Include="assets\scripts\wager-account.ts" />
-    <TypeScriptCompile Include="assets\scripts\overview.ts" />
+    <TypeScriptCompile Include="Shared\Scripts\auto-refresh.ts" />
+    <TypeScriptCompile Include="Shared\Scripts\base-totalbets.ts" />
+    <TypeScriptCompile Include="Shared\Scripts\components\single-selection-dropdown.ts" />
+    <TypeScriptCompile Include="Shared\Scripts\summary-menu.ts" />
+    <TypeScriptCompile Include="Features\Events\Scripts\event.ts" />
+    <TypeScriptCompile Include="Features\WagerAccount\Scripts\wager-account.ts" />
+    <TypeScriptCompile Include="Features\Overview\Scripts\overview.ts" />
     <TypeScriptCompile Include="Features\ViewByBetType\Scripts\view-by-bet-type.ts" />
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine-jquery\index.d.ts" />
@@ -584,7 +586,7 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="assets\scripts\outright.ts" />
+    <TypeScriptCompile Include="Features\Outright\Scripts\outright.ts" />
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine-jquery\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine\index.d.ts" />

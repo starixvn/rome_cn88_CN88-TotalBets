@@ -3,21 +3,15 @@
     Layout = "~/Shared/Views/_Layout.cshtml";
 }
 @section Styles {
-    @StaticResources.RenderStyles("~/assets/bundles/events/viewbybettype")
+    @StaticResources.RenderStyles("~/assets/bundles/viewbybettype/viewbybettype")
 }
-
 @section Scripts {
     @StaticResources.RenderScripts("~/assets/bundles/viewbybettype/index")
 }
-
 @model ViewByBetTypeViewModel
-
-@MatchSummaryMenu.Render(Model.MatchSummaryMenuViewModel)
-
+@Html.Partial("~/Features/ViewByBetType/Views/MatchSummaryMenu.cshtml", Model.MatchSummaryMenuViewModel)
 <div class="main-content" id="main-content">
     @Html.Partial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel)
-
-
     @if (Model.IsInPlay)
     {
         <button type="button" class="btn-submit btn-refresh" id="btn-refresh">
@@ -25,11 +19,8 @@
             <span id="countDownContainer">..</span>
         </button>
     }
-
-
     <div class="viewbettype-content">
         @RenderMatch(Model)
-
         <table class="tbl-style2 tbl-totalbet tbl-viewbettype" id="tblTotalBets">
             <tbody>
                 @if (Model.TotalBetsByBetTypes.Any())
@@ -49,7 +40,6 @@
         </table>
     </div>
 </div>
-
 @helper RenderMatch(ViewByBetTypeViewModel model)
 {
     <div class="league">@Model.LeagueName <span class="index pull-right"><span>@Model.TotalWager</span> | <span class="link">@Model.TotalStake</span></span></div>
@@ -63,7 +53,6 @@
         </div>
     </div>
 }
-
 @helper RenderBetType(TotalBetsByBetType betType)
 {
     <tr class="group">
@@ -76,19 +65,18 @@
         </td>
     </tr>
 }
-
 @helper RenderBetOptions(TotalBetsByBetType betType)
 {
-    foreach (var betOptionGroup in betType.BetOptionGroups)
+foreach (var betOptionGroup in betType.BetOptionGroups)
+{
+    if (betOptionGroup.BetOptions.Any())
     {
-        if (betOptionGroup.BetOptions.Any())
-        {
             <tr class="bet-option">
                 <td colspan="2">@(betOptionGroup.LiveText)</td>
             </tr>
 
-            foreach (var betOption in betOptionGroup.BetOptions)
-            {
+        foreach (var betOption in betOptionGroup.BetOptions)
+        {
                 <tr>
                     <td class="team">
                         <span class="team-name">@betOption.BetTeam</span>
@@ -98,7 +86,7 @@
                         </span>
                     </td>
                 </tr>
-            }
         }
     }
+}
 }

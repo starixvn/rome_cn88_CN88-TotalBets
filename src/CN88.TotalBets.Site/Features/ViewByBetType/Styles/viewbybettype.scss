@@ -1,0 +1,95 @@
+﻿.menu-container {
+    .league, .sport {
+        cursor: pointer;
+    }
+
+    .menu-item.sport {
+        background-color: #585555;
+        color: #fff;
+    }
+
+    .league {
+        background-color: #f4f1f1;
+    }
+}
+
+.viewbettype-content {
+    width: 1040px;
+
+    .league {
+        margin-bottom: 6px;
+    }
+}
+
+.tbl-viewbettype {
+    .group-name-wrapper {
+        width: calc(100% - 150px - 8px);
+        display: inline-block;
+    }
+
+    .team {
+        width: 50%;
+        border-right: 1px solid #d9d9d9;
+
+        &:last-child {
+            border-right: none;
+        }
+
+        .team-name, .index {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .index {
+            width: 120px;
+
+            .stake:hover {
+                cursor: pointer;
+                text-decoration: none;
+            }
+        }
+
+        .stake {
+            display: block;
+        }
+
+        .team-name {
+            width: calc(100% - 120px - 8px);
+        }
+    }
+
+    tr.bet-option td {
+        background-color: #f4f1f1;
+        height: 30px;
+    }
+}
+
+.head-match {
+    background: url("images/Soccer_goal.png");
+    height: 100px;
+    color: #fff;
+
+    .match {
+        background-color: rgba(0, 0, 0, 0.2);
+        height: 40px;
+        line-height: 40px;
+        margin: 14px 12px 0 12px;
+        text-align: center;
+
+        .score {
+            color: #f7d08e;
+            font-weight: bold;
+        }
+    }
+
+    .show-time {
+        display: inline-block;
+        margin-left: 12px;
+        padding-top: 4px;
+
+        font {
+            display: block;
+            margin-bottom: 2px;
+        }
+    }
+}

@@ -1,77 +1,71 @@
-[
+﻿[
   {
-    "outputFileName": "assets/bundles/events/viewbybettype.css",
+    "outputFileName": "assets/bundles/viewbybettype/viewbybettype.css",
     "inputFiles": [
-      "assets/styles/totalbets.css",
-      "assets/styles/event.css",
-      "assets/styles/viewbybettype.css"
+      "Shared/Styles/totalbets.css",
+      "Features/Events/Styles/event.css",
+      "Features/ViewByBetType/Styles/viewbybettype.css"
     ]
   },
   {
     "outputFileName": "assets/bundles/events/event.css",
     "inputFiles": [
-      "assets/styles/totalbets.css",
-      "assets/styles/event.css"
+      "Shared/Styles/totalbets.css",
+      "Features/Events/Styles/event.css"
     ]
   },
   {
-    "outputFileName": "assets/bundles/overview.css",
+    "outputFileName": "assets/bundles/overview/overview.css",
     "inputFiles": [
-      "assets/styles/overview.css"
+      "Features/OverView/Styles/overview.css"
     ]
   },
   {
-    "outputFileName": "assets/bundles/totalbets.css",
+    "outputFileName": "assets/bundles/events/index.js",
     "inputFiles": [
-      "assets/styles/totalbets.css"
-    ]
-  },
-  {
-    "outputFileName": "assets/bundles/events/event.js",
-    "inputFiles": [
-      "assets/scripts/components/summary-menu.js",
-      "assets/scripts/components/single-selection-dropdown.js",
-      "assets/scripts/base-totalbets.js",
-      "assets/scripts/event.js",
-      "assets/scripts/auto-refresh.js"
+      "Shared/Scripts/summary-menu.js",
+      "Shared/Scripts/components/single-selection-dropdown.js",
+      "Shared/Scripts/base-totalbets.js",
+      "Shared/Scripts/auto-refresh.js",
+      "Features/Events/Scripts/event.js"
     ]
   },
   {
     "outputFileName": "assets/bundles/outright/outright.css",
     "inputFiles": [
-      "assets/styles/totalbets.css",
-      "assets/styles/outright.css"
+      "Shared/Styles/totalbets.css",
+      "Features/Outright/Styles/outright.css"
     ]
   },
   {
-    "outputFileName": "assets/bundles/outright/outright.js",
+    "outputFileName": "assets/bundles/outright/index.js",
     "inputFiles": [
-      "assets/scripts/components/summary-menu.js",
-      "assets/scripts/components/single-selection-dropdown.js",
-      "assets/scripts/base-totalbets.js",
-      "assets/scripts/outright.js"
+      "Shared/Scripts/summary-menu.js",
+      "Shared/Scripts/components/single-selection-dropdown.js",
+      "Shared/Scripts/base-totalbets.js",
+      "Features/Outright/Scripts/outright.js"
     ]
   },
   {
-    "outputFileName": "assets/bundles/scripts/overview.js",
+    "outputFileName": "assets/bundles/overview/index.js",
     "inputFiles": [
-      "assets/scripts/overview.js",
-      "assets/scripts/components/single-selection-dropdown.js"
+      "Shared/Scripts/components/single-selection-dropdown.js",
+      "Features/OverView/Scripts/overview.js"
     ]
   },
   {
-    "outputFileName": "assets/bundles/scripts/wager-account.js",
+    "outputFileName": "assets/bundles/wageraccount/wager-account.js",
     "inputFiles": [
-      "assets/scripts/wager-account.js"
+      "Features/WagerAccount/Scripts/wager-account.js"
     ]
   },
   {
     "outputFileName": "assets/bundles/viewbybettype/index.js",
     "inputFiles": [
-      "assets/scripts/components/summary-menu.js",
-      "assets/scripts/components/single-selection-dropdown.js",
-      "assets/scripts/base-totalbets.js",
-      "assets/scripts/auto-refresh.js",
+      "Shared/Scripts/summary-menu.js",
+      "Shared/Scripts/components/single-selection-dropdown.js",
+      "Shared/Scripts/base-totalbets.js",
+      "Shared/Scripts/auto-refresh.js",
       "Features/ViewByBetType/Scripts/view-by-bet-type.js"
     ]
   }

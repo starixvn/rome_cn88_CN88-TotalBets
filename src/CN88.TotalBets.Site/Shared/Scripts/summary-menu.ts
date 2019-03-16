@@ -28,21 +28,6 @@ class SummaryMenu {
         this.$("#head-menu").click(() => {
             this.collapseMenu();
         });
-
-        let self = this.$;
-        this.$summaryMenuItems.find(".league").click(function (): void {
-            let $this: JQuery = self(this);
-            let icon = $this.children().last();
-            let child = $this.siblings(`.child-${$this.attr("id")}`);
-
-            if (icon.hasClass("icon-chevron-down")) {
-                icon.removeClass().addClass("icon-chevron-right");
-                child.addClass("hide");
-            } else {
-                icon.removeClass().addClass("icon-chevron-down");
-                child.removeClass("hide");
-            }
-        });
     }
 
     collapseMenu(): void {

@@ -4,7 +4,7 @@
     Layout = "~/Shared/Views/_Layout.cshtml";
 }
 @section Styles {
-    @StaticResources.RenderStyles("~/assets/bundles/overview")
+    @StaticResources.RenderStyles("~/assets/bundles/overview/overview")
 }
 <div class="page-overview">
     <div class="page-title">@Resources.OverView</div>
@@ -23,7 +23,6 @@
             </tr>
         </tbody>
     </table>
-
     <table class="tbl-style2 tbl-betdetail">
         <thead>
             <tr>
@@ -33,7 +32,6 @@
                 {
                     <th class="text-center"><span data-toggle="tooltip" data-placement="top" title="@Model.HeaderTable.ToolTip[i]">@Model.HeaderTable.HeaderName[i]</span></th>
                 }
-
             </tr>
         </thead>
         <tbody>
@@ -101,7 +99,6 @@
             }
         </tbody>
     </table>
-
     <table class="tbl-style2 tbl-betdetail">
         <thead>
             <tr>
@@ -151,7 +148,6 @@
         </tbody>
     </table>
 </div>
-
 @section Scripts {
-    @StaticResources.RenderScripts("~/assets/bundles/scripts/overview")
+    @StaticResources.RenderScripts("~/assets/bundles/overview/index")
 }

@@ -6,7 +6,7 @@
     @StaticResources.RenderStyles("~/assets/bundles/events/event")
 }
 @section Scripts {
-    @StaticResources.RenderScripts("~/assets/bundles/events/event")
+    @StaticResources.RenderScripts("~/assets/bundles/events/index")
 }
 @model EventViewModel
 @SummaryMenu.Render(Model.SummaryMenuViewModel)
@@ -73,20 +73,20 @@
 </div>
 @helper RenderScoreColumn(Match match)
 {
-    if (Model.IsInPlay)
-    {
-        @:@match.LiveHomeScore - @match.LiveAwayScore<br/>
+if (Model.IsInPlay)
+{
+        @:@match.LiveHomeScore - @match.LiveAwayScore<br />
         <span class="live">@Resources.Live</span>
-    }
-    else
-    {
+}
+else
+{
         @:@Html.Raw(match.ShowTime)
     }
 }
 @helper RenderViewByBetTypeLink(string title, int matchId, string className = null)
 {
     <a href="@Url.Action(
-        "Index", 
+        "Index",
         "ViewByBetType",
         new
         {
@@ -95,7 +95,8 @@
             stakeCondition = Model.FilterViewModel.StakeCondition,
             type = Model.Query.Type,
             marketType = Model.Query.Market
-        })" class="link @className">@title
+        })" class="link @className">
+        @title
         @if (className != null)
         {
             <span class="icon-chevron-right"></span>

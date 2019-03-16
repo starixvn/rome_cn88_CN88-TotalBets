@@ -1,22 +1,22 @@
 ﻿[
   {
-    "outputFile": "assets/styles/totalbets.css",
-    "inputFile": "assets/styles/totalbets.scss"
+    "outputFile": "Shared/Styles/totalbets.css",
+    "inputFile": "Shared/Styles/totalbets.scss"
   },
   {
-    "outputFile": "assets/styles/outright.css",
-    "inputFile": "assets/styles/outright.scss"
+    "outputFile": "Features/Outright/Styles/outright.css",
+    "inputFile": "Features/Outright/Styles/outright.scss"
   },
   {
-    "outputFile": "assets/styles/overview.css",
-    "inputFile": "assets/styles/overview.scss"
+    "outputFile": "Features/Overview/Styles/overview.css",
+    "inputFile": "Features/Overview/Styles/overview.scss"
   },
   {
-    "outputFile": "assets/styles/event.css",
-    "inputFile": "assets/styles/event.scss"
+    "outputFile": "Features/Events/Styles/event.css",
+    "inputFile": "Features/Events/Styles/event.scss"
   },
   {
-    "outputFile": "assets/styles/viewbybettype.css",
-    "inputFile": "assets/styles/viewbybettype.scss"
+    "outputFile": "Features/ViewByBetType/Styles/viewbybettype.css",
+    "inputFile": "Features/ViewByBetType/Styles/viewbybettype.scss"
   }
 ]
