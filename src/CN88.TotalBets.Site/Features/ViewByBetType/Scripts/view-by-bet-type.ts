@@ -27,7 +27,7 @@ class ViewByBetType extends BaseTotalBets {
 
     onSubmit(): void {
         super.onSubmit();
-        //this.marketSelectionComponent.updateSelectedValue();
+        this.marketSelectionComponent.updateSelectedValue();
     }
 
     bindEvents(): void {
@@ -54,6 +54,12 @@ class ViewByBetType extends BaseTotalBets {
                 icon.removeClass().addClass("icon-chevron-down");
                 child.removeClass("hide");
             }
+        });
+
+        this.$tblTotalBets.find(".stake").click(function (e: any): void {
+            e.preventDefault();
+            e.stopPropagation();
+            window.open(this.href, "_blank", "width=1000, height=500");
         });
     }
 }

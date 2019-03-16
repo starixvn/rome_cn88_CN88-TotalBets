@@ -1,9 +1,9 @@
 ﻿namespace CN88.TotalBets.Site.Features.ViewByBetType
 {
-    using CN88.TotalBets.Shared.Models;
-    using CN88.TotalBets.Site.Features.ViewByBetType.ViewModels;
-    using CN88.TotalBets.Site.Shared.Requests;
     using MediatR;
+    using Shared.Requests;
+    using TotalBets.Shared.Models;
+    using ViewModels;
 
     public class ViewByBetTypeQuery : FilterQuery, IRequest<ViewByBetTypeViewModel>
     {
@@ -11,8 +11,6 @@
             : base(viewer)
         {
         }
-
-        public byte MarketType { get; set; }
 
         public int MatchId { get; set; }
     }

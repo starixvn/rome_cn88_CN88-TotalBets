@@ -36,7 +36,7 @@
                 message.StakeCondition,
                 message.Stake,
                 message.PossType,
-                message.MarketType));
+                message.Market));
 
             var summary = await summaryService.GetSportGroupSummary(message.ViewerId, message.ActorLevel, message.Type, message.SportTypeGroup);
 

@@ -90,7 +90,12 @@ foreach (var betOptionGroup in betType.BetOptionGroups)
                         </span>
                         <span class="index text-right">
                             @HtmlHelpers.FormatNumber(betOption.Wager)
-                            <span class="stake link">@HtmlHelpers.FormatNumber(betOption.Stake)</span>
+                            @Html.ActionLink(
+                                HtmlHelpers.FormatNumber(betOption.Stake).ToHtmlString(),
+                                "GetByEvent",
+                                "WagerAccount",
+                                Model.GetWagerAccountParams(betOption.BetTypeId, betOption.BetTeam),
+                                new { @class = "stake link" })
                         </span>
                     </td>
                 </tr>

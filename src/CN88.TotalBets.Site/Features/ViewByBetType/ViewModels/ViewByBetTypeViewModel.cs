@@ -19,10 +19,10 @@
             : base(filterQuery, "View By Bet Type", new Dictionary<string, object>
             {
                 { nameof(filterQuery.MatchId), filterQuery.MatchId },
-                { nameof(filterQuery.MarketType), filterQuery.MarketType }
             })
         {
             TotalBetsByBetTypes = totalBetsByBetTypes;
+            MatchId = filterQuery.MatchId;
             Match = match;
             MatchSummaryMenuViewModel = new MatchSummaryMenuViewModel(
                 summary,
@@ -31,6 +31,8 @@
                 $"{filterQuery.AppPath}ViewByBetType?Type={filterQuery.Type}&SportTypeGroup={filterQuery.SportTypeGroup}");
             IsInPlay = filterQuery.Type == EventTypeConstants.InPlay;
         }
+
+        public int MatchId { get; }
 
         public Match Match { get; }
 
@@ -49,5 +51,19 @@
         public MatchSummaryMenuViewModel MatchSummaryMenuViewModel { get; }
 
         public bool IsInPlay { get; }
+
+        public object GetWagerAccountParams(int bettypeId, string betTeam)
+            => new
+            {
+                custId = query.ViewerId,
+                custLevelId = query.ViewerLevelId,
+                custName = query.ViewerName,
+                matchId = MatchId,
+                Stake = FilterViewModel.Stake,
+                StakeCondition = FilterViewModel.StakeCondition,
+                betTypeGroup = bettypeId,
+                liveIndicatior = FilterViewModel.Market,
+                betTeam = betTeam
+            };
     }
 }
