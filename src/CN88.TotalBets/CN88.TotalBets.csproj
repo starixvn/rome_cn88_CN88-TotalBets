@@ -120,6 +120,17 @@
     <Compile Include="Features\Summaries\Models\SummaryByMatchDto.cs" />
     <Compile Include="Features\Summaries\Models\SportGroupSummary.cs" />
     <Compile Include="Features\Summaries\SummaryService.cs" />
+    <Compile Include="Features\ViewByBetTypes\Models\BetOptions\BetOptionBuilder18.cs" />
+    <Compile Include="Features\ViewByBetTypes\Models\BetOptions\BetOptionBuilder2.cs" />
+    <Compile Include="Features\ViewByBetTypes\Models\BetOptions\BetOptionBuilder3.cs" />
+    <Compile Include="Features\ViewByBetTypes\Models\BetOptions\BetOptionBuilder428.cs" />
+    <Compile Include="Features\ViewByBetTypes\Models\BetOptions\BetOptionBuilder15.cs" />
+    <Compile Include="Features\ViewByBetTypes\Models\BetOptions\BetOptionBuilder430.cs" />
+    <Compile Include="Features\ViewByBetTypes\Models\BetOptions\BetOptionBuilder5.cs" />
+    <Compile Include="Features\ViewByBetTypes\Models\BetOptions\BetOptionBuilder1.cs" />
+    <Compile Include="Features\ViewByBetTypes\Models\BetOptions\BetOptionBuilderFactory.cs" />
+    <Compile Include="Features\ViewByBetTypes\Models\BetOptions\IBetOptionBuilder.cs" />
+    <Compile Include="Features\ViewByBetTypes\Models\BetTeamValue.cs" />
     <Compile Include="Features\WagerAccount\Event\GetWagerAccountByEventCriteria.cs" />
     <Compile Include="Features\WagerAccount\Event\WagerAccountByEventParam.cs" />
     <Compile Include="Features\WagerAccount\Outright\GetWagerAccountCriteria.cs" />
@@ -177,9 +188,7 @@
     <EmbeddedResource Include="AppResources\Resources.zh-Hans.resx" />
     <EmbeddedResource Include="AppResources\Resources.zh-TW.resx" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Features\ViewByBetTypes\Models\BetOptions\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets" Condition="Exists('..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

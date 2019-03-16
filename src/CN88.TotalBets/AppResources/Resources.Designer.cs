@@ -19,7 +19,7 @@ namespace CN88.TotalBets.AppResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -142,6 +142,15 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Even.
+        /// </summary>
+        public static string Even {
+            get {
+                return ResourceManager.GetString("Even", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Event.
         /// </summary>
         public static string Event {
@@ -151,11 +160,29 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to FT.
+        /// </summary>
+        public static string FT {
+            get {
+                return ResourceManager.GetString("FT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Full Percentage.
         /// </summary>
         public static string Full_Percentage {
             get {
                 return ResourceManager.GetString("Full_Percentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HT.
+        /// </summary>
+        public static string HT {
+            get {
+                return ResourceManager.GetString("HT", resourceCulture);
             }
         }
         
@@ -268,11 +295,29 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Odd.
+        /// </summary>
+        public static string Odd {
+            get {
+                return ResourceManager.GetString("Odd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Outright.
         /// </summary>
         public static string Outright {
             get {
                 return ResourceManager.GetString("Outright", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Over.
+        /// </summary>
+        public static string Over {
+            get {
+                return ResourceManager.GetString("Over", resourceCulture);
             }
         }
         
@@ -408,6 +453,42 @@ namespace CN88.TotalBets.AppResources {
         public static string TotalWarger {
             get {
                 return ResourceManager.GetString("TotalWarger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2H.1.
+        /// </summary>
+        public static string TwoHDotOne {
+            get {
+                return ResourceManager.GetString("TwoHDotOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2H.2.
+        /// </summary>
+        public static string TwoHDotTwo {
+            get {
+                return ResourceManager.GetString("TwoHDotTwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2H.X.
+        /// </summary>
+        public static string TwoHDotX {
+            get {
+                return ResourceManager.GetString("TwoHDotX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Under.
+        /// </summary>
+        public static string Under {
+            get {
+                return ResourceManager.GetString("Under", resourceCulture);
             }
         }
         

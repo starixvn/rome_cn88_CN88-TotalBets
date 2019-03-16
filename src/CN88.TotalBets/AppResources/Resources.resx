@@ -252,4 +252,31 @@
   <data name="WagerDetails" xml:space="preserve">
     <value>Wager Details</value>
   </data>
+  <data name="Odd" xml:space="preserve">
+    <value>Odd</value>
+  </data>
+  <data name="Even" xml:space="preserve">
+    <value>Even</value>
+  </data>
+  <data name="Over" xml:space="preserve">
+    <value>Over</value>
+  </data>
+  <data name="Under" xml:space="preserve">
+    <value>Under</value>
+  </data>
+  <data name="FT" xml:space="preserve">
+    <value>FT</value>
+  </data>
+  <data name="HT" xml:space="preserve">
+    <value>HT</value>
+  </data>
+  <data name="TwoHDotOne" xml:space="preserve">
+    <value>2H.1</value>
+  </data>
+  <data name="TwoHDotTwo" xml:space="preserve">
+    <value>2H.2</value>
+  </data>
+  <data name="TwoHDotX" xml:space="preserve">
+    <value>2H.X</value>
+  </data>
 </root>

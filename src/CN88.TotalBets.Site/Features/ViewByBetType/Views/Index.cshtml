@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = Model.Title;
     Layout = "~/Shared/Views/_Layout.cshtml";
+    var betOptionBuilderFactory = new BetOptionBuilderFactoryImpl();
 }
 @section Styles {
     @StaticResources.RenderStyles("~/assets/bundles/viewbybettype/viewbybettype")
@@ -29,7 +30,7 @@
                     {
 
                         @RenderBetType(bettype)
-                        @RenderBetOptions(bettype)
+                        @RenderBetOptions(bettype, Model.Match, betOptionBuilderFactory)
                     }
                 }
                 else
@@ -65,7 +66,10 @@
         </td>
     </tr>
 }
-@helper RenderBetOptions(TotalBetsByBetType betType)
+@helper RenderBetOptions(
+    TotalBetsByBetType betType,
+    CN88.TotalBets.Features.Events.Models.Match match,
+    BetOptionBuilderFactory betOptionBuilderFactory)
 {
 foreach (var betOptionGroup in betType.BetOptionGroups)
 {
@@ -79,7 +83,11 @@ foreach (var betOptionGroup in betType.BetOptionGroups)
         {
                 <tr>
                     <td class="team">
-                        <span class="team-name">@betOption.BetTeam</span>
+                        <span class="team-name">
+                            @(betOptionBuilderFactory
+                                .CreateBetOptionBuilder(betOption.BetTypeId)?
+                                .BuildBetChoice(betOption.BetTeam, match))
+                        </span>
                         <span class="index text-right">
                             @HtmlHelpers.FormatNumber(betOption.Wager)
                             <span class="stake link">@HtmlHelpers.FormatNumber(betOption.Stake)</span>

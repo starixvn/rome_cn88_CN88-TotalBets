@@ -1,4 +1,6 @@
-﻿namespace CN88.TotalBets.Features.Events.Models
+﻿using CN88.TotalBets.Shared.Services;
+
+namespace CN88.TotalBets.Features.Events.Models
 {
     public class Match
     {
@@ -38,7 +40,11 @@
 
         public int HomeId { get; }
 
+        public string HomeName => CacheRefManager.CacheRefInstance.GetTeamName(HomeId);
+
         public int AwayId { get; }
+
+        public string AwayName => CacheRefManager.CacheRefInstance.GetTeamName(AwayId);
 
         public string Event { get; internal set; }
 
