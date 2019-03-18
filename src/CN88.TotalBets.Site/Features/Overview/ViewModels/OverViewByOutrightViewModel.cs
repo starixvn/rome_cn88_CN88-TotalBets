@@ -27,12 +27,11 @@
 
         public override string Url(int possType, decimal stake)
             => UrlHelper.AddQueryStringParamsFunc(
-                AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/Event/Index"),
+                AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/Outright/Index"),
                 new Dictionary<string, object>
                 {
                     ["PossType"] = possType,
-                    ["Stake"] = stake,
-                    ["Type"] = EventTypeConstants.Outright
+                    ["Stake"] = stake
                 });
     }
 }
