@@ -113,12 +113,20 @@
                             </span>
                             <span class="index text-right">
                                 @HtmlHelpers.FormatNumber(betOption.Wager)
-                                @Html.ActionLink(
-                                    HtmlHelpers.FormatNumber(betOption.Stake).ToHtmlString(),
-                                    "GetByEvent",
-                                    "WagerAccount",
-                                    Model.GetWagerAccountParams(betOption.BetTypeId, betOption.BetTeam),
-                                    new { @class = "stake link" })
+
+                                @if (betOption.Stake > 0)
+                                {
+                                    @Html.ActionLink(
+                                             HtmlHelpers.FormatNumber(betOption.Stake).ToHtmlString(),
+                                             "GetByEvent",
+                                             "WagerAccount",
+                                             Model.GetWagerAccountParams(betOption.BetTypeId, betOption.BetTeam),
+                                             new { @class = "stake link" })
+                                }
+                                else
+                                {
+                                    @HtmlHelpers.FormatNumber(betOption.Stake).ToHtmlString()
+                                }
                             </span>
                         </div>
                     }
