@@ -12,6 +12,9 @@
         position: relative;
         top: -1px;
     }
+    input[type="number"] {
+        width: 100px;
+    }
 }
 
 .menu-container {
