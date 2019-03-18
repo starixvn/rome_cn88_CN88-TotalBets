@@ -7,7 +7,6 @@
         }
 
         public SummaryByMatchDto(
-            int sportTypeGroup,
             int leagueId,
             int matchId,
             int homeId,
@@ -15,7 +14,6 @@
             int wager,
             decimal stake)
         {
-            SportTypeGroup = sportTypeGroup;
             LeagueId = leagueId;
             MatchId = matchId;
             HomeId = homeId;
@@ -23,8 +21,6 @@
             Wager = wager;
             Stake = stake;
         }
-
-        public int SportTypeGroup { get; }
 
         public int LeagueId { get; }
 
