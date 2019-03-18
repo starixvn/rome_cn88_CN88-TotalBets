@@ -6,7 +6,7 @@
     public class BetOptionGroup
     {
         public BetOptionGroup(
-            IEnumerable<BaseBetOption> betOptions,
+            IEnumerable<BetOption> betOptions,
             bool isLive)
         {
             BetOptions = betOptions;
@@ -14,7 +14,7 @@
             LiveText = IsLive ? Resources.InPlay: Resources.PreMatch;
         }
 
-        public IEnumerable<BaseBetOption> BetOptions { get; }
+        public IEnumerable<BetOption> BetOptions { get; }
 
         public bool IsLive { get; }
 

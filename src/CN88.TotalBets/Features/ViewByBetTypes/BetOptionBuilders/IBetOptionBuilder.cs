@@ -2,9 +2,10 @@
 {
     using System.Collections.Generic;
     using CN88.TotalBets.Features.Events.Models;
+    using CN88.TotalBets.Features.ViewByBetTypes.Models;
 
     public interface IBetOptionBuilder
     {
-        string BuildBetChoice(string betTeam, Match match, IDictionary<string, object> parameters = null);
+        string BuildBetChoice(BetOption betOption, Match match, IDictionary<string, object> parameters = null);
     }
 }

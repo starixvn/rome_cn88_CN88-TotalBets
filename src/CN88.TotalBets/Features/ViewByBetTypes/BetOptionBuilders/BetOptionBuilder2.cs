@@ -7,7 +7,7 @@
 
     public class BetOptionBuilder2 : IBetOptionBuilder
     {
-        public virtual string BuildBetChoice(string betTeam, Match match, IDictionary<string, object> parameters = null)
-            => betTeam?.ToLowerInvariant() == BetTeamValue.H ? Resources.Odd : Resources.Even;
+        public virtual string BuildBetChoice(BetOption betOption, Match match, IDictionary<string, object> parameters = null)
+            => betOption?.BetTeam?.ToLowerInvariant() == BetTeamValue.H ? Resources.Odd : Resources.Even;
     }
 }

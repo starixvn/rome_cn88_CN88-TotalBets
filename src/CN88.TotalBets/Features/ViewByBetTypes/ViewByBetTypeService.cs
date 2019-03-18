@@ -24,7 +24,7 @@
 
         public async Task<IDictionary<int, TotalBetsByBetType>> GetBetTypes(ViewByBetTypeParam param)
         {
-            var betOptions = await dynamicRepository.FetchAsync<BaseBetOption>(
+            var betOptions = await dynamicRepository.FetchAsync<BetOption>(
                 new GetTotalBetsByBetTypeCriteria(
                 param.CustId,
                 param.UserLevel,
@@ -44,12 +44,12 @@
             return betOptionGroups;
         }
 
-        private static TotalBetsByBetType BuildTotalBetsByBetType(IGrouping<int, BaseBetOption> group)
+        private static TotalBetsByBetType BuildTotalBetsByBetType(IGrouping<int, BetOption> group)
         {
             var totalWager = 0;
             var totalStake = 0m;
-            var liveBetOptions = new List<BaseBetOption>();
-            var nonLiveBetOption = new List<BaseBetOption>();
+            var liveBetOptions = new List<BetOption>();
+            var nonLiveBetOption = new List<BetOption>();
 
             foreach (var item in group)
             {

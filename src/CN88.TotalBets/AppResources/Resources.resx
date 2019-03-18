@@ -285,4 +285,7 @@
   <data name="ViewByBetType" xml:space="preserve">
     <value>View By BetType</value>
   </data>
+  <data name="OtherBetTypes" xml:space="preserve">
+    <value>Other Bettypes</value>
+  </data>
 </root>

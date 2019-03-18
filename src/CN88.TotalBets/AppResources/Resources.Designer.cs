@@ -313,6 +313,15 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Other Bettypes.
+        /// </summary>
+        public static string OtherBetTypes {
+            get {
+                return ResourceManager.GetString("OtherBetTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Outright.
         /// </summary>
         public static string Outright {

@@ -7,9 +7,9 @@
 
     public class BetOptionBuilder5 : IBetOptionBuilder
     {
-        public virtual string BuildBetChoice(string betTeam, Match match, IDictionary<string, object> parameters = null)
+        public virtual string BuildBetChoice(BetOption betOption, Match match, IDictionary<string, object> parameters = null)
         {
-            switch (betTeam?.ToLowerInvariant())
+            switch (betOption?.BetTeam?.ToLowerInvariant())
             {
                 case BetTeamValue.NumberOne:
                     return match?.HomeName;
@@ -21,7 +21,7 @@
                     return Resources.Draw;
 
                 default:
-                    return betTeam;
+                    return betOption?.BetTeam;
             }
         }
     }

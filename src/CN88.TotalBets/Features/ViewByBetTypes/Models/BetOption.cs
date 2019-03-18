@@ -1,12 +1,12 @@
 ﻿namespace CN88.TotalBets.Features.ViewByBetTypes.Models
 {
-    public class BaseBetOption
+    public class BetOption
     {
-        public BaseBetOption()
+        public BetOption()
         {
         }
 
-        public BaseBetOption(
+        public BetOption(
             int bettypeId,
             string betTeam,
             bool isLive,

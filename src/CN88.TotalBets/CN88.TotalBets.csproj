@@ -120,6 +120,7 @@
     <Compile Include="Features\Summaries\Models\SummaryByMatchDto.cs" />
     <Compile Include="Features\Summaries\Models\SportGroupSummary.cs" />
     <Compile Include="Features\Summaries\SummaryService.cs" />
+    <Compile Include="Features\ViewByBetTypes\BetOptionBuilders\DefaultBetOptionBuilder.cs" />
     <Compile Include="Features\ViewByBetTypes\BetOptionBuilders\BetOptionBuilder18.cs" />
     <Compile Include="Features\ViewByBetTypes\BetOptionBuilders\BetOptionBuilder2.cs" />
     <Compile Include="Features\ViewByBetTypes\BetOptionBuilders\BetOptionBuilder3.cs" />
@@ -136,7 +137,7 @@
     <Compile Include="Features\WagerAccount\Outright\WagerAccountParam.cs" />
     <Compile Include="Features\WagerAccount\WagerAccountService.cs" />
     <Compile Include="Features\ViewByBetTypes\Criteria\GetTotalBetsByBetTypeCriteria.cs" />
-    <Compile Include="Features\ViewByBetTypes\Models\BaseBetOption.cs" />
+    <Compile Include="Features\ViewByBetTypes\Models\BetOption.cs" />
     <Compile Include="Features\ViewByBetTypes\Models\BetOptionGroup.cs" />
     <Compile Include="Features\ViewByBetTypes\Models\TotalBetsByBetType.cs" />
     <Compile Include="Features\ViewByBetTypes\Params\ViewByBetTypeParam.cs" />

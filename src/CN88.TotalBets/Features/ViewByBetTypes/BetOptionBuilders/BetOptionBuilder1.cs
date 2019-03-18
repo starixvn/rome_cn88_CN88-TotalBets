@@ -6,10 +6,10 @@
 
     public class BetOptionBuilder1 : IBetOptionBuilder
     {
-        public virtual string BuildBetChoice(string betTeam, Match match, IDictionary<string, object> parameters = null)
+        public virtual string BuildBetChoice(BetOption betOption, Match match, IDictionary<string, object> parameters = null)
         {
-            var betHomeTeam = betTeam != null
-                && betTeam.ToLowerInvariant().Contains(BetTeamValue.H);
+            var betHomeTeam = betOption.BetTeam != null
+                && betOption.BetTeam.ToLowerInvariant().Contains(BetTeamValue.H);
 
             return betHomeTeam
                 ? match?.HomeName
