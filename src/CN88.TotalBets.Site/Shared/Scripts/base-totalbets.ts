@@ -3,6 +3,7 @@ abstract class BaseTotalBets {
     $: JQueryStatic;
     $filterForm: JQuery;
     $tblTotalBets: JQuery;
+    $txtStake: JQuery;
 
     summaryMenu: SummaryMenu;
     stakeConditionSelectionComponent: SingleSelectionDropdownComponent;
@@ -34,9 +35,16 @@ abstract class BaseTotalBets {
     protected cacheDOMElements(): void {
         this.$filterForm = this.$("#filter-form");
         this.$tblTotalBets = this.$("#tblTotalBets");
+        this.$txtStake = this.$("#Stake");
     }
 
     protected bindEvents(): void {
+        this.$txtStake.keypress((e): void => {
+            if (e.which != 8 && e.which != 46 && e.which < 48 || e.which > 57) {
+                e.preventDefault();
+            }
+        });
+
         this.$tblTotalBets.find(".group").click(function (): void {
             let $this: JQuery = $(this);
             let icon: JQuery = $this.find(".group-name-wrapper").children().first();
