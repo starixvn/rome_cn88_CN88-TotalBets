@@ -11,6 +11,7 @@
     @RenderBody()
     @StaticResources.AssetScripts.RenderCommon("/bundles/common/common")
     @StaticResources.AssetScripts.Render("/bundles/site-totalbets/default")
+    @Html.Hidden("ReloadTimeInSeconds", CN88.TotalBets.Shared.Configurations.AppSettings.ReloadTimeInSeconds)
     @RenderSection("Scripts", required: false)
     @Html.Raw(Fanex.Logging.LogManager.RenderJavascriptLogger())
 </body>

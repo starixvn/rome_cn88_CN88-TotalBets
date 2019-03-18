@@ -49,7 +49,7 @@ namespace CN88.TotalBets.Features.Events.Models
 
         public string HomeName => 
             CacheRefManager.CacheRefInstance.GetTeamName(HomeId)
-            + (IsNeutral ? "(N)" : string.Empty);
+            + (IsNeutral ? " (N)" : string.Empty);
 
         public int AwayId { get; }
 

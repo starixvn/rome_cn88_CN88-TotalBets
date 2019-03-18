@@ -26,6 +26,8 @@
 
         public static string FeaturesAppPath => GetConfigValue("FeaturesAppPath");
 
+        public static int ReloadTimeInSeconds => int.Parse(GetConfigValue("ReloadTimeInSeconds") ?? "15");
+
         public static string GetConfigValue(string configName) => AppSettingValues[configName];
 
         public static void Verify()
