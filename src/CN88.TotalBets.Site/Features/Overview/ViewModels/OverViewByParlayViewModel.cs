@@ -6,9 +6,9 @@
     {
         public OverViewByParlayViewModel(OverViewByParlayModel model)
         {
-            Soccer = new OverViewItemModel(model.SoccerParlayWager, model.SoccerParlayStake);
-            NonSoccer = new OverViewItemModel(model.NonSoccerParlayWager, model.NonSoccerParlayStake);
-            MixSports = new OverViewItemModel(model.MixSportsParlayWager, model.MixSportsParlayStake);
+            Soccer = new OverViewItemModel(model.SportTypeGroup, model.SoccerParlayWager, model.SoccerParlayStake);
+            NonSoccer = new OverViewItemModel(model.SportTypeGroup, model.NonSoccerParlayWager, model.NonSoccerParlayStake);
+            MixSports = new OverViewItemModel(model.SportTypeGroup, model.MixSportsParlayWager, model.MixSportsParlayStake);
 
             Total = Soccer + NonSoccer + MixSports;
         }

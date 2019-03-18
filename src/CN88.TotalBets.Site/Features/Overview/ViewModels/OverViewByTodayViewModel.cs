@@ -11,27 +11,28 @@
     public class OverViewByTodayViewModel : OverViewByBaseViewModel
     {
         public OverViewByTodayViewModel(IEnumerable<OverViewBySportTypeModel> model)
+            : base(model)
         {
-            Soccer = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 1).TodayWager, model.FirstOrDefault(i => i.SportTypeGroup == 1).TodayStake);
-            Basketball = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 2).TodayWager, model.FirstOrDefault(i => i.SportTypeGroup == 2).TodayStake);
-            Tennis = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 3).TodayWager, model.FirstOrDefault(i => i.SportTypeGroup == 3).TodayStake);
-            Volleyball = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 4).TodayWager, model.FirstOrDefault(i => i.SportTypeGroup == 4).TodayStake);
-            TableTennis = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 7).TodayWager, model.FirstOrDefault(i => i.SportTypeGroup == 7).TodayStake);
-            Badminton = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 6).TodayWager, model.FirstOrDefault(i => i.SportTypeGroup == 6).TodayStake);
-            Baseball = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 5).TodayWager, model.FirstOrDefault(i => i.SportTypeGroup == 5).TodayStake);
-            Snooker = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 8).TodayWager, model.FirstOrDefault(i => i.SportTypeGroup == 8).TodayStake);
-            OtherSports = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 99).TodayWager, model.FirstOrDefault(i => i.SportTypeGroup == 99).TodayStake);
+            Soccer = new OverViewItemModel(SoccerRow.SportTypeGroup, SoccerRow.TodayWager, SoccerRow.TodayStake);
+            Basketball = new OverViewItemModel(BasketballRow.SportTypeGroup, BasketballRow.TodayWager, BasketballRow.TodayStake);
+            Tennis = new OverViewItemModel(TennisRow.SportTypeGroup, TennisRow.TodayWager, TennisRow.TodayStake);
+            Volleyball = new OverViewItemModel(VolleyballRow.SportTypeGroup, VolleyballRow.TodayWager, VolleyballRow.TodayStake);
+            TableTennis = new OverViewItemModel(TableTennisRow.SportTypeGroup, TableTennisRow.TodayWager, TableTennisRow.TodayStake);
+            Badminton = new OverViewItemModel(BadmintonRow.SportTypeGroup, BadmintonRow.TodayWager, BadmintonRow.TodayStake);
+            Baseball = new OverViewItemModel(BaseballRow.SportTypeGroup, BaseballRow.TodayWager, BadmintonRow.TodayStake);
+            Snooker = new OverViewItemModel(SnookerRow.SportTypeGroup, SnookerRow.TodayWager, SnookerRow.TodayStake);
+            OtherSports = new OverViewItemModel(OtherSportsRow.SportTypeGroup, OtherSportsRow.TodayWager, OtherSportsRow.TodayStake);
         }
 
         public override string Text => "Today";
 
-        public override string Url(int possType, decimal stake)
+        public override string Url(int possType, int sportTypeGroup)
             => UrlHelper.AddQueryStringParamsFunc(
                 AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/Event/Index"),
                 new Dictionary<string, object>
                 {
                     ["PossType"] = possType,
-                    ["Stake"] = stake,
+                    ["SportTypeGroup"] = sportTypeGroup,
                     ["Type"] = EventTypeConstants.Today
                 });
     }

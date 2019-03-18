@@ -11,27 +11,27 @@
     public class OverViewByOutrightViewModel : OverViewByBaseViewModel
     {
         public OverViewByOutrightViewModel(IEnumerable<OverViewBySportTypeModel> model)
+            :base(model)
         {
-            Soccer = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 1).OutrightWager, model.FirstOrDefault(i => i.SportTypeGroup == 1).OutrightStake);
-            Basketball = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 2).OutrightWager, model.FirstOrDefault(i => i.SportTypeGroup == 2).OutrightStake);
-            Tennis = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 3).OutrightWager, model.FirstOrDefault(i => i.SportTypeGroup == 3).OutrightStake);
-            Volleyball = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 4).OutrightWager, model.FirstOrDefault(i => i.SportTypeGroup == 4).OutrightStake);
-            TableTennis = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 7).OutrightWager, model.FirstOrDefault(i => i.SportTypeGroup == 7).OutrightStake);
-            Badminton = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 6).OutrightWager, model.FirstOrDefault(i => i.SportTypeGroup == 6).OutrightStake);
-            Baseball = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 5).OutrightWager, model.FirstOrDefault(i => i.SportTypeGroup == 5).OutrightStake);
-            Snooker = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 8).OutrightWager, model.FirstOrDefault(i => i.SportTypeGroup == 8).OutrightStake);
-            OtherSports = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 99).OutrightWager, model.FirstOrDefault(i => i.SportTypeGroup == 99).OutrightStake);
+            Soccer = new OverViewItemModel(SoccerRow.SportTypeGroup, SoccerRow.OutrightWager, SoccerRow.OutrightStake);
+            Basketball = new OverViewItemModel(BasketballRow.SportTypeGroup, BasketballRow.OutrightWager, BasketballRow.OutrightStake);
+            Tennis = new OverViewItemModel(TennisRow.SportTypeGroup, TennisRow.OutrightWager, TennisRow.OutrightStake);
+            Volleyball = new OverViewItemModel(VolleyballRow.SportTypeGroup, VolleyballRow.OutrightWager, VolleyballRow.OutrightStake);
+            TableTennis = new OverViewItemModel(TableTennisRow.SportTypeGroup, TableTennisRow.OutrightWager, TableTennisRow.OutrightStake);
+            Badminton = new OverViewItemModel(BadmintonRow.SportTypeGroup, BadmintonRow.OutrightWager, BadmintonRow.OutrightStake);
+            Baseball = new OverViewItemModel(BaseballRow.SportTypeGroup, BaseballRow.OutrightWager, BadmintonRow.OutrightStake);
+            Snooker = new OverViewItemModel(SnookerRow.SportTypeGroup, SnookerRow.OutrightWager, SnookerRow.OutrightStake);
+            OtherSports = new OverViewItemModel(OtherSportsRow.SportTypeGroup, OtherSportsRow.OutrightWager, OtherSportsRow.OutrightStake);            
         }
 
         public override string Text => "Outright";
 
-        public override string Url(int possType, decimal stake)
+        public override string Url(int possType, int sportTypeGroup)
             => UrlHelper.AddQueryStringParamsFunc(
                 AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/Outright/Index"),
                 new Dictionary<string, object>
                 {
-                    ["PossType"] = possType,
-                    ["Stake"] = stake
+                    ["PossType"] = possType
                 });
     }
 }

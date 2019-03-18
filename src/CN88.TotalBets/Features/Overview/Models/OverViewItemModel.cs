@@ -6,11 +6,14 @@
         {
         }
 
-        public OverViewItemModel(int wagers, decimal stake)
+        public OverViewItemModel(int sportTypeGroup, int wagers, decimal stake)
         {
             Wagers = wagers;
             Stake = stake;
+            SportTypeGroup = sportTypeGroup;            
         }
+
+        public int SportTypeGroup { get; private set; }
 
         public int Wagers { get; private set; }
 

@@ -11,27 +11,28 @@
     public class OverViewByEarlyViewModel : OverViewByBaseViewModel
     {
         public OverViewByEarlyViewModel(IEnumerable<OverViewBySportTypeModel> model)
+            : base(model)
         {
-            Soccer = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 1).EarlyWager, model.FirstOrDefault(i => i.SportTypeGroup == 1).EarlyStake);
-            Basketball = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 2).EarlyWager, model.FirstOrDefault(i => i.SportTypeGroup == 2).EarlyStake);
-            Tennis = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 3).EarlyWager, model.FirstOrDefault(i => i.SportTypeGroup == 3).EarlyStake);
-            Volleyball = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 4).EarlyWager, model.FirstOrDefault(i => i.SportTypeGroup == 4).EarlyStake);
-            TableTennis = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 7).EarlyWager, model.FirstOrDefault(i => i.SportTypeGroup == 7).EarlyStake);
-            Badminton = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 6).EarlyWager, model.FirstOrDefault(i => i.SportTypeGroup == 6).EarlyStake);
-            Baseball = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 5).EarlyWager, model.FirstOrDefault(i => i.SportTypeGroup == 5).EarlyStake);
-            Snooker = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 8).EarlyWager, model.FirstOrDefault(i => i.SportTypeGroup == 8).EarlyStake);
-            OtherSports = new OverViewItemModel(model.FirstOrDefault(i => i.SportTypeGroup == 99).EarlyWager, model.FirstOrDefault(i => i.SportTypeGroup == 99).EarlyStake);
+            Soccer = new OverViewItemModel(SoccerRow.SportTypeGroup, SoccerRow.EarlyWager, SoccerRow.EarlyStake);
+            Basketball = new OverViewItemModel(BasketballRow.SportTypeGroup, BasketballRow.EarlyWager, BasketballRow.EarlyStake);
+            Tennis = new OverViewItemModel(TennisRow.SportTypeGroup, TennisRow.EarlyWager, TennisRow.EarlyStake);
+            Volleyball = new OverViewItemModel(VolleyballRow.SportTypeGroup, VolleyballRow.EarlyWager, VolleyballRow.EarlyStake);
+            TableTennis = new OverViewItemModel(TableTennisRow.SportTypeGroup, TableTennisRow.EarlyWager, TableTennisRow.EarlyStake);
+            Badminton = new OverViewItemModel(BadmintonRow.SportTypeGroup, BadmintonRow.EarlyWager, BadmintonRow.EarlyStake);
+            Baseball = new OverViewItemModel(BaseballRow.SportTypeGroup, BaseballRow.EarlyWager, BadmintonRow.EarlyStake);
+            Snooker = new OverViewItemModel(SnookerRow.SportTypeGroup, SnookerRow.EarlyWager, SnookerRow.EarlyStake);
+            OtherSports = new OverViewItemModel(OtherSportsRow.SportTypeGroup, OtherSportsRow.EarlyWager, OtherSportsRow.EarlyStake);
         }
 
         public override string Text => "Early";
 
-        public override string Url(int possType, decimal stake)
+        public override string Url(int possType, int sportTypeGroup)
             => UrlHelper.AddQueryStringParamsFunc(
                 AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/Event/Index"),
                 new Dictionary<string, object>
                 {
                     ["PossType"] = possType,
-                    ["Stake"] = stake,
+                    ["SportTypeGroup"] = sportTypeGroup,
                     ["Type"] = EventTypeConstants.Early
                 });
     }

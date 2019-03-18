@@ -6,6 +6,8 @@
         {
         }
 
+        public int SportTypeGroup { get; }
+
         public int SoccerParlayWager { get; }
 
         public int NonSoccerParlayWager { get; }

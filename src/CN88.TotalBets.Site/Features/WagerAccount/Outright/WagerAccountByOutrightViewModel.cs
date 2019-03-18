@@ -17,7 +17,7 @@
             WagerAccountByOutrightQuery message)
         {
             WagerAccounts = wagerAccounts;
-            Total = new OverViewItemModel(WagerAccounts.Sum(i => i.Wager), WagerAccounts.Sum(i => i.Stake));
+            Total = new OverViewItemModel(0, WagerAccounts.Sum(i => i.Wager), WagerAccounts.Sum(i => i.Stake));
             Message = message;
             breadcrumbLevel = GetBreadcrumbLevel();
         }
@@ -49,7 +49,7 @@
         }
 
         public string GetDownLineUrl(int custId, string custName)
-        {            
+        {
             var param = new Dictionary<string, object>
             {
                 ["CustId"] = custId,
