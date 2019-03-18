@@ -53,6 +53,8 @@
 
         public string GetDownLineUrl(int custId, string custName)
         {
+            var breadscrumbToDonwline =  breadcrumbLevel.ToList();
+            breadscrumbToDonwline.Add(new CustInfo(custId, custName, Message.CustLevel.GetDirectDownLineLevel().Value, false));
             var param = new Dictionary<string, object>
             {
                 ["CustId"] = custId,
@@ -64,7 +66,7 @@
                 ["BetType"] = Message.BetTypeGroup,
                 ["LiveIndicator"] = Message.LiveIndicator,
                 ["BetTeam"] = Message.BetTeam,
-                ["BreadcrumbLevelJson"] = JsonHelper.ToJsonFunc(breadcrumbLevel)
+                ["BreadcrumbLevelJson"] = JsonHelper.ToJsonFunc(breadscrumbToDonwline)
             };
             var url = AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/WagerAccount/GetByEvent");
             if (Message.CustLevel.GetDirectDownLineLevel().IsMemberLevel())
@@ -80,13 +82,9 @@
             var breadcrumbLevel = new List<CustInfo>();
 
             if (Message.BreadcrumbLevel != null)
-            {
+            {                
                 foreach (var custInfo in Message.BreadcrumbLevel)
-                {
-                    if (custInfo.CustLevelId == Message.CustLevelId)
-                    {
-                        break;
-                    }
+                {             
                     custInfo.IsLink = true;
                     breadcrumbLevel.Add(custInfo);
                 }

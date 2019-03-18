@@ -50,6 +50,8 @@
 
         public string GetDownLineUrl(int custId, string custName)
         {
+            var breadscrumbToDonwline = breadcrumbLevel.ToList();
+            breadscrumbToDonwline.Add(new CustInfo(custId, custName, Message.CustLevel.GetDirectDownLineLevel().Value, false));
             var param = new Dictionary<string, object>
             {
                 ["CustId"] = custId,
@@ -58,7 +60,7 @@
                 ["StakeCondition"] = Message.StakeCondition,
                 ["Stake"] = Message.Stake,
                 ["CustLevelId"] = Message.CustLevel.GetDirectDownLineLevel().Value,
-                ["BreadcrumbLevelJson"] = JsonHelper.ToJsonFunc(breadcrumbLevel)
+                ["BreadcrumbLevelJson"] = JsonHelper.ToJsonFunc(breadscrumbToDonwline)
             };
             var url = AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/WagerAccount/GetByOutright");
             if (Message.CustLevel.GetDirectDownLineLevel().IsMemberLevel())
