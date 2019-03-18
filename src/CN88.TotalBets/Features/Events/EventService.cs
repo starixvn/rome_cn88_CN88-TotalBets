@@ -1,6 +1,5 @@
 ﻿namespace CN88.TotalBets.Features.Events
 {
-    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using Criteria;
@@ -55,7 +54,6 @@
             {
                 totalWager += item.Wager;
                 totalStake += item.Stake;
-                item.Event = GetEvent(item.HomeId, item.AwayId);
             }
 
             return new MatchLeague(
@@ -63,9 +61,6 @@
                 cacheRefService.GetLeagueName(groupLeague.Key),
                 groupLeague);
         }
-
-        private string GetEvent(int homeId, int awayId)
-            => $"{cacheRefService.GetTeamName(homeId)} v {cacheRefService.GetTeamName(awayId)}";
 
         public async Task<Match> GetMatch(int matchId)
             => await dynamicRepository.GetAsync<Match>(new GetEventInfoCriteria(matchId));

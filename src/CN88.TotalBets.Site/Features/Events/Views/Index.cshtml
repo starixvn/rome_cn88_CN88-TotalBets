@@ -56,7 +56,7 @@
                     {
                         <tr class="childrow-@league.LeagueId">
                             <td>@RenderScoreColumn(match)</td>
-                            <td>@match.Event</td>
+                            <td>@match.HomeName v @match.AwayName</td>
                             <td class="text-right">@HtmlHelpers.FormatNumber(match.Wager)</td>
                             <td class="text-right">
                                 @RenderViewByBetTypeLink(HtmlHelpers.FormatNumber(match.Stake).ToHtmlString(), match.MatchId)
@@ -73,13 +73,17 @@
 </div>
 @helper RenderScoreColumn(Match match)
 {
-if (Model.IsInPlay)
-{
-        @:@match.LiveHomeScore - @match.LiveAwayScore<br />
+    if (Model.IsInPlay)
+    {
+        if (Model.IsShowScore)
+        {
+            @:@match.LiveHomeScore - @match.LiveAwayScore<br />
+        }
+
         <span class="live">@Resources.Live</span>
-}
-else
-{
+    }
+    else
+    {
         @:@Html.Raw(match.ShowTime)
     }
 }

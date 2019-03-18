@@ -55,8 +55,6 @@ namespace CN88.TotalBets.Features.Events.Models
 
         public string AwayName => CacheRefManager.CacheRefInstance.GetTeamName(AwayId);
 
-        public string Event { get; internal set; }
-
         public int LiveHomeScore { get; }
 
         public int LiveAwayScore { get; }

@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using System.Web.Mvc;
     using AppResources;
-    using CN88.TotalBets.Shared.Models;
     using Shared.ViewModels;
     using TotalBets.Features.Events.Models;
     using TotalBets.Features.Summaries.Models;
@@ -35,5 +34,8 @@
         public bool IsInPlay { get; }
 
         public bool HasEventData { get; }
+
+        public bool IsShowScore
+            => Query.SportTypeGroup == SportTypeConstants.Soccer;
     }
 }
