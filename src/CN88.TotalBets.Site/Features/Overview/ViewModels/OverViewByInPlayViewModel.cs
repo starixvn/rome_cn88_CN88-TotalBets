@@ -12,25 +12,16 @@
     {
         public OverViewByInPlayViewModel(IEnumerable<OverViewBySportTypeModel> model)
             : base(model)
-        {
-            var soccerRow = model.FirstOrDefault(i => i.SportTypeGroup == 1);
-            var basketballRow = model.FirstOrDefault(i => i.SportTypeGroup == 2);
-            var tennisRow = model.FirstOrDefault(i => i.SportTypeGroup == 3);
-            var volleyballRow = model.FirstOrDefault(i => i.SportTypeGroup == 4);
-            var tableTennisRow = model.FirstOrDefault(i => i.SportTypeGroup == 7);
-            var badmintonRow = model.FirstOrDefault(i => i.SportTypeGroup == 6);
-            var baseballRow = model.FirstOrDefault(i => i.SportTypeGroup == 5);
-            var snookerRow = model.FirstOrDefault(i => i.SportTypeGroup == 8);
-            var otherSportsRow = model.FirstOrDefault(i => i.SportTypeGroup == 99);
-            Soccer = new OverViewItemModel(soccerRow.SportTypeGroup, soccerRow.InplayWager, soccerRow.InplayStake);
-            Basketball = new OverViewItemModel(basketballRow.SportTypeGroup, basketballRow.InplayWager, basketballRow.InplayStake);
-            Tennis = new OverViewItemModel(tennisRow.SportTypeGroup, tennisRow.InplayWager, tennisRow.InplayStake);
-            Volleyball = new OverViewItemModel(volleyballRow.SportTypeGroup, volleyballRow.InplayWager, volleyballRow.InplayStake);
-            TableTennis = new OverViewItemModel(tableTennisRow.SportTypeGroup, tableTennisRow.InplayWager, tableTennisRow.InplayStake);
-            Badminton = new OverViewItemModel(badmintonRow.SportTypeGroup, badmintonRow.InplayWager, badmintonRow.InplayStake);
-            Baseball = new OverViewItemModel(baseballRow.SportTypeGroup, baseballRow.InplayWager, baseballRow.InplayStake);
-            Snooker = new OverViewItemModel(snookerRow.SportTypeGroup, snookerRow.InplayWager, snookerRow.InplayStake);
-            OtherSports = new OverViewItemModel(otherSportsRow.SportTypeGroup, otherSportsRow.InplayWager, otherSportsRow.InplayStake);
+        {            
+            Soccer = new OverViewItemModel(SoccerRow.SportTypeGroup, SoccerRow.InplayWager, SoccerRow.InplayStake);
+            Basketball = new OverViewItemModel(BasketballRow.SportTypeGroup, BasketballRow.InplayWager, BasketballRow.InplayStake);
+            Tennis = new OverViewItemModel(TennisRow.SportTypeGroup, TennisRow.InplayWager, TennisRow.InplayStake);
+            Volleyball = new OverViewItemModel(VolleyballRow.SportTypeGroup, VolleyballRow.InplayWager, VolleyballRow.InplayStake);
+            TableTennis = new OverViewItemModel(TableTennisRow.SportTypeGroup, TableTennisRow.InplayWager, TableTennisRow.InplayStake);
+            Badminton = new OverViewItemModel(BadmintonRow.SportTypeGroup, BadmintonRow.InplayWager, BadmintonRow.InplayStake);
+            Baseball = new OverViewItemModel(BaseballRow.SportTypeGroup, BaseballRow.InplayWager, BaseballRow.InplayStake);
+            Snooker = new OverViewItemModel(SnookerRow.SportTypeGroup, SnookerRow.InplayWager, SnookerRow.InplayStake);
+            OtherSports = new OverViewItemModel(OtherSportsRow.SportTypeGroup, OtherSportsRow.InplayWager, OtherSportsRow.InplayStake);
         }
 
         public override string Text => "In-Play";
