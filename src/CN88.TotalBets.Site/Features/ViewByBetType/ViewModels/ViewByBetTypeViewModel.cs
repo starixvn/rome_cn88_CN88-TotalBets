@@ -23,7 +23,6 @@
             })
         {
             TotalBetsByBetTypes = totalBetsByBetTypes;
-            MatchId = filterQuery.MatchId;
             Match = match;
             MatchSummaryMenuViewModel = new MatchSummaryMenuViewModel(
                 summary,
@@ -32,8 +31,6 @@
                 $"{filterQuery.AppPath}ViewByBetType?Type={filterQuery.Type}&SportTypeGroup={filterQuery.SportTypeGroup}");
             IsInPlay = filterQuery.Type == EventTypeConstants.InPlay;
         }
-
-        public int MatchId { get; }
 
         public Match Match { get; }
 
@@ -55,7 +52,7 @@
                 custId = query.ViewerId,
                 custLevelId = query.ViewerLevelId,
                 custName = query.ViewerName,
-                matchId = MatchId,
+                matchId = Match.MatchId,
                 Stake = FilterViewModel.Stake,
                 StakeCondition = FilterViewModel.StakeCondition,
                 betTypeGroup = bettypeId,
