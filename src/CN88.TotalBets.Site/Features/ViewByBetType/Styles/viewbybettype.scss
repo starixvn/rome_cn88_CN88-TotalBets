@@ -26,6 +26,9 @@
         width: calc(100% - 150px - 8px);
         display: inline-block;
     }
+    .group .link {
+        color: #87c0e4;
+    }
 
     .team {
         width: 50%;
@@ -101,7 +104,7 @@
         margin: 14px 12px 0 12px;
         text-align: center;
 
-        .score {
+        .score, .vs {
             color: #f7d08e;
             font-weight: bold;
             padding: 0 64px;
