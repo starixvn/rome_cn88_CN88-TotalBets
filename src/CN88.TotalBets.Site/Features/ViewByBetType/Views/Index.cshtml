@@ -125,7 +125,9 @@
                                 }
                                 else
                                 {
-                                    @HtmlHelpers.FormatNumber(betOption.Stake).ToHtmlString()
+                                    <span class="stake">
+                                        @HtmlHelpers.FormatNumber(betOption.Stake).ToHtmlString()
+                                    </span>
                                 }
                             </span>
                         </div>
