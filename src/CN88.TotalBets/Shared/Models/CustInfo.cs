@@ -11,11 +11,13 @@ namespace CN88.TotalBets.Shared.Models
         public CustInfo(
             int custId,
             string custName,
-            byte custLevelId)
+            byte custLevelId,
+            bool isLink)
         {
             CustId = custId;
             CustName = custName;
             CustLevelId = custLevelId;
+            IsLink = isLink;
         }
 
         public int CustId { get; }
@@ -23,5 +25,7 @@ namespace CN88.TotalBets.Shared.Models
         public string CustName { get; }
 
         public byte CustLevelId { get; }
+
+        public bool IsLink { get; set; }
     }
 }

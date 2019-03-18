@@ -12,10 +12,20 @@ var linkIndex = 0;
             @foreach (var custinfo in viewModel.BreadcrumbLevel)
             {
                 <li>
-                    <a class="breadcrumb-link"
-                       href="@(viewModel.BuildBreadcrumbLink(custinfo, currentRequestUrl, breadcrumbParamByLevel, linkIndex))">
-                        @(custinfo.CustName)
-                    </a>
+                    @if (custinfo.IsLink)
+                    {
+                        <a class="breadcrumb-link"
+                           href="@(viewModel.BuildBreadcrumbLink(custinfo, currentRequestUrl, breadcrumbParamByLevel, linkIndex))">
+                            @(custinfo.CustName)
+                        </a>
+                    }
+                    else
+                    {
+                        <span class="">
+                            @(custinfo.CustName)
+                        </span>
+                    }
+                    
                 </li>
 
                 linkIndex++;

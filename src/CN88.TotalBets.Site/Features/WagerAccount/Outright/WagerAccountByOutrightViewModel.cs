@@ -81,12 +81,12 @@
                     {
                         break;
                     }
-
+                    custInfo.IsLink = true;
                     breadcrumbLevel.Add(custInfo);
                 }
             }
 
-            breadcrumbLevel.Add(new CustInfo(Message.CustId, Message.CustName, Message.CustLevelId));
+            breadcrumbLevel.Add(new CustInfo(Message.CustId, Message.CustName, Message.CustLevelId, false));
 
             return breadcrumbLevel;
         }
