@@ -18,10 +18,14 @@
 
     .league {
         margin-bottom: 6px;
+        .link:hover {
+            cursor: text;
+            color: #0072bb;
+        }
     }
 }
 
-.tbl-viewbettype {
+.tbl-viewbettype {   
     .group-name-wrapper {
         width: calc(100% - 150px - 8px);
         display: inline-block;
