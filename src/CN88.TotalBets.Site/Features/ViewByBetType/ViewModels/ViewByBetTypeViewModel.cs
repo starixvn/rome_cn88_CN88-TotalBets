@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using CN88.TotalBets.AppResources;
     using Shared.ViewModels;
     using TotalBets.Features.Events.Models;
     using TotalBets.Features.Summaries.Models;
@@ -16,7 +17,7 @@
             Match match,
             SportGroupSummary summary,
             ViewByBetTypeQuery filterQuery)
-            : base(filterQuery, "View By Bet Type", new Dictionary<string, object>
+            : base(filterQuery, Resources.ViewByBetType, new Dictionary<string, object>
             {
                 { nameof(filterQuery.MatchId), filterQuery.MatchId },
             })
@@ -41,10 +42,6 @@
         public decimal TotalStake => TotalBetsByBetTypes.Sum(bettype => bettype.TotalStake);
 
         public string LeagueName => CacheRefManager.CacheRefInstance.GetLeagueName(Match.LeagueId);
-
-        public string HomeName => CacheRefManager.CacheRefInstance.GetTeamName(Match.HomeId);
-
-        public string AwayName => CacheRefManager.CacheRefInstance.GetTeamName(Match.AwayId);
 
         public IEnumerable<TotalBetsByBetType> TotalBetsByBetTypes { get; }
 

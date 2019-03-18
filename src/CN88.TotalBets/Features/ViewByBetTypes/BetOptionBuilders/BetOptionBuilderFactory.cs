@@ -1,4 +1,4 @@
-﻿namespace CN88.TotalBets.Features.ViewByBetTypes.Models.BetOptions
+﻿namespace CN88.TotalBets.Features.ViewByBetTypes.BetOptionBuilders
 {
     using System.Collections.Generic;
 
@@ -21,8 +21,8 @@
                 { 8, new BetOptionBuilder3() },
                 { 18, new BetOptionBuilder18() },
                 { 5, new BetOptionBuilder5() },
-                { 15, new BetOptionBuilder15() },
-                { 430, new BetOptionBuilder430() }
+                { 15, new BetOptionBuilder5() },
+                { 430, new BetOptionBuilder5() }
             };
 
         public IBetOptionBuilder CreateBetOptionBuilder(int betType)

@@ -1,8 +1,9 @@
-﻿namespace CN88.TotalBets.Features.ViewByBetTypes.Models.BetOptions
+﻿namespace CN88.TotalBets.Features.ViewByBetTypes.BetOptionBuilders
 {
     using System.Collections.Generic;
     using CN88.TotalBets.AppResources;
     using CN88.TotalBets.Features.Events.Models;
+    using CN88.TotalBets.Features.ViewByBetTypes.Models;
 
     public class BetOptionBuilder3 : IBetOptionBuilder
     {

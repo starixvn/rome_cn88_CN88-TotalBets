@@ -46,11 +46,11 @@
     <div class="league">@Model.LeagueName <span class="index pull-right"><span>@HtmlHelpers.FormatNumber(Model.TotalWager)</span> | <span class="link">@HtmlHelpers.FormatNumber(Model.TotalStake)</span></span></div>
 
     <div class="head-match">
-        <div class="show-time">@Html.Raw(@Model.Match.ShowTime)</div>
+        <div class="show-time">@Html.Raw(Model.Match.ShowTime)</div>
         <div class="match">
-            <span class="team-name">@Model.HomeName</span>
+            <span class="team-name">@Model.Match.HomeName</span>
             <span class="score">@Model.Match.LiveHomeScore - @Model.Match.LiveAwayScore</span>
-            <span class="team-name">@Model.AwayName</span>
+            <span class="team-name">@Model.Match.AwayName</span>
         </div>
     </div>
 }
@@ -71,35 +71,36 @@
     CN88.TotalBets.Features.Events.Models.Match match,
     BetOptionBuilderFactory betOptionBuilderFactory)
 {
-foreach (var betOptionGroup in betType.BetOptionGroups)
-{
-    if (betOptionGroup.BetOptions.Any())
+    foreach (var betOptionGroup in betType.BetOptionGroups)
     {
+        if (betOptionGroup.BetOptions.Any())
+        {
             <tr class="bet-option childrow-@betType.BetTypeId">
                 <td colspan="2">@(betOptionGroup.LiveText)</td>
             </tr>
-
-        foreach (var betOption in betOptionGroup.BetOptions)
-        {
-                <tr class="childrow-@betType.BetTypeId">
-                    <td class="team">
-                        <span class="team-name">
-                            @(betOptionBuilderFactory
-                                .CreateBetOptionBuilder(betOption.BetTypeId)?
-                                .BuildBetChoice(betOption.BetTeam, match))
-                        </span>
-                        <span class="index text-right">
-                            @HtmlHelpers.FormatNumber(betOption.Wager)
-                            @Html.ActionLink(
-                                HtmlHelpers.FormatNumber(betOption.Stake).ToHtmlString(),
-                                "GetByEvent",
-                                "WagerAccount",
-                                Model.GetWagerAccountParams(betOption.BetTypeId, betOption.BetTeam),
-                                new { @class = "stake link" })
-                        </span>
-                    </td>
-                </tr>
+            <tr class="childrow-@betType.BetTypeId">
+                <td class="bet-team-container">
+                    @foreach (var betOption in betOptionGroup.BetOptions)
+                    {
+                        <div class="bet-team">
+                            <span class="team-name">
+                                @(betOptionBuilderFactory
+                                                    .CreateBetOptionBuilder(betOption.BetTypeId)?
+                                                    .BuildBetChoice(betOption.BetTeam, match))
+                            </span>
+                            <span class="index text-right">
+                                @HtmlHelpers.FormatNumber(betOption.Wager)
+                                @Html.ActionLink(
+                                    HtmlHelpers.FormatNumber(betOption.Stake).ToHtmlString(),
+                                    "GetByEvent",
+                                    "WagerAccount",
+                                    Model.GetWagerAccountParams(betOption.BetTypeId, betOption.BetTeam),
+                                    new { @class = "stake link" })
+                            </span>
+                        </div>
+                    }
+                </td>
+            </tr>
         }
     }
-}
 }

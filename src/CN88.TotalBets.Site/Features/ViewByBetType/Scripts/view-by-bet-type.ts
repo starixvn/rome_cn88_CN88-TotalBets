@@ -39,7 +39,7 @@ class ViewByBetType extends BaseTotalBets {
             buttonAutoRefresh.click(() => { this.$filterForm.trigger("submit"); });
 
             let autoRefresh: AutoRefresh = new AutoRefresh(this.$("#countDownContainer"), this.$filterForm);
-            autoRefresh.start(5);
+            autoRefresh.start(1000);
         }
 
         this.summaryMenu.$summaryMenuItems.find(".league").click(function (): void {

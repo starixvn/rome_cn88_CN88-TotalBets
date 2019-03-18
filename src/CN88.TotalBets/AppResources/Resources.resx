@@ -279,4 +279,10 @@
   <data name="TwoHDotX" xml:space="preserve">
     <value>2H.X</value>
   </data>
+  <data name="Draw" xml:space="preserve">
+    <value>Draw</value>
+  </data>
+  <data name="ViewByBetType" xml:space="preserve">
+    <value>View By BetType</value>
+  </data>
 </root>
