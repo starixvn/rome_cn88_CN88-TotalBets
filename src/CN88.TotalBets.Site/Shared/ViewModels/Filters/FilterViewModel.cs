@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace CN88.TotalBets.Site.Shared.ViewModels.Filters
+﻿namespace CN88.TotalBets.Site.Shared.ViewModels.Filters
 {
+    using System.Collections.Generic;
+
     public class FilterViewModel
     {
         public FilterViewModel(
@@ -12,16 +12,17 @@ namespace CN88.TotalBets.Site.Shared.ViewModels.Filters
             byte possType,
             bool isShowMarket,
             byte market,
+            SingleSelectionViewModel possTypeSelectionViewModel,
             SingleSelectionViewModel leagueSelectionViewModel,
             bool isShowLeague = true)
-            : this(type, 
-                  sportTypeGroup, 
-                  stakeCondition, 
-                  stake, 
-                  possType, 
-                  isShowMarket, 
-                  market, 
-                  isShowLeague, 
+            : this(type,
+                  sportTypeGroup,
+                  stakeCondition,
+                  stake,
+                  possTypeSelectionViewModel,
+                  isShowMarket,
+                  market,
+                  isShowLeague,
                   new Dictionary<string, object>())
         {
             LeagueSelectionViewModel = leagueSelectionViewModel;
@@ -32,7 +33,7 @@ namespace CN88.TotalBets.Site.Shared.ViewModels.Filters
             int sportTypeGroup,
             byte stakeCondition,
             decimal stake,
-            byte possType,
+            SingleSelectionViewModel possTypeSelectionViewModel,
             bool isShowMarket,
             byte market,
             bool isShowLeague,
@@ -42,7 +43,7 @@ namespace CN88.TotalBets.Site.Shared.ViewModels.Filters
             SportTypeGroup = sportTypeGroup;
             StakeCondition = stakeCondition;
             Stake = stake;
-            PossType = possType;
+            PossTypeSelectionViewModel = possTypeSelectionViewModel;
             IsShowMarket = isShowMarket;
             Market = market;
             IsShowLeague = isShowLeague;
@@ -57,13 +58,13 @@ namespace CN88.TotalBets.Site.Shared.ViewModels.Filters
 
         public decimal Stake { get; }
 
-        public byte PossType { get; }
-
         public bool IsShowMarket { get; }
 
         public byte Market { get; }
 
         public bool IsShowLeague { get; }
+
+        public SingleSelectionViewModel PossTypeSelectionViewModel { get; }
 
         public SingleSelectionViewModel LeagueSelectionViewModel { get; }
 

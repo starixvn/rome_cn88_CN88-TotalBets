@@ -3,9 +3,13 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Web.Mvc;
+    using AppResources;
+    using Shared.ViewModels.Filters;
     using Site.ViewModels.OverView;
     using TotalBets.Features.Overview.Models;
     using TotalBets.Features.SportTypeGroup.Models;
+    using TotalBets.Shared.Constants;
 
     public class HomeViewModel
     {
@@ -30,6 +34,15 @@
                 overViewModel.BySportTypeModels.Select(i => i.SportTypeGroup),
                 allSportTypeGroup,
                 getSportDisplayName);
+
+            var possTypeSelectListItems = PossTypeConstants.PossTypeByLevel[message.ActorLevel].Select(
+               x => new SelectListItem
+               {
+                   Text = Resources.ResourceManager.GetString(x.Value),
+                   Value = x.Key.ToString(),
+                   Selected = x.Key == message.PossType
+               });
+            PossTypeSelectionViewModel = new SingleSelectionViewModel(possTypeSelectListItems, message.PossType);
         }
 
         private OverViewQuery message { get; }
@@ -43,5 +56,7 @@
         public int PossType => message.PossType;
 
         public OverViewTitleViewModel HeaderTable { get; }
+
+        public SingleSelectionViewModel PossTypeSelectionViewModel { get; }
     }
 }

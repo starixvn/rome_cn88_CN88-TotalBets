@@ -1,26 +1,20 @@
 ﻿@model FilterViewModel
 <form class="form-inline filter" role="form" id="filter-form">
     @StakeConditionFilter.Render(Model.StakeCondition, Model.Stake)
-
-    @PossTypeSelection.Render(Model.PossType)
-
+    @PossTypeSelection.Render(Model.PossTypeSelectionViewModel)
     @if (Model.IsShowMarket)
     {
         @MarketSelection.Render(Model.Market)
     }
-
     @if (Model.IsShowLeague)
     {
         @LeagueSelection.Render(Model.LeagueSelectionViewModel)
     }
-
     @Html.Hidden(nameof(Model.Type), Model.Type)
     @Html.Hidden(nameof(Model.SportTypeGroup), Model.SportTypeGroup)
-
     @foreach (var keyValue in Model.HiddenParams)
     {
         @Html.Hidden(keyValue.Key, keyValue.Value)
     }
-
     <input type="submit" value="@Resources.Submit" class="btn-submit" />
 </form>

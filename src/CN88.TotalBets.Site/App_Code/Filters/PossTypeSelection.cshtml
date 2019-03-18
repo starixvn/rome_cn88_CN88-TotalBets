@@ -1,19 +1,16 @@
 ﻿@using CN88.TotalBets.AppResources
 @using CN88.TotalBets.Shared.Constants
-@helper Render(int userSelectedId)
+@using CN88.TotalBets.Site.Shared.ViewModels.Filters
+@helper Render(SingleSelectionViewModel model)
 {
     <div class="form-group dropdown-poss-type">
         <label>@Resources.View</label>
         <select id="dropdown-poss-type">
-            <option value="@PossTypeConstants.Full_Percentage" @(PossTypeConstants.Full_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>@Resources.Full_Percentage</option>
-            <option value="@PossTypeConstants.Company_Percentage" @(PossTypeConstants.Company_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>@Resources.Company_Percentage</option>
-            <option value="@PossTypeConstants.SMA_Percentage" @(PossTypeConstants.SMA_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>@Resources.SMA_Percentage</option>
-            <option value="@PossTypeConstants.MA_Percentage" @(PossTypeConstants.MA_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>@Resources.MA_Percentage</option>
-            <option value="@PossTypeConstants.Agent_Percentage" @(PossTypeConstants.Agent_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>@Resources.Agent_Percentage</option>
-            <option value="@PossTypeConstants.SMA_MA_Agent_Percentage" @(PossTypeConstants.SMA_MA_Agent_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>@Resources.SMA_MA_Agent_Percentage</option>
-            <option value="@PossTypeConstants.SMA_MA_Percentage" @(PossTypeConstants.SMA_MA_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>@Resources.SMA_MA_Percentage</option>
-            <option value="@PossTypeConstants.MA_Agent_Percentage" @(PossTypeConstants.MA_Agent_Percentage == userSelectedId ? " selected=\"selected\"" : string.Empty)>@Resources.MA_Agent_Percentage</option>
+            @foreach (var item in model.Items)
+            {
+                <option value="@item.Value" @(item.Selected ? " selected=\"selected\"" : string.Empty)>@item.Text</option>
+            }
         </select>
-        <input type="hidden" name="PossType" id="PossType" value="@userSelectedId" />
+        <input type="hidden" name="PossType" id="PossType" value="@model.UserSelectedId" />
     </div>
 }

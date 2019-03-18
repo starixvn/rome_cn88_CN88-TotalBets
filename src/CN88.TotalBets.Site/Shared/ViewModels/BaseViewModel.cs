@@ -1,7 +1,9 @@
 ﻿namespace CN88.TotalBets.Site.Shared.ViewModels
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Web.Mvc;
+    using AppResources;
     using Filters;
     using Requests;
     using TotalBets.Features.Summaries.Models;
@@ -22,7 +24,16 @@
             Title = title;
 
             SummaryMenuViewModel = new SummaryMenuViewModel(summaries, query.SportTypeGroup, $"{appPath}?Type={query.Type}");
+            var possTypeSelectListItems = PossTypeConstants.PossTypeByLevel[query.ActorLevel].Select(
+                x => new SelectListItem
+                {
+                    Text = Resources.ResourceManager.GetString(x.Value),
+                    Value = x.Key.ToString(),
+                    Selected = x.Key == query.PossType
+                });
+            PossTypeSelectionViewModel = new SingleSelectionViewModel(possTypeSelectListItems, query.PossType);
             LeagueSelectionViewModel = new SingleSelectionViewModel(leagues, query.LeagueId);
+
             FilterViewModel = new FilterViewModel(
                 query.Type,
                 query.SportTypeGroup,
@@ -31,6 +42,7 @@
                 query.PossType,
                 query.Type == EventTypeConstants.InPlay,
                 query.Market,
+                PossTypeSelectionViewModel,
                 LeagueSelectionViewModel);
         }
 
@@ -44,24 +56,34 @@
             query = filterQuery;
             Title = title;
 
+            var possTypeSelectListItems = PossTypeConstants.PossTypeByLevel[query.ActorLevel].Select(
+                x => new SelectListItem
+                {
+                    Text = Resources.ResourceManager.GetString(x.Value),
+                    Value = x.Key.ToString(),
+                    Selected = x.Key == query.PossType
+                });
+            PossTypeSelectionViewModel = new SingleSelectionViewModel(possTypeSelectListItems, query.PossType);
+
             FilterViewModel = new FilterViewModel(
                 query.Type,
                 query.SportTypeGroup,
                 query.StakeCondition,
                 query.Stake,
-                query.PossType,
+                PossTypeSelectionViewModel,
                 isShowMarket,
                 query.Market,
                 isShowLeague,
                 hiddenParams);
         }
 
-
         public string Title { get; }
 
         public string SubTitle { get; protected set; }
 
         public SummaryMenuViewModel SummaryMenuViewModel { get; }
+
+        public SingleSelectionViewModel PossTypeSelectionViewModel { get; }
 
         public SingleSelectionViewModel LeagueSelectionViewModel { get; }
 
