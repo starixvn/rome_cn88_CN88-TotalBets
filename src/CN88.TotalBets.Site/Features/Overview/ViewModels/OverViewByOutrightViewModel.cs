@@ -11,7 +11,7 @@
     public class OverViewByOutrightViewModel : OverViewByBaseViewModel
     {
         public OverViewByOutrightViewModel(IEnumerable<OverViewBySportTypeModel> model)
-            :base(model)
+            : base(model)
         {
             Soccer = new OverViewItemModel(SoccerRow.SportTypeGroup, SoccerRow.OutrightWager, SoccerRow.OutrightStake);
             Basketball = new OverViewItemModel(BasketballRow.SportTypeGroup, BasketballRow.OutrightWager, BasketballRow.OutrightStake);
@@ -21,7 +21,7 @@
             Badminton = new OverViewItemModel(BadmintonRow.SportTypeGroup, BadmintonRow.OutrightWager, BadmintonRow.OutrightStake);
             Baseball = new OverViewItemModel(BaseballRow.SportTypeGroup, BaseballRow.OutrightWager, BadmintonRow.OutrightStake);
             Snooker = new OverViewItemModel(SnookerRow.SportTypeGroup, SnookerRow.OutrightWager, SnookerRow.OutrightStake);
-            OtherSports = new OverViewItemModel(OtherSportsRow.SportTypeGroup, OtherSportsRow.OutrightWager, OtherSportsRow.OutrightStake);            
+            OtherSports = new OverViewItemModel(OtherSportsRow.SportTypeGroup, OtherSportsRow.OutrightWager, OtherSportsRow.OutrightStake);
         }
 
         public override string Text => "Outright";
@@ -33,7 +33,8 @@
                 AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/Outright/Index"),
                 new Dictionary<string, object>
                 {
-                    ["PossType"] = possType
+                    ["PossType"] = possType,
+                    ["SportTypeGroup"] = sportTypeGroup
                 });
     }
 }

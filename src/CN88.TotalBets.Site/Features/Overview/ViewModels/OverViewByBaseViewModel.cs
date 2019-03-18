@@ -56,24 +56,23 @@
 
         public OverViewItemModel OtherSports { get; protected set; }
 
+        protected OverViewBySportTypeModel SoccerRow { get; }
 
-        protected OverViewBySportTypeModel SoccerRow { get; set; }
+        protected OverViewBySportTypeModel BasketballRow { get; }
 
-        protected OverViewBySportTypeModel BasketballRow { get; set; }
+        protected OverViewBySportTypeModel TennisRow { get; }
 
-        protected OverViewBySportTypeModel TennisRow { get; set; }
+        protected OverViewBySportTypeModel VolleyballRow { get; }
 
-        protected OverViewBySportTypeModel VolleyballRow { get; set; }
+        protected OverViewBySportTypeModel TableTennisRow { get; }
 
-        protected OverViewBySportTypeModel TableTennisRow { get; set; }
+        protected OverViewBySportTypeModel BadmintonRow { get; }
 
-        protected OverViewBySportTypeModel BadmintonRow { get; set; }
+        protected OverViewBySportTypeModel BaseballRow { get; }
 
-        protected OverViewBySportTypeModel BaseballRow { get; set; }
+        protected OverViewBySportTypeModel SnookerRow { get; }
 
-        protected OverViewBySportTypeModel SnookerRow { get; set; }
-
-        protected OverViewBySportTypeModel OtherSportsRow { get; set; }
+        protected OverViewBySportTypeModel OtherSportsRow { get; }
 
         public OverViewItemModel Total
             => Soccer + Basketball + Tennis + Volleyball + TableTennis + Badminton + Baseball + Snooker + OtherSports;
