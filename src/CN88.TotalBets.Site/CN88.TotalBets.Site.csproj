@@ -354,6 +354,7 @@
     <Content Include="assets\bundles\wageraccount\wager-account.min.js">
       <DependentUpon>wager-account.js</DependentUpon>
     </Content>
+    <Content Include="Features\ViewByBetType\Styles\images\Soccer_goal.png" />
     <Content Include="Features\ViewByBetType\Styles\viewbybettype.min.css">
       <DependentUpon>viewbybettype.css</DependentUpon>
     </Content>
