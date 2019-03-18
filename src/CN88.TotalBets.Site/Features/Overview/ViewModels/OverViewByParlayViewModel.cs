@@ -15,6 +15,8 @@
 
         public string Text => "Parlay";
 
+        public string SubMenuId => "PARLAY";
+
         public OverViewItemModel Soccer { get; }
 
         public OverViewItemModel NonSoccer { get; }

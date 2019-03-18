@@ -1,5 +1,6 @@
 ﻿namespace CN88.TotalBets.Site.Features.Overview.ViewModels
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using Alpha.Web.Helpers;
@@ -25,6 +26,8 @@
         }
 
         public override string Text => "Early";
+
+        public override string SubMenuId => "EARLY";
 
         public override string Url(int possType, int sportTypeGroup)
             => UrlHelper.AddQueryStringParamsFunc(

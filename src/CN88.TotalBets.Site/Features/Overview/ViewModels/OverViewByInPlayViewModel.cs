@@ -35,6 +35,8 @@
 
         public override string Text => "In-Play";
 
+        public override string SubMenuId => "INPLAY";
+
         public override string Url(int possType, int sportTypeGroup)
             => UrlHelper.AddQueryStringParamsFunc(
                 AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/Event/Index"),

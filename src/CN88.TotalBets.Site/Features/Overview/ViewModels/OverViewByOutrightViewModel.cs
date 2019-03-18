@@ -26,6 +26,8 @@
 
         public override string Text => "Outright";
 
+        public override string SubMenuId => "OUTRIGHT";
+
         public override string Url(int possType, int sportTypeGroup)
             => UrlHelper.AddQueryStringParamsFunc(
                 AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/Outright/Index"),

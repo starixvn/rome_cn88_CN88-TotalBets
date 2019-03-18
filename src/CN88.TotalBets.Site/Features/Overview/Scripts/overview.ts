@@ -4,12 +4,14 @@ class OverView {
     viewModeSelectionComponent: SingleSelectionDropdownComponent;
     $reportForm: JQuery;
     $tooltip: JQuery;
-
+    $topWindow: any;
     constructor(
         $: JQueryStatic,
-        viewModeSelectionComponent: SingleSelectionDropdownComponent,) {
+        viewModeSelectionComponent: SingleSelectionDropdownComponent,
+        topWindow: any) {
         this.$ = $;
         this.viewModeSelectionComponent = viewModeSelectionComponent;
+        this.$topWindow = topWindow;
     }
 
     init(): void {
@@ -17,6 +19,12 @@ class OverView {
         this.$reportForm = this.$("#overview-form");
         this.$tooltip = this.$('[data-toggle="tooltip"]');
         this.$tooltip.tooltip();
+        
+        var self = this;
+        this.$(".page-overview a").click(function () {            
+            var subMenuId = self.$(this).attr("data-submenuid");
+            self.$topWindow.indexManager.subMenuClick(subMenuId);
+        })
     }
 
     public onReportSubmit = () => {
@@ -26,5 +34,5 @@ class OverView {
 }
 
 $(function (): void {
-    new OverView($, new SingleSelectionDropdownComponent($)).init();
+    new OverView($, new SingleSelectionDropdownComponent($), top).init();
 });

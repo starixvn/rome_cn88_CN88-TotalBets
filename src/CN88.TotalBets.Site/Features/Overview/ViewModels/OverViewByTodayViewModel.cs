@@ -26,6 +26,8 @@
 
         public override string Text => "Today";
 
+        public override string SubMenuId => "TODAY";
+
         public override string Url(int possType, int sportTypeGroup)
             => UrlHelper.AddQueryStringParamsFunc(
                 AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/Event/Index"),

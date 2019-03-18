@@ -34,6 +34,8 @@
 
         public abstract string Text { get; }
 
+        public abstract string SubMenuId { get; }
+
         public abstract string Url(int possType, int sportTypeGroup);
 
         public OverViewItemModel Soccer { get; protected set; }
