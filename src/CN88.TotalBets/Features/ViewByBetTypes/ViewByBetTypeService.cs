@@ -194,7 +194,10 @@
                     return bo;
                 });
 
+            var otherBetOptions = betOptions.Except(unionBetOptions).OrderBy(bo => bo.BetTypeId);
+
             var betOptionGroups = unionBetOptions
+                .Concat(otherBetOptions)
                 .GroupBy(option => option.BetTypeId)
                 .OrderBy(group => group.Key)
                 .ThenBy(group => betOptionBuilderFactory.IsUseDefaultBetOptionBuider(group.Key) ? 1 : 0)
