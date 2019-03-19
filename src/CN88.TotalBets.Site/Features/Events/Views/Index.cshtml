@@ -84,7 +84,7 @@
     }
     else
     {
-        @:@Html.Raw(match.ShowTime)
+        @HtmlHelpers.ShowTime(match.ShowTimeDT, match.OfferLive, Model.IsToday)
     }
 }
 @helper RenderViewByBetTypeLink(string title, int matchId, string className = null)

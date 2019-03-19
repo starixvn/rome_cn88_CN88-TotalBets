@@ -1,4 +1,5 @@
-﻿using CN88.TotalBets.Shared.Constants;
+﻿using System;
+using CN88.TotalBets.Shared.Constants;
 using CN88.TotalBets.Shared.Services;
 
 namespace CN88.TotalBets.Features.Events.Models
@@ -12,7 +13,7 @@ namespace CN88.TotalBets.Features.Events.Models
         public Match(
             int leagueId,
             int matchId,
-            string showTimeDT,
+            DateTime showTimeDT,
             int homeId,
             int awayId,
             int liveHomeScore,
@@ -26,7 +27,7 @@ namespace CN88.TotalBets.Features.Events.Models
         {
             LeagueId = leagueId;
             MatchId = matchId;
-            ShowTime = showTimeDT;
+            ShowTimeDT = showTimeDT;
             HomeId = homeId;
             AwayId = awayId;
             LiveHomeScore = liveHomeScore;
@@ -43,7 +44,7 @@ namespace CN88.TotalBets.Features.Events.Models
 
         public int MatchId { get; }
 
-        public string ShowTime { get; }
+        public DateTime ShowTimeDT { get; }
 
         public int HomeId { get; }
 

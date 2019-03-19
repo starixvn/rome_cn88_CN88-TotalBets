@@ -31,3 +31,17 @@
         <a data-submenuid="sub-menu-@submenuId" href="@link" class="link">@value.ToString("#,##0")</a>
     }
 }
+
+@helper ShowTime(DateTime showTimeDT, bool offerLive, bool isToday)
+{
+    var localDateTime = showTimeDT.AddHours(-4);
+
+    if (isToday)
+    {
+        @localDateTime.ToString("HH:mm")<br/><span class="live">LIVE</span>
+    }
+    else
+    {
+        @localDateTime.ToString("MM-dd")<br/>@localDateTime.ToString("HH:mm")<br/><span class="live">LIVE</span>
+    }
+}

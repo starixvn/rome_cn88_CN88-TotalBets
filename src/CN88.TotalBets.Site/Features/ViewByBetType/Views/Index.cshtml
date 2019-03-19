@@ -53,7 +53,7 @@
                         <div class="league">@Model.LeagueName <span class="index pull-right"><span>@HtmlHelpers.FormatNumber(Model.TotalWager)</span> | <span class="link">@HtmlHelpers.FormatNumber(Model.TotalStake)</span></span></div>
 
                         <div class="head-match">
-                            <div class="show-time">@Html.Raw(Model.Match.ShowTime)</div>
+                            <div class="show-time">@HtmlHelpers.ShowTime(Model.Match.ShowTimeDT, Model.Match.OfferLive, Model.IsInPlay || model.IsToday)</div>
                             <div class="match">
                                 <span class="team-name">@Model.Match.HomeName</span>
                                 @if (model.Match.IsShowScore)

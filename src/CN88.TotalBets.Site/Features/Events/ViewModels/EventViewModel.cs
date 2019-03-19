@@ -22,6 +22,7 @@
         {
             EventModel = eventModel;
             IsInPlay = eventModel.Type == EventTypeConstants.InPlay;
+            IsToday = eventModel.Type == EventTypeConstants.Today;
             HasEventData = eventModel.TotalStake == 0;
             SubTitle = Resources.ResourceManager.GetString(EventTypeConstants.EventTypes[query.Type]);
             Query = query;
@@ -32,6 +33,8 @@
         public MatchLeagueTotal EventModel { get; }
 
         public bool IsInPlay { get; }
+
+        public bool IsToday { get; }
 
         public bool HasEventData { get; }
 
