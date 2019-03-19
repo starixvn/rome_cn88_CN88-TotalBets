@@ -103,35 +103,38 @@
 
             <tr class="childrow-@betType.BetTypeId">
                 <td class="bet-team-container">
-                    @foreach (var betOption in betOptionGroup.BetOptions)
-                    {
-                        <div class="bet-team">
-                            <span class="team-name">
-                                @(betOptionBuilderFactory
+                    <div class="bet-team-wrapper">
+                        @foreach (var betOption in betOptionGroup.BetOptions)
+                        {
+                            <div class="bet-team">
+                                <span class="team-name">
+                                    @(betOptionBuilderFactory
                                                     .CreateBetOptionBuilder(betOption.BetTypeId)?
                                                     .BuildBetChoice(betOption, match))
-                            </span>
-                            <span class="index text-right">
-                                @HtmlHelpers.FormatNumber(betOption.Wager)
+                                </span>
+                                <span class="index text-right">
+                                    @HtmlHelpers.FormatNumber(betOption.Wager)
 
-                                @if (betOption.Stake > 0)
-                                {
-                                    @Html.ActionLink(
+                                    @if (betOption.Stake > 0)
+                                    {
+                                        @Html.ActionLink(
                                              HtmlHelpers.FormatNumber(betOption.Stake).ToHtmlString(),
                                              "GetByEvent",
                                              "WagerAccount",
                                              Model.GetWagerAccountParams(betOption.BetTypeId, betOption.BetTeam),
                                              new { @class = "stake link" })
-                                }
-                                else
-                                {
-                                    <span class="stake">
-                                        @HtmlHelpers.FormatNumber(betOption.Stake).ToHtmlString()
-                                    </span>
-                                }
-                            </span>
-                        </div>
-                    }
+                                    }
+                                    else
+                                    {
+                                        <span class="stake">
+                                            @HtmlHelpers.FormatNumber(betOption.Stake).ToHtmlString()
+                                        </span>
+                                    }
+                                </span>
+                            </div>
+                        }
+                    </div>
+                    
                 </td>
             </tr>
         }

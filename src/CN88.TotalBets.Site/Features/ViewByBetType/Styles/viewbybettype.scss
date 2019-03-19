@@ -1,5 +1,5 @@
 ﻿.menu-container {
-    .league, .sport {
+    .league-wrapper, .sport {
         cursor: pointer;
     }
 
@@ -8,8 +8,18 @@
         color: #fff;
     }
 
-    .league {
+    .league-wrapper {
         background-color: #f4f1f1;
+        padding-right: 0;
+        .league {
+            display: inline-block;
+            width: calc(100% - 18px);
+        }
+        .icon-chevron-down {
+            width: 18px;
+            display: inline-block;
+            font-size: 18px;
+        }
     }
 }
 
@@ -73,13 +83,17 @@
 
 .bet-team-container {
     padding: 0 !important;
+    .bet-team-wrapper {
+        display: flex;
+    }
     .bet-team {
-        width: calc(49% + 8px);
-        display: inline-block;
         height: 40px;
+        flex: 1 1 0;
+        align-self: center;
         padding: 6px 8px 2px;
-         &:first-child {
-            border-right: 1px solid #d9d9d9;
+        border-right: 1px solid #d9d9d9;
+         &:last-child {
+            border-right: none;
         }
     }
     .team-name, .index {
