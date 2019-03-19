@@ -75,16 +75,6 @@
 
         private void AddBetOptionOddEven(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
         {
-            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes.Odd_Even && bo.IsLive == isLive))
-            {
-                betOptions.AddRange(CreateDefaultOddEvenBetOptions((int)BetTypes.Odd_Even, isLive));
-            }
-
-            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes._1st_Odd_Even && bo.IsLive == isLive))
-            {
-                betOptions.AddRange(CreateDefaultOddEvenBetOptions((int)BetTypes.Odd_Even, isLive));
-            }
-
             if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes._2ndOddEven && bo.IsLive == isLive))
             {
                 betOptions.AddRange(CreateDefaultOddEvenBetOptions((int)BetTypes._2ndOddEven, isLive));
@@ -99,42 +89,53 @@
             }
         }
 
-        private void AddBetOptionHomeAway(IEnumerable<BetOption> availableBetTypes, List<BetOption> betOptions, bool isLive)
+        private void AddBetOptionHomeAway(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
         {
-            if (availableBetTypes.Any(bo => bo.BetTypeId == (int)BetTypes.Handicap && bo.IsLive == isLive))
+            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes.Handicap && bo.IsLive == isLive))
             {
                 betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes.Handicap, isLive));
             }
 
-            if (availableBetTypes.Any(bo => bo.BetTypeId == (int)BetTypes._1st_Handicap && bo.IsLive == isLive))
+            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes._1st_Handicap && bo.IsLive == isLive))
             {
                 betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes._1st_Handicap, isLive));
             }
 
-            if (availableBetTypes.Any(bo => bo.BetTypeId == (int)BetTypes._2nd_HDP && bo.IsLive == isLive))
+            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes._2nd_HDP && bo.IsLive == isLive))
             {
                 betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes._2nd_HDP, isLive));
             }
 
-            if (availableBetTypes.Any(bo => bo.BetTypeId == (int)BetTypes.Money_Line && bo.IsLive == isLive))
+            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes.Money_Line && bo.IsLive == isLive))
             {
                 betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes.Money_Line, isLive));
             }
 
-            if (availableBetTypes.Any(bo => bo.BetTypeId == (int)BetTypes._1st_Money_Line && bo.IsLive == isLive))
+            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes._1st_Money_Line && bo.IsLive == isLive))
             {
                 betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes._1st_Money_Line, isLive));
             }
 
             // For overunder, because old business return betteam 'h', 'a'
-            if (availableBetTypes.Any(bo => bo.BetTypeId == (int)BetTypes.Over_Under && bo.IsLive == isLive))
+            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes.Over_Under && bo.IsLive == isLive))
             {
                 betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes.Over_Under, isLive));
             }
 
-            if (availableBetTypes.Any(bo => bo.BetTypeId == (int)BetTypes._1st_Over_Under && bo.IsLive == isLive))
+            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes._1st_Over_Under && bo.IsLive == isLive))
             {
                 betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes._1st_Over_Under, isLive));
+            }
+
+            // For oddeven, because old business return betteam 'h', 'a'
+            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes.Odd_Even && bo.IsLive == isLive))
+            {
+                betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes.Odd_Even, isLive));
+            }
+
+            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes._1st_Odd_Even && bo.IsLive == isLive))
+            {
+                betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes._1st_Odd_Even, isLive));
             }
         }
 
@@ -231,8 +232,8 @@
                 totalStake,
                 new List<BetOptionGroup>
                 {
-                     new BetOptionGroup(nonLiveBetOption.OrderByDescending(option => option.Stake), false),
-                     new BetOptionGroup(liveBetOptions.OrderByDescending(option => option.Stake), true),
+                     new BetOptionGroup(nonLiveBetOption, false),
+                     new BetOptionGroup(liveBetOptions, true),
                 });
         }
     }
