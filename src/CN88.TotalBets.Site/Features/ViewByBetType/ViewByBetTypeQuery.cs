@@ -13,5 +13,7 @@
         }
 
         public int MatchId { get; set; }
+
+        public bool ViewFromInPlayPage { get; set; }
     }
 }

@@ -5,6 +5,7 @@
     using System.Reflection;
     using System.Web.Mvc;
     using CN88.TotalBets.Features.ViewByBetTypes;
+    using CN88.TotalBets.Features.ViewByBetTypes.BetOptionBuilders;
     using Fanex.Data.Repository;
     using Fanex.RemotingRef;
     using MediatR;
@@ -99,6 +100,7 @@
             container.RegisterSingleton<IWagerAccountService, WagerAccountService>();
 
             container.RegisterSingleton<ViewByBetTypeService, ViewByBetTypeServiceImpl>();
+            container.RegisterSingleton<BetOptionBuilderFactory, BetOptionBuilderFactoryImpl>();
         }
     }
 }

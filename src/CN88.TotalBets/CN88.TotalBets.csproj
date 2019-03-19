@@ -143,6 +143,7 @@
     <Compile Include="Features\ViewByBetTypes\Params\ViewByBetTypeParam.cs" />
     <Compile Include="Features\ViewByBetTypes\ViewByBetTypeService.cs" />
     <Compile Include="Shared\Configurations\AppSettings.cs" />
+    <Compile Include="Shared\Constants\BetTypes.cs" />
     <Compile Include="Shared\Constants\MarketConstants.cs" />
     <Compile Include="Shared\Constants\PossTypeConstants.cs" />
     <Compile Include="Shared\Constants\SportTypeConstants.cs" />

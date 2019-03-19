@@ -7,7 +7,6 @@
     using TotalBets.Features.Events.Models;
     using TotalBets.Features.Summaries.Models;
     using TotalBets.Features.ViewByBetTypes.Models;
-    using TotalBets.Shared.Constants;
     using TotalBets.Shared.Services;
 
     public class ViewByBetTypeViewModel : BaseViewModel
@@ -20,16 +19,34 @@
             : base(filterQuery, Resources.ViewByBetType, new Dictionary<string, object>
             {
                 { nameof(filterQuery.MatchId), filterQuery.MatchId },
-            })
+                { nameof(filterQuery.ViewFromInPlayPage), filterQuery.ViewFromInPlayPage }
+            },
+            false,
+            filterQuery.ViewFromInPlayPage)
         {
             TotalBetsByBetTypes = totalBetsByBetTypes;
             Match = match;
+            ViewFromInPlayPage = filterQuery.ViewFromInPlayPage;
             MatchSummaryMenuViewModel = new MatchSummaryMenuViewModel(
                 summary,
                 filterQuery.MatchId,
-                $"{filterQuery.AppPath}Event?Type={filterQuery.Type}&SportTypeGroup={filterQuery.SportTypeGroup}",
-                $"{filterQuery.AppPath}ViewByBetType?Type={filterQuery.Type}&SportTypeGroup={filterQuery.SportTypeGroup}");
-            IsInPlay = filterQuery.Type == EventTypeConstants.InPlay;
+                string.Join(
+                    "&",
+                    $"{filterQuery.AppPath}Event?Type={filterQuery.Type}",
+                    $"SportTypeGroup={filterQuery.SportTypeGroup}",
+                    $"PossType={filterQuery.PossType}",
+                    $"Stake={filterQuery.Stake}",
+                    $"StakeCondition={filterQuery.StakeCondition}",
+                    $"Market={filterQuery.Market}"),
+                string.Join(
+                    "&",
+                    $"{filterQuery.AppPath}ViewByBetType?Type={filterQuery.Type}",
+                    $"SportTypeGroup={filterQuery.SportTypeGroup}",
+                    $"ViewFromInPlayPage={filterQuery.ViewFromInPlayPage}",
+                    $"PossType={filterQuery.PossType}",
+                    $"Stake={filterQuery.Stake}",
+                    $"StakeCondition={filterQuery.StakeCondition}",
+                    $"Market={filterQuery.Market}"));
         }
 
         public Match Match { get; }
@@ -44,7 +61,7 @@
 
         public MatchSummaryMenuViewModel MatchSummaryMenuViewModel { get; }
 
-        public bool IsInPlay { get; }
+        public bool ViewFromInPlayPage { get; }
 
         public object GetWagerAccountParams(int bettypeId, string betTeam)
             => new

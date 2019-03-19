@@ -99,8 +99,9 @@
             stakeCondition = Model.FilterViewModel.StakeCondition,
             type = Model.Query.Type,
             sportTypeGroup=Model.Query.SportTypeGroup,
-            market = Model.Query.Market,
-            possType = Model.Query.PossType
+            market = Model.IsInPlay ? Model.Query.Market : MarketConstants.PreMatch,
+            possType = Model.Query.PossType,
+            viewFromInPlayPage = Model.IsInPlay
         })" class="link @className">
         @title
         @if (className != null)

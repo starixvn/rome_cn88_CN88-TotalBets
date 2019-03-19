@@ -12,7 +12,7 @@ namespace CN88.TotalBets.Features.Events.Models
         public Match(
             int leagueId,
             int matchId,
-            string showTime,
+            string showTimeDT,
             int homeId,
             int awayId,
             int liveHomeScore,
@@ -26,7 +26,7 @@ namespace CN88.TotalBets.Features.Events.Models
         {
             LeagueId = leagueId;
             MatchId = matchId;
-            ShowTime = showTime;
+            ShowTime = showTimeDT;
             HomeId = homeId;
             AwayId = awayId;
             LiveHomeScore = liveHomeScore;
