@@ -63,8 +63,6 @@
 
         public bool ViewFromInPlayPage { get; }
 
-        public bool IsToday { get; }
-
         public object GetWagerAccountParams(int bettypeId, string betTeam)
             => new
             {
