@@ -43,7 +43,7 @@ class ViewByBetType extends BaseTotalBets {
             autoRefresh.start(reloadInSeconds);
         }
 
-        this.summaryMenu.$summaryMenuItems.find(".league").click(function (): void {
+        this.summaryMenu.$summaryMenuItems.find(".league-wrapper").click(function (): void {
             let $this: JQuery = $(this);
             let icon = $this.children().last();
             let child = $this.siblings(`.child-${$this.attr("id")}`);

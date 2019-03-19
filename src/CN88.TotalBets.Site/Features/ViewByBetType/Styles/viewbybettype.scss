@@ -13,12 +13,14 @@
         padding-right: 0;
         .league {
             display: inline-block;
-            width: calc(100% - 18px);
+            width: calc(100% - 18px - 4px);
+            vertical-align: middle;
         }
-        .icon-chevron-down {
+        .icon-chevron-down, .icon-chevron-right {
             width: 18px;
             display: inline-block;
             font-size: 18px;
+            vertical-align: middle;
         }
     }
 }
