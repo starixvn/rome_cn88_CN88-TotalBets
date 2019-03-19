@@ -84,7 +84,11 @@
             if (Message.BreadcrumbLevel != null)
             {                
                 foreach (var custInfo in Message.BreadcrumbLevel)
-                {             
+                {
+                    if (custInfo.CustLevelId == Message.CustLevelId)
+                    {
+                        break;
+                    }
                     custInfo.IsLink = true;
                     breadcrumbLevel.Add(custInfo);
                 }
