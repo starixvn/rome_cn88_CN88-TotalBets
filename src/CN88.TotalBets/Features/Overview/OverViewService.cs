@@ -1,10 +1,13 @@
 ﻿namespace CN88.TotalBets.Features.Overview
 {
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using Criteria;
     using Fanex.Data.Repository;
     using Models;
+    using Shared.Configurations;
 
     public interface IOverViewService
     {
@@ -24,8 +27,20 @@
         {
             var criteria = new GetOverViewCriteria(custId, viewMode, roleId);
             var overView = await dynamicRepository.FetchMultipleAsync<OverViewBySportTypeModel, OverViewByParlayModel, OverViewItemModel>(criteria);
+            var overViewBySportType = OrderBy(overView.Item1);
 
-            return new OverViewModel(overView.Item1, overView.Item2.FirstOrDefault(), overView.Item3.FirstOrDefault());
+            return new OverViewModel(overViewBySportType, overView.Item2.FirstOrDefault(), overView.Item3.FirstOrDefault());
+        }
+
+        private IEnumerable<OverViewBySportTypeModel> OrderBy(IEnumerable<OverViewBySportTypeModel> list)
+        {
+            var orderBySportTypeGroupInOverviewPage = AppSettings.OrderBySportTypeGroupInOverviewPage;
+            var sportTypeHasConfigurate = list.Where(i => orderBySportTypeGroupInOverviewPage.ContainsKey(i.SportTypeGroup))
+                .OrderBy(i => orderBySportTypeGroupInOverviewPage[i.SportTypeGroup]).ToList();
+            var newSportType = list.Where(i => !orderBySportTypeGroupInOverviewPage.ContainsKey(i.SportTypeGroup));
+
+            sportTypeHasConfigurate.AddRange(newSportType);
+            return sportTypeHasConfigurate;
         }
     }
 }

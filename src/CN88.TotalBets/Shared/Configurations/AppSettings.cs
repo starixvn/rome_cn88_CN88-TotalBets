@@ -1,6 +1,8 @@
 ﻿namespace CN88.TotalBets.Shared.Configurations
 {
     using System;
+    using System.Linq;
+    using System.Collections.Generic;
     using System.Collections.Specialized;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
@@ -28,6 +30,23 @@
 
         public static int ReloadTimeInSeconds => int.Parse(GetConfigValue("ReloadTimeInSeconds") ?? "15");
 
+        public static Dictionary<int, int> OrderBySportTypeGroupInOverviewPage
+        {
+            get
+            {
+                var orderBy = new Dictionary<int, int>();
+                var items = GetConfigValue("OrderBySportTypeGroupInOverviewPage").Split(';');
+                foreach (var item in items)
+                {
+                    var sportypeGroupId = item.Split('-')[0];
+                    var orderId = item.Split('-')[1];
+
+                    orderBy.Add(int.Parse(sportypeGroupId), int.Parse(orderId));
+                }
+
+                return orderBy;
+            }
+        }
         public static string GetConfigValue(string configName) => AppSettingValues[configName];
 
         public static void Verify()

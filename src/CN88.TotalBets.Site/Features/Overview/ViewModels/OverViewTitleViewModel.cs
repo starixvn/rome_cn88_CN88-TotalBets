@@ -1,5 +1,6 @@
 ﻿namespace CN88.TotalBets.Site.ViewModels.OverView
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using TotalBets.Features.SportTypeGroup.Models;
@@ -10,7 +11,7 @@
             IEnumerable<int> sportTypeGroups,
             IEnumerable<SportGroup> allSportTypeGroup)
         {
-            ToolTip = allSportTypeGroup.Where(i => sportTypeGroups.Contains(i.Id)).Select(i => i.DisplayName).ToList();
+            ToolTip = sportTypeGroups.Select(i => allSportTypeGroup.First(j => j.Id == i).DisplayName).ToList();
         }
 
         public List<string> HeaderName
@@ -28,6 +29,6 @@
             }
         }
 
-        public List<string> ToolTip { get; }
+        public IList<string> ToolTip { get; }
     }
 }
