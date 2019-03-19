@@ -53,7 +53,7 @@
 
         public string GetDownLineUrl(int custId, string custName)
         {
-            var breadscrumbToDonwline =  breadcrumbLevel.ToList();
+            var breadscrumbToDonwline = breadcrumbLevel.ToList();
             breadscrumbToDonwline.Add(new CustInfo(custId, custName, Message.CustLevel.GetDirectDownLineLevel().Value, false));
             var param = new Dictionary<string, object>
             {
@@ -82,7 +82,7 @@
             var breadcrumbLevel = new List<CustInfo>();
 
             if (Message.BreadcrumbLevel != null)
-            {                
+            {
                 foreach (var custInfo in Message.BreadcrumbLevel)
                 {
                     if (custInfo.CustLevelId == Message.CustLevelId)

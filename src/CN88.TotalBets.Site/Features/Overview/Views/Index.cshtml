@@ -35,66 +35,21 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.BySportType)
+            @foreach (var row in Model.BySportType)
             {
                 <tr>
-                    <td>@item.Text</td>
+                    <td>@row.Text</td>
                     <td>
-                        <span>@HtmlHelpers.FormatNumber(item.Total.Wagers)</span>
-                        <span>@HtmlHelpers.FormatNumber(item.Total.Stake)</span>
+                        <span>@HtmlHelpers.FormatNumber(row.Total.Wagers)</span>
+                        <span>@HtmlHelpers.FormatNumber(row.Total.Stake)</span>
                     </td>
-                    <td>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Soccer.Wagers, item.Url(Model.PossType, item.Soccer.SportTypeGroup), item.SubMenuId)</span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Soccer.Stake, item.Url(Model.PossType, item.Soccer.SportTypeGroup), item.SubMenuId)</span>
-                    </td>
-                    <td class="even">
-                        <span>
-                            @HtmlHelpers.FormatNumberWithLink(item.Basketball.Wagers, item.Url(Model.PossType, item.Basketball.SportTypeGroup), item.SubMenuId)
-                        </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Basketball.Stake, item.Url(Model.PossType, item.Basketball.SportTypeGroup), item.SubMenuId)</span>
-                    </td>
-                    <td>
-                        <span>
-                            @HtmlHelpers.FormatNumberWithLink(item.Tennis.Wagers, item.Url(Model.PossType, item.Tennis.SportTypeGroup), item.SubMenuId)
-                        </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Tennis.Stake, item.Url(Model.PossType, item.Tennis.SportTypeGroup), item.SubMenuId)</span>
-                    </td>
-                    <td class="even">
-                        <span>
-                            @HtmlHelpers.FormatNumberWithLink(item.Volleyball.Wagers, item.Url(Model.PossType, item.Volleyball.SportTypeGroup), item.SubMenuId)
-                        </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Volleyball.Stake, item.Url(Model.PossType, item.Volleyball.SportTypeGroup), item.SubMenuId)</span>
-                    </td>
-                    <td>
-                        <span>
-                            @HtmlHelpers.FormatNumberWithLink(item.TableTennis.Wagers, item.Url(Model.PossType, item.TableTennis.SportTypeGroup), item.SubMenuId)
-                        </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.TableTennis.Stake, item.Url(Model.PossType, item.TableTennis.SportTypeGroup), item.SubMenuId)</span>
-                    </td>
-                    <td class="even">
-                        <span>
-                            @HtmlHelpers.FormatNumberWithLink(item.Badminton.Wagers, item.Url(Model.PossType, item.Badminton.SportTypeGroup), item.SubMenuId)
-                        </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Badminton.Stake, item.Url(Model.PossType, item.Badminton.SportTypeGroup), item.SubMenuId)</span>
-                    </td>
-                    <td>
-                        <span>
-                            @HtmlHelpers.FormatNumberWithLink(item.Baseball.Wagers, item.Url(Model.PossType, item.Baseball.SportTypeGroup), item.SubMenuId)
-                        </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Baseball.Stake, item.Url(Model.PossType, item.Baseball.SportTypeGroup), item.SubMenuId)</span>
-                    </td>
-                    <td class="even">
-                        <span>
-                            @HtmlHelpers.FormatNumberWithLink(item.Snooker.Wagers, item.Url(Model.PossType, item.Snooker.SportTypeGroup), item.SubMenuId)
-                        </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.Snooker.Stake, item.Url(Model.PossType, item.Snooker.SportTypeGroup), item.SubMenuId)</span>
-                    </td>
-                    <td>
-                        <span>
-                            @HtmlHelpers.FormatNumberWithLink(item.OtherSports.Wagers, item.Url(Model.PossType, item.OtherSports.SportTypeGroup), item.SubMenuId)
-                        </span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(item.OtherSports.Stake, item.Url(Model.PossType, item.OtherSports.SportTypeGroup), item.SubMenuId)</span>
-                    </td>
+                    @foreach(var sportColumn in row.SportsColumn)
+                    {
+                        <td>
+                            <span>@HtmlHelpers.FormatNumberWithLink(sportColumn.Wagers, row.Url(Model.PossType, sportColumn.SportTypeGroup), row.SubMenuId)</span>
+                            <span>@HtmlHelpers.FormatNumberWithLink(sportColumn.Stake, row.Url(Model.PossType, sportColumn.SportTypeGroup), row.SubMenuId)</span>
+                        </td>
+                    }
                 </tr>
             }
         </tbody>

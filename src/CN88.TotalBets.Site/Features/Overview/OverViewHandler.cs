@@ -24,7 +24,7 @@
             var overView = await overViewService.Get(message.ViewerId, message.PossType, message.ViewerLevelId);
             var allSportTypeGroup = await sportTypeGroupService.GetSportTypeGroups();
 
-            return new HomeViewModel(message, overView, allSportTypeGroup, message.GetSportDisplayName);
+            return new HomeViewModel(message, overView, allSportTypeGroup);
         }
     }
 }

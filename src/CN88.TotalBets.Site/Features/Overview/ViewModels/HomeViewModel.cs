@@ -1,6 +1,5 @@
 ﻿namespace CN88.TotalBets.Site.Features.Overview.ViewModels
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
@@ -16,8 +15,7 @@
         public HomeViewModel(
             OverViewQuery message,
             OverViewModel overViewModel,
-            IEnumerable<SportGroup> allSportTypeGroup,
-            Func<int, string> getSportDisplayName)
+            IEnumerable<SportGroup> allSportTypeGroup)
         {
             this.message = message;
             BySportType = new List<OverViewByBaseViewModel>
@@ -32,8 +30,7 @@
             ByParlay = new OverViewByParlayViewModel(overViewModel.ParlayModel);
             HeaderTable = new OverViewTitleViewModel(
                 overViewModel.BySportTypeModels.Select(i => i.SportTypeGroup),
-                allSportTypeGroup,
-                getSportDisplayName);
+                allSportTypeGroup);
 
             var possTypeSelectListItems = PossTypeConstants.PossTypeByLevel[message.ActorLevel].Select(
                x => new SelectListItem
