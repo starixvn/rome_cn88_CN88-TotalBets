@@ -32,16 +32,14 @@
     }
 }
 
-@helper ShowTime(DateTime showTimeDT, bool offerLive, bool isToday)
+@helper ShowTime(DateTime showTimeDT, bool offerLive, bool showMonthDay)
 {
     var localDateTime = showTimeDT.AddHours(-4);
 
-    if (isToday)
+    if (showMonthDay)
     {
-        @localDateTime.ToString("HH:mm")<br/><span class="live">LIVE</span>
+        @localDateTime.ToString("MM-dd")<br/>
     }
-    else
-    {
-        @localDateTime.ToString("MM-dd")<br/>@localDateTime.ToString("HH:mm")<br/><span class="live">LIVE</span>
-    }
+    
+    @localDateTime.ToString("HH:mm")<br/><span class="live">@CN88.TotalBets.AppResources.Resources.Live</span>
 }

@@ -2,11 +2,12 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using CN88.TotalBets.AppResources;
+    using AppResources;
     using Shared.ViewModels;
     using TotalBets.Features.Events.Models;
     using TotalBets.Features.Summaries.Models;
     using TotalBets.Features.ViewByBetTypes.Models;
+    using TotalBets.Shared.Constants;
     using TotalBets.Shared.Services;
 
     public class ViewByBetTypeViewModel : BaseViewModel
@@ -27,6 +28,7 @@
             TotalBetsByBetTypes = totalBetsByBetTypes;
             Match = match;
             ViewFromInPlayPage = filterQuery.ViewFromInPlayPage;
+            ViewFromEarlyPage = filterQuery.Type == EventTypeConstants.Early;
             MatchSummaryMenuViewModel = new MatchSummaryMenuViewModel(
                 summary,
                 filterQuery.MatchId,
@@ -62,6 +64,8 @@
         public MatchSummaryMenuViewModel MatchSummaryMenuViewModel { get; }
 
         public bool ViewFromInPlayPage { get; }
+
+        public bool ViewFromEarlyPage { get; }
 
         public object GetWagerAccountParams(int bettypeId, string betTeam)
             => new
