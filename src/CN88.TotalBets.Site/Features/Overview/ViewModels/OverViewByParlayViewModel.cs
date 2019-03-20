@@ -1,6 +1,10 @@
 ﻿namespace CN88.TotalBets.Site.Features.Overview.ViewModels
 {
+    using System.Collections.Generic;
+    using Alpha.Web.Helpers;
+    using Shared.Helpers;
     using TotalBets.Features.Overview.Models;
+    using TotalBets.Shared.Configurations;
 
     public class OverViewByParlayViewModel
     {
@@ -24,5 +28,14 @@
         public OverViewItemModel MixSports { get; }
 
         public OverViewItemModel Total { get; }
+
+        public string Url(int possType)
+            => UrlHelper.AddQueryStringParamsFunc(
+                AppPathHelper.GetAppPath(AppSettings.FeaturesAppPath, "~/BetLists/TotalBetParlay"),
+                new Dictionary<string, object>
+                {
+                    ["ViewMode"] = possType,
+                    ["SportGroupId"] = Soccer.SportTypeGroup
+                });
     }
 }
