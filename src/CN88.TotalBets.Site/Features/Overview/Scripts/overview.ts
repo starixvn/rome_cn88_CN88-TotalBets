@@ -21,7 +21,7 @@ class OverView {
         this.$tooltip.tooltip();
         
         var self = this;
-        this.$(".page-overview a").click(function () {            
+        this.$(".page-overview table a").click(function () {            
             var subMenuId = self.$(this).attr("data-submenuid");
             self.$topWindow.indexManager.subMenuClick(subMenuId);
         })
