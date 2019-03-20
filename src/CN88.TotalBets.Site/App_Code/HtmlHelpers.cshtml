@@ -41,5 +41,10 @@
         @localDateTime.ToString("MM-dd")<br/>
     }
     
-    @localDateTime.ToString("HH:mm")<br/><span class="live">@CN88.TotalBets.AppResources.Resources.Live</span>
+    @localDateTime.ToString("HH:mm")
+
+    if (offerLive)
+    {
+        <br/><span class="live">@CN88.TotalBets.AppResources.Resources.Live</span>
+    }
 }
