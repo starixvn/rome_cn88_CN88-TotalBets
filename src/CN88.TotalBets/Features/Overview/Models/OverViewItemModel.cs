@@ -6,23 +6,23 @@
         {
         }
 
-        public OverViewItemModel(int sportTypeGroup, int wagers, decimal stake)
+        public OverViewItemModel(int sportTypeGroup, int wager, decimal stake)
         {
-            Wagers = wagers;
+            Wager = wager;
             Stake = stake;
             SportTypeGroup = sportTypeGroup;            
         }
 
         public int SportTypeGroup { get; private set; }
 
-        public int Wagers { get; private set; }
+        public int Wager { get; private set; }
 
         public decimal Stake { get; private set; }
 
         public static OverViewItemModel operator +(OverViewItemModel first, OverViewItemModel second)
         {
             var temp = new OverViewItemModel();
-            temp.Wagers = first.Wagers + second.Wagers;
+            temp.Wager = first.Wager + second.Wager;
             temp.Stake = first.Stake + second.Stake;
 
             return temp;

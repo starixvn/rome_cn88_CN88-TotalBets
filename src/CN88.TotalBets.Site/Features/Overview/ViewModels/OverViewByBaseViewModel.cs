@@ -18,7 +18,7 @@
         {
             get
             {
-                var totalWager = SportsColumn.Sum(i => i.Wagers);
+                var totalWager = SportsColumn.Sum(i => i.Wager);
                 var totalStake = SportsColumn.Sum(i => i.Stake);
 
                 return new OverViewItemModel(0, totalWager, totalStake);
