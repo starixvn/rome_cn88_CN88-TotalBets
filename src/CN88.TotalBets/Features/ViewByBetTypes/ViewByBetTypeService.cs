@@ -185,7 +185,7 @@
                 .Select(bo =>
                 {
                     var dbBetOption = betOptions.FirstOrDefault(dbbo => dbbo.Equals(bo));
-                    if(dbBetOption != null)
+                    if (dbBetOption != null)
                     {
                         bo.Stake = dbBetOption.Stake;
                         bo.Wager = dbBetOption.Wager;
@@ -194,16 +194,23 @@
                     return bo;
                 });
 
-            var otherBetOptions = betOptions.Except(unionBetOptions).OrderBy(bo => bo.BetTypeId);
+            var otherBetTypeBetOptions = betOptions.Except(unionBetOptions).OrderBy(bo => bo.BetTypeId);
 
             var betOptionGroups = unionBetOptions
-                .Concat(otherBetOptions)
                 .GroupBy(option => option.BetTypeId)
                 .OrderBy(group => group.Key)
                 .ThenBy(group => betOptionBuilderFactory.IsUseDefaultBetOptionBuider(group.Key) ? 1 : 0)
                 .ToDictionary(
                 group => group.Key,
                 group => BuildTotalBetsByBetType(group));
+
+            betOptionGroups.Add(
+                (int)BetTypes.Others,
+                new TotalBetsByBetType(
+                    (int)BetTypes.Others,
+                    otherBetTypeBetOptions.Sum(bo => bo.Wager),
+                    otherBetTypeBetOptions.Sum(bo => bo.Stake),
+                    new List<BetOptionGroup> { new BetOptionGroup(otherBetTypeBetOptions, false) }));
 
             return betOptionGroups;
         }

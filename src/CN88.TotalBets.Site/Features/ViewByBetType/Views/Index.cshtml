@@ -44,37 +44,36 @@
         </table>
     </div>
 </div>
+
+
 @helper RenderMatch(ViewByBetTypeViewModel model)
 {
-                    /**/
+    if (model.Match != null)
+    {
+        <div class="league">@Model.LeagueName <span class="index pull-right"><span>@HtmlHelpers.FormatNumber(Model.TotalWager)</span> | <span class="link">@HtmlHelpers.FormatNumber(Model.TotalStake)</span></span></div>
 
-                    if (model.Match != null)
-                    {
-                        <div class="league">@Model.LeagueName <span class="index pull-right"><span>@HtmlHelpers.FormatNumber(Model.TotalWager)</span> | <span class="link">@HtmlHelpers.FormatNumber(Model.TotalStake)</span></span></div>
-
-                        <div class="head-match">
-                            <div class="show-time">@HtmlHelpers.ShowTime(Model.Match.ShowTimeDT, Model.Match.OfferLive, Model.ViewFromEarlyPage)</div>
-                            <div class="match">
-                                <span class="team-name">@Model.Match.HomeName</span>
-                                @if (model.Match.IsShowScore)
-                                {
-                                    <span class="score">@Model.Match.LiveHomeScore - @Model.Match.LiveAwayScore</span>
-                                }
-                                else
-                                {
-                                    <span class="vs"> V </span>
-                                }
-                                <span class="team-name">@Model.Match.AwayName</span>
-                            </div>
-                        </div>
-                    }
+        <div class="head-match">
+            <div class="show-time">@HtmlHelpers.ShowTime(Model.Match.ShowTimeDT, Model.Match.OfferLive, Model.ViewFromEarlyPage)</div>
+            <div class="match">
+                <span class="team-name">@Model.Match.HomeName</span>
+                @if (model.Match.IsShowScore)
+                {
+                    <span class="score">@Model.Match.LiveHomeScore - @Model.Match.LiveAwayScore</span>
+                }
+                else
+                {
+                    <span class="vs"> V </span>
+                }
+                <span class="team-name">@Model.Match.AwayName</span>
+            </div>
+        </div>
+    }
 }
 
 @helper RenderBetType(
     TotalBetsByBetType betType,
     BetOptionBuilderFactory betOptionBuilderFactory)
 {
-                    /**/
     <tr class="group" data-leagueid="@betType.BetTypeId">
         <td colspan="2">
             <span class="group-name-wrapper">
@@ -96,43 +95,48 @@
     BetOptionBuilderFactory betOptionBuilderFactory,
     bool viewFromInPlayPage)
 {
-                    /**/
+    var betOptionParams = new Dictionary<string, object> { { "viewFromInPlayPage", Model.ViewFromInPlayPage } };
 
-                    var betOptionParams = new Dictionary<string, object> { { "viewFromInPlayPage", Model.ViewFromInPlayPage } };
+    foreach (var betOptionGroup in betType.BetOptionGroups)
+    {
+        if (betOptionGroup.BetOptions.Any())
+        {
+            if (!betOptionBuilderFactory.IsUseDefaultBetOptionBuider(betType.BetTypeId)
+                && viewFromInPlayPage)
+            {
+                <tr class="bet-option childrow-@betType.BetTypeId">
+                    <td colspan="2">@(betOptionGroup.LiveText)</td>
+                </tr>
+            }
 
-                    foreach (var betOptionGroup in betType.BetOptionGroups)
-                    {
-                        if (betOptionGroup.BetOptions.Any())
+            <tr class="childrow-@betType.BetTypeId">
+                <td class="bet-team-container">
+                    <div class="bet-team-wrapper">
+                        @foreach (var betOption in betOptionGroup.BetOptions)
                         {
-                            if (!betOptionBuilderFactory.IsUseDefaultBetOptionBuider(betType.BetTypeId)
-                                && viewFromInPlayPage)
-                            {
-                                <tr class="bet-option childrow-@betType.BetTypeId">
-                                    <td colspan="2">@(betOptionGroup.LiveText)</td>
-                                </tr>
-                            }
-
-                            <tr class="childrow-@betType.BetTypeId">
-                                <td class="bet-team-container">
-                                    <div class="bet-team-wrapper">
-                                        @foreach (var betOption in betOptionGroup.BetOptions)
-                                        {
-                                            <div class="bet-team">
-                                                <span class="team-name">
-                                                    @(betOptionBuilderFactory
-                                                            .CreateBetOptionBuilder(betOption.BetTypeId)
-                                                            ?.BuildBetChoice(betOption, match, betOptionParams))
-                                                </span>
-                                                <span class="index text-right">
-                                                    @BuildWagerAndStake(betOption)
-                                                </span>
-                                            </div>
-                                        }
-                                    </div>
-                                </td>
-                            </tr>
+                            <div class="bet-team">
+                                <span class="team-name">
+                                    @if (betOptionBuilderFactory.IsUseDefaultBetOptionBuider(betType.BetTypeId))
+                                    {
+                                        @CacheRefManager.CacheRefInstance.GetBetTypeName(betOption.BetTypeId)
+                                    }
+                                    else
+                                    {
+                                        @(betOptionBuilderFactory
+                                                    .CreateBetOptionBuilder(betOption.BetTypeId)
+                                                    ?.BuildBetChoice(betOption, match, betOptionParams))
+                                    }
+                                </span>
+                                <span class="index text-right">
+                                    @BuildWagerAndStake(betOption)
+                                </span>
+                            </div>
                         }
-                    }
+                    </div>
+                </td>
+            </tr>
+        }
+    }
 }
 
 @helper BuildWagerAndStake(BetOption betOption)
