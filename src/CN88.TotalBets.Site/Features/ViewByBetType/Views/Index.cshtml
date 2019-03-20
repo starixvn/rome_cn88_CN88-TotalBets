@@ -109,7 +109,7 @@
 
             <tr class="childrow-@betType.BetTypeId">
                 <td class="bet-team-container">
-                    <div class="bet-team-wrapper">
+                    <div class="bet-team-wrapper @(betOptionBuilderFactory.IsUseDefaultBetOptionBuider(betType.BetTypeId) ? "other-bettype" : string.Empty)">
                         @foreach (var betOption in betOptionGroup.BetOptions)
                         {
                             <div class="bet-team">
