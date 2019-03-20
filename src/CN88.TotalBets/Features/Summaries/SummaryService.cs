@@ -55,9 +55,9 @@
             var dtos = await dynamicRepository.FetchAsync<SummaryByMatchDto>(
                 new GetSummaryBySportTypeGroupCriteria(custId, eventType, sportGroup, custLevel));
 
-            if (dtos == null || !dtos.Any())
+            if (!dtos.Any())
             {
-                return null;
+                return new SportGroupSummary(0, string.Empty, Enumerable.Empty<LeagueSummary>());
             }
 
             var leagueGroups = dtos.GroupBy(x => x.LeagueId);
