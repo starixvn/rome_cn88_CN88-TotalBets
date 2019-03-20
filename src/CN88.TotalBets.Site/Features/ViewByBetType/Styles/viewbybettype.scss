@@ -54,7 +54,7 @@
 
     .team {
         width: 50%;
-        border-right: 1px solid #d9d9d9;
+        border-right: 1px solid #e5e5e5;
 
         &:last-child {
             border-right: none;
@@ -93,13 +93,23 @@
     padding: 0 !important;
     .bet-team-wrapper {
         display: flex;
+        &.other-bettype {
+            display: block;
+            .bet-team {
+                border-right: none;
+                border-bottom: 1px solid #e5e5e5;
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
     }
     .bet-team {
         height: 40px;
         flex: 1 1 0;
         align-self: center;
         padding: 6px 8px 2px;
-        border-right: 1px solid #d9d9d9;
+        border-right: 1px solid #e5e5e5;
          &:last-child {
             border-right: none;
         }
