@@ -4,6 +4,7 @@ abstract class BaseTotalBets {
     $: JQueryStatic;
     $filterForm: JQuery;
     $tblTotalBets: JQuery;
+    $stake: JQuery;
 
     cleaveStake: any;
 
@@ -44,6 +45,7 @@ abstract class BaseTotalBets {
     protected cacheDOMElements(): void {
         this.$filterForm = this.$("#filter-form");
         this.$tblTotalBets = this.$("#tblTotalBets");
+        this.$stake = this.$("#Stake");
     }
 
     protected bindEvents(): void {
@@ -66,9 +68,15 @@ abstract class BaseTotalBets {
 
     protected onSubmit(): void {
         this.stakeConditionSelectionComponent.updateSelectedValue();
+        this.updateStakeValue();
         this.possTypeSelectionComponent.updateSelectedValue();
         if (this.leagueSelectionComponent != null) {
             this.leagueSelectionComponent.updateSelectedValue();
         }
     };
+
+    updateStakeValue(): void {
+        let stake = parseFloat(this.cleaveStake.getRawValue());
+        this.$stake.val(stake);
+    }
 }
