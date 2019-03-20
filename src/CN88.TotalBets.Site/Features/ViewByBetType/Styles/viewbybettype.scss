@@ -132,13 +132,17 @@
     background: url("images/Soccer_goal.png");
     height: 100px;
     color: #fff;
+    position: relative;
 
     .match {
         background-color: rgba(0, 0, 0, 0.2);
         height: 40px;
         line-height: 40px;
-        margin: 14px 12px 0 12px;
         text-align: center;
+        position: absolute;
+        bottom: 12px;
+        left: 12px;
+        right: 12px;
 
         .score, .vs {
             color: #f7d08e;
