@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Shared/Views/_Layout.cshtml";
+    var even = true;
 }
 @section Styles {
     @StaticResources.RenderStyles("~/assets/bundles/overview/overview")
@@ -43,12 +44,14 @@
                         <span>@HtmlHelpers.FormatNumber(row.Total.Wager)</span>
                         <span>@HtmlHelpers.FormatNumber(row.Total.Stake)</span>
                     </td>
-                    @foreach(var sportColumn in row.SportsColumn)
+                    @foreach (var sportColumn in row.SportsColumn)
                     {
-                        <td>
+                        even = !even;
+                        <td class="@(even ? "even" : "")">
                             <span>@HtmlHelpers.FormatNumberWithLink(sportColumn.Wager, row.Url(Model.PossType, sportColumn.SportTypeGroup), row.SubMenuId)</span>
                             <span>@HtmlHelpers.FormatNumberWithLink(sportColumn.Stake, row.Url(Model.PossType, sportColumn.SportTypeGroup), row.SubMenuId)</span>
                         </td>
+                        
                     }
                 </tr>
             }
