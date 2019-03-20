@@ -18,8 +18,7 @@
 
             return
                 viewFromInPlayPage.HasValue && viewFromInPlayPage.Value
-                ? betTypeName
-                : string.Join(
+                ? string.Join(
                 string.Empty,
                 betTypeName,
                 " ",
@@ -27,7 +26,8 @@
 #pragma warning disable S3358 // Ternary operators should not be nested
                 betOption.IsLive ? Resources.InPlay : Resources.PreMatch,
 #pragma warning restore S3358 // Ternary operators should not be nested
-                ")");
+                ")")
+                : betTypeName;
         }
     }
 }

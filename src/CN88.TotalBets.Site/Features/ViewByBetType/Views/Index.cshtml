@@ -114,16 +114,9 @@
                         {
                             <div class="bet-team">
                                 <span class="team-name">
-                                    @if (betOptionBuilderFactory.IsUseDefaultBetOptionBuider(betType.BetTypeId))
-                                    {
-                                        @CacheRefManager.CacheRefInstance.GetBetTypeName(betOption.BetTypeId)
-                                    }
-                                    else
-                                    {
-                                        @(betOptionBuilderFactory
-                                                    .CreateBetOptionBuilder(betOption.BetTypeId)
-                                                    ?.BuildBetChoice(betOption, match, betOptionParams))
-                                    }
+                                    @(betOptionBuilderFactory
+                                                            .CreateBetOptionBuilder(betOption.BetTypeId)
+                                                            ?.BuildBetChoice(betOption, match, betOptionParams))
                                 </span>
                                 <span class="index text-right">
                                     @BuildWagerAndStake(betOption)

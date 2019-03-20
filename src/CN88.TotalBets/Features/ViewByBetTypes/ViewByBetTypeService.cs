@@ -212,7 +212,12 @@
                         (int)BetTypes.Others,
                         otherBetTypeBetOptions.Sum(bo => bo.Wager),
                         otherBetTypeBetOptions.Sum(bo => bo.Stake),
-                        new List<BetOptionGroup> { new BetOptionGroup(otherBetTypeBetOptions, false) }));
+                        new List<BetOptionGroup> {
+                            new BetOptionGroup(otherBetTypeBetOptions
+                            .OrderBy(bo => bo.BetTypeId)
+                            .ThenBy(bo => bo.IsLive ? 0 : 1), 
+                            false)
+                        }));
             }
 
             return betOptionGroups;
