@@ -204,13 +204,16 @@
                 group => group.Key,
                 group => BuildTotalBetsByBetType(group));
 
-            betOptionGroups.Add(
-                (int)BetTypes.Others,
-                new TotalBetsByBetType(
+            if (otherBetTypeBetOptions.Any())
+            {
+                betOptionGroups.Add(
                     (int)BetTypes.Others,
-                    otherBetTypeBetOptions.Sum(bo => bo.Wager),
-                    otherBetTypeBetOptions.Sum(bo => bo.Stake),
-                    new List<BetOptionGroup> { new BetOptionGroup(otherBetTypeBetOptions, false) }));
+                    new TotalBetsByBetType(
+                        (int)BetTypes.Others,
+                        otherBetTypeBetOptions.Sum(bo => bo.Wager),
+                        otherBetTypeBetOptions.Sum(bo => bo.Stake),
+                        new List<BetOptionGroup> { new BetOptionGroup(otherBetTypeBetOptions, false) }));
+            }
 
             return betOptionGroups;
         }

@@ -1,6 +1,7 @@
 ﻿namespace CN88.TotalBets.Site.Features.ViewByBetType
 {
     using System.Threading.Tasks;
+    using CN88.TotalBets.Shared.Constants;
     using MediatR;
     using TotalBets.Features.Events;
     using TotalBets.Features.Summaries;
@@ -26,6 +27,11 @@
 
         public async Task<ViewByBetTypeViewModel> Handle(ViewByBetTypeQuery message)
         {
+            if(!message.ViewFromInPlayPage)
+            {
+                message.Market = MarketConstants.AllMarkets;
+            }
+
             var match = await eventService.GetMatch(message.MatchId);
 
             var totalBetByBetTypes = await viewByBetTypeService.GetBetTypes(

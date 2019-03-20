@@ -1,9 +1,7 @@
 ﻿@{
-                /**/
-
-                ViewBag.Title = Model.Title;
-                Layout = "~/Shared/Views/_Layout.cshtml";
-                var betOptionBuilderFactory = new BetOptionBuilderFactoryImpl();
+    ViewBag.Title = Model.Title;
+    Layout = "~/Shared/Views/_Layout.cshtml";
+    var betOptionBuilderFactory = new BetOptionBuilderFactoryImpl();
 }
 @section Styles {
     @StaticResources.RenderStyles("~/assets/bundles/viewbybettype/viewbybettype")
