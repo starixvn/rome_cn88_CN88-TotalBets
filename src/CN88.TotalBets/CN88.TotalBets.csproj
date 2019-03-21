@@ -154,6 +154,7 @@
     <Compile Include="Features\SportTypeGroup\Criteria\GetSportGroupsCriteria.cs" />
     <Compile Include="Features\SportTypeGroup\SportTypeGroupDataAccess.cs" />
     <Compile Include="Features\Overview\Criteria\GetOverViewCriteria.cs" />
+    <Compile Include="Shared\Constants\TotalBetParlaySport.cs" />
     <Compile Include="Shared\Criteria\FilterCriteriaBase.cs" />
     <Compile Include="Shared\Models\CustInfo.cs" />
     <Compile Include="Shared\Models\Enumeration.cs" />
