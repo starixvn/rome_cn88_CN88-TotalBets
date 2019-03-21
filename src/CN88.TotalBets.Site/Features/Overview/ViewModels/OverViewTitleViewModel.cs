@@ -22,7 +22,7 @@
                 foreach (var columnName in ToolTip)
                 {
                     var firstSport = columnName.Split('/');
-                    headerNames.Add(firstSport.Count() > 1 ? firstSport[0] : columnName);
+                    headerNames.Add(firstSport.Count() > 1 ? firstSport[0].Trim() : columnName);
                 }
 
                 return headerNames;
