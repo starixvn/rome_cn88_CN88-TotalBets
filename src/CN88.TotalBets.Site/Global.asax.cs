@@ -49,7 +49,6 @@
             ModelBinders.Binders.DefaultBinder = new QueryEntityModelBinder();
             GlobalFilters.Filters.Add(new CheckUMFilter());
             GlobalFilters.Filters.Add(new AfterLoginFlowFilter());
-            GlobalFilters.Filters.Add(new RestrictHeadlineFilter());
             GlobalFilters.Filters.Add(new CN88CheckBelongingFilter());
             GlobalFilters.Filters.Add(new NoCacheFilter());
 
