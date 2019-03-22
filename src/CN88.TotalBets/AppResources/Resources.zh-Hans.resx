@@ -222,4 +222,31 @@
   <data name="Draw" xml:space="preserve">
     <value>和局</value>
   </data>
+  <data name="OverView" xml:space="preserve">
+    <value>总览</value>
+  </data>
+  <data name="Early" xml:space="preserve">
+    <value>早盘</value>
+  </data>
+  <data name="Today" xml:space="preserve">
+    <value>今日</value>
+  </data>
+  <data name="InPlay" xml:space="preserve">
+    <value>滚球</value>
+  </data>
+  <data name="TotalStake" xml:space="preserve">
+    <value>总下注金额</value>
+  </data>
+  <data name="AllSports" xml:space="preserve">
+    <value>所有球类</value>
+  </data>
+  <data name="Outright" xml:space="preserve">
+    <value>冠军</value>
+  </data>
+  <data name="ViewByAccount" xml:space="preserve">
+    <value>查看帐号</value>
+  </data>
+  <data name="ViewWagerDetails" xml:space="preserve">
+    <value>查看细单</value>
+  </data>
 </root>
