@@ -124,18 +124,81 @@
     <value>聯賽</value>
   </data>
   <data name="Details" xml:space="preserve">
-    <value>Details</value>
+    <value>內容</value>
   </data>
   <data name="Event" xml:space="preserve">
-    <value>Event</value>
+    <value>賽事</value>
   </data>
   <data name="Time" xml:space="preserve">
-    <value>Time</value>
-  </data>
-  <data name="Wagers" xml:space="preserve">
-    <value>Wagers</value>
+    <value>時間</value>
   </data>
   <data name="Live" xml:space="preserve">
-    <value>Live</value>
+    <value>滾球</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>瀏覽</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Parlay" xml:space="preserve">
+    <value>綜合過關</value>
+  </data>
+  <data name="InPlay" xml:space="preserve">
+    <value>滾球</value>
+  </data>
+  <data name="Agent_Percentage" xml:space="preserve">
+    <value>代理商 (佔成)</value>
+  </data>
+  <data name="MA_Percentage" xml:space="preserve">
+    <value>總代理 (佔成)</value>
+  </data>
+  <data name="SMA_Percentage" xml:space="preserve">
+    <value>股東 (佔成)</value>
+  </data>
+  <data name="AllSports" xml:space="preserve">
+    <value>所有球類</value>
+  </data>
+  <data name="Stake" xml:space="preserve">
+    <value>投注額</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>名</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>總和</value>
+  </data>
+  <data name="Today" xml:space="preserve">
+    <value>今日賽事</value>
+  </data>
+  <data name="Odd" xml:space="preserve">
+    <value>單</value>
+  </data>
+  <data name="Even" xml:space="preserve">
+    <value>雙</value>
+  </data>
+  <data name="Over" xml:space="preserve">
+    <value>大</value>
+  </data>
+  <data name="Under" xml:space="preserve">
+    <value>小</value>
+  </data>
+  <data name="FT" xml:space="preserve">
+    <value>全場</value>
+  </data>
+  <data name="HT" xml:space="preserve">
+    <value>半場</value>
+  </data>
+  <data name="TwoHDotOne" xml:space="preserve">
+    <value>下半場.1</value>
+  </data>
+  <data name="TwoHDotTwo" xml:space="preserve">
+    <value>下半場.2</value>
+  </data>
+  <data name="TwoHDotX" xml:space="preserve">
+    <value>下半場.X</value>
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>和局</value>
   </data>
 </root>

@@ -121,21 +121,105 @@
     <value>没资料显示</value>
   </data>
   <data name="League" xml:space="preserve">
-    <value>联赛</value>
+    <value>联盟</value>
   </data>
   <data name="Details" xml:space="preserve">
-    <value>Details</value>
+    <value>内容</value>
   </data>
   <data name="Event" xml:space="preserve">
-    <value>Event</value>
+    <value>赛事</value>
   </data>
   <data name="Time" xml:space="preserve">
-    <value>Time</value>
+    <value>时间</value>
   </data>
   <data name="Wagers" xml:space="preserve">
-    <value>Wagers</value>
+    <value>笔数</value>
   </data>
   <data name="Live" xml:space="preserve">
-    <value>Live</value>
+    <value>滚球</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>游览</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Parlay" xml:space="preserve">
+    <value>综合过关</value>
+  </data>
+  <data name="InPlay" xml:space="preserve">
+    <value>滚球</value>
+  </data>
+  <data name="Agent_Percentage" xml:space="preserve">
+    <value>代理商 (占成)</value>
+  </data>
+  <data name="MA_Percentage" xml:space="preserve">
+    <value>总代理 (占成)</value>
+  </data>
+  <data name="SMA_Percentage" xml:space="preserve">
+    <value>股东 (占成)</value>
+  </data>
+  <data name="AllSports" xml:space="preserve">
+    <value>所有球类</value>
+  </data>
+  <data name="OverView" xml:space="preserve">
+    <value>总览</value>
+  </data>
+  <data name="TotalStake" xml:space="preserve">
+    <value>总下注金额</value>
+  </data>
+  <data name="Outright" xml:space="preserve">
+    <value>冠军</value>
+  </data>
+  <data name="Stake" xml:space="preserve">
+    <value>投注额</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>名</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>总计</value>
+  </data>
+  <data name="ViewByAccount" xml:space="preserve">
+    <value>查看帐号</value>
+  </data>
+  <data name="ViewWagerDetails" xml:space="preserve">
+    <value>查看细单</value>
+  </data>
+  <data name="Today" xml:space="preserve">
+    <value>今日</value>
+  </data>
+  <data name="Early" xml:space="preserve">
+    <value>早盘</value>
+  </data>
+  <data name="Odd" xml:space="preserve">
+    <value>单</value>
+  </data>
+  <data name="Even" xml:space="preserve">
+    <value>双</value>
+  </data>
+  <data name="Over" xml:space="preserve">
+    <value>大</value>
+  </data>
+  <data name="Under" xml:space="preserve">
+    <value>小</value>
+  </data>
+  <data name="FT" xml:space="preserve">
+    <value>全场</value>
+  </data>
+  <data name="HT" xml:space="preserve">
+    <value>半场</value>
+  </data>
+  <data name="TwoHDotOne" xml:space="preserve">
+    <value>下半场.1</value>
+  </data>
+  <data name="TwoHDotTwo" xml:space="preserve">
+    <value>下半场.2</value>
+  </data>
+  <data name="TwoHDotX" xml:space="preserve">
+    <value>下半场.X</value>
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>和局</value>
   </data>
 </root>
