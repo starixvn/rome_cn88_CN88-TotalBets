@@ -39,6 +39,7 @@
                 ? matches
                     .GroupBy(item => item.LeagueId)
                     .Select(group => GetMatchLeague(group, ref totalWager, ref totalStake))
+                    .OrderBy(item => item.LeagueName)
                     .ToList()
                 : Enumerable.Empty<MatchLeague>();
 
@@ -59,7 +60,7 @@
             return new MatchLeague(
                 groupLeague.Key,
                 cacheRefService.GetLeagueName(groupLeague.Key),
-                groupLeague);
+                groupLeague.OrderByDescending(item => item.Stake));
         }
 
         public async Task<Match> GetMatch(int matchId)

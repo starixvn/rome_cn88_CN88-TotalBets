@@ -54,7 +54,7 @@
             return new TeamLeague(
                 groupLeague.Key,
                 cacheRefService.GetLeagueName(groupLeague.Key),
-                groupLeague,
+                groupLeague.OrderByDescending(item => item.Stake),
                 totalWager,
                 totalStake);
         }
