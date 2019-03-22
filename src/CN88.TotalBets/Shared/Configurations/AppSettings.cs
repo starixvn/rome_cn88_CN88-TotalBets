@@ -20,7 +20,7 @@
             set { appSettingValues = value; }
         }
 
-        public static string StoreProcedurePath => GetConfigValue("StoreProcedurePath");
+        public static string StoredProcedurePath => GetConfigValue("StoredProcedurePath");
 
         public static string RemoteRefURL => GetConfigValue("RemoteRefURL");
 
@@ -51,7 +51,7 @@
 
         public static void Verify()
         {
-            Require(StoreProcedurePath, nameof(StoreProcedurePath));
+            Require(StoredProcedurePath, nameof(StoredProcedurePath));
         }
 
         private static void Require(string key, string keyName)

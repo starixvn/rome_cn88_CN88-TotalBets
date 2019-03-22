@@ -41,7 +41,7 @@
             DbSettingProviderManager
                 .StartNewSession()
                 .Use(new OldConnectionStringProvider())
-                .UseDefaultDbSettingProvider(resourcePath: AppSettings.StoreProcedurePath)
+                .UseDefaultDbSettingProvider(resourcePath: AppSettings.StoredProcedurePath)
                 .Use((settingKey, commandTimeout) => new WrappingExceptionObjectDb(settingKey, commandTimeout))
                 .Run();
 
