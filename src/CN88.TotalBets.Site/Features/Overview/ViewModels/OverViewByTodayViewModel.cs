@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using Alpha.Web.Helpers;
+    using AppResources;
     using Shared.Helpers;
     using TotalBets.Features.Overview.Models;
     using TotalBets.Shared.Configurations;
@@ -17,7 +18,7 @@
             }
         }
 
-        public override string Text => "Today";
+        public override string Text => Resources.ResourceManager.GetString("Today");
 
         public override string SubMenuId => "TODAY";
 
