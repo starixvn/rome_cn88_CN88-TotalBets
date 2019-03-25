@@ -24,7 +24,7 @@
         </button>
     }
     <table class="tbl-style2 tbl-totalbet" id="tblTotalBets">
-        @if (Model.HasEventData)
+        @if (!Model.HasEventData)
         {
             <tbody>
                 <tr><td colspan="5" class="text-center no-info">@Resources.NoInformationIsAvailable</td></tr>
@@ -87,7 +87,7 @@
     }
     else
     {
-        @ShowTime(match, Model.IsEarly)
+        @HtmlHelpers.ShowTime(match.ShowTimeDT, match.OfferLive, Model.IsEarly)
     }
 }
 @helper RenderViewByBetTypeLink(string title, int matchId, string className = null)
@@ -112,20 +112,4 @@
             <span class="icon-chevron-right"></span>
         }
     </a>
-}
-@helper ShowTime(Match match, bool showMonthDay)
-{
-    var localDateTime = match.ShowTimeDT.AddHours(-4);
-
-    if (showMonthDay)
-    {
-        @localDateTime.ToString("yyyy-MM-dd")<br/>
-    }
-    
-    @localDateTime.ToString("HH:mm:ss")
-
-    if (match.OfferLive)
-    {
-        <br/><span class="live">@Resources.Live</span>
-    }
 }

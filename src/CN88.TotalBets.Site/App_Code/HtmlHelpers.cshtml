@@ -31,3 +31,20 @@
         <a data-submenuid="sub-menu-@submenuId" href="@link" class="link">@value.ToString("#,##0")</a>
     }
 }
+
+@helper ShowTime(DateTime showTime, bool offerLive, bool showMonthDay)
+{
+    var localShowTime = showTime.AddHours(-4);
+
+    if (showMonthDay)
+    {
+        @localShowTime.ToString("MM-dd")<br/>
+    }
+    
+    @localShowTime.ToString("HH:mm")
+
+    if (offerLive)
+    {
+        <br/><span class="live">@CN88.TotalBets.AppResources.Resources.Live</span>
+    }
+}

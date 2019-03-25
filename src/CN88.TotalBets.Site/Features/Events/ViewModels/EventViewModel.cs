@@ -1,6 +1,7 @@
 ﻿namespace CN88.TotalBets.Site.Features.Events.ViewModels
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Web.Mvc;
     using AppResources;
     using Shared.ViewModels;
@@ -23,7 +24,7 @@
             EventModel = eventModel;
             IsInPlay = eventModel.Type == EventTypeConstants.InPlay;
             IsEarly = eventModel.Type == EventTypeConstants.Early;
-            HasEventData = eventModel.TotalStake == 0;
+            HasEventData = eventModel.MatchLeagues.Any();
             SubTitle = Resources.ResourceManager.GetString(EventTypeConstants.EventTypes[query.Type]);
             Query = query;
         }
