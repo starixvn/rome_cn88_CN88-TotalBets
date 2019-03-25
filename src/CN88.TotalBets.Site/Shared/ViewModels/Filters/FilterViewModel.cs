@@ -9,7 +9,6 @@
             int sportTypeGroup,
             byte stakeCondition,
             decimal stake,
-            byte possType,
             bool isShowMarket,
             byte market,
             SingleSelectionViewModel possTypeSelectionViewModel,

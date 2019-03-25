@@ -113,6 +113,9 @@
     <Compile Include="Features\Events\Models\MatchLeague.cs" />
     <Compile Include="Features\Events\Models\MatchLeagueTotal.cs" />
     <Compile Include="Features\Events\Params\EventParam.cs" />
+    <Compile Include="Features\Started\Criteria\GetStartedCriteria.cs" />
+    <Compile Include="Features\Started\Params\StartedParam.cs" />
+    <Compile Include="Features\Started\StartedService.cs" />
     <Compile Include="Features\Summaries\Criteria\GetSummaryByEventCriteria.cs" />
     <Compile Include="Features\Summaries\Criteria\GetSummaryBySportTypeGroupCriteria.cs" />
     <Compile Include="Features\Summaries\Models\LeagueSummary.cs" />

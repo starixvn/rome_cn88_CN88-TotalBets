@@ -608,5 +608,14 @@ namespace CN88.TotalBets.AppResources {
                 return ResourceManager.GetString("Wagers", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yesterday.
+        /// </summary>
+        public static string Yesterday {
+            get {
+                return ResourceManager.GetString("Yesterday", resourceCulture);
+            }
+        }
     }
 }

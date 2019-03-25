@@ -300,4 +300,7 @@
   <data name="Member" xml:space="preserve">
     <value>Member</value>
   </data>
+  <data name="Yesterday" xml:space="preserve">
+    <value>Yesterday</value>
+  </data>
 </root>

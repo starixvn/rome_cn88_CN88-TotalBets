@@ -39,7 +39,6 @@
                 query.SportTypeGroup,
                 query.StakeCondition,
                 query.Stake,
-                query.PossType,
                 query.Type == EventTypeConstants.InPlay,
                 query.Market,
                 PossTypeSelectionViewModel,

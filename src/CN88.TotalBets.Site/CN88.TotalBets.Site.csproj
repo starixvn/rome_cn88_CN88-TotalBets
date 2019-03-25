@@ -432,6 +432,12 @@
     <Compile Include="Features\Events\ViewModels\EventViewModel.cs" />
     <Compile Include="Features\Outright\OutrightController.cs" />
     <Compile Include="Features\Overview\OverViewController.cs" />
+    <Compile Include="Features\Started\StartedController.cs" />
+    <Compile Include="Features\Started\StartedHandler.cs" />
+    <Compile Include="Features\Started\StartedQuery.cs" />
+    <Compile Include="Features\Started\ViewModels\DateSelectionViewModel.cs" />
+    <Compile Include="Features\Started\ViewModels\StartedFilterViewModel.cs" />
+    <Compile Include="Features\Started\ViewModels\StartedViewModel.cs" />
     <Compile Include="Features\ViewByBetType\ViewByBetTypeController.cs" />
     <Compile Include="Features\ViewByBetType\ViewByBetTypeHandler.cs" />
     <Compile Include="Features\ViewByBetType\ViewByBetTypeQuery.cs" />
@@ -541,8 +547,12 @@
     <Content Include="Features\WagerAccount\Event\Views\Index.cshtml" />
     <Content Include="Features\WagerAccount\Event\Views\web.config" />
     <Content Include="Features\ViewByBetType\Views\MatchSummaryMenu.cshtml" />
+    <Content Include="Features\Started\Views\Index.cshtml" />
+    <Content Include="Features\Started\Views\web.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Features\Started\Scripts\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Features\Overview\Views\Index.cshtml" />
   </ItemGroup>

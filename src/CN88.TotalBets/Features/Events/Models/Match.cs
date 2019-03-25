@@ -18,6 +18,8 @@ namespace CN88.TotalBets.Features.Events.Models
             int awayId,
             int liveHomeScore,
             int liveAwayScore,
+            int htHomeScore,
+            int htAwayScore,
             int wager,
             decimal stake,
             int betTypeCount,
@@ -32,6 +34,8 @@ namespace CN88.TotalBets.Features.Events.Models
             AwayId = awayId;
             LiveHomeScore = liveHomeScore;
             LiveAwayScore = liveAwayScore;
+            HTHomeScore = htHomeScore;
+            HTAwayScore = htAwayScore;
             Wager = wager;
             Stake = stake;
             BetTypeCount = betTypeCount;
@@ -48,7 +52,7 @@ namespace CN88.TotalBets.Features.Events.Models
 
         public int HomeId { get; }
 
-        public string HomeName => 
+        public string HomeName =>
             CacheRefManager.CacheRefInstance.GetTeamName(HomeId)
             + (IsNeutral ? " (N)" : string.Empty);
 
@@ -59,6 +63,10 @@ namespace CN88.TotalBets.Features.Events.Models
         public int LiveHomeScore { get; }
 
         public int LiveAwayScore { get; }
+
+        public int HTHomeScore { get; }
+
+        public int HTAwayScore { get; }
 
         public int Wager { get; }
 
