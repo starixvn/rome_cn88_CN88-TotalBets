@@ -477,7 +477,9 @@
     <Content Include="packages.config" />
     <Content Include="Shared\Views\NoInformation.cshtml" />
     <Content Include="Shared\Views\_Layout.cshtml" />
-    <Content Include="App_Data\AuthorizationSection.config" />
+    <Content Include="App_Data\AuthorizationSection.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Data\SPNames\DBARC.bodb_Archive.BODBDownlineNet" />
     <Content Include="bundleconfig.json" />
     <Content Include="compilerconfig.json" />
