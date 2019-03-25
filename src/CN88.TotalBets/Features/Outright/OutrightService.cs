@@ -41,8 +41,8 @@
 
         private TeamLeague GetTeamLeague(IGrouping<int, Team> groupLeague)
         {
-            int totalWager = 0;
-            decimal totalStake = 0;
+            var totalWager = 0;
+            var totalStake = 0M;
 
             foreach (var item in groupLeague)
             {

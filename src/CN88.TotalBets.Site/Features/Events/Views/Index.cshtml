@@ -36,7 +36,7 @@
                 <tr>
                     <th class="col-100">@(Model.IsInPlay ? Resources.Details : Resources.Time)</th>
                     <th>@Resources.Event</th>
-                    <th class="col-100 text-right">@Resources.Wagers [@HtmlHelpers.FormatNumber(Model.EventModel.TotalWager)]</th>
+                    <th class="col-120 text-right">@Resources.Wagers [@HtmlHelpers.FormatNumber(Model.EventModel.TotalWager)]</th>
                     <th class="col-180 text-right">@Resources.Stake [@HtmlHelpers.FormatNumber(Model.EventModel.TotalStake)]</th>
                     <th class="col-80">&nbsp;</th>
                 </tr>
@@ -45,12 +45,15 @@
                 @foreach (var league in Model.EventModel.MatchLeagues)
                 {
                     <tr class="group" data-leagueid="@league.LeagueId">
-                        <td colspan="5">
+                        <td colspan="2">
                             <span class="group-name-wrapper">
                                 <span class="icon-chevron-down"></span>
                                 <span class="group-name">@league.LeagueName</span>
                             </span>
                         </td>
+                        <td class="text-right">@HtmlHelpers.FormatNumber(league.TotalWager)&nbsp;</td>
+                        <td class="text-right">@HtmlHelpers.FormatNumber(league.TotalStake)&nbsp;</td>
+                        <td>&nbsp;</td>
                     </tr>
                     foreach (var match in league.Matches)
                     {

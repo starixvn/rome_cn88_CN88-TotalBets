@@ -51,16 +51,24 @@
             ref int totalWager,
             ref decimal totalStake)
         {
+            var totalWagerInLeague = 0;
+            var totalStakeInLeague = 0M;
+
             foreach (var item in groupLeague)
             {
-                totalWager += item.Wager;
-                totalStake += item.Stake;
+                totalWagerInLeague += item.Wager;
+                totalStakeInLeague += item.Stake;
             }
+
+            totalWager += totalWagerInLeague;
+            totalStake += totalStakeInLeague;
 
             return new MatchLeague(
                 groupLeague.Key,
                 cacheRefService.GetLeagueName(groupLeague.Key),
-                groupLeague.OrderByDescending(item => item.Stake));
+                groupLeague.OrderByDescending(item => item.Stake),
+                totalWagerInLeague,
+                totalStakeInLeague);
         }
 
         public async Task<Match> GetMatch(int matchId)
