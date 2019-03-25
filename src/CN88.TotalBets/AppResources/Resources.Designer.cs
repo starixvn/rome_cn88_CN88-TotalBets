@@ -61,6 +61,15 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Agent.
+        /// </summary>
+        public static string Agent {
+            get {
+                return ResourceManager.GetString("Agent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Agent %.
         /// </summary>
         public static string Agent_Percentage {
@@ -250,6 +259,24 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MA.
+        /// </summary>
+        public static string Master {
+            get {
+                return ResourceManager.GetString("Master", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Member.
+        /// </summary>
+        public static string Member {
+            get {
+                return ResourceManager.GetString("Member", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Member Stake.
         /// </summary>
         public static string MemberStake {
@@ -426,6 +453,15 @@ namespace CN88.TotalBets.AppResources {
         public static string Submit {
             get {
                 return ResourceManager.GetString("Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Super.
+        /// </summary>
+        public static string Super {
+            get {
+                return ResourceManager.GetString("Super", resourceCulture);
             }
         }
         

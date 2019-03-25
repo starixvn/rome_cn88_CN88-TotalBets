@@ -288,4 +288,16 @@
   <data name="OtherBetTypes" xml:space="preserve">
     <value>Other Bettypes</value>
   </data>
+  <data name="Super" xml:space="preserve">
+    <value>Super</value>
+  </data>
+  <data name="Master" xml:space="preserve">
+    <value>MA</value>
+  </data>
+  <data name="Agent" xml:space="preserve">
+    <value>Agent</value>
+  </data>
+  <data name="Member" xml:space="preserve">
+    <value>Member</value>
+  </data>
 </root>

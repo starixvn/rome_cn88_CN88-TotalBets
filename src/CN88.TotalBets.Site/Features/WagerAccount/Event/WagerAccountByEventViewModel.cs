@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using Alpha.Web.Helpers;
+    using AppResources;
     using CN88.TotalBets.Features.Overview.Models;
     using CN88.TotalBets.Features.WagerAccount;
     using CN88.TotalBets.Shared.Configurations;
@@ -76,6 +77,9 @@
 
             return UrlHelper.AddQueryStringParamsFunc(url, param);
         }
+
+        public string GetUserLevelName(UserLevel custLevel)
+            => Resources.ResourceManager.GetString(custLevel.DisplayName);
 
         private IEnumerable<CustInfo> GetBreadcrumbLevel()
         {
