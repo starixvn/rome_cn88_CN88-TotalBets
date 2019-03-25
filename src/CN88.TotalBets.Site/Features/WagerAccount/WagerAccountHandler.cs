@@ -38,7 +38,7 @@
                 message.Stake,
                 message.StakeCondition,
                 message.CustLevelId,
-                message.BetTypeGroup,
+                message.BetType,
                 message.BetTeam,
                 message.LiveIndicator);
 

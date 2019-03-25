@@ -12,7 +12,7 @@
         {            
         }
 
-        public int BetTypeGroup { get; set; }
+        public int BetType { get; set; }
 
         public string BetTeam { get; set; }
 

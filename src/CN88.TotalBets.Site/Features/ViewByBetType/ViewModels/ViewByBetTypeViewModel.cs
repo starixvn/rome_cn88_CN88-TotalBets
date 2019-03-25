@@ -76,7 +76,7 @@
                 matchId = Match.MatchId,
                 Stake = FilterViewModel.Stake,
                 StakeCondition = FilterViewModel.StakeCondition,
-                betTypeGroup = bettypeId,
+                BetType = bettypeId,
                 liveIndicatior = FilterViewModel.Market,
                 betTeam = betTeam
             };

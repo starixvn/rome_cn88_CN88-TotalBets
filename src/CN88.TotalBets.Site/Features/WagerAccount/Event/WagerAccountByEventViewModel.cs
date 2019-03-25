@@ -45,7 +45,7 @@
                     ["StakeCondition"] = Message.StakeCondition,
                     ["Stake"] = Message.Stake,
                     ["CustLevelId"] = Message.ViewerLevelId,
-                    ["BetType"] = Message.BetTypeGroup,
+                    ["BetType"] = Message.BetType,
                     ["LiveIndicator"] = Message.LiveIndicator,
                     ["BetTeam"] = Message.BetTeam
                 });
@@ -63,7 +63,7 @@
                 ["StakeCondition"] = Message.StakeCondition,
                 ["Stake"] = Message.Stake,
                 ["CustLevelId"] = Message.CustLevel.GetDirectDownLineLevel().Value,
-                ["BetType"] = Message.BetTypeGroup,
+                ["BetType"] = Message.BetType,
                 ["LiveIndicator"] = Message.LiveIndicator,
                 ["BetTeam"] = Message.BetTeam,
                 ["BreadcrumbLevelJson"] = JsonHelper.ToJsonFunc(breadscrumbToDonwline)
