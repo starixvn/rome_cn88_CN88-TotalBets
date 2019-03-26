@@ -57,7 +57,7 @@ class ViewByBetType extends BaseTotalBets {
             }
         });
 
-        this.$tblTotalBets.find(".stake").click(function (e: any): void {
+        this.$tblTotalBets.find(".stake-link").click(function (e: any): void {
             e.preventDefault();
             e.stopPropagation();
             window.open(this.href, "WagerDetails", "width=1000, height=500");

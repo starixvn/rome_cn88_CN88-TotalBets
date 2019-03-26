@@ -134,14 +134,14 @@
 {
     @HtmlHelpers.FormatNumber(betOption.Wager)
 
-    if (betOption.Stake > 0)
+    if (betOption.Wager > 0)
     {
         @Html.ActionLink(
         HtmlHelpers.FormatNumber(betOption.Stake).ToHtmlString(),
         "GetByEvent",
         "WagerAccount",
         Model.GetWagerAccountParams(betOption.BetTypeId, betOption.BetTeam),
-        new { @class = "stake link" })
+        new { @class = "stake link stake-link" })
     }
     else
     {
