@@ -39,7 +39,7 @@
                 query.SportTypeGroup,
                 query.StakeCondition,
                 query.Stake,
-                query.Type == EventTypeConstants.InPlay,
+                query.Type == EventTypeConstants.InPlay || query.Type == EventTypeConstants.Started,
                 query.Market,
                 PossTypeSelectionViewModel,
                 LeagueSelectionViewModel);

@@ -345,6 +345,14 @@
     <Content Include="assets\bundles\overview\overview.min.css">
       <DependentUpon>overview.css</DependentUpon>
     </Content>
+    <Content Include="assets\bundles\started\index.js" />
+    <Content Include="assets\bundles\started\index.min.js">
+      <DependentUpon>index.js</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\started\started.css" />
+    <Content Include="assets\bundles\started\started.min.css">
+      <DependentUpon>started.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\viewbybettype\index.js" />
     <Content Include="assets\bundles\viewbybettype\index.min.js">
       <DependentUpon>index.js</DependentUpon>
@@ -356,6 +364,12 @@
     <Content Include="assets\bundles\wageraccount\wager-account.js" />
     <Content Include="assets\bundles\wageraccount\wager-account.min.js">
       <DependentUpon>wager-account.js</DependentUpon>
+    </Content>
+    <Content Include="Features\Started\Styles\started.css">
+      <DependentUpon>started.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\Started\Styles\started.min.css">
+      <DependentUpon>started.css</DependentUpon>
     </Content>
     <Content Include="Features\ViewByBetType\Styles\images\Soccer_goal.png" />
     <Content Include="Features\ViewByBetType\Styles\viewbybettype.min.css">
@@ -549,10 +563,11 @@
     <Content Include="Features\ViewByBetType\Views\MatchSummaryMenu.cshtml" />
     <Content Include="Features\Started\Views\Index.cshtml" />
     <Content Include="Features\Started\Views\web.config" />
+    <Content Include="Features\Started\Styles\started.scss" />
+    <Content Include="Features\Started\Views\Filter.cshtml" />
+    <Content Include="Features\Started\Views\DateSelection.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Features\Started\Scripts\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Features\Overview\Views\Index.cshtml" />
   </ItemGroup>
@@ -580,6 +595,7 @@
     <Content Include="App_Code\Filters\StakeConditionFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Features\Started\Scripts\started.ts" />
     <TypeScriptCompile Include="Shared\Scripts\auto-refresh.ts" />
     <TypeScriptCompile Include="Shared\Scripts\base-totalbets.ts" />
     <TypeScriptCompile Include="Shared\Scripts\components\single-selection-dropdown.ts" />

@@ -1,6 +1,7 @@
 ﻿namespace CN88.TotalBets.Site.Features.Started.ViewModels
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Web.Mvc;
     using Shared.ViewModels;
     using TotalBets.Features.Events.Models;
@@ -19,8 +20,21 @@
             : base(query, sportTypeGroup, $"{query.AppPath}{startedVirtualPath}", summaries, leagues)
         {
             Data = data;
+            FilterViewModel = new StartedFilterViewModel(
+                query.Type,
+                query.DateType,
+                query.SportTypeGroup,
+                query.StakeCondition,
+                query.Stake,
+                query.Market,
+                PossTypeSelectionViewModel,
+                LeagueSelectionViewModel);
         }
 
         public IEnumerable<MatchLeague> Data { get; }
+
+        public int TotalWager => Data.Sum(item => item.TotalWager);
+
+        public decimal TotalStake => Data.Sum(item => item.TotalStake);
     }
 }

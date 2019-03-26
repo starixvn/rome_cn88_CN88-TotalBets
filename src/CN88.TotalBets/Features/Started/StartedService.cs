@@ -42,7 +42,8 @@
                     group.Key,
                     cacheRefService.GetLeagueName(group.Key),
                     group.OrderByDescending(item => item.Stake),
-                    group.Sum(item => item.Wager), group.Sum(item => item.Stake)));
+                    group.Sum(item => item.Wager),
+                    group.Sum(item => item.Stake)));
         }
     }
 }

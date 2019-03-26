@@ -19,10 +19,14 @@ class EventTotalBets extends BaseTotalBets {
 
         this.cacheDOMElements();
         this.renderComponents();
-        this.marketSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-market", "Market"));
         this.bindEvents();
 
         this.$.unblockUI();
+    }
+
+    renderComponents(): void {
+        super.renderComponents();
+        this.marketSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-market", "Market"));
     }
 
     onSubmit(): void {
@@ -33,15 +37,15 @@ class EventTotalBets extends BaseTotalBets {
     bindEvents(): void {
         super.bindEvents();
 
-        let buttonAutoRefresh: JQuery = this.$("#btn-refresh");
-        let reloadInSeconds: number = <number>this.$("#ReloadTimeInSeconds").val();
+        //let buttonAutoRefresh: JQuery = this.$("#btn-refresh");
+        //let reloadInSeconds: number = <number>this.$("#ReloadTimeInSeconds").val();
 
-        if (buttonAutoRefresh.length) {
-            buttonAutoRefresh.click(() => { this.$filterForm.trigger("submit"); });
+        //if (buttonAutoRefresh.length) {
+        //    buttonAutoRefresh.click(() => { this.$filterForm.trigger("submit"); });
 
-            let autoRefresh: AutoRefresh = new AutoRefresh(this.$("#countDownContainer"), this.$filterForm);
-            autoRefresh.start(reloadInSeconds);
-        }
+        //    let autoRefresh: AutoRefresh = new AutoRefresh(this.$("#countDownContainer"), this.$filterForm);
+        //    autoRefresh.start(reloadInSeconds);
+        //}
     }
 }
 

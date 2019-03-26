@@ -68,5 +68,23 @@
       "Shared/Scripts/auto-refresh.js",
       "Features/ViewByBetType/Scripts/view-by-bet-type.js"
     ]
+  },
+  {
+    "outputFileName": "assets/bundles/started/started.css",
+    "inputFiles": [
+      "Shared/Styles/totalbets.css",
+      "Features/Started/Styles/started.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/started/index.js",
+    "inputFiles": [
+      "Shared/Scripts/summary-menu.js",
+      "Shared/Scripts/components/single-selection-dropdown.js",
+      "Shared/Scripts/base-totalbets.js",
+      "Shared/Scripts/auto-refresh.js",
+      "Features/Events/Scripts/event.js",
+      "Features/Started/Scripts/started.js"
+    ]
   }
 ]

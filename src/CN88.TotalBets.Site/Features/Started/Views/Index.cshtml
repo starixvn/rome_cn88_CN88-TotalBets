@@ -2,6 +2,12 @@
     ViewBag.Title = "Total Bets";
     Layout = "~/Shared/Views/_Layout.cshtml";
 }
+@section Styles {
+    @StaticResources.RenderStyles("~/assets/bundles/started/started")
+}
+@section Scripts {
+    @StaticResources.RenderScripts("~/assets/bundles/started/index")
+}
 @model StartedViewModel
 @SummaryMenu.Render(Model.SummaryMenuViewModel)
 <div class="main-content" id="main-content">
@@ -9,9 +15,64 @@
         <div>@Model.Title</div>
         <div class="event">@Model.SubTitle</div>
     </div>
-    @Html.Partial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel)
-    <button type="button" class="btn-refresh" id="btn-refresh">
+    @Html.Partial("~/Features/Started/Views/Filter.cshtml", Model.FilterViewModel)
+    <button type="button" class="btn-submit btn-refresh" id="btn-refresh">
         <span class="icon-refresh"></span>
         <span id="countDownContainer">..</span>
     </button>
+    <table class="tbl-style2 tbl-totalbet" id="tblTotalBets">
+        @if (Model.Data.Any())
+        {
+            <thead>
+                <tr>
+                    <th class="col-100">@Resources.Time</th>
+                    <th class="col-180">@Resources.Details</th>
+                    <th>@Resources.Event</th>
+                    <th class="col-100 text-right">@Resources.Wagers</th>
+                    <th class="col-100 text-right">[@HtmlHelpers.FormatNumber(Model.TotalWager)]</th>
+                    <th class="col-180 text-right">@Resources.Stake [@HtmlHelpers.FormatNumber(Model.TotalStake)]</th>
+                    <th class="col-80">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var league in Model.Data)
+                {
+                    <tr class="group" data-leagueid="@league.LeagueId">
+                        <td colspan="3">
+                            <span class="group-name-wrapper">
+                                <span class="icon-chevron-down"></span>
+                                <span class="group-name">@league.LeagueName</span>
+                            </span>
+                        </td>
+                        <td><span>PM</span><span>IP</span></td>
+                        <td class="text-right">@HtmlHelpers.FormatNumber(league.TotalWager)&nbsp;</td>
+                        <td class="text-right">@HtmlHelpers.FormatNumber(league.TotalStake)&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    foreach (var match in league.Matches)
+                    {
+                        <tr class="childrow-@league.LeagueId">
+                            <td>@HtmlHelpers.ShowTime(match.ShowTimeDT, match.OfferLive, true)</td>
+                            <td>
+                                <div class="HT">@match.HTHomeScore - @match.HTAwayScore</div>
+                                <div class="FT">@match.LiveHomeScore - @match.LiveAwayScore</div>
+                                <div class="live">@Resources.Live</div>
+                            </td>
+                            <td>@match.HomeName v @match.AwayName</td>
+                            <td><span>PM</span><span>IP</span></td>
+                            <td class="text-right">@HtmlHelpers.FormatNumber(match.Wager)</td>
+                            <td class="text-right">@HtmlHelpers.FormatNumber(match.Stake).ToHtmlString()</td>
+                            <td class="text-right">@HtmlHelpers.FormatNumber(match.BetTypeCount).ToHtmlString()</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        }
+        else
+        {
+            <tbody>
+                <tr><td colspan="7" class="text-center no-info">@Resources.NoInformationIsAvailable</td></tr>
+            </tbody>
+        }
+    </table>
 </div>

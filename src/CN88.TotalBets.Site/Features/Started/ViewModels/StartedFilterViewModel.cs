@@ -5,7 +5,8 @@
     public class StartedFilterViewModel : FilterViewModel
     {
         public StartedFilterViewModel(
-             byte type,
+            byte type,
+            byte dateType,
             int sportTypeGroup,
             byte stakeCondition,
             decimal stake,
@@ -14,6 +15,9 @@
             SingleSelectionViewModel leagueSelectionViewModel)
             : base(type, sportTypeGroup, stakeCondition, stake, true, market, possTypeSelectionViewModel, leagueSelectionViewModel)
         {
+            DateSelectionViewModel = new DateSelectionViewModel(dateType);
         }
+
+        public DateSelectionViewModel DateSelectionViewModel { get; }
     }
 }
