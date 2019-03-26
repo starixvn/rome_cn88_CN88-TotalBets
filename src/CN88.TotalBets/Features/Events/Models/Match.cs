@@ -70,10 +70,6 @@ namespace CN88.TotalBets.Features.Events.Models
 
         public bool IsNeutral { get; }
 
-        public bool OfferLive { get; }
-
-        public bool IsShowScore => 
-            SportTypeId == SportTypeConstants.Soccer
-            && OfferLive;
+        public bool OfferLive { get; }        
     }
 }

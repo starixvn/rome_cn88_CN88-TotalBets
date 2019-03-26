@@ -80,5 +80,8 @@
                 liveIndicator = liveIndicator ? 1 : 0,
                 betTeam = betTeam
             };
+
+        public bool ShowScore(int sportTypeId)
+            => sportTypeId == SportTypeConstants.Soccer && ViewFromInPlayPage;
     }
 }

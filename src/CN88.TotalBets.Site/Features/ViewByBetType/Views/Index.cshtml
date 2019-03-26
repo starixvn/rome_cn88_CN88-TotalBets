@@ -54,7 +54,7 @@
                             <div class="show-time">@HtmlHelpers.ShowTime(Model.Match.ShowTimeDT, Model.Match.OfferLive, Model.ViewFromEarlyPage)</div>
             <div class="match">
                 <span class="team-name">@Model.Match.HomeName</span>
-                @if (model.Match.IsShowScore)
+                @if (model.ShowScore(model.Match.SportTypeId))
                 {
                     <span class="score">@Model.Match.LiveHomeScore - @Model.Match.LiveAwayScore</span>
                 }
