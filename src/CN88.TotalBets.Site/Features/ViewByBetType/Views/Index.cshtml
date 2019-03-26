@@ -140,7 +140,7 @@
         HtmlHelpers.FormatNumber(betOption.Stake).ToHtmlString(),
         "GetByEvent",
         "WagerAccount",
-        Model.GetWagerAccountParams(betOption.BetTypeId, betOption.BetTeam),
+        Model.GetWagerAccountParams(betOption.BetTypeId, betOption.BetTeam, betOption.IsLive),
         new { @class = "stake link stake-link" })
     }
     else

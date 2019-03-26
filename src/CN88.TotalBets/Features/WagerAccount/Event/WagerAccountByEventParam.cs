@@ -10,7 +10,7 @@
             byte roleId,
             int bettypeGroup,
             string betteam,
-            int liveIndicator) : base(custId, matchId, stake, stakeCondition, roleId)
+            bool liveIndicator) : base(custId, matchId, stake, stakeCondition, roleId)
         {
             BettypeGroup = bettypeGroup;
             BetTeam = betteam;
@@ -21,7 +21,7 @@
 
         public string BetTeam { get; }
 
-        public int LiveIndicator { get; }
+        public bool LiveIndicator { get; }
 
     }
 }

@@ -67,7 +67,7 @@
 
         public bool ViewFromEarlyPage { get; }
 
-        public object GetWagerAccountParams(int bettypeId, string betTeam)
+        public object GetWagerAccountParams(int bettypeId, string betTeam, bool liveIndicator)
             => new
             {
                 custId = query.ViewerId,
@@ -77,7 +77,7 @@
                 Stake = FilterViewModel.Stake,
                 StakeCondition = FilterViewModel.StakeCondition,
                 BetType = bettypeId,
-                liveIndicator = FilterViewModel.Market,
+                liveIndicator = liveIndicator,
                 betTeam = betTeam
             };
     }

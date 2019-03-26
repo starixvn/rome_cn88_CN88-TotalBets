@@ -24,6 +24,9 @@
             => await dynamicRepository.FetchAsync<WagerAccountModel>(new GetWagerAccountCriteria(param));
 
         public async Task<IEnumerable<WagerAccountModel>> GetByEvent(WagerAccountByEventParam param)
-            => await dynamicRepository.FetchAsync<WagerAccountModel>(new GetWagerAccountByEventCriteria(param));
+        {
+            var a = new GetWagerAccountByEventCriteria(param);
+            return await dynamicRepository.FetchAsync<WagerAccountModel>(a);
+        }
     }
 }
