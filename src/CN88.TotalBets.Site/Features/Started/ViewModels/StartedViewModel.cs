@@ -4,7 +4,7 @@
     using System.Linq;
     using System.Web.Mvc;
     using Shared.ViewModels;
-    using TotalBets.Features.Events.Models;
+    using TotalBets.Features.Started.Models;
     using TotalBets.Features.Summaries.Models;
 
     public class StartedViewModel : BaseViewModel
@@ -14,11 +14,12 @@
         public StartedViewModel(
             StartedQuery query,
             string sportTypeGroup,
-            IEnumerable<MatchLeague> data,
+            IEnumerable<StartedLeague> data,
             IEnumerable<SportGroupSummary> summaries,
             IEnumerable<SelectListItem> leagues)
             : base(query, sportTypeGroup, $"{query.AppPath}{startedVirtualPath}", summaries, leagues)
         {
+            ShowDate = query.DateType == 2;
             Data = data;
             FilterViewModel = new StartedFilterViewModel(
                 query.Type,
@@ -31,10 +32,20 @@
                 LeagueSelectionViewModel);
         }
 
-        public IEnumerable<MatchLeague> Data { get; }
+        public bool ShowDate { get; }
 
-        public int TotalWager => Data.Sum(item => item.TotalWager);
+        public IEnumerable<StartedLeague> Data { get; }
 
-        public decimal TotalStake => Data.Sum(item => item.TotalStake);
+        public int TotalPMWager => Data.Sum(item => item.TotalPMWager);
+
+        public decimal TotalPMStake => Data.Sum(item => item.TotalPMStake);
+
+        public int TotalIPWager => Data.Sum(item => item.TotalIPWager);
+
+        public decimal TotalIPStake => Data.Sum(item => item.TotalIPStake);
+
+        public int TotalWager => TotalPMWager + TotalIPWager;
+
+        public decimal TotalStake => TotalPMStake + TotalIPStake;
     }
 }

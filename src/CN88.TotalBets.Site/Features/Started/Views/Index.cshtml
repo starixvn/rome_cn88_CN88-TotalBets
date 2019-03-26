@@ -35,6 +35,28 @@
                 </tr>
             </thead>
             <tbody>
+                <tr class="total">
+                    <td>@Resources.Total</td>
+                    <td colspan="2"></td>
+                    <td><span class="PM">@Resources.PM</span><span class="IP">@Resources.IP</span></td>
+                    <td class="text-right">
+                        <span class="PM">
+                            @HtmlHelpers.FormatNumber(Model.TotalPMWager)
+                        </span>
+                        <span class="IP">
+                            @HtmlHelpers.FormatNumber(Model.TotalIPWager)
+                        </span>
+                    </td>
+                    <td class="text-right">
+                        <span class="PM">
+                            @HtmlHelpers.FormatNumber(Model.TotalPMStake)
+                        </span>
+                        <span class="IP">
+                            @HtmlHelpers.FormatNumber(Model.TotalIPStake)
+                        </span>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
                 @foreach (var league in Model.Data)
                 {
                     <tr class="group" data-leagueid="@league.LeagueId">
@@ -44,24 +66,47 @@
                                 <span class="group-name">@league.LeagueName</span>
                             </span>
                         </td>
-                        <td><span>PM</span><span>IP</span></td>
-                        <td class="text-right">@HtmlHelpers.FormatNumber(league.TotalWager)&nbsp;</td>
-                        <td class="text-right">@HtmlHelpers.FormatNumber(league.TotalStake)&nbsp;</td>
+                        <td><span class="PM">@Resources.PM</span><span class="IP">@Resources.IP</span></td>
+                        <td class="text-right">
+                            <span class="PM">
+                                @HtmlHelpers.FormatNumber(league.TotalPMWager)
+                            </span>
+                            <span class="IP">
+                                @HtmlHelpers.FormatNumber(league.TotalIPWager)
+                            </span>
+                        </td>
+                        <td class="text-right">
+                            <span class="PM">
+                                @HtmlHelpers.FormatNumber(league.TotalPMStake)
+                            </span>
+                            <span class="IP">
+                                @HtmlHelpers.FormatNumber(league.TotalIPStake)
+                            </span>
+                        </td>
                         <td>&nbsp;</td>
                     </tr>
                     foreach (var match in league.Matches)
                     {
                         <tr class="childrow-@league.LeagueId">
-                            <td>@HtmlHelpers.ShowTime(match.ShowTimeDT, match.OfferLive, true)</td>
+                            <td>@HtmlHelpers.ShowTime(match.ShowTimeDT, match.OfferLive, Model.ShowDate)</td>
                             <td>
-                                <div class="HT">@match.HTHomeScore - @match.HTAwayScore</div>
-                                <div class="FT">@match.LiveHomeScore - @match.LiveAwayScore</div>
-                                <div class="live">@Resources.Live</div>
+                                <div class="HT"><span>@Resources.HT</span>@match.HTHomeScore - @match.HTAwayScore</div>
+                                <div class="FT"><span>@Resources.FT</span>@match.LiveHomeScore - @match.LiveAwayScore</div>
+                                @if (match.LiveType)
+                                {
+                                    <div class="live">@Resources.Live</div>
+                                }
                             </td>
                             <td>@match.HomeName v @match.AwayName</td>
-                            <td><span>PM</span><span>IP</span></td>
-                            <td class="text-right">@HtmlHelpers.FormatNumber(match.Wager)</td>
-                            <td class="text-right">@HtmlHelpers.FormatNumber(match.Stake).ToHtmlString()</td>
+                            <td><span class="PM">@Resources.PM</span><span class="IP">@Resources.IP</span></td>
+                            <td class="text-right">
+                                <span class="PM">@HtmlHelpers.FormatNumber(match.PMWager)</span>
+                                <span class="IP">@HtmlHelpers.FormatNumber(match.IPWager)</span>
+                            </td>
+                            <td class="text-right">
+                                <span class="PM">@HtmlHelpers.FormatNumber(match.PMStake)</span>
+                                <span class="IP">@HtmlHelpers.FormatNumber(match.IPStake)</span>
+                            </td>
                             <td class="text-right">@HtmlHelpers.FormatNumber(match.BetTypeCount).ToHtmlString()</td>
                         </tr>
                     }

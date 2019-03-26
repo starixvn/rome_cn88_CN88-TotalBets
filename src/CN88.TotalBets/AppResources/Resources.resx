@@ -306,4 +306,10 @@
   <data name="Date" xml:space="preserve">
     <value>Date</value>
   </data>
+  <data name="PM" xml:space="preserve">
+    <value>PM</value>
+  </data>
+  <data name="IP" xml:space="preserve">
+    <value>IP</value>
+  </data>
 </root>
