@@ -77,7 +77,7 @@
                 Stake = FilterViewModel.Stake,
                 StakeCondition = FilterViewModel.StakeCondition,
                 BetType = bettypeId,
-                liveIndicatior = FilterViewModel.Market,
+                liveIndicator = FilterViewModel.Market,
                 betTeam = betTeam
             };
     }
