@@ -8,6 +8,7 @@ using Fanex.Logging.Extensions.Database;
 using Fanex.Logging.Extensions.Web;
 using Fanex.Logging.RabbitMQ;
 using Fanex.Logging.Sentry.RavenClient;
+using Alpha.Web.Configurations;
 
 namespace CN88.TotalBets.Site.App_Start
 {
@@ -26,7 +27,7 @@ namespace CN88.TotalBets.Site.App_Start
                 logEngines.Add(new SentryLogging(new SentryEngineOptions
                 {
                     Dsn = new SharpRaven.Dsn(sentryUrl)
-                }));
+                }, $"{AppSettings.AssetAppPath}/bundles/common/raven.min.js"));
             }
 
             LogManager
