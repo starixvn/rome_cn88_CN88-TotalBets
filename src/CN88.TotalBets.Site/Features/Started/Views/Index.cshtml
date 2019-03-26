@@ -21,20 +21,20 @@
         <span id="countDownContainer">..</span>
     </button>
     <table class="tbl-style2 tbl-totalbet" id="tblTotalBets">
-        @if (Model.Data.Any())
-        {
-            <thead>
-                <tr>
-                    <th class="col-100">@Resources.Time</th>
-                    <th class="col-180">@Resources.Details</th>
-                    <th>@Resources.Event</th>
-                    <th class="col-100 text-right">@Resources.Wagers</th>
-                    <th class="col-100 text-right">[@HtmlHelpers.FormatNumber(Model.TotalWager)]</th>
-                    <th class="col-180 text-right">@Resources.Stake [@HtmlHelpers.FormatNumber(Model.TotalStake)]</th>
-                    <th class="col-80">&nbsp;</th>
-                </tr>
-            </thead>
-            <tbody>
+        <thead>
+            <tr>
+                <th class="col-100">@Resources.Time</th>
+                <th class="col-180">@Resources.Details</th>
+                <th>@Resources.Event</th>
+                <th class="col-100 text-right">@Resources.Wagers</th>
+                <th class="col-100 text-right">[@HtmlHelpers.FormatNumber(Model.TotalWager)]</th>
+                <th class="col-180 text-right">@Resources.Stake [@HtmlHelpers.FormatNumber(Model.TotalStake)]</th>
+                <th class="col-80">&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Data.Any())
+            {
                 <tr class="total">
                     <td>@Resources.Total</td>
                     <td colspan="2"></td>
@@ -57,7 +57,7 @@
                     </td>
                     <td>&nbsp;</td>
                 </tr>
-                @foreach (var league in Model.Data)
+                foreach (var league in Model.Data)
                 {
                     <tr class="group" data-leagueid="@league.LeagueId">
                         <td colspan="3">
@@ -104,20 +104,57 @@
                                 <span class="IP">@HtmlHelpers.FormatNumber(match.IPWager)</span>
                             </td>
                             <td class="text-right">
-                                <span class="PM">@HtmlHelpers.FormatNumber(match.PMStake)</span>
-                                <span class="IP">@HtmlHelpers.FormatNumber(match.IPStake)</span>
+                                <span class="PM">
+                                    @if (match.PMWager > 0)
+                                    {
+                                        @RenderViewByBetTypeLink(HtmlHelpers.FormatNumber(match.PMStake).ToHtmlString(), match.MatchId)
+                                    }
+                                    else
+                                    {
+                                        @HtmlHelpers.FormatNumber(match.PMStake);
+                                    }
+                                </span>
+                                <span class="IP">
+                                    @if (match.IPWager > 0)
+                                    {
+                                        @RenderViewByBetTypeLink(HtmlHelpers.FormatNumber(match.PMStake).ToHtmlString(), match.MatchId)
+                                    }
+                                    else
+                                    {
+                                        @HtmlHelpers.FormatNumber(match.IPStake)
+                                    }
+                                </span>
                             </td>
-                            <td class="text-right">@HtmlHelpers.FormatNumber(match.BetTypeCount).ToHtmlString()</td>
+                            <td class="text-right">@RenderViewByBetTypeLink(HtmlHelpers.FormatNumber(match.BetTypeCount).ToHtmlString(), match.MatchId, "bettypecount")</td>
                         </tr>
                     }
                 }
-            </tbody>
-        }
-        else
-        {
-            <tbody>
+            }
+            else
+            {
                 <tr><td colspan="7" class="text-center no-info">@Resources.NoInformationIsAvailable</td></tr>
-            </tbody>
-        }
+            }
+        </tbody>
     </table>
 </div>
+@helper RenderViewByBetTypeLink(string text, int matchId, string className = null)
+{
+    <a href="@Url.Action(
+            "Index",
+            "ViewByBetType",
+            new {
+                matchId = matchId,
+                stake = Model.FilterViewModel.Stake,
+                stakeCondition = Model.FilterViewModel.StakeCondition,
+                type = EventTypeConstants.Started,
+                sportTypeGroup = Model.FilterViewModel.SportTypeGroup,
+                market = Model.FilterViewModel.Market,
+                possType = Model.FilterViewModel.PossTypeSelectionViewModel.UserSelectedId,
+            })" class="link @className">
+        @text
+        @if (className != null)
+        {
+            <span class="icon-chevron-right"></span>
+        }
+    </a>
+}
