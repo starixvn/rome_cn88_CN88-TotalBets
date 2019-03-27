@@ -1,6 +1,18 @@
 ﻿.menu-container {
-    .league-wrapper, .sport {
-        cursor: pointer;
+    .menu-item{
+        cursor: pointer;        
+        padding-right: 0;
+        .icon-chevron-down, .icon-chevron-right {
+            width: 18px;
+            display: inline-block;
+            font-size: 18px;
+            vertical-align: middle;
+        }
+        .name {
+            display: inline-block;
+            width: calc(100% - 18px - 4px);
+            vertical-align: middle;
+        }
     }
 
     .menu-item.sport {
@@ -9,19 +21,7 @@
     }
 
     .league-wrapper {
-        background-color: #f4f1f1;
-        padding-right: 0;
-        .league {
-            display: inline-block;
-            width: calc(100% - 18px - 4px);
-            vertical-align: middle;
-        }
-        .icon-chevron-down, .icon-chevron-right {
-            width: 18px;
-            display: inline-block;
-            font-size: 18px;
-            vertical-align: middle;
-        }
+        background-color: #f4f1f1;        
     }
 }
 
