@@ -67,15 +67,20 @@ class ViewByBetType extends BaseTotalBets {
             let $this: JQuery = $(this);
             let icon = $this.children().last();
             let listSports = $(".list-sports");
+            let leagues = $(".league-wrapper");
 
             if (icon.hasClass("icon-chevron-down")) {
                 icon.removeClass().addClass("icon-chevron-right");
                 listSports.addClass("hide");
-                $(".league-wrapper").children().last().removeClass().addClass("icon-chevron-right");
+                leagues.each(function () {
+                    $(this).children().last().removeClass().addClass("icon-chevron-right");
+                })
             } else {
                 icon.removeClass().addClass("icon-chevron-down");
                 listSports.removeClass("hide");
-                $(".league-wrapper").children().last().removeClass().addClass("icon-chevron-down");
+                leagues.each(function () {
+                    $(this).children().last().removeClass().addClass("icon-chevron-down");
+                })
             }
         });
     }
