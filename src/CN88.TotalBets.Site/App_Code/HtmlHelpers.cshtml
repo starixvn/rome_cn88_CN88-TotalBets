@@ -34,14 +34,12 @@
 
 @helper ShowTime(DateTime showTime, bool offerLive, bool showMonthDay)
 {
-    var localShowTime = showTime.AddHours(-4);
-
     if (showMonthDay)
     {
-        @localShowTime.ToString("MM-dd")<br/>
+        @showTime.ToString("MM-dd")<br/>
     }
     
-    @localShowTime.ToString("HH:mm")
+    @showTime.ToString("HH:mm")
 
     if (offerLive)
     {
