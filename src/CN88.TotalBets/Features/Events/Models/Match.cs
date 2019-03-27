@@ -1,5 +1,4 @@
 ﻿using System;
-using CN88.TotalBets.Shared.Constants;
 using CN88.TotalBets.Shared.Services;
 
 namespace CN88.TotalBets.Features.Events.Models
@@ -18,8 +17,6 @@ namespace CN88.TotalBets.Features.Events.Models
             int awayId,
             int liveHomeScore,
             int liveAwayScore,
-            int htHomeScore,
-            int htAwayScore,
             int wager,
             decimal stake,
             int betTypeCount,
@@ -34,8 +31,6 @@ namespace CN88.TotalBets.Features.Events.Models
             AwayId = awayId;
             LiveHomeScore = liveHomeScore;
             LiveAwayScore = liveAwayScore;
-            HTHomeScore = htHomeScore;
-            HTAwayScore = htAwayScore;
             Wager = wager;
             Stake = stake;
             BetTypeCount = betTypeCount;
@@ -64,10 +59,6 @@ namespace CN88.TotalBets.Features.Events.Models
 
         public int LiveAwayScore { get; }
 
-        public int HTHomeScore { get; }
-
-        public int HTAwayScore { get; }
-
         public int Wager { get; }
 
         public decimal Stake { get; }
@@ -78,6 +69,6 @@ namespace CN88.TotalBets.Features.Events.Models
 
         public bool IsNeutral { get; }
 
-        public bool OfferLive { get; }        
+        public bool OfferLive { get; }
     }
 }

@@ -20,13 +20,13 @@
         <span class="icon-refresh"></span>
         <span id="countDownContainer">..</span>
     </button>
-    <table class="tbl-style2 tbl-totalbet" id="tblTotalBets">
+    <table class="tbl-style2 tbl-totalbet tbl-started" id="tbl-started">
         <thead>
             <tr>
                 <th class="col-100 text-center">@Resources.Time</th>
-                <th class="col-180 text-center">@Resources.Details</th>
-                <th>@Resources.Event</th>
-                <th class="col-100 text-right">@Resources.Wagers</th>
+                <th class="col-120 text-center">@Resources.Details</th>
+                <th class="col-320">@Resources.Event</th>
+                <th class="col-100">@Resources.Wagers</th>
                 <th class="col-100 text-right">[@HtmlHelpers.FormatNumber(Model.TotalWager)]</th>
                 <th class="col-180 text-right">@Resources.Stake [@HtmlHelpers.FormatNumber(Model.TotalStake)]</th>
                 <th class="col-80">&nbsp;</th>
@@ -38,24 +38,24 @@
                 <tr class="total">
                     <td>@Resources.Total</td>
                     <td colspan="2"></td>
-                    <td><span class="PM">@Resources.PM</span><span class="IP">@Resources.IP</span></td>
+                    <td><div class="PM">@Resources.PM</div><div class="IP">@Resources.IP</div></td>
                     <td class="text-right">
-                        <span class="PM">
+                        <div class="PM">
                             @HtmlHelpers.FormatNumber(Model.TotalPMWager)
-                        </span>
-                        <span class="IP">
+                        </div>
+                        <div class="IP">
                             @HtmlHelpers.FormatNumber(Model.TotalIPWager)
-                        </span>
+                        </div>
                     </td>
                     <td class="text-right">
-                        <span class="PM">
+                        <div class="PM">
                             @HtmlHelpers.FormatNumber(Model.TotalPMStake)
-                        </span>
-                        <span class="IP">
+                        </div>
+                        <div class="IP">
                             @HtmlHelpers.FormatNumber(Model.TotalIPStake)
-                        </span>
+                        </div>
                     </td>
-                    <td>&nbsp;</td>
+                    <td></td>
                 </tr>
                 foreach (var league in Model.Data)
                 {
@@ -66,14 +66,14 @@
                                 <span class="group-name">@league.LeagueName</span>
                             </span>
                         </td>
-                        <td><span class="PM">@Resources.PM</span><span class="IP">@Resources.IP</span></td>
+                        <td><div class="PM">@Resources.PM</div><div class="IP">@Resources.IP</div></td>
                         <td class="text-right">
-                            <span class="PM">
+                            <div class="PM">
                                 @HtmlHelpers.FormatNumber(league.TotalPMWager)
-                            </span>
-                            <span class="IP">
+                            </div>
+                            <div class="IP">
                                 @HtmlHelpers.FormatNumber(league.TotalIPWager)
-                            </span>
+                            </div>
                         </td>
                         <td class="text-right">
                             <div class="PM">
@@ -88,17 +88,17 @@
                     foreach (var match in league.Matches)
                     {
                         <tr class="childrow-@league.LeagueId">
-                            <td>@HtmlHelpers.ShowTime(match.ShowTimeDT, match.OfferLive, Model.ShowDate)</td>
-                            <td>
-                                <div class="half HT"><div>@Resources.HT</div>@match.HTHomeScore - @match.HTAwayScore</div>
-                                <div class="half FT"><div>@Resources.FT</div>@match.LiveHomeScore - @match.LiveAwayScore</div>
+                            <td class="text-center">@HtmlHelpers.ShowTime(match.ShowTimeDT, match.OfferLive, Model.ShowDate)</td>
+                            <td class="details">
+                                <div class="half HT"><div class="title">@Resources.HT</div>@match.HTHomeScore - @match.HTAwayScore</div>
+                                <div class="half FT"><div class="title">@Resources.FT</div>@match.LiveHomeScore - @match.LiveAwayScore</div>
                                 @if (match.LiveType)
                                 {
                                     <div class="live">@Resources.Live</div>
                                 }
                             </td>
                             <td>@match.HomeName v @match.AwayName</td>
-                            <td><span class="PM">@Resources.PM</span><span class="IP">@Resources.IP</span></td>
+                            <td><div class="PM">@Resources.PM</div><div class="IP">@Resources.IP</div></td>
                             <td class="text-right">
                                 <div class="PM">@HtmlHelpers.FormatNumber(match.PMWager)</div>
                                 <div class="IP">@HtmlHelpers.FormatNumber(match.IPWager)</div>
