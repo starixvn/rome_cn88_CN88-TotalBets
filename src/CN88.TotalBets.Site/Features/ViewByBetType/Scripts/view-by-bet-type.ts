@@ -62,6 +62,22 @@ class ViewByBetType extends BaseTotalBets {
             e.stopPropagation();
             window.open(this.href, "WagerDetails", "width=1000, height=500");
         });
+
+        this.$(".sport").click(function (): void {
+            let $this: JQuery = $(this);
+            let icon = $this.children().last();
+            let listSports = $(".list-sports");
+
+            if (icon.hasClass("icon-chevron-down")) {
+                icon.removeClass().addClass("icon-chevron-right");
+                listSports.addClass("hide");
+                $(".league-wrapper").children().last().removeClass().addClass("icon-chevron-right");
+            } else {
+                icon.removeClass().addClass("icon-chevron-down");
+                listSports.removeClass("hide");
+                $(".league-wrapper").children().last().removeClass().addClass("icon-chevron-down");
+            }
+        });
     }
 }
 
