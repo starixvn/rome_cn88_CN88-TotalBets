@@ -104,7 +104,8 @@
             sportTypeGroup=Model.Query.SportTypeGroup,
             market = Model.IsInPlay ? Model.Query.Market : MarketConstants.AllMarkets,
             possType = Model.Query.PossType,
-            viewFromInPlayPage = Model.IsInPlay
+            viewFromInPlayPage = Model.IsInPlay,
+            leagueId = Model.Query.LeagueId
         })" class="link @className">
         @title
         @if (className != null)

@@ -39,7 +39,8 @@
                     $"PossType={filterQuery.PossType}",
                     $"Stake={filterQuery.Stake}",
                     $"StakeCondition={filterQuery.StakeCondition}",
-                    $"Market={filterQuery.Market}"),
+                    $"Market={filterQuery.Market}",
+                    $"LeagueId={filterQuery.LeagueId}"),
                 string.Join(
                     "&",
                     $"{filterQuery.AppPath}ViewByBetType?Type={filterQuery.Type}",
@@ -48,7 +49,8 @@
                     $"PossType={filterQuery.PossType}",
                     $"Stake={filterQuery.Stake}",
                     $"StakeCondition={filterQuery.StakeCondition}",
-                    $"Market={filterQuery.Market}"));
+                    $"Market={filterQuery.Market}",
+                    $"LeagueId={filterQuery.LeagueId}"));
         }
 
         public Match Match { get; }
