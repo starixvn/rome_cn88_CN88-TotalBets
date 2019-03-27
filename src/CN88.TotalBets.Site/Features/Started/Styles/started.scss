@@ -32,6 +32,15 @@
     tr.group td {
         padding: 4px 8px;
     }
+    tr.total {
+        td {
+            background-color: #ecf4e2;
+            &:first-child {
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+        }
+    }
 }
 .col-120 {
     width: 120px;
