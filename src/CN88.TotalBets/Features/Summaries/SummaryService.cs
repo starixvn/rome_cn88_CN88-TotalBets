@@ -80,7 +80,7 @@
             return new SportGroupSummary(
                 sportGroup,
                 await sportTypeGroupService.GetSportTypeGroupName(sportGroup),
-                leagueSummaries);
+                leagueSummaries.OrderBy(item => item.LeagueName));
         }
     }
 }
