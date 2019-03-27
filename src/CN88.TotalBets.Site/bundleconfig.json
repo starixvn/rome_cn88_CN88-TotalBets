@@ -27,7 +27,8 @@
       "Shared/Scripts/components/single-selection-dropdown.js",
       "Shared/Scripts/base-totalbets.js",
       "Shared/Scripts/auto-refresh.js",
-      "Features/Events/Scripts/event.js"
+      "Features/Events/Scripts/event.js",
+      "Features/Events/Scripts/event-init.js"
     ]
   },
   {

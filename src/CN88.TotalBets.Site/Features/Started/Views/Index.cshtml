@@ -20,7 +20,7 @@
         <span class="icon-refresh"></span>
         <span id="countDownContainer">..</span>
     </button>
-    <table class="tbl-style2 tbl-totalbet tbl-started" id="tbl-started">
+    <table class="tbl-style2 tbl-totalbet tbl-started" id="tblTotalBets">
         <thead>
             <tr>
                 <th class="col-100 text-center">@Resources.Time</th>
@@ -38,22 +38,14 @@
                 <tr class="total">
                     <td>@Resources.Total</td>
                     <td colspan="2"></td>
-                    <td><div class="PM">@Resources.PM</div><div class="IP">@Resources.IP</div></td>
+                    <td><div>@Resources.PM</div><div>@Resources.IP</div></td>
                     <td class="text-right">
-                        <div class="PM">
-                            @HtmlHelpers.FormatNumber(Model.TotalPMWager)
-                        </div>
-                        <div class="IP">
-                            @HtmlHelpers.FormatNumber(Model.TotalIPWager)
-                        </div>
+                        <div>@HtmlHelpers.FormatNumber(Model.TotalPMWager)</div>
+                        <div>@HtmlHelpers.FormatNumber(Model.TotalIPWager)</div>
                     </td>
                     <td class="text-right">
-                        <div class="PM">
-                            @HtmlHelpers.FormatNumber(Model.TotalPMStake)
-                        </div>
-                        <div class="IP">
-                            @HtmlHelpers.FormatNumber(Model.TotalIPStake)
-                        </div>
+                        <div>@HtmlHelpers.FormatNumber(Model.TotalPMStake)</div>
+                        <div>@HtmlHelpers.FormatNumber(Model.TotalIPStake)</div>
                     </td>
                     <td></td>
                 </tr>
@@ -66,22 +58,14 @@
                                 <span class="group-name">@league.LeagueName</span>
                             </span>
                         </td>
-                        <td><div class="PM">@Resources.PM</div><div class="IP">@Resources.IP</div></td>
+                        <td><div>@Resources.PM</div><div>@Resources.IP</div></td>
                         <td class="text-right">
-                            <div class="PM">
-                                @HtmlHelpers.FormatNumber(league.TotalPMWager)
-                            </div>
-                            <div class="IP">
-                                @HtmlHelpers.FormatNumber(league.TotalIPWager)
-                            </div>
+                            <div>@HtmlHelpers.FormatNumber(league.TotalPMWager)</div>
+                            <div>@HtmlHelpers.FormatNumber(league.TotalIPWager)</div>
                         </td>
                         <td class="text-right">
-                            <div class="PM">
-                                @HtmlHelpers.FormatNumber(league.TotalPMStake)
-                            </div>
-                            <div class="IP">
-                                @HtmlHelpers.FormatNumber(league.TotalIPStake)
-                            </div>
+                            <div>@HtmlHelpers.FormatNumber(league.TotalPMStake)</div>
+                            <div>@HtmlHelpers.FormatNumber(league.TotalIPStake)</div>
                         </td>
                         <td></td>
                     </tr>
@@ -90,21 +74,21 @@
                         <tr class="childrow-@league.LeagueId">
                             <td class="text-center">@HtmlHelpers.ShowTime(match.ShowTimeDT, match.OfferLive, Model.ShowDate)</td>
                             <td class="details">
-                                <div class="half HT"><div class="title">@Resources.HT</div>@match.HTHomeScore - @match.HTAwayScore</div>
-                                <div class="half FT"><div class="title">@Resources.FT</div>@match.LiveHomeScore - @match.LiveAwayScore</div>
+                                <div class="half"><div class="title">@Resources.HT</div>@match.HTHomeScore - @match.HTAwayScore</div>
+                                <div class="half"><div class="title">@Resources.FT</div>@match.LiveHomeScore - @match.LiveAwayScore</div>
                                 @if (match.LiveType)
                                 {
                                     <div class="live">@Resources.Live</div>
                                 }
                             </td>
                             <td>@match.HomeName v @match.AwayName</td>
-                            <td><div class="PM">@Resources.PM</div><div class="IP">@Resources.IP</div></td>
+                            <td><div>@Resources.PM</div><div>@Resources.IP</div></td>
                             <td class="text-right">
-                                <div class="PM">@HtmlHelpers.FormatNumber(match.PMWager)</div>
-                                <div class="IP">@HtmlHelpers.FormatNumber(match.IPWager)</div>
+                                <div>@HtmlHelpers.FormatNumber(match.PMWager)</div>
+                                <div>@HtmlHelpers.FormatNumber(match.IPWager)</div>
                             </td>
                             <td class="text-right">
-                                <div class="PM">
+                                <div>
                                     @if (match.PMWager > 0)
                                     {
                                         @RenderViewByBetTypeLink(HtmlHelpers.FormatNumber(match.PMStake).ToHtmlString(), match.MatchId)
@@ -114,7 +98,7 @@
                                         @HtmlHelpers.FormatNumber(match.PMStake);
                                     }
                                 </div>
-                                <div class="IP">
+                                <div>
                                     @if (match.IPWager > 0)
                                     {
                                         @RenderViewByBetTypeLink(HtmlHelpers.FormatNumber(match.PMStake).ToHtmlString(), match.MatchId)

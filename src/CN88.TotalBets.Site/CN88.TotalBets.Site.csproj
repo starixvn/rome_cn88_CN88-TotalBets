@@ -595,6 +595,7 @@
     <Content Include="App_Code\Filters\StakeConditionFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Features\Events\Scripts\event-init.ts" />
     <TypeScriptCompile Include="Features\Started\Scripts\started.ts" />
     <TypeScriptCompile Include="Shared\Scripts\auto-refresh.ts" />
     <TypeScriptCompile Include="Shared\Scripts\base-totalbets.ts" />
