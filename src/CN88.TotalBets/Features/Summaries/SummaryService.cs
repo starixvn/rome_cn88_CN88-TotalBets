@@ -74,7 +74,11 @@
                         cacheRefService.GetTeamName(g.AwayId),
                         g.Wager, g.Stake));
 
-                leagueSummaries.Add(new LeagueSummary(group.Key, cacheRefService.GetLeagueName(group.Key), matchSummaries));
+                leagueSummaries.Add(
+                    new LeagueSummary(
+                        group.Key,
+                        cacheRefService.GetLeagueName(group.Key),
+                        matchSummaries.OrderByDescending(item => item.Stake)));
             }
 
             return new SportGroupSummary(
