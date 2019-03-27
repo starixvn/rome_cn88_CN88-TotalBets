@@ -1,0 +1,15 @@
+﻿@using CN88.TotalBets.AppResources
+@using CN88.TotalBets.Site.Shared.ViewModels.Filters
+@helper Render(DateSelectionViewModel model)
+{
+    <div class="form-group dropdown-date-type">
+        <label>@Resources.Date</label>
+        <select id="dropdown-date-type">
+            @foreach (var item in model.Items)
+            {
+                <option value="@item.Value" @(item.Selected ? " selected=\"selected\"" : string.Empty)>@item.Text</option>
+            }
+        </select>
+        <input type="hidden" name="DateType" id="DateType" value="@model.SelectedItem" />
+    </div>
+}

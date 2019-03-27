@@ -9,7 +9,7 @@
     using TotalBets.Features.Summaries.Models;
     using TotalBets.Shared.Constants;
 
-    public class EventViewModel : BaseViewModel
+    public class EventViewModel : TotalBetBySportBaseViewModel
     {
         private const string eventVirtualPath = "Event/Index";
 
@@ -18,8 +18,15 @@
             string sportTypeGroup,
             MatchLeagueTotal eventModel,
             IEnumerable<SportGroupSummary> summaries,
-            IEnumerable<SelectListItem> leagues)
-            : base(query, sportTypeGroup, $"{query.AppPath}{eventVirtualPath}", summaries, leagues)
+            IEnumerable<SelectListItem> leagues) : base(
+                query,
+                sportTypeGroup,
+                $"{query.AppPath}{eventVirtualPath}?Type={query.Type}",
+                new Dictionary<string, object> { [nameof(query.Type)] = query.Type },
+                summaries,
+                leagues,
+                false,
+                query.Type == EventTypeConstants.InPlay)
         {
             EventModel = eventModel;
             IsInPlay = eventModel.Type == EventTypeConstants.InPlay;

@@ -11,5 +11,7 @@
             : base(viewer)
         {
         }
+
+        public byte Type { get; set; }
     }
 }

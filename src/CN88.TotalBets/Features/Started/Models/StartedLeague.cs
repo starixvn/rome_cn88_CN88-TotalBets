@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace CN88.TotalBets.Features.Started.Models
+﻿namespace CN88.TotalBets.Features.Started.Models
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class StartedLeague
     {
         public StartedLeague(
@@ -11,13 +11,13 @@ namespace CN88.TotalBets.Features.Started.Models
             IEnumerable<StartedMatch> matches)
         {
             LeagueId = leagueId;
-            LeagueName = LeagueName;
+            LeagueName = leagueName;
             Matches = matches;
         }
 
         public int LeagueId { get; }
 
-        public int LeagueName { get; }
+        public string LeagueName { get; }
 
         public IEnumerable<StartedMatch> Matches { get; }
 

@@ -449,8 +449,7 @@
     <Compile Include="Features\Started\StartedController.cs" />
     <Compile Include="Features\Started\StartedHandler.cs" />
     <Compile Include="Features\Started\StartedQuery.cs" />
-    <Compile Include="Features\Started\ViewModels\DateSelectionViewModel.cs" />
-    <Compile Include="Features\Started\ViewModels\StartedFilterViewModel.cs" />
+    <Compile Include="Shared\ViewModels\Filters\DateSelectionViewModel.cs" />
     <Compile Include="Features\Started\ViewModels\StartedViewModel.cs" />
     <Compile Include="Features\ViewByBetType\ViewByBetTypeController.cs" />
     <Compile Include="Features\ViewByBetType\ViewByBetTypeHandler.cs" />
@@ -484,6 +483,7 @@
     <Compile Include="Shared\ViewModels\BreadcrumbLevelViewModel.cs" />
     <Compile Include="Shared\ViewModels\Filters\FilterViewModel.cs" />
     <Compile Include="Features\ViewByBetType\ViewModels\MatchSummaryMenuViewModel.cs" />
+    <Compile Include="Shared\ViewModels\Filters\MarketSelectionViewModel.cs" />
     <Compile Include="Shared\ViewModels\Filters\SingleSelectionViewModel.cs" />
     <Compile Include="Features\Outright\OutrightViewModel.cs" />
     <Compile Include="Features\Overview\ViewModels\OverViewByOutrightViewModel.cs" />
@@ -495,6 +495,7 @@
     <Compile Include="Features\Overview\ViewModels\OverViewByParlayViewModel.cs" />
     <Compile Include="Features\Overview\ViewModels\HomeViewModel.cs" />
     <Compile Include="Features\Overview\ViewModels\OverViewTitleViewModel.cs" />
+    <Compile Include="Shared\ViewModels\TotalBetBySportBaseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -517,6 +518,7 @@
     <Content Include="App_Code\Breadcrumb.cshtml" />
     <Content Include="Features\ViewByBetType\Styles\viewbybettype.scss" />
     <Content Include="App_Data\SPNames\Main\DBARC.bodb_Archive.BODBDownlineNet" />
+    <Content Include="App_Code\Filters\DateSelection.cshtml" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
@@ -564,8 +566,6 @@
     <Content Include="Features\Started\Views\Index.cshtml" />
     <Content Include="Features\Started\Views\web.config" />
     <Content Include="Features\Started\Styles\started.scss" />
-    <Content Include="Features\Started\Views\Filter.cshtml" />
-    <Content Include="Features\Started\Views\DateSelection.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

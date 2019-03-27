@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Web;
-using Alpha.Web.Helpers;
-using CN88.TotalBets.Shared.Configurations;
-
-namespace CN88.TotalBets.Site.Shared.Helpers
+﻿namespace CN88.TotalBets.Site.Shared.Helpers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text.RegularExpressions;
+    using Alpha.Web.Helpers;
+    using TotalBets.Shared.Configurations;
+
     public static class UrlHelper
     {
         [ThreadStatic]

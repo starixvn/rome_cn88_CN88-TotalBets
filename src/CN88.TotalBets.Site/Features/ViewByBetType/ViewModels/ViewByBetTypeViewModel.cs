@@ -17,13 +17,19 @@
             Match match,
             SportGroupSummary summary,
             ViewByBetTypeQuery filterQuery)
-            : base(filterQuery, Resources.ViewByBetType, new Dictionary<string, object>
-            {
-                { nameof(filterQuery.MatchId), filterQuery.MatchId },
-                { nameof(filterQuery.ViewFromInPlayPage), filterQuery.ViewFromInPlayPage }
-            },
-            false,
-            filterQuery.ViewFromInPlayPage)
+            : base(
+                  filterQuery,
+                  title: Resources.ViewByBetType,
+                  hiddenParams: new Dictionary<string, object>
+                  {
+                      [nameof(filterQuery.Type)] = filterQuery.Type,
+                      [nameof(filterQuery.MatchId)] = filterQuery.MatchId,
+                      [nameof(filterQuery.ViewFromInPlayPage)] = filterQuery.ViewFromInPlayPage
+                  },
+                  leagues: null,
+                  isShowDateSelection: false,
+                  isShowMarketSelection: filterQuery.ViewFromInPlayPage,
+                  isShowLeagueSelection: false)
         {
             TotalBetsByBetTypes = totalBetsByBetTypes;
             Match = match;

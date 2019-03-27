@@ -6,7 +6,6 @@
     using AppResources;
     using Filters;
     using Requests;
-    using TotalBets.Features.Summaries.Models;
     using TotalBets.Shared.Constants;
 
     public abstract class BaseViewModel
@@ -14,43 +13,13 @@
         protected readonly FilterQuery query;
 
         protected BaseViewModel(
-            FilterQuery query,
-            string title,
-            string appPath,
-            IEnumerable<SportGroupSummary> summaries,
-            IEnumerable<SelectListItem> leagues)
-        {
-            this.query = query;
-            Title = title;
-
-            SummaryMenuViewModel = new SummaryMenuViewModel(summaries, query.SportTypeGroup, $"{appPath}?Type={query.Type}");
-            var possTypeSelectListItems = PossTypeConstants.PossTypeByLevel[query.ActorLevel].Select(
-                x => new SelectListItem
-                {
-                    Text = Resources.ResourceManager.GetString(x.Value),
-                    Value = x.Key.ToString(),
-                    Selected = x.Key == query.PossType
-                });
-            PossTypeSelectionViewModel = new SingleSelectionViewModel(possTypeSelectListItems, query.PossType);
-            LeagueSelectionViewModel = new SingleSelectionViewModel(leagues, query.LeagueId);
-
-            FilterViewModel = new FilterViewModel(
-                query.Type,
-                query.SportTypeGroup,
-                query.StakeCondition,
-                query.Stake,
-                query.Type == EventTypeConstants.InPlay || query.Type == EventTypeConstants.Started,
-                query.Market,
-                PossTypeSelectionViewModel,
-                LeagueSelectionViewModel);
-        }
-
-        protected BaseViewModel(
             FilterQuery filterQuery,
             string title,
             IDictionary<string, object> hiddenParams,
-            bool isShowLeague = false,
-            bool isShowMarket = true)
+            IEnumerable<SelectListItem> leagues,
+            bool isShowDateSelection,
+            bool isShowMarketSelection,
+            bool isShowLeagueSelection)
         {
             query = filterQuery;
             Title = title;
@@ -63,26 +32,30 @@
                     Selected = x.Key == query.PossType
                 });
             PossTypeSelectionViewModel = new SingleSelectionViewModel(possTypeSelectListItems, query.PossType);
+            DateSelectionViewModel = isShowDateSelection ? new DateSelectionViewModel(query.DateType) : null;
+            MarketSelectionViewModel = isShowMarketSelection ? new MarketSelectionViewModel(query.Market) : null;
+            LeagueSelectionViewModel = isShowLeagueSelection ? new SingleSelectionViewModel(leagues, query.LeagueId) : null;
 
             FilterViewModel = new FilterViewModel(
-                query.Type,
                 query.SportTypeGroup,
                 query.StakeCondition,
                 query.Stake,
+                hiddenParams,
                 PossTypeSelectionViewModel,
-                isShowMarket,
-                query.Market,
-                isShowLeague,
-                hiddenParams);
+                DateSelectionViewModel,
+                MarketSelectionViewModel,
+                LeagueSelectionViewModel);
         }
 
         public string Title { get; }
 
         public string SubTitle { get; protected set; }
 
-        public SummaryMenuViewModel SummaryMenuViewModel { get; }
+        public DateSelectionViewModel DateSelectionViewModel { get; }
 
         public SingleSelectionViewModel PossTypeSelectionViewModel { get; }
+
+        public MarketSelectionViewModel MarketSelectionViewModel { get; }
 
         public SingleSelectionViewModel LeagueSelectionViewModel { get; }
 

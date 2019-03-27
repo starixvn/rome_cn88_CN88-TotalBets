@@ -5,51 +5,31 @@
     public class FilterViewModel
     {
         public FilterViewModel(
-            byte type,
             int sportTypeGroup,
             byte stakeCondition,
             decimal stake,
-            bool isShowMarket,
-            byte market,
+            IDictionary<string, object> hiddenParams,
             SingleSelectionViewModel possTypeSelectionViewModel,
-            SingleSelectionViewModel leagueSelectionViewModel,
-            bool isShowLeague = true)
-            : this(type,
-                  sportTypeGroup,
-                  stakeCondition,
-                  stake,
-                  possTypeSelectionViewModel,
-                  isShowMarket,
-                  market,
-                  isShowLeague,
-                  new Dictionary<string, object>())
+            DateSelectionViewModel dateSelectionViewModel = null,
+            MarketSelectionViewModel marketSelectionViewModel = null,
+            SingleSelectionViewModel leagueSelectionViewModel = null)
         {
-            LeagueSelectionViewModel = leagueSelectionViewModel;
-        }
-
-        public FilterViewModel(
-            byte type,
-            int sportTypeGroup,
-            byte stakeCondition,
-            decimal stake,
-            SingleSelectionViewModel possTypeSelectionViewModel,
-            bool isShowMarket,
-            byte market,
-            bool isShowLeague,
-            IDictionary<string, object> hiddenParams)
-        {
-            Type = type;
             SportTypeGroup = sportTypeGroup;
             StakeCondition = stakeCondition;
             Stake = stake;
-            PossTypeSelectionViewModel = possTypeSelectionViewModel;
-            IsShowMarket = isShowMarket;
-            Market = market;
-            IsShowLeague = isShowLeague;
             HiddenParams = hiddenParams;
-        }
 
-        public byte Type { get; }
+            PossTypeSelectionViewModel = possTypeSelectionViewModel;
+
+            IsShowDateSelection = dateSelectionViewModel != null;
+            DateSelectionViewModel = dateSelectionViewModel;
+
+            IsShowMarketSelection = marketSelectionViewModel != null;
+            MarketSelectionViewModel = marketSelectionViewModel;
+
+            IsShowLeagueSelection = leagueSelectionViewModel != null;
+            LeagueSelectionViewModel = leagueSelectionViewModel;
+        }
 
         public int SportTypeGroup { get; }
 
@@ -57,13 +37,19 @@
 
         public decimal Stake { get; }
 
-        public bool IsShowMarket { get; }
+        public bool IsShowMarketSelection { get; }
 
         public byte Market { get; }
 
-        public bool IsShowLeague { get; }
+        public bool IsShowDateSelection { get; }
+
+        public bool IsShowLeagueSelection { get; }
+
+        public DateSelectionViewModel DateSelectionViewModel { get; }
 
         public SingleSelectionViewModel PossTypeSelectionViewModel { get; }
+
+        public MarketSelectionViewModel MarketSelectionViewModel { get; }
 
         public SingleSelectionViewModel LeagueSelectionViewModel { get; }
 

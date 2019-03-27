@@ -1,4 +1,5 @@
 ﻿@using CN88.TotalBets.AppResources
+@using CN88.TotalBets.Site.Shared.Helpers
 @using CN88.TotalBets.Site.Shared.ViewModels.Filters
 @helper Render(SummaryMenuViewModel model)
 {
@@ -7,7 +8,11 @@
         <ul class="list-sports" id="summary-menu-items">
             @foreach (var summary in model.Summaries)
             {
-                var path = model.AppPath + "&SportTypeGroup=" + summary.SportTypeGroup;
+                var param = new Dictionary<string, object>()
+                {
+                    ["SportTypeGroup"] = summary.SportTypeGroup
+                };
+                var path = @UrlHelper.ReplaceOrAddQueryStringParamsFunc(model.AppPath, param);
                 <li id="@summary.SportTypeGroup" class="sport @(summary.SportTypeGroup == model.SelectedSportTypeGroup ? "selected" : string.Empty)">
                     <a href="@path">
                         <div class="txt">@summary.SportTypeGroupName</div>

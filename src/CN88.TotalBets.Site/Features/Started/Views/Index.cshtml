@@ -15,7 +15,7 @@
         <div>@Model.Title</div>
         <div class="event">@Model.SubTitle</div>
     </div>
-    @Html.Partial("~/Features/Started/Views/Filter.cshtml", Model.FilterViewModel)
+    @Html.Partial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel)
     <button type="button" class="btn-submit btn-refresh" id="btn-refresh">
         <span class="icon-refresh"></span>
         <span id="countDownContainer">..</span>

@@ -7,7 +7,7 @@
     using TotalBets.Features.Started.Models;
     using TotalBets.Features.Summaries.Models;
 
-    public class StartedViewModel : BaseViewModel
+    public class StartedViewModel : TotalBetBySportBaseViewModel
     {
         private const string startedVirtualPath = "Started/Index";
 
@@ -17,19 +17,18 @@
             IEnumerable<StartedLeague> data,
             IEnumerable<SportGroupSummary> summaries,
             IEnumerable<SelectListItem> leagues)
-            : base(query, sportTypeGroup, $"{query.AppPath}{startedVirtualPath}", summaries, leagues)
+            : base(
+                  query,
+                  sportTypeGroup,
+                  $"{query.AppPath}{startedVirtualPath}",
+                  new Dictionary<string, object>(),
+                  summaries,
+                  leagues,
+                  isShowDateSelection: true,
+                  isShowMarketSelection: true)
         {
             ShowDate = query.DateType == 2;
             Data = data;
-            FilterViewModel = new StartedFilterViewModel(
-                query.Type,
-                query.DateType,
-                query.SportTypeGroup,
-                query.StakeCondition,
-                query.Stake,
-                query.Market,
-                PossTypeSelectionViewModel,
-                LeagueSelectionViewModel);
         }
 
         public bool ShowDate { get; }
