@@ -10,7 +10,7 @@
       <Mapping DataField="sporttype" ObjectProperty="SportTypeId"></Mapping>
     </Setting>
     <Setting Key="CS_TotalBets_Event_Super" SpName="CS_TotalBets_Event_Super" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="CS_TotalBets_Eventt_Master" SpName="CS_TotalBets_Event_Master" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Event_Master" SpName="CS_TotalBets_Event_Master" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
     <Setting Key="CS_TotalBets_Event_Agent" SpName="CS_TotalBets_Event_Agent" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
   </Function>
   <Function Name="Outright">

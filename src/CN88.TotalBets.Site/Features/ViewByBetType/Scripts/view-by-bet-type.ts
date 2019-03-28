@@ -3,7 +3,6 @@
 
 class ViewByBetType extends BaseTotalBets {
     marketSelectionComponent: SingleSelectionDropdownComponent;
-    dateTypeSelectionComponent: SingleSelectionDropdownComponent;
 
     constructor(
         $: JQueryStatic,
@@ -14,7 +13,6 @@ class ViewByBetType extends BaseTotalBets {
         marketSelectionComponent: SingleSelectionDropdownComponent) {
         super($, summaryMenu, stakeConditionSelectionComponent, possTypeSelectionComponent, null);
 
-        this.dateTypeSelectionComponent = dateTypeSelectionComponent;
         this.marketSelectionComponent = marketSelectionComponent;
     }
 
@@ -30,10 +28,8 @@ class ViewByBetType extends BaseTotalBets {
 
     renderComponents(): void {
         super.renderComponents();
-        this.marketSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-market", "Market"));
-
-        if (cn88TotalBets.convertAttributeToBool(this.$("#IsShowDateTypeSelection").val())) {
-            this.dateTypeSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-date-type", "DateType"));
+        if (cn88TotalBets.convertAttributeToBool($("#IsShowMarketSelection").val())) {
+            this.marketSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-market", "Market"));
         }
     }
 

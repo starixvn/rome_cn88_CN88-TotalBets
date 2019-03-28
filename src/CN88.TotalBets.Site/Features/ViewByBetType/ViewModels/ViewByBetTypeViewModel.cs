@@ -24,10 +24,10 @@
                   {
                       [nameof(filterQuery.Type)] = filterQuery.Type,
                       [nameof(filterQuery.MatchId)] = filterQuery.MatchId,
-                      [nameof(filterQuery.IsShowDateTypeSelection)] = filterQuery.IsShowDateTypeSelection,
+                      [nameof(filterQuery.IsShowMarketSelection)] = filterQuery.IsShowMarketSelection
                   },
                   leagues: null,
-                  isShowDateSelection: filterQuery.IsShowDateTypeSelection,
+                  isShowDateSelection: false,
                   isShowMarketSelection: filterQuery.IsShowMarketSelection,
                   isShowLeagueSelection: false)
         {
