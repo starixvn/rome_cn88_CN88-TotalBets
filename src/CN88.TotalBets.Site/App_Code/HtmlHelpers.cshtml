@@ -2,12 +2,10 @@
 {
     @value.ToString("#,##0.00")
 }
-
 @helper FormatNumber(int value)
 {
     @value.ToString("#,##0")
 }
-
 @helper FormatNumberWithLink(decimal value, string link, string submenuId)
 {
     if (value == 0)
@@ -19,7 +17,6 @@
         <a data-submenuid="sub-menu-@submenuId" href="@link" class="link">@value.ToString("#,##0.00")</a>
     }
 }
-
 @helper FormatNumberWithLink(int value, string link, string submenuId)
 {
     if (value == 0)
@@ -31,18 +28,34 @@
         <a data-submenuid="sub-menu-@submenuId" href="@link" class="link">@value.ToString("#,##0")</a>
     }
 }
-
 @helper ShowTime(DateTime showTime, bool offerLive, bool showMonthDay)
 {
     if (showMonthDay)
     {
-        @showTime.ToString("MM-dd")<br/>
+        @showTime.ToString("MM-dd")<br />
     }
-    
+
     @showTime.ToString("HH:mm")
 
     if (offerLive)
     {
-        <br/><span class="live">@CN88.TotalBets.AppResources.Resources.Live</span>
+        <br /><span class="live">@CN88.TotalBets.AppResources.Resources.Live</span>
     }
+}
+@helper RenderStakeLink(int wager, decimal stake, string link)
+{
+    if (wager > 0)
+    {
+        <a href="@link" class="link">@FormatNumber(stake)</a>
+    }else
+    {
+        @FormatNumber(stake)
+    }
+}
+@helper RenderBetTypeCountLink(int betTypeCount, string link)
+{
+    <a href="@link" class="link bettypecount">
+        @FormatNumber(betTypeCount)
+        <span class="icon-chevron-right"></span>
+    </a>
 }

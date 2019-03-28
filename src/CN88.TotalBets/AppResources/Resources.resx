@@ -312,4 +312,7 @@
   <data name="IP" xml:space="preserve">
     <value>IP</value>
   </data>
+  <data name="AllDates" xml:space="preserve">
+    <value>All Dates</value>
+  </data>
 </root>

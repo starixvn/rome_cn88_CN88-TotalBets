@@ -79,6 +79,15 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All Dates.
+        /// </summary>
+        public static string AllDates {
+            get {
+                return ResourceManager.GetString("AllDates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Leagues.
         /// </summary>
         public static string AllLeagues {

@@ -600,6 +600,7 @@
     <TypeScriptCompile Include="Shared\Scripts\auto-refresh.ts" />
     <TypeScriptCompile Include="Shared\Scripts\base-totalbets.ts" />
     <TypeScriptCompile Include="Shared\Scripts\components\single-selection-dropdown.ts" />
+    <TypeScriptCompile Include="Shared\Scripts\core.ts" />
     <TypeScriptCompile Include="Shared\Scripts\summary-menu.ts" />
     <TypeScriptCompile Include="Features\Events\Scripts\event.ts" />
     <TypeScriptCompile Include="Features\WagerAccount\Scripts\wager-account.ts" />

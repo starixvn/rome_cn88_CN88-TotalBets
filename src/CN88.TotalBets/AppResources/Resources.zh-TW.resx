@@ -255,6 +255,9 @@
   <data name="Wagers" xml:space="preserve">
     <value>注單</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>日期</value>
+  </data>
   <data name="Company_Percentage" xml:space="preserve">
     <value>公司(%)</value>
   </data>

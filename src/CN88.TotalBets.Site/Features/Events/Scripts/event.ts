@@ -1,4 +1,5 @@
-﻿"use strict";
+﻿/// <reference path="../../../shared/scripts/core.ts" />
+"use strict";
 class EventTotalBets extends BaseTotalBets {
     marketSelectionComponent: SingleSelectionDropdownComponent;
 
@@ -26,7 +27,9 @@ class EventTotalBets extends BaseTotalBets {
 
     renderComponents(): void {
         super.renderComponents();
-        this.marketSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-market", "Market"));
+        if (cn88TotalBets.convertAttributeToBool(this.$("#IsShowMarketSelection").val())) {
+            this.marketSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-market", "Market"));
+        }
     }
 
     onSubmit(): void {

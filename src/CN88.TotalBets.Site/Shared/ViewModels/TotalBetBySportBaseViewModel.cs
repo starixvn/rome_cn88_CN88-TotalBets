@@ -23,5 +23,23 @@
         }
 
         public SummaryMenuViewModel SummaryMenuViewModel { get; }
+
+        public string BuildViewByBetTypeLink(byte type, int matchId)
+            => Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc(
+                Helpers.UrlHelper.GetTotalBetsAppPath("~/ViewByBetType/Index"),
+                GetViewByBetTypeRoutesValues(type, matchId));
+
+
+        protected virtual IDictionary<string, object> GetViewByBetTypeRoutesValues(byte type, int matchId)
+            => new Dictionary<string, object>
+            {
+                [nameof(type)] = type,
+                [nameof(matchId)] = matchId,
+                [nameof(query.Stake)] = query.Stake,
+                [nameof(query.StakeCondition)] = query.StakeCondition,
+                [nameof(query.SportTypeGroup)] = query.SportTypeGroup,
+                [nameof(query.PossType)] = query.PossType,
+                [nameof(query.LeagueId)] = query.LeagueId
+            };
     }
 }

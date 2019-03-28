@@ -22,11 +22,15 @@
                 query,
                 sportTypeGroup,
                 $"{query.AppPath}{eventVirtualPath}?Type={query.Type}",
-                new Dictionary<string, object> { [nameof(query.Type)] = query.Type },
+                new Dictionary<string, object>
+                {
+                    [nameof(query.Type)] = query.Type,
+                    [nameof(query.IsShowMarketSelection)] = query.IsShowMarketSelection
+                },
                 summaries,
                 leagues,
                 false,
-                query.Type == EventTypeConstants.InPlay)
+                query.IsShowMarketSelection)
         {
             EventModel = eventModel;
             IsInPlay = eventModel.Type == EventTypeConstants.InPlay;
@@ -46,7 +50,21 @@
 
         public bool HasEventData { get; }
 
-        public bool IsShowScore
-            => Query.SportTypeGroup == SportTypeConstants.Soccer;
+        public bool IsShowScore => Query.SportTypeGroup == SportTypeConstants.Soccer;
+
+        protected override IDictionary<string, object> GetViewByBetTypeRoutesValues(byte type, int matchId)
+        {
+            if (Query.Type == EventTypeConstants.InPlay)
+            {
+                return new Dictionary<string, object>(base.GetViewByBetTypeRoutesValues(type, matchId))
+                {
+                    [nameof(Query.Market)] = Query.Market
+                };
+            }
+            else
+            {
+                return base.GetViewByBetTypeRoutesValues(type, matchId);
+            }
+        }
     }
 }

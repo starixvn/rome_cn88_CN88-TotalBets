@@ -1,16 +1,20 @@
 ﻿/// <reference path="../../../shared/scripts/base-totalbets.ts" />
+/// <reference path="../../../shared/scripts/core.ts" />
 
 class ViewByBetType extends BaseTotalBets {
     marketSelectionComponent: SingleSelectionDropdownComponent;
+    dateTypeSelectionComponent: SingleSelectionDropdownComponent;
 
     constructor(
         $: JQueryStatic,
         summaryMenu: SummaryMenu,
         stakeConditionSelectionComponent: SingleSelectionDropdownComponent,
+        dateTypeSelectionComponent: SingleSelectionDropdownComponent,
         possTypeSelectionComponent: SingleSelectionDropdownComponent,
         marketSelectionComponent: SingleSelectionDropdownComponent) {
         super($, summaryMenu, stakeConditionSelectionComponent, possTypeSelectionComponent, null);
 
+        this.dateTypeSelectionComponent = dateTypeSelectionComponent;
         this.marketSelectionComponent = marketSelectionComponent;
     }
 
@@ -19,10 +23,18 @@ class ViewByBetType extends BaseTotalBets {
 
         this.cacheDOMElements();
         this.renderComponents();
-        this.marketSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-market", "Market"));
         this.bindEvents();
 
         this.$.unblockUI();
+    }
+
+    renderComponents(): void {
+        super.renderComponents();
+        this.marketSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-market", "Market"));
+
+        if (cn88TotalBets.convertAttributeToBool(this.$("#IsShowDateTypeSelection").val())) {
+            this.dateTypeSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-date-type", "DateType"));
+        }
     }
 
     onSubmit(): void {
@@ -90,6 +102,7 @@ $(function (): void {
     new ViewByBetType(
         $,
         new SummaryMenu($),
+        new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($)).init();

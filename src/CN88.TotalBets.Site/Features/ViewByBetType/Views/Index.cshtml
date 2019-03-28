@@ -15,7 +15,7 @@
 
 <div class="main-content" id="main-content">
     @Html.Partial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel)
-    @if (Model.ViewFromInPlayPage)
+    @if (Model.IsShowMarketStatus)
     {
         <button type="button" class="btn-submit btn-refresh" id="btn-refresh">
             <span class="icon-refresh"></span>
@@ -31,7 +31,7 @@
                     foreach (var bettype in Model.TotalBetsByBetTypes)
                     {
                         @RenderBetType(bettype, betOptionBuilderFactory)
-                        @RenderBetOptions(bettype, Model.Match, betOptionBuilderFactory, Model.ViewFromInPlayPage)
+                        @RenderBetOptions(bettype, Model.Match, betOptionBuilderFactory, Model.IsShowMarketStatus)
                     }
                 }
                 else
@@ -51,7 +51,7 @@
         <div class="league">@Model.LeagueName <span class="index pull-right"><span>@HtmlHelpers.FormatNumber(Model.TotalWager)</span> | <span class="link">@HtmlHelpers.FormatNumber(Model.TotalStake)</span></span></div>
 
         <div class="head-match">
-                            <div class="show-time">@HtmlHelpers.ShowTime(Model.Match.ShowTimeDT, Model.Match.OfferLive, Model.ViewFromEarlyPage)</div>
+             <div class="show-time">@HtmlHelpers.ShowTime(Model.Match.ShowTimeDT, Model.Match.OfferLive, Model.ViewFromEarlyPage)</div>
             <div class="match">
                 <span class="team-name">@Model.Match.HomeName</span>
                 @if (model.ShowScore(model.Match.SportTypeId))
@@ -91,16 +91,16 @@
     TotalBetsByBetType betType,
     CN88.TotalBets.Features.Events.Models.Match match,
     BetOptionBuilderFactory betOptionBuilderFactory,
-    bool viewFromInPlayPage)
+    bool isShowMarketStatus)
 {
-    var betOptionParams = new Dictionary<string, object> { { "viewFromInPlayPage", Model.ViewFromInPlayPage } };
+    var betOptionParams = new Dictionary<string, object> { { nameof(isShowMarketStatus), isShowMarketStatus } };
 
     foreach (var betOptionGroup in betType.BetOptionGroups)
     {
         if (betOptionGroup.BetOptions.Any())
         {
             if (!betOptionBuilderFactory.IsUseDefaultBetOptionBuider(betType.BetTypeId)
-                && viewFromInPlayPage)
+                && isShowMarketStatus)
             {
                 <tr class="bet-option childrow-@betType.BetTypeId">
                     <td colspan="2">@(betOptionGroup.LiveText)</td>

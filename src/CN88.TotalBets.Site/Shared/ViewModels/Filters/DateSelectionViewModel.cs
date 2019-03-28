@@ -21,6 +21,7 @@
         private IEnumerable<SelectListItem> BuildSelectListItems(byte selectedItem)
             => new List<SelectListItem>
             {
+                new SelectListItem { Text = Resources.AllDates, Value = DateTypeConstants.AllDates.ToString() },
                 new SelectListItem { Text = Resources.Today, Value = DateTypeConstants.Today.ToString() },
                 new SelectListItem { Text = Resources.Yesterday, Value = DateTypeConstants.Yesterday.ToString() }
             }.Select(item =>

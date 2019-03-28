@@ -27,11 +27,6 @@
 
         public async Task<ViewByBetTypeViewModel> Handle(ViewByBetTypeQuery message)
         {
-            if(!message.ViewFromInPlayPage)
-            {
-                message.Market = MarketConstants.AllMarkets;
-            }
-
             var match = await eventService.GetMatch(message.MatchId);
 
             var totalBetByBetTypes = await viewByBetTypeService.GetBetTypes(

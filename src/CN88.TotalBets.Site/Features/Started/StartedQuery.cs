@@ -2,6 +2,7 @@
 {
     using MediatR;
     using Shared.Requests;
+    using TotalBets.Shared.Constants;
     using TotalBets.Shared.Models;
     using ViewModels;
 
@@ -9,7 +10,7 @@
     {
         public StartedQuery(IUser viewer) : base(viewer)
         {
-            DateType = 1;
+            DateType = DateTypeConstants.AllDates;
         }
     }
 }

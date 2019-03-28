@@ -2,6 +2,7 @@
 {
     using MediatR;
     using Shared.Requests;
+    using TotalBets.Shared.Constants;
     using TotalBets.Shared.Models;
     using ViewModels;
 
@@ -16,6 +17,8 @@
 
         public int MatchId { get; set; }
 
-        public bool ViewFromInPlayPage { get; set; }
+        public bool IsShowMarketSelection => Type == EventTypeConstants.InPlay || Type == EventTypeConstants.Started;
+
+        public bool IsShowDateTypeSelection => Type == EventTypeConstants.Started;
     }
 }

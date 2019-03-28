@@ -24,39 +24,22 @@
                   {
                       [nameof(filterQuery.Type)] = filterQuery.Type,
                       [nameof(filterQuery.MatchId)] = filterQuery.MatchId,
-                      [nameof(filterQuery.ViewFromInPlayPage)] = filterQuery.ViewFromInPlayPage
+                      [nameof(filterQuery.IsShowDateTypeSelection)] = filterQuery.IsShowDateTypeSelection,
                   },
                   leagues: null,
-                  isShowDateSelection: false,
-                  isShowMarketSelection: filterQuery.ViewFromInPlayPage,
+                  isShowDateSelection: filterQuery.IsShowDateTypeSelection,
+                  isShowMarketSelection: filterQuery.IsShowMarketSelection,
                   isShowLeagueSelection: false)
         {
             TotalBetsByBetTypes = totalBetsByBetTypes;
             Match = match;
-            ViewFromInPlayPage = filterQuery.ViewFromInPlayPage;
+            IsShowMarketStatus = filterQuery.IsShowMarketSelection;
             ViewFromEarlyPage = filterQuery.Type == EventTypeConstants.Early;
             MatchSummaryMenuViewModel = new MatchSummaryMenuViewModel(
                 summary,
                 filterQuery.MatchId,
-                string.Join(
-                    "&",
-                    $"{filterQuery.AppPath}Event?Type={filterQuery.Type}",
-                    $"SportTypeGroup={filterQuery.SportTypeGroup}",
-                    $"PossType={filterQuery.PossType}",
-                    $"Stake={filterQuery.Stake}",
-                    $"StakeCondition={filterQuery.StakeCondition}",
-                    $"Market={filterQuery.Market}",
-                    $"LeagueId={filterQuery.LeagueId}"),
-                string.Join(
-                    "&",
-                    $"{filterQuery.AppPath}ViewByBetType?Type={filterQuery.Type}",
-                    $"SportTypeGroup={filterQuery.SportTypeGroup}",
-                    $"ViewFromInPlayPage={filterQuery.ViewFromInPlayPage}",
-                    $"PossType={filterQuery.PossType}",
-                    $"Stake={filterQuery.Stake}",
-                    $"StakeCondition={filterQuery.StakeCondition}",
-                    $"Market={filterQuery.Market}",
-                    $"LeagueId={filterQuery.LeagueId}"));
+                BuildSummaryPath(filterQuery),
+                BuildViewByBetTypePath(filterQuery));
         }
 
         public Match Match { get; }
@@ -71,7 +54,7 @@
 
         public MatchSummaryMenuViewModel MatchSummaryMenuViewModel { get; }
 
-        public bool ViewFromInPlayPage { get; }
+        public bool IsShowMarketStatus { get; }
 
         public bool ViewFromEarlyPage { get; }
 
@@ -90,6 +73,43 @@
             };
 
         public bool ShowScore(int sportTypeId)
-            => sportTypeId == SportTypeConstants.Soccer && ViewFromInPlayPage;
+            => sportTypeId == SportTypeConstants.Soccer && IsShowMarketStatus;
+
+        private string BuildSummaryPath(ViewByBetTypeQuery filterQuery)
+        {
+            if (filterQuery.Type == EventTypeConstants.Started)
+            {
+                return Shared.Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc(
+                    $"{filterQuery.AppPath}Started",
+                    GetRouteValues(filterQuery));
+            }
+
+            return Shared.Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc(
+                    $"{filterQuery.AppPath}Event",
+                    new Dictionary<string, object>(GetRouteValues(filterQuery))
+                    {
+                        [nameof(filterQuery.Type)] = filterQuery.Type
+                    });
+        }
+
+        private string BuildViewByBetTypePath(ViewByBetTypeQuery filterQuery)
+            => Shared.Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc(
+                $"{filterQuery.AppPath}ViewByBetType",
+                new Dictionary<string, object>(GetRouteValues(filterQuery))
+                {
+                    [nameof(filterQuery.Type)] = filterQuery.Type
+                });
+
+        private IDictionary<string, object> GetRouteValues(ViewByBetTypeQuery filterQuery)
+            => new Dictionary<string, object>
+            {
+                [nameof(filterQuery.SportTypeGroup)] = filterQuery.SportTypeGroup,
+                [nameof(filterQuery.PossType)] = filterQuery.PossType,
+                [nameof(filterQuery.Stake)] = filterQuery.Stake,
+                [nameof(filterQuery.StakeCondition)] = filterQuery.StakeCondition,
+                [nameof(filterQuery.Market)] = filterQuery.Market,
+                [nameof(filterQuery.LeagueId)] = filterQuery.LeagueId,
+                [nameof(filterQuery.DateType)] = filterQuery.DateType
+            };
     }
 }

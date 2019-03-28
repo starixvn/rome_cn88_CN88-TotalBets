@@ -3,9 +3,11 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using AppResources;
     using Shared.ViewModels;
     using TotalBets.Features.Started.Models;
     using TotalBets.Features.Summaries.Models;
+    using TotalBets.Shared.Constants;
 
     public class StartedViewModel : TotalBetBySportBaseViewModel
     {
@@ -21,13 +23,17 @@
                   query,
                   sportTypeGroup,
                   $"{query.AppPath}{startedVirtualPath}",
-                  new Dictionary<string, object>(),
+                  new Dictionary<string, object>
+                  {
+                      ["IsShowMarketSelection"] = true
+                  },
                   summaries,
                   leagues,
                   isShowDateSelection: true,
                   isShowMarketSelection: true)
         {
-            ShowDate = query.DateType == 2;
+            SubTitle = Resources.Started;
+            ShowDate = query.DateType != DateTypeConstants.Today;
             Data = data;
         }
 
@@ -46,5 +52,12 @@
         public int TotalWager => TotalPMWager + TotalIPWager;
 
         public decimal TotalStake => TotalPMStake + TotalIPStake;
+
+        protected override IDictionary<string, object> GetViewByBetTypeRoutesValues(byte type, int matchId)
+            => new Dictionary<string, object>(base.GetViewByBetTypeRoutesValues(type, matchId))
+            {
+                [nameof(query.Market)] = query.Market,
+                [nameof(query.DateType)] = query.DateType
+            };
     }
 }
