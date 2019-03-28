@@ -49,7 +49,7 @@
             AddBetOption1x2(availableBetOptions, betOptions, true);
 
             return betOptions
-                .Where(betOption => 
+                .Where(betOption =>
                     marketType == MarketConstants.AllMarkets
                     || (betOption.IsLive && marketType == MarketConstants.InPlay)
                     || (!betOption.IsLive && marketType == MarketConstants.PreMatch));
@@ -194,7 +194,7 @@
                     return bo;
                 });
 
-            var otherBetTypeBetOptions = betOptions.Except(unionBetOptions).OrderBy(bo => bo.BetTypeId);
+            var otherBetTypeBetOptions = betOptions.Where(i => string.IsNullOrEmpty(i.BetTeam)).OrderBy(bo => bo.BetTypeId);
 
             var betOptionGroups = unionBetOptions
                 .GroupBy(option => option.BetTypeId)
@@ -215,7 +215,7 @@
                         new List<BetOptionGroup> {
                             new BetOptionGroup(otherBetTypeBetOptions
                             .OrderBy(bo => bo.BetTypeId)
-                            .ThenBy(bo => bo.IsLive ? 0 : 1), 
+                            .ThenBy(bo => bo.IsLive ? 0 : 1),
                             false)
                         }));
             }
