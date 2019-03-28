@@ -133,7 +133,7 @@
     <value>时间</value>
   </data>
   <data name="Wagers" xml:space="preserve">
-    <value>笔数</value>
+    <value>注单</value>
   </data>
   <data name="Live" xml:space="preserve">
     <value>滚球</value>
@@ -166,7 +166,7 @@
     <value>总览</value>
   </data>
   <data name="TotalStake" xml:space="preserve">
-    <value>总下注金额</value>
+    <value>总投注额</value>
   </data>
   <data name="Outright" xml:space="preserve">
     <value>冠军</value>
@@ -181,10 +181,10 @@
     <value>总计</value>
   </data>
   <data name="ViewByAccount" xml:space="preserve">
-    <value>查看帐号</value>
+    <value>按账户查看</value>
   </data>
   <data name="ViewWagerDetails" xml:space="preserve">
-    <value>查看细单</value>
+    <value>检视注单內容</value>
   </data>
   <data name="Today" xml:space="preserve">
     <value>今日</value>
@@ -233,5 +233,26 @@
   </data>
   <data name="Super" xml:space="preserve">
     <value>超级</value>
+  </data>
+  <data name="AllMarkets" xml:space="preserve">
+    <value>所有盘口类型</value>
+  </data>
+  <data name="AllParlays" xml:space="preserve">
+    <value>所有过关</value>
+  </data>
+  <data name="Market" xml:space="preserve">
+    <value>盘口类型</value>
+  </data>
+  <data name="MixSports" xml:space="preserve">
+    <value>混合体育</value>
+  </data>
+  <data name="NonSoccer" xml:space="preserve">
+    <value>非足球</value>
+  </data>
+  <data name="PreMatch" xml:space="preserve">
+    <value>赛前</value>
+  </data>
+  <data name="Wager" xml:space="preserve">
+    <value>注单</value>
   </data>
 </root>
