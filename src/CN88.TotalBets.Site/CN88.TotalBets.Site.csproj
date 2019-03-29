@@ -60,8 +60,8 @@
       <HintPath>..\..\packages\Alpha.Web.1.0.1.6\lib\net40\Alpha.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CN88.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CN88.Web.1.0.0.0-beta11\lib\net461\CN88.Web.dll</HintPath>
+    <Reference Include="CN88.Web, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CN88.Web.1.0.0.1-subacc02\lib\net461\CN88.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Couchbase, Version=1.2.7.0, Culture=neutral, PublicKeyToken=05e9c6b5a9ec94c2, processorArchitecture=MSIL">
@@ -434,7 +434,9 @@
     <Content Include="Web.backupMNLNap.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\DependencyConfig.cs" />
