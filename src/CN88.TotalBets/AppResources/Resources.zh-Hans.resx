@@ -274,7 +274,7 @@
     <value>回到摘要</value>
   </data>
   <data name="MA_Agent_Percentage" xml:space="preserve">
-    <value>总代理+代理商%</value>
+    <value>总代理+代理商(%)</value>
   </data>
   <data name="Full_Percentage" xml:space="preserve">
     <value>显示所有</value>
