@@ -315,9 +315,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\SPNames\DB042.bodb02.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\DBAGE.bodb02.BODBDownlineNet.xml" />
-    <Content Include="App_Data\SPNames\DBONUSER.ON_USER.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Internal\DB042.bodb02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Internal\DBAGE.bodb02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Internal\DBONUSER.ON_USER.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Main\DB042.bodb02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Main\DBAGE.bodb02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Main\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="assets\bundles\events\event.css" />
     <Content Include="assets\bundles\events\event.min.css">
       <DependentUpon>event.css</DependentUpon>
@@ -480,7 +483,7 @@
     <Content Include="App_Data\AuthorizationSection.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\SPNames\DBARC.bodb_Archive.BODBDownlineNet" />
+    <Content Include="App_Data\SPNames\Internal\DBARC.bodb_Archive.BODBDownlineNet" />
     <Content Include="bundleconfig.json" />
     <Content Include="compilerconfig.json" />
     <Content Include="App_Code\Filters\PossTypeSelection.cshtml" />
@@ -493,6 +496,7 @@
     <Content Include="Features\Events\Styles\event.scss" />
     <Content Include="App_Code\Breadcrumb.cshtml" />
     <Content Include="Features\ViewByBetType\Styles\viewbybettype.scss" />
+    <Content Include="App_Data\SPNames\Main\DBARC.bodb_Archive.BODBDownlineNet" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
