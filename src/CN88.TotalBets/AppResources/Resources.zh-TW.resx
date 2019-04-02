@@ -148,19 +148,19 @@
     <value>滾球</value>
   </data>
   <data name="Agent_Percentage" xml:space="preserve">
-    <value>代理商 (佔成)</value>
+    <value>代理商 (%)</value>
   </data>
   <data name="MA_Percentage" xml:space="preserve">
-    <value>總代理 (佔成)</value>
+    <value>代理商 (%)</value>
   </data>
   <data name="SMA_Percentage" xml:space="preserve">
-    <value>股東 (佔成)</value>
+    <value>超級代理 (%)</value>
   </data>
   <data name="AllSports" xml:space="preserve">
     <value>所有球類</value>
   </data>
   <data name="Stake" xml:space="preserve">
-    <value>投注額</value>
+    <value>下注金額</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>名</value>

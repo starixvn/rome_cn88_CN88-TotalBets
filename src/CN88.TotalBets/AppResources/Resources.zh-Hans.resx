@@ -151,13 +151,13 @@
     <value>滚球</value>
   </data>
   <data name="Agent_Percentage" xml:space="preserve">
-    <value>代理商 (占成)</value>
+    <value>代理商 (%)</value>
   </data>
   <data name="MA_Percentage" xml:space="preserve">
-    <value>总代理 (占成)</value>
+    <value>总代理 (%)</value>
   </data>
   <data name="SMA_Percentage" xml:space="preserve">
-    <value>股东 (占成)</value>
+    <value>超级代理 (%)</value>
   </data>
   <data name="AllSports" xml:space="preserve">
     <value>所有球类</value>
@@ -172,7 +172,7 @@
     <value>冠军</value>
   </data>
   <data name="Stake" xml:space="preserve">
-    <value>投注额</value>
+    <value>下注金额</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>名</value>
