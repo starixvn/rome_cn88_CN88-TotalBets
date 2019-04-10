@@ -565,7 +565,7 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to View By BetType.
+        ///   Looks up a localized string similar to View By Bet Type.
         /// </summary>
         public static string ViewByBetType {
             get {
