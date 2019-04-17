@@ -75,5 +75,7 @@
         public int IPWager { get; internal set; }
 
         public decimal IPStake { get; internal set; }
+
+        public decimal TotalStake => PMStake + IPStake;
     }
 }

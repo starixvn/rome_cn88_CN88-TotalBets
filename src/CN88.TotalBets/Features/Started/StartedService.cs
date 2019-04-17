@@ -65,7 +65,8 @@
                 .Select(group => new StartedLeague(
                     group.Key,
                     cacheRefService.GetLeagueName(group.Key),
-                    group));
+                    group.OrderByDescending(x => x.TotalStake)))
+                .OrderBy(x => x.LeagueName);
         }
     }
 }
