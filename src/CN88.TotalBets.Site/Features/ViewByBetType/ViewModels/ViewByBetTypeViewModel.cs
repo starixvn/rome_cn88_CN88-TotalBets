@@ -34,7 +34,7 @@
             TotalBetsByBetTypes = totalBetsByBetTypes;
             Match = match;
             IsShowMarketStatus = filterQuery.IsShowMarketSelection;
-            ViewFromEarlyPage = filterQuery.Type == EventTypeConstants.Early;
+            IsShowDate = filterQuery.ShowDate;
             MatchSummaryMenuViewModel = new MatchSummaryMenuViewModel(
                 summary,
                 filterQuery.MatchId,
@@ -56,7 +56,7 @@
 
         public bool IsShowMarketStatus { get; }
 
-        public bool ViewFromEarlyPage { get; }
+        public bool IsShowDate { get; }
 
         public object GetWagerAccountParams(int bettypeId, string betTeam, bool liveIndicator)
             => new

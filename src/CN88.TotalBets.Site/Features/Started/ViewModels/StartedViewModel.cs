@@ -57,7 +57,8 @@
             => new Dictionary<string, object>(base.GetViewByBetTypeRoutesValues(type, matchId))
             {
                 [nameof(query.Market)] = query.Market,
-                [nameof(query.DateType)] = query.DateType
+                [nameof(query.DateType)] = query.DateType,
+                [nameof(ShowDate)] = ShowDate
             };
     }
 }

@@ -52,7 +52,7 @@
 
         protected override IDictionary<string, object> GetViewByBetTypeRoutesValues(byte type, int matchId)
         {
-            if (Query.Type == EventTypeConstants.InPlay)
+            if (IsInPlay)
             {
                 return new Dictionary<string, object>(base.GetViewByBetTypeRoutesValues(type, matchId))
                 {
@@ -61,7 +61,10 @@
             }
             else
             {
-                return base.GetViewByBetTypeRoutesValues(type, matchId);
+                return new Dictionary<string, object>(base.GetViewByBetTypeRoutesValues(type, matchId))
+                {
+                    ["ShowDate"] = IsEarly
+                };
             }
         }
     }

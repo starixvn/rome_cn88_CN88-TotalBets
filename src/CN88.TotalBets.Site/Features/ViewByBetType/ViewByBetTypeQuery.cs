@@ -17,6 +17,8 @@
 
         public int MatchId { get; set; }
 
+        public bool ShowDate { get; set; }
+
         public bool IsShowMarketSelection => Type == EventTypeConstants.InPlay || Type == EventTypeConstants.Started;
     }
 }
