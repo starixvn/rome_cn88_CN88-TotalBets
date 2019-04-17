@@ -5,6 +5,7 @@
     using Filters;
     using Requests;
     using TotalBets.Features.Summaries.Models;
+    using TotalBets.Shared.Constants;
 
     public class TotalBetBySportBaseViewModel : BaseViewModel
     {
@@ -22,13 +23,14 @@
             SummaryMenuViewModel = new SummaryMenuViewModel(summaries, query.SportTypeGroup, appPath);
         }
 
+        public bool IsShowScore => query.SportTypeGroup == SportTypeConstants.Soccer;
+
         public SummaryMenuViewModel SummaryMenuViewModel { get; }
 
         public string BuildViewByBetTypeLink(byte type, int matchId)
             => Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc(
                 Helpers.UrlHelper.GetTotalBetsAppPath("~/ViewByBetType/Index"),
                 GetViewByBetTypeRoutesValues(type, matchId));
-
 
         protected virtual IDictionary<string, object> GetViewByBetTypeRoutesValues(byte type, int matchId)
             => new Dictionary<string, object>

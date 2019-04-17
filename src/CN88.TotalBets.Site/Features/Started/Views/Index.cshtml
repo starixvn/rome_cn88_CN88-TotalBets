@@ -74,14 +74,17 @@
                         <tr class="childrow-@league.LeagueId">
                             <td class="text-center">@HtmlHelpers.ShowTime(match.ShowTimeDT, match.OfferLive, Model.ShowDate)</td>
                             <td class="details">
-                                <div class="half">
-                                    <div class="title">@Resources.HT</div>
-                                    <div class="score">@match.HTHomeScore - @match.HTAwayScore</div>
-                                </div>
-                                <div class="half FT">
-                                    <div class="title">@Resources.FT</div>
-                                    <div class="score">@match.LiveHomeScore - @match.LiveAwayScore</div>
-                                </div>
+                                @if (Model.IsShowScore)
+                                {
+                                    <div class="half">
+                                        <div class="title">@Resources.HT</div>
+                                        <div class="score">@match.HTHomeScore - @match.HTAwayScore</div>
+                                    </div>
+                                    <div class="half FT">
+                                        <div class="title">@Resources.FT</div>
+                                        <div class="score">@match.LiveHomeScore - @match.LiveAwayScore</div>
+                                    </div>
+                                }
                                 @if (match.LiveType)
                                 {
                                     <div class="live">@Resources.Live</div>
@@ -95,14 +98,14 @@
                             </td>
                             <td class="text-right">
                                 <div>
-                                    @HtmlHelpers.RenderStakeLink(match.PMWager, match.PMStake, Model.BuildViewByBetTypeLink(EventTypeConstants.Started,match.MatchId))
+                                    @HtmlHelpers.RenderStakeLink(match.PMWager, match.PMStake, Model.BuildViewByBetTypeLink(EventTypeConstants.Started, match.MatchId))
                                 </div>
                                 <div>
                                     @HtmlHelpers.RenderStakeLink(match.IPWager, match.IPStake, Model.BuildViewByBetTypeLink(EventTypeConstants.Started, match.MatchId))
                                 </div>
                             </td>
                             <td class="text-right">
-                                @HtmlHelpers.RenderBetTypeCountLink(match.BetTypeCount,Model.BuildViewByBetTypeLink(EventTypeConstants.Started, match.MatchId))
+                                @HtmlHelpers.RenderBetTypeCountLink(match.BetTypeCount, Model.BuildViewByBetTypeLink(EventTypeConstants.Started, match.MatchId))
                             </td>
                         </tr>
                     }

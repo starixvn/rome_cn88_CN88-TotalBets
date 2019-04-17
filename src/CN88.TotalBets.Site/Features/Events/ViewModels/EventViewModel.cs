@@ -50,8 +50,6 @@
 
         public bool HasEventData { get; }
 
-        public bool IsShowScore => Query.SportTypeGroup == SportTypeConstants.Soccer;
-
         protected override IDictionary<string, object> GetViewByBetTypeRoutesValues(byte type, int matchId)
         {
             if (Query.Type == EventTypeConstants.InPlay)
