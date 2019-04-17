@@ -41,7 +41,7 @@
 
             foreach (var match in matches)
             {
-                match.HomeName = cacheRefService.GetTeamName(match.HomeId);
+                match.HomeName = cacheRefService.GetTeamName(match.HomeId) + (match.IsNeutral ? " (N)" : string.Empty);
                 match.AwayName = cacheRefService.GetTeamName(match.AwayId);
                 var summaries = matchSummaries.Where(s => s.MatchId == match.MatchId);
 
