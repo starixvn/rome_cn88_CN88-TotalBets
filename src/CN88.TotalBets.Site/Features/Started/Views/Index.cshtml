@@ -74,8 +74,14 @@
                         <tr class="childrow-@league.LeagueId">
                             <td class="text-center">@HtmlHelpers.ShowTime(match.ShowTimeDT, match.OfferLive, Model.ShowDate)</td>
                             <td class="details">
-                                <div class="half"><div class="title">@Resources.HT</div>@match.HTHomeScore - @match.HTAwayScore</div>
-                                <div class="half"><div class="title">@Resources.FT</div>@match.LiveHomeScore - @match.LiveAwayScore</div>
+                                <div class="half">
+                                    <div class="title">@Resources.HT</div>
+                                    <div class="score">@match.HTHomeScore - @match.HTAwayScore</div>
+                                </div>
+                                <div class="half FT">
+                                    <div class="title">@Resources.FT</div>
+                                    <div class="score">@match.LiveHomeScore - @match.LiveAwayScore</div>
+                                </div>
                                 @if (match.LiveType)
                                 {
                                     <div class="live">@Resources.Live</div>

@@ -10,14 +10,16 @@
             background-color: #ececec;
             padding: 1px 0 2px;
         }
-        &.FT {
-            color: #7e1414;
-            .title {
-                color: #3b3b3b;
-            }
-        }
-        
+
+        &.FT .score {
+            color: #B50000;
+        }        
     }
+
+    .score {
+        padding: 4px 0;
+    }
+
     .live {
         text-align: center;
         text-transform: uppercase;
