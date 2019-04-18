@@ -33,11 +33,8 @@
                   isShowMarketSelection: true)
         {
             SubTitle = Resources.Started;
-            ShowDate = query.DateType != DateTypeConstants.Today;
             Data = data;
         }
-
-        public bool ShowDate { get; }
 
         public IEnumerable<StartedLeague> Data { get; }
 
@@ -58,7 +55,7 @@
             {
                 [nameof(query.Market)] = query.Market,
                 [nameof(query.DateType)] = query.DateType,
-                [nameof(ShowDate)] = ShowDate
+                ["IsShowKODate"] = true
             };
     }
 }

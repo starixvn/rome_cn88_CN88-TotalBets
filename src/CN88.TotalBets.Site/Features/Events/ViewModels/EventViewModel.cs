@@ -63,7 +63,7 @@
             {
                 return new Dictionary<string, object>(base.GetViewByBetTypeRoutesValues(type, matchId))
                 {
-                    ["ShowDate"] = IsEarly
+                    ["IsShowKODate"] = IsEarly
                 };
             }
         }

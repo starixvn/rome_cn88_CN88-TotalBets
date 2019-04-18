@@ -24,7 +24,8 @@
                   {
                       [nameof(filterQuery.Type)] = filterQuery.Type,
                       [nameof(filterQuery.MatchId)] = filterQuery.MatchId,
-                      [nameof(filterQuery.IsShowMarketSelection)] = filterQuery.IsShowMarketSelection
+                      [nameof(filterQuery.IsShowMarketSelection)] = filterQuery.IsShowMarketSelection,
+                      [nameof(filterQuery.IsShowKODate)] = filterQuery.IsShowKODate
                   },
                   leagues: null,
                   isShowDateSelection: false,
@@ -34,7 +35,7 @@
             TotalBetsByBetTypes = totalBetsByBetTypes;
             Match = match;
             IsShowMarketStatus = filterQuery.IsShowMarketSelection;
-            IsShowDate = filterQuery.ShowDate;
+            IsShowKODate = filterQuery.IsShowKODate;
             MatchSummaryMenuViewModel = new MatchSummaryMenuViewModel(
                 summary,
                 filterQuery.MatchId,
@@ -56,7 +57,7 @@
 
         public bool IsShowMarketStatus { get; }
 
-        public bool IsShowDate { get; }
+        public bool IsShowKODate { get; }
 
         public object GetWagerAccountParams(int bettypeId, string betTeam, bool liveIndicator)
             => new
@@ -97,7 +98,8 @@
                 $"{filterQuery.AppPath}ViewByBetType",
                 new Dictionary<string, object>(GetRouteValues(filterQuery))
                 {
-                    [nameof(filterQuery.Type)] = filterQuery.Type
+                    [nameof(filterQuery.Type)] = filterQuery.Type,
+                    [nameof(filterQuery.IsShowKODate)] = filterQuery.IsShowKODate
                 });
 
         private IDictionary<string, object> GetRouteValues(ViewByBetTypeQuery filterQuery)

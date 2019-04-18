@@ -72,7 +72,7 @@
                     foreach (var match in league.Matches)
                     {
                         <tr class="childrow-@league.LeagueId">
-                            <td class="text-center">@HtmlHelpers.ShowTime(match.ShowTimeDT, match.OfferLive, Model.ShowDate)</td>
+                            <td class="text-center">@HtmlHelpers.ShowTime(match.ShowTimeDT, match.OfferLive, true)</td>
                             <td class="details">
                                 @if (Model.IsShowScore)
                                 {
