@@ -303,4 +303,16 @@
   <data name="MemberStake" xml:space="preserve">
     <value>會員投注額</value>
   </data>
+  <data name="Yesterday" xml:space="preserve">
+    <value>昨日</value>
+  </data>
+  <data name="PM" xml:space="preserve">
+    <value>賽前</value>
+  </data>
+  <data name="IP" xml:space="preserve">
+    <value>滾球</value>
+  </data>
+  <data name="AllDates" xml:space="preserve">
+    <value>所有日期</value>
+  </data>
 </root>
