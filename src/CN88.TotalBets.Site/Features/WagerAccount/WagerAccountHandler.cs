@@ -40,7 +40,8 @@
                 message.CustLevelId,
                 message.BetType,
                 message.BetTeam,
-                message.LiveIndicator);
+                message.LiveIndicator,
+                message.Type);
 
             var wagerAccounts = await wagerAccountService.GetByEvent(param);
 

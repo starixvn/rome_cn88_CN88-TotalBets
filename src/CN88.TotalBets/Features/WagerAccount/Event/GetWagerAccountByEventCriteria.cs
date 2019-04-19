@@ -17,6 +17,7 @@ namespace CN88.TotalBets.Features.WagerAccount
             BetTeam = param.BetTeam;
             BettypeGroup = param.BettypeGroup;
             LiveIndicator = param.LiveIndicator;
+            EventType = param.EventType;
         }
 
         public int CustId { get; }
@@ -34,16 +35,33 @@ namespace CN88.TotalBets.Features.WagerAccount
         public decimal Stake { get; }
 
         [SpParam(Ignored = true)]
+        public byte EventType { get; }
+
+        [SpParam(Ignored = true)]
         public UserLevel Role { get; }
 
         public override string GetSettingKey()
-            => Role.IsSuperLevel() ? "CS_TotalBets_WagerAccount_Event_Master" :
-            Role.IsMasterLevel() ? "CS_TotalBets_WagerAccount_Event_Agent" : "CS_TotalBets_WagerAccount_Event_Member";
+        {
+            if (EventType == EventTypeConstants.Started)
+            {
+                return Role.IsSuperLevel()
+                    ? "CS_TotalBets_WagerAccount_Started_Master"
+                    : Role.IsMasterLevel()
+                    ? "CS_TotalBets_WagerAccount_Started_Agent"
+                    : "CS_TotalBets_WagerAccount_Started_Member";
+            }
+
+            return Role.IsSuperLevel()
+                ? "CS_TotalBets_WagerAccount_Event_Master"
+                : Role.IsMasterLevel()
+                ? "CS_TotalBets_WagerAccount_Event_Agent"
+                : "CS_TotalBets_WagerAccount_Event_Member";
+        }
 
         public override bool IsValid()
-            => CustId > 0 && 
-            Stake >= 0 && 
-            MatchId > 0 && 
+            => CustId > 0 &&
+            Stake >= 0 &&
+            MatchId > 0 &&
             StakeConditionConstants.Conditions.ContainsKey(StakeCondition);
     }
 }
