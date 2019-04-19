@@ -55,9 +55,4 @@
       <Mapping DataField="bettypegroup" ObjectProperty="BetTypeId"></Mapping>
     </Setting>
   </Function>
-  <Function Name="Started">
-    <Setting Key="CS_TotalBets_Started_Super" SpName="CS_TotalBets_Started_Super" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="CS_TotalBets_Started_Master" SpName="CS_TotalBets_Started_Master" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="CS_TotalBets_Started_Agent" SpName="CS_TotalBets_Started_Agent" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
-  </Function>
 </Functions>

@@ -10,4 +10,9 @@
     <Setting Key="Age_Rpt_CustomerConsolidatedGroup_CheckBelonging" SpName="Age_Rpt_CustomerConsolidatedGroup_CheckBelonging" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
     <Setting Key="Age_CustomerStatusSel" SpName="Age_CustomerStatusSel" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
   </Function>
+  <Function Name="Started">
+    <Setting Key="CS_TotalBets_Started_Super" SpName="CS_TotalBets_Started_Super" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
+    <Setting Key="CS_TotalBets_Started_Master" SpName="CS_TotalBets_Started_Master" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
+    <Setting Key="CS_TotalBets_Started_Agent" SpName="CS_TotalBets_Started_Agent" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
+  </Function>
 </Functions>
