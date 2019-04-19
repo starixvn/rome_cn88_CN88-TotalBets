@@ -315,4 +315,13 @@
   <data name="AllDates" xml:space="preserve">
     <value>All Dates</value>
   </data>
+  <data name="On" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="AutoRefresh" xml:space="preserve">
+    <value>Auto Refresh</value>
+  </data>
 </root>
