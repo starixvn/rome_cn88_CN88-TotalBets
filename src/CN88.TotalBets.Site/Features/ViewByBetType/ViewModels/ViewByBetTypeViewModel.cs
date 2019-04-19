@@ -12,6 +12,8 @@
 
     public class ViewByBetTypeViewModel : BaseViewModel
     {
+        private readonly ViewByBetTypeQuery filterQuery;
+
         public ViewByBetTypeViewModel(
             IEnumerable<TotalBetsByBetType> totalBetsByBetTypes,
             Match match,
@@ -32,6 +34,8 @@
                   isShowMarketSelection: filterQuery.IsShowMarketSelection,
                   isShowLeagueSelection: false)
         {
+            this.filterQuery = filterQuery;
+
             TotalBetsByBetTypes = totalBetsByBetTypes;
             Match = match;
             IsShowMarketStatus = filterQuery.IsShowMarketSelection;
@@ -70,7 +74,8 @@
                 StakeCondition = FilterViewModel.StakeCondition,
                 BetType = bettypeId,
                 liveIndicator = liveIndicator ? 1 : 0,
-                betTeam = betTeam
+                betTeam = betTeam,
+                type = filterQuery.Type
             };
 
         public bool ShowScore(int sportTypeId)

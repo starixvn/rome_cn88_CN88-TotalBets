@@ -10,6 +10,7 @@
     using CN88.TotalBets.Shared.Models;
     using CN88.TotalBets.Site.Shared.Helpers;
     using CN88.TotalBets.Site.Shared.ViewModels;
+    using TotalBets.Shared.Constants;
 
     public class WagerAccountByEventViewModel
     {
@@ -36,8 +37,12 @@
 
         public string GetWagerDetailUrl()
         {
+            var virtualPath = Message.Type == EventTypeConstants.Started
+                ? "~/BetLists/StartedWagerDetails"
+                : "~/BetLists/EventWagerDetails";
+
             return UrlHelper.AddQueryStringParamsFunc(
-                AppPathHelper.GetAppPath(AppSettings.FeaturesAppPath, "~/BetLists/EventWagerDetails"),
+                AppPathHelper.GetAppPath(AppSettings.FeaturesAppPath, virtualPath),
                 new Dictionary<string, object>
                 {
                     ["CustId"] = Message.ViewerId,
@@ -67,12 +72,18 @@
                 ["BetType"] = Message.BetType,
                 ["LiveIndicator"] = Message.LiveIndicator,
                 ["BetTeam"] = Message.BetTeam,
+                ["Type"] = Message.Type,
                 ["BreadcrumbLevelJson"] = JsonHelper.ToJsonFunc(breadscrumbToDonwline)
+
             };
             var url = AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/WagerAccount/GetByEvent");
             if (Message.CustLevel.GetDirectDownLineLevel().IsMemberLevel())
             {
-                url = AppPathHelper.GetAppPath(AppSettings.FeaturesAppPath, "~/BetLists/EventWagerByAccount");
+                var virtualPath = Message.Type == EventTypeConstants.Started
+                    ? "~/BetLists/StartedWagerByAccount"
+                    : "~/BetLists/EventWagerByAccount";
+
+                url = AppPathHelper.GetAppPath(AppSettings.FeaturesAppPath, virtualPath);
             }
 
             return UrlHelper.AddQueryStringParamsFunc(url, param);
