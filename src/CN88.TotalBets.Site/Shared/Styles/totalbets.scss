@@ -138,28 +138,135 @@
         .event {
             text-transform: capitalize;
             font-size: 13px;
-            padding-top: 2px;
         }
     }
 
+    .sub-title {
+        display: table;
+        line-height: 25px;
+        padding-top: 4px;
+
+        .event,
+        .btn-refresh,
+        .btn-turn-off-on {
+            float: left;
+        }
+    }
+    
+    .btn-refresh {
+        margin-left: 10px;
+        margin-right: 10px;
+        height: 24px;
+        width: 50px;
+        min-width: unset;
+        padding-left: 8px;
+        padding-right: 30px;
+        position: relative;
+
+        .icon-refresh {
+            font-size: 18px;
+            line-height: 0;
+            position: relative;
+            top: 2px;
+        }
+    }
+
+    .btn-turn-off-on {
+        .auto-refresh {
+            float: left;
+            font-size: 13px;
+            text-transform: capitalize;
+        }
+    }
     .filter {
         display: inline-block;
     }
 
-    .btn-refresh {
-        min-width: unset;
-        padding-left: 8px;
-        position: relative;
-        top: 4px;
+}
 
-        .icon-refresh {
-            font-size: 16px;
-            padding-right: 8px;
-            position: relative;
-            top: 1px;
-        }
+// Turn on/off auto refresh
+
+.onoffswitch {
+    float: left;
+    position: relative;
+    width: 50px;
+    margin-right: 5px;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    height: 24px;
+}
+.onoffswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.1s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 24px;
+    padding: 0;
+    font-weight: normal;
+    font-size: 13px;
+    text-transform: capitalize;
+    line-height: 25px;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: attr(data-on);
+    padding-left: 5px;
+    background-color: #27a67b;
+    color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: attr(data-off);
+    padding-right: 7px;
+    background-color: #7a7a7a;
+    color: #ffffff;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block;
+    height: 20px;
+    width: 20px;
+    margin: 2px;
+    background: #f4f1f1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 26px;
+    border-radius: 2px;
+    transition: all 0.1s ease-in 0s;
+
+    &:before {
+        position: absolute;
+        left: 6px;
+        line-height: 20px;
+        content: "\e922";
+        font-family: "CN88Icon";
+        font-size: 7px;
+        font-weight: normal;
+        color: #afafaf;
     }
 }
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
+
 
 .tbl-totalbet {
     tr.group {
