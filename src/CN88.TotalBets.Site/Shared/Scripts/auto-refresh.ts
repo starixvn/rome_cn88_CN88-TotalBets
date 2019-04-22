@@ -4,9 +4,30 @@ class AutoRefresh {
     private filterForm: JQuery;
     private timerId: number = 0;
 
-    constructor(countDownContainer: JQuery, filterForm: JQuery) {
+    constructor(countDownContainer: JQuery, filterForm: JQuery, switchCheckbox: JQuery, hiddenInput: JQuery, reloadInSeconds: number) {
         this.countDownContainer = countDownContainer;
         this.filterForm = filterForm;
+
+        let self = this;
+        switchCheckbox.change(function () {
+            if (this.checked) {
+                self.countDownContainer.parent().removeAttr("disabled");
+                self.start(reloadInSeconds);
+            } else {
+                self.stop();
+                self.countDownContainer.text("..");
+                self.countDownContainer.parent().attr("disabled", "disabled");
+            }
+
+            hiddenInput.val(this.checked);
+        });
+
+        if (switchCheckbox.is(":checked")) {
+            this.start(reloadInSeconds);
+        } else {
+            this.countDownContainer.parent().attr("disabled", "disabled");
+        }
+        
     }
 
     start(interval: number): void {

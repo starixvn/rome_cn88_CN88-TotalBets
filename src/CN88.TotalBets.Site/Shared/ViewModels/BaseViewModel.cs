@@ -23,6 +23,7 @@
         {
             query = filterQuery;
             Title = title;
+            IsAutoRefresh = filterQuery.IsAutoRefresh;
 
             var possTypeSelectListItems = PossTypeConstants.PossTypeByLevel[query.ActorLevel].Select(
                 x => new SelectListItem
@@ -40,7 +41,10 @@
                 query.SportTypeGroup,
                 query.StakeCondition,
                 query.Stake,
-                hiddenParams,
+                new Dictionary<string, object>(hiddenParams)
+                {
+                    [nameof(filterQuery.IsAutoRefresh)] = filterQuery.IsAutoRefresh
+                },
                 PossTypeSelectionViewModel,
                 DateSelectionViewModel,
                 MarketSelectionViewModel,
@@ -60,5 +64,7 @@
         public SingleSelectionViewModel LeagueSelectionViewModel { get; }
 
         public FilterViewModel FilterViewModel { get; protected set; }
+
+        public bool IsAutoRefresh { get; }
     }
 }

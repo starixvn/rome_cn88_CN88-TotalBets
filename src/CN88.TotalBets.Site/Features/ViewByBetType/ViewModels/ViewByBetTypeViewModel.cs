@@ -15,13 +15,14 @@
         private readonly ViewByBetTypeQuery filterQuery;
 
         public ViewByBetTypeViewModel(
+            string sportGroupName,
             IEnumerable<TotalBetsByBetType> totalBetsByBetTypes,
             Match match,
             SportGroupSummary summary,
             ViewByBetTypeQuery filterQuery)
             : base(
                   filterQuery,
-                  title: Resources.ViewByBetType,
+                  title: sportGroupName,
                   hiddenParams: new Dictionary<string, object>
                   {
                       [nameof(filterQuery.Type)] = filterQuery.Type,
@@ -35,6 +36,7 @@
                   isShowLeagueSelection: false)
         {
             this.filterQuery = filterQuery;
+            SubTitle= Resources.ResourceManager.GetString(EventTypeConstants.EventTypes[filterQuery.Type]);
 
             TotalBetsByBetTypes = totalBetsByBetTypes;
             Match = match;

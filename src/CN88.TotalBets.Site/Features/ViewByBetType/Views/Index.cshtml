@@ -14,14 +14,30 @@
 
 
 <div class="main-content" id="main-content">
+    <div class="page-title">
+        <div>@Model.Title</div>
+        <div class="sub-title">
+            <div class="event">@Model.SubTitle</div>
+            @if (Model.IsShowMarketStatus)
+            {
+                <button type="button" class="btn-submit btn-refresh" id="btn-refresh">
+                    <span class="icon-refresh"></span>
+                    <span id="countDownContainer">..</span>
+                </button>
+                <div id="btn-turn-off-on" class="btn-turn-off-on">
+                    <div id="lbl-switch" class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="chb-switch" @(Model.IsAutoRefresh ? "checked" : string.Empty)>
+                        <label class="onoffswitch-label" for="chb-switch">
+                            <span class="onoffswitch-inner" data-on="@Resources.On" data-off="@Resources.Off"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                    <span class="auto-refresh">@Resources.AutoRefresh</span>
+                </div>
+            }
+        </div>
+    </div>
     @Html.Partial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel)
-    @if (Model.IsShowMarketStatus)
-    {
-        <button type="button" class="btn-submit btn-refresh" id="btn-refresh">
-            <span class="icon-refresh"></span>
-            <span id="countDownContainer">..</span>
-        </button>
-    }
     <div class="viewbettype-content">
         @RenderMatch(Model)
         <table class="tbl-style2 tbl-totalbet tbl-viewbettype" id="tblTotalBets">
@@ -46,12 +62,12 @@
 
 @helper RenderMatch(ViewByBetTypeViewModel model)
 {
-    if (model.Match != null)
-    {
+if (model.Match != null)
+{
         <div class="league">@Model.LeagueName <span class="index pull-right"><span>@HtmlHelpers.FormatNumber(Model.TotalWager)</span> | <span class="link">@HtmlHelpers.FormatNumber(Model.TotalStake)</span></span></div>
 
         <div class="head-match">
-             <div class="show-time">@HtmlHelpers.ShowTime(Model.Match.ShowTimeDT, Model.Match.OfferLive, Model.IsShowKODate)</div>
+            <div class="show-time">@HtmlHelpers.ShowTime(Model.Match.ShowTimeDT, Model.Match.OfferLive, Model.IsShowKODate)</div>
             <div class="match">
                 <span class="team-name">@Model.Match.HomeName</span>
                 @if (model.ShowScore(model.Match.SportTypeId))
@@ -65,7 +81,7 @@
                 <span class="team-name">@Model.Match.AwayName</span>
             </div>
         </div>
-    }
+}
 }
 
 @helper RenderBetType(
@@ -93,19 +109,19 @@
     BetOptionBuilderFactory betOptionBuilderFactory,
     bool isShowMarketStatus)
 {
-    var betOptionParams = new Dictionary<string, object> { { nameof(isShowMarketStatus), isShowMarketStatus } };
+var betOptionParams = new Dictionary<string, object> { { nameof(isShowMarketStatus), isShowMarketStatus } };
 
-    foreach (var betOptionGroup in betType.BetOptionGroups)
+foreach (var betOptionGroup in betType.BetOptionGroups)
+{
+    if (betOptionGroup.BetOptions.Any())
     {
-        if (betOptionGroup.BetOptions.Any())
+        if (!betOptionBuilderFactory.IsUseDefaultBetOptionBuider(betType.BetTypeId)
+            && isShowMarketStatus)
         {
-            if (!betOptionBuilderFactory.IsUseDefaultBetOptionBuider(betType.BetTypeId)
-                && isShowMarketStatus)
-            {
                 <tr class="bet-option childrow-@betType.BetTypeId">
                     <td colspan="2">@(betOptionGroup.LiveText)</td>
                 </tr>
-            }
+        }
 
             <tr class="childrow-@betType.BetTypeId">
                 <td class="bet-team-container">
@@ -126,28 +142,28 @@
                     </div>
                 </td>
             </tr>
-        }
     }
+}
 }
 
 @helper BuildWagerAndStake(BetOption betOption)
 {
     @HtmlHelpers.FormatNumber(betOption.Wager)
 
-    if (betOption.Wager > 0)
-    {
+if (betOption.Wager > 0)
+{
         @Html.ActionLink(
         HtmlHelpers.FormatNumber(betOption.Stake).ToHtmlString(),
         "GetByEvent",
         "WagerAccount",
         Model.GetWagerAccountParams(betOption.BetTypeId, betOption.BetTeam, betOption.IsLive),
         new { @class = "stake link stake-link" })
-    }
-    else
-    {
+}
+else
+{
         <span class="stake">
             @HtmlHelpers.FormatNumber(betOption.Stake).ToHtmlString()
         </span>
-    }
+}
 
 }

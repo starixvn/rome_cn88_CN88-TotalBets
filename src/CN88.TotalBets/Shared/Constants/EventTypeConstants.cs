@@ -15,7 +15,8 @@
             [InPlay] = nameof(InPlay),
             [Today] = nameof(Today),
             [Early] = nameof(Early),
-            [Outright] = nameof(Outright)
+            [Outright] = nameof(Outright),
+            [Started] = nameof(Started)
         };
     }
 }

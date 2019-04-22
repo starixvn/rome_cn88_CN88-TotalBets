@@ -25,7 +25,8 @@
                   $"{query.AppPath}{startedVirtualPath}",
                   new Dictionary<string, object>
                   {
-                      ["IsShowMarketSelection"] = true
+                      ["IsShowMarketSelection"] = true,
+                      [nameof(query.IsAutoRefresh)] = query.IsAutoRefresh
                   },
                   summaries,
                   leagues,
@@ -36,7 +37,7 @@
             Data = data;
         }
 
-        public bool IsAutoRefresh { get; }
+        
 
         public IEnumerable<StartedLeague> Data { get; }
 

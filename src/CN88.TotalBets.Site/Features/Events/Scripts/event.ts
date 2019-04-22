@@ -3,6 +3,8 @@
 class EventTotalBets extends BaseTotalBets {
     marketSelectionComponent: SingleSelectionDropdownComponent;
 
+    isShowMarketSelection: boolean;
+
     constructor(
         $: JQueryStatic,
         summaryMenu: SummaryMenu,
@@ -27,14 +29,19 @@ class EventTotalBets extends BaseTotalBets {
 
     renderComponents(): void {
         super.renderComponents();
-        if (cn88TotalBets.convertAttributeToBool(this.$("#IsShowMarketSelection").val())) {
+
+        this.isShowMarketSelection = cn88TotalBets.convertAttributeToBool(this.$("#IsShowMarketSelection").val())
+        if (this.isShowMarketSelection) {
             this.marketSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-market", "Market"));
         }
     }
 
     onSubmit(): void {
         super.onSubmit();
-        this.marketSelectionComponent.updateSelectedValue();
+
+        if (this.isShowMarketSelection) {
+            this.marketSelectionComponent.updateSelectedValue();
+        }
     }
 
     bindEvents(): void {
@@ -46,8 +53,12 @@ class EventTotalBets extends BaseTotalBets {
         if (buttonAutoRefresh.length) {
             buttonAutoRefresh.click(() => { this.$filterForm.trigger("submit"); });
 
-            let autoRefresh: AutoRefresh = new AutoRefresh(this.$("#countDownContainer"), this.$filterForm);
-            autoRefresh.start(reloadInSeconds);
+            let autoRefresh: AutoRefresh = new AutoRefresh(
+                this.$("#countDownContainer"),
+                this.$filterForm,
+                this.$("#chb-switch"),
+                this.$("#IsAutoRefresh"),
+                reloadInSeconds);
         }
     }
 }

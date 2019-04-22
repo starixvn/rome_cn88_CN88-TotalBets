@@ -13,16 +13,28 @@
 <div class="main-content" id="main-content">
     <div class="page-title">
         <div>@Model.Title</div>
-        <div class="event">@Model.SubTitle</div>
+        <div class="sub-title">
+            <div class="event">@Model.SubTitle</div>
+            @if (Model.IsInPlay)
+            {
+                <button type="button" class="btn-submit btn-refresh" id="btn-refresh">
+                    <span class="icon-refresh"></span>
+                    <span id="countDownContainer">..</span>
+                </button>
+                <div id="btn-turn-off-on" class="btn-turn-off-on">
+                    <div id="lbl-switch" class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="chb-switch" @(Model.IsAutoRefresh ? "checked" : string.Empty)>
+                        <label class="onoffswitch-label" for="chb-switch">
+                            <span class="onoffswitch-inner" data-on="@Resources.On" data-off="@Resources.Off"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                    <span class="auto-refresh">@Resources.AutoRefresh</span>
+                </div>
+            }
+        </div>
     </div>
     @{ Html.RenderPartial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel); }
-    @if (Model.IsInPlay)
-    {
-        <button type="button" class="btn-submit btn-refresh" id="btn-refresh">
-            <span class="icon-refresh"></span>
-            <span id="countDownContainer">..</span>
-        </button>
-    }
     <table class="tbl-style2 tbl-totalbet" id="tblTotalBets">
         @if (!Model.HasEventData)
         {
@@ -76,17 +88,17 @@
 </div>
 @helper RenderScoreColumn(Match match)
 {
-    if (Model.IsInPlay)
+if (Model.IsInPlay)
+{
+    if (Model.IsShowScore)
     {
-        if (Model.IsShowScore)
-        {
             @:@match.LiveHomeScore - @match.LiveAwayScore<br />
         }
 
         <span class="live">@Resources.Live</span>
-    }
-    else
-    {
+}
+else
+{
         @HtmlHelpers.ShowTime(match.ShowTimeDT, match.OfferLive, Model.IsEarly)
-    }
+}
 }

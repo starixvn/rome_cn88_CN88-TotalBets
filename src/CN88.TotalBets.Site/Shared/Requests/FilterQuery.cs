@@ -31,5 +31,7 @@
         public byte DateType { get; set; }
 
         public string AppPath { get; }
+
+        public bool IsAutoRefresh { get; set; } = true;
     }
 }
