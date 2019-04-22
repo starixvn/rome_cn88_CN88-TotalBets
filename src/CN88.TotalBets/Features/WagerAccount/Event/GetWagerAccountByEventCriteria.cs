@@ -1,10 +1,10 @@
-﻿using CN88.TotalBets.Shared.Constants;
-using CN88.TotalBets.Shared.Models;
-using Fanex.Data;
-using Fanex.Data.Repository;
-
-namespace CN88.TotalBets.Features.WagerAccount
+﻿namespace CN88.TotalBets.Features.WagerAccount
 {
+    using Fanex.Data;
+    using Fanex.Data.Repository;
+    using Shared.Constants;
+    using Shared.Models;
+
     public class GetWagerAccountByEventCriteria : CriteriaBase
     {
         public GetWagerAccountByEventCriteria(WagerAccountByEventParam param)

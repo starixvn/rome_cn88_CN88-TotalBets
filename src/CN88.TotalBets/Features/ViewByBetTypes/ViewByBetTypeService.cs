@@ -178,7 +178,8 @@
                 param.StakeCondition,
                 param.MarketType,
                 param.PossType,
-                param.Stake));
+                param.Stake,
+                param.EventType));
 
             var defaultBetOption = CreateDefaultBetOptions(betOptions, param.MarketType);
             var unionBetOptions = defaultBetOption
