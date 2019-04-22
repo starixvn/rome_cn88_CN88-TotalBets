@@ -1,34 +1,59 @@
 ﻿"use strict";
-class AutoRefresh {
-    private countDownContainer: JQuery;
-    private filterForm: JQuery;
-    private timerId: number = 0;
 
-    constructor(countDownContainer: JQuery, filterForm: JQuery, switchCheckbox: JQuery, hiddenInput: JQuery, reloadInSeconds: number) {
-        this.countDownContainer = countDownContainer;
-        this.filterForm = filterForm;
+class AutoRefreshOptions {
+    constructor(
+        public countDownContainerId: string = "countDownContainer",
+        public filterFormId: string = "filter-form",
+        public switchCheckboxId: string = "chb-switch",
+        public hiddenInputId: string = "IsAutoRefresh",
+        public reloadInSeconds: number = 15) {
+    }
+}
+
+class AutoRefresh {
+    private $countDownContainer: JQuery;
+    private $filterForm: JQuery;
+    private timerId: number = 0;
+    
+    $: JQueryStatic;
+    linkBuilderComponent: LinkBuilderComponent;
+    options = new AutoRefreshOptions();
+
+
+    constructor(
+        $: JQueryStatic,
+        linkBuilderComponent: LinkBuilderComponent) {
+        this.$ = $;
+        this.linkBuilderComponent = linkBuilderComponent;
+    }
+
+    render = (options: AutoRefreshOptions = new AutoRefreshOptions()) => {
+        this.options = <AutoRefreshOptions>this.$.extend({}, this.options, options);
+        this.$countDownContainer = this.$("#" + this.options.countDownContainerId);
+        this.$filterForm = this.$("#" + this.options.filterFormId);
+        let $switchCheckbox = this.$("#" + this.options.switchCheckboxId);
+
+        if ($switchCheckbox.is(":checked")) {
+            this.start(this.options.reloadInSeconds);
+        } else {
+            this.$countDownContainer.parent().attr("disabled", "disabled");
+        }
 
         let self = this;
-        switchCheckbox.change(function () {
+        $switchCheckbox.change(function () {
             if (this.checked) {
-                self.countDownContainer.parent().removeAttr("disabled");
-                self.start(reloadInSeconds);
+                self.$countDownContainer.parent().removeAttr("disabled");
+                self.start(self.options.reloadInSeconds);
             } else {
                 self.stop();
-                self.countDownContainer.text("..");
-                self.countDownContainer.parent().attr("disabled", "disabled");
+                self.$countDownContainer.text("..");
+                self.$countDownContainer.parent().attr("disabled", "disabled");
             }
 
-            hiddenInput.val(this.checked);
+            self.$("#" + self.options.hiddenInputId).val(this.checked);
+            self.linkBuilderComponent.updateParam(self.options.hiddenInputId, this.checked);
         });
-
-        if (switchCheckbox.is(":checked")) {
-            this.start(reloadInSeconds);
-        } else {
-            this.countDownContainer.parent().attr("disabled", "disabled");
-        }
-        
-    }
+    };
 
     start(interval: number): void {
         this.stop();
@@ -43,8 +68,8 @@ class AutoRefresh {
     }
 
     private tick(interval: number): void {
-        if (interval === 1 && this.filterForm.length) {
-            this.filterForm.trigger("submit");
+        if (interval === 1 && this.$filterForm.length) {
+            this.$filterForm.trigger("submit");
         }
         else {
             this.setCountDown(--interval);
@@ -53,6 +78,6 @@ class AutoRefresh {
     }
 
     private setCountDown(value: number): void {
-        this.countDownContainer.text(value);
+        this.$countDownContainer.text(value);
     }
 }

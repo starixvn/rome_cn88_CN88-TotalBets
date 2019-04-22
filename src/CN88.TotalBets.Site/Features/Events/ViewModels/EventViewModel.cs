@@ -21,7 +21,7 @@
             IEnumerable<SelectListItem> leagues) : base(
                 query,
                 sportTypeGroup,
-                $"{query.AppPath}{eventVirtualPath}?Type={query.Type}",
+                $"{query.AppPath}{eventVirtualPath}?Type={query.Type}&IsAutoRefresh={query.IsAutoRefresh}",
                 new Dictionary<string, object>
                 {
                     [nameof(query.Type)] = query.Type,

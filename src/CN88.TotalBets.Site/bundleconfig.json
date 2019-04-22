@@ -25,6 +25,7 @@
     "inputFiles": [
       "Shared/Scripts/core.js",
       "Shared/Scripts/summary-menu.js",
+      "Shared/Scripts/components/link-builder.js",
       "Shared/Scripts/components/single-selection-dropdown.js",
       "Shared/Scripts/base-totalbets.js",
       "Shared/Scripts/auto-refresh.js",
@@ -66,6 +67,7 @@
     "inputFiles": [
       "Shared/Scripts/core.js",
       "Shared/Scripts/summary-menu.js",
+      "Shared/Scripts/components/link-builder.js",
       "Shared/Scripts/components/single-selection-dropdown.js",
       "Shared/Scripts/base-totalbets.js",
       "Shared/Scripts/auto-refresh.js",
@@ -84,6 +86,7 @@
     "inputFiles": [
       "Shared/Scripts/core.js",
       "Shared/Scripts/summary-menu.js",
+      "Shared/Scripts/components/link-builder.js",
       "Shared/Scripts/components/single-selection-dropdown.js",
       "Shared/Scripts/base-totalbets.js",
       "Shared/Scripts/auto-refresh.js",

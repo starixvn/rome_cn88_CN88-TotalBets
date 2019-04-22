@@ -7,7 +7,6 @@
     using Shared.ViewModels;
     using TotalBets.Features.Started.Models;
     using TotalBets.Features.Summaries.Models;
-    using TotalBets.Shared.Constants;
 
     public class StartedViewModel : TotalBetBySportBaseViewModel
     {
@@ -22,7 +21,7 @@
             : base(
                   query,
                   sportTypeGroup,
-                  $"{query.AppPath}{startedVirtualPath}",
+                  $"{query.AppPath}{startedVirtualPath}?IsAutoRefresh={query.IsAutoRefresh}",
                   new Dictionary<string, object>
                   {
                       ["IsShowMarketSelection"] = true,

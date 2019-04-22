@@ -36,7 +36,7 @@
                   isShowLeagueSelection: false)
         {
             this.filterQuery = filterQuery;
-            SubTitle= Resources.ResourceManager.GetString(EventTypeConstants.EventTypes[filterQuery.Type]);
+            SubTitle = Resources.ResourceManager.GetString(EventTypeConstants.EventTypes[filterQuery.Type]);
 
             TotalBetsByBetTypes = totalBetsByBetTypes;
             Match = match;
@@ -118,7 +118,8 @@
                 [nameof(filterQuery.StakeCondition)] = filterQuery.StakeCondition,
                 [nameof(filterQuery.Market)] = filterQuery.Market,
                 [nameof(filterQuery.LeagueId)] = filterQuery.LeagueId,
-                [nameof(filterQuery.DateType)] = filterQuery.DateType
+                [nameof(filterQuery.DateType)] = filterQuery.DateType,
+                [nameof(filterQuery.IsAutoRefresh)] = filterQuery.IsAutoRefresh
             };
     }
 }

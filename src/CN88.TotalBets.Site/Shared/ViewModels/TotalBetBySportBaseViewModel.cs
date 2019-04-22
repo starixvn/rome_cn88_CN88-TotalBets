@@ -41,7 +41,8 @@
                 [nameof(query.StakeCondition)] = query.StakeCondition,
                 [nameof(query.SportTypeGroup)] = query.SportTypeGroup,
                 [nameof(query.PossType)] = query.PossType,
-                [nameof(query.LeagueId)] = query.LeagueId
+                [nameof(query.LeagueId)] = query.LeagueId,
+                [nameof(query.IsAutoRefresh)] = query.IsAutoRefresh
             };
     }
 }
