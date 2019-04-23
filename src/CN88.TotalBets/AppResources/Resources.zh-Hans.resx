@@ -315,4 +315,13 @@
   <data name="AllDates" xml:space="preserve">
     <value>所有日期</value>
   </data>
+  <data name="On" xml:space="preserve">
+    <value>开</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>关</value>
+  </data>
+  <data name="AutoRefresh" xml:space="preserve">
+    <value>自动刷新</value>
+  </data>
 </root>
