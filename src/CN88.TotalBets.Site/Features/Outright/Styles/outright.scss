@@ -1,5 +1,6 @@
 ﻿.tbl-outright {
-    width: 720px;
+    width: 1040px;
+
     tr.group {
         .group-name-wrapper {
             width: calc(100% - 150px - 8px);    
@@ -8,7 +9,7 @@
     }
     .team {
         width: 50%;
-        border-right: 1px solid #d9d9d9;
+        
         .team-name, .index {
             display: inline-block;
             vertical-align: middle;
@@ -22,6 +23,10 @@
         }
         .team-name {
             width: calc(100% - 120px - 8px);
+        }
+
+        &:first-child {
+            border-right: 1px solid #d9d9d9;
         }
     }
     
