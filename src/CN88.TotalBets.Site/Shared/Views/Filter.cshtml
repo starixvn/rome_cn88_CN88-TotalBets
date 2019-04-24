@@ -1,16 +1,19 @@
 ﻿@model FilterViewModel
 <form class="form-inline filter" role="form" id="filter-form">
     @StakeConditionFilter.Render(Model.StakeCondition, Model.Stake)
-    @PossTypeSelection.Render(Model.PossTypeSelectionViewModel)
-    @if (Model.IsShowMarket)
+    @if (Model.IsShowDateSelection)
     {
-        @MarketSelection.Render(Model.Market)
+        @DateSelection.Render(Model.DateSelectionViewModel)
     }
-    @if (Model.IsShowLeague)
+    @PossTypeSelection.Render(Model.PossTypeSelectionViewModel)
+    @if (Model.IsShowMarketSelection)
+    {
+        @MarketSelection.Render(Model.MarketSelectionViewModel)
+    }
+    @if (Model.IsShowLeagueSelection)
     {
         @LeagueSelection.Render(Model.LeagueSelectionViewModel)
     }
-    @Html.Hidden(nameof(Model.Type), Model.Type)
     @Html.Hidden(nameof(Model.SportTypeGroup), Model.SportTypeGroup)
     @foreach (var keyValue in Model.HiddenParams)
     {

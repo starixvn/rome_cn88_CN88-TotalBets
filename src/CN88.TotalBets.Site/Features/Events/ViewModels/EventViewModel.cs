@@ -9,7 +9,7 @@
     using TotalBets.Features.Summaries.Models;
     using TotalBets.Shared.Constants;
 
-    public class EventViewModel : BaseViewModel
+    public class EventViewModel : TotalBetBySportBaseViewModel
     {
         private const string eventVirtualPath = "Event/Index";
 
@@ -18,8 +18,19 @@
             string sportTypeGroup,
             MatchLeagueTotal eventModel,
             IEnumerable<SportGroupSummary> summaries,
-            IEnumerable<SelectListItem> leagues)
-            : base(query, sportTypeGroup, $"{query.AppPath}{eventVirtualPath}", summaries, leagues)
+            IEnumerable<SelectListItem> leagues) : base(
+                query,
+                sportTypeGroup,
+                $"{query.AppPath}{eventVirtualPath}?Type={query.Type}&IsAutoRefresh={query.IsAutoRefresh}",
+                new Dictionary<string, object>
+                {
+                    [nameof(query.Type)] = query.Type,
+                    [nameof(query.IsShowMarketSelection)] = query.IsShowMarketSelection
+                },
+                summaries,
+                leagues,
+                false,
+                query.IsShowMarketSelection)
         {
             EventModel = eventModel;
             IsInPlay = eventModel.Type == EventTypeConstants.InPlay;
@@ -39,7 +50,22 @@
 
         public bool HasEventData { get; }
 
-        public bool IsShowScore
-            => Query.SportTypeGroup == SportTypeConstants.Soccer;
+        protected override IDictionary<string, object> GetViewByBetTypeRoutesValues(byte type, int matchId)
+        {
+            if (IsInPlay)
+            {
+                return new Dictionary<string, object>(base.GetViewByBetTypeRoutesValues(type, matchId))
+                {
+                    [nameof(Query.Market)] = Query.Market
+                };
+            }
+            else
+            {
+                return new Dictionary<string, object>(base.GetViewByBetTypeRoutesValues(type, matchId))
+                {
+                    ["IsShowKODate"] = IsEarly
+                };
+            }
+        }
     }
 }

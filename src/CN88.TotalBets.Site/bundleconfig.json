@@ -23,11 +23,14 @@
   {
     "outputFileName": "assets/bundles/events/index.js",
     "inputFiles": [
+      "Shared/Scripts/core.js",
       "Shared/Scripts/summary-menu.js",
+      "Shared/Scripts/components/link-builder.js",
       "Shared/Scripts/components/single-selection-dropdown.js",
       "Shared/Scripts/base-totalbets.js",
       "Shared/Scripts/auto-refresh.js",
-      "Features/Events/Scripts/event.js"
+      "Features/Events/Scripts/event.js",
+      "Features/Events/Scripts/event-init.js"
     ]
   },
   {
@@ -62,11 +65,33 @@
   {
     "outputFileName": "assets/bundles/viewbybettype/index.js",
     "inputFiles": [
+      "Shared/Scripts/core.js",
       "Shared/Scripts/summary-menu.js",
+      "Shared/Scripts/components/link-builder.js",
       "Shared/Scripts/components/single-selection-dropdown.js",
       "Shared/Scripts/base-totalbets.js",
       "Shared/Scripts/auto-refresh.js",
       "Features/ViewByBetType/Scripts/view-by-bet-type.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/started/started.css",
+    "inputFiles": [
+      "Shared/Styles/totalbets.css",
+      "Features/Started/Styles/started.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/bundles/started/index.js",
+    "inputFiles": [
+      "Shared/Scripts/core.js",
+      "Shared/Scripts/summary-menu.js",
+      "Shared/Scripts/components/link-builder.js",
+      "Shared/Scripts/components/single-selection-dropdown.js",
+      "Shared/Scripts/base-totalbets.js",
+      "Shared/Scripts/auto-refresh.js",
+      "Features/Events/Scripts/event.js",
+      "Features/Started/Scripts/started.js"
     ]
   }
 ]

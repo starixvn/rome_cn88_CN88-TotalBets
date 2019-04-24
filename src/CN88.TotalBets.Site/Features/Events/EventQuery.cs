@@ -2,6 +2,7 @@
 {
     using MediatR;
     using Shared.Requests;
+    using TotalBets.Shared.Constants;
     using TotalBets.Shared.Models;
     using ViewModels;
 
@@ -11,5 +12,9 @@
             : base(viewer)
         {
         }
+
+        public byte Type { get; set; }
+
+        public bool IsShowMarketSelection => Type == EventTypeConstants.InPlay;
     }
 }

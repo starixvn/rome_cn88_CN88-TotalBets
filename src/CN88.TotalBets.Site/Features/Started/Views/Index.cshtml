@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "Total Bets";
+    Layout = "~/Shared/Views/_Layout.cshtml";
+}
+@section Styles {
+    @StaticResources.RenderStyles("~/assets/bundles/started/started")
+}
+@section Scripts {
+    @StaticResources.RenderScripts("~/assets/bundles/started/index")
+}
+@model StartedViewModel
+@SummaryMenu.Render(Model.SummaryMenuViewModel)
+<div class="main-content" id="main-content">
+    <div class="page-title">
+        <div>@Model.Title</div>
+        <div class="sub-title">
+            <div class="event">@Model.SubTitle</div>
+            <button type="button" class="btn-submit btn-refresh" id="btn-refresh">
+                <span class="icon-refresh"></span>
+                <span id="countDownContainer">..</span>
+            </button>
+            <div id="btn-turn-off-on" class="btn-turn-off-on">
+                <div id="lbl-switch" class="onoffswitch">
+                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="chb-switch" @(Model.IsAutoRefresh ? "checked" : string.Empty)>
+                    <label class="onoffswitch-label" for="chb-switch">
+                        <span class="onoffswitch-inner" data-on="@Resources.On" data-off="@Resources.Off"></span>
+                        <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
+                <span class="auto-refresh">@Resources.AutoRefresh</span>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel)    
+   
+    <table class="tbl-style2 tbl-totalbet tbl-started" id="tblTotalBets">
+        <thead>
+            <tr>
+                <th class="col-100 text-center">@Resources.Time</th>
+                <th class="col-120 text-center">@Resources.Details</th>
+                <th class="col-320">@Resources.Event</th>
+                <th class="col-100">@Resources.Wagers</th>
+                <th class="col-100 text-right">[@HtmlHelpers.FormatNumber(Model.TotalWager)]</th>
+                <th class="col-180 text-right">@Resources.Stake [@HtmlHelpers.FormatNumber(Model.TotalStake)]</th>
+                <th class="col-80">&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Data.Any())
+            {
+                <tr class="total">
+                    <td>@Resources.Total</td>
+                    <td colspan="2"></td>
+                    <td><div>@Resources.PM</div><div>@Resources.IP</div></td>
+                    <td class="text-right">
+                        <div>@HtmlHelpers.FormatNumber(Model.TotalPMWager)</div>
+                        <div>@HtmlHelpers.FormatNumber(Model.TotalIPWager)</div>
+                    </td>
+                    <td class="text-right">
+                        <div>@HtmlHelpers.FormatNumber(Model.TotalPMStake)</div>
+                        <div>@HtmlHelpers.FormatNumber(Model.TotalIPStake)</div>
+                    </td>
+                    <td></td>
+                </tr>
+                foreach (var league in Model.Data)
+                {
+                    <tr class="group" data-leagueid="@league.LeagueId">
+                        <td colspan="3">
+                            <span class="group-name-wrapper">
+                                <span class="icon-chevron-down"></span>
+                                <span class="group-name">@league.LeagueName</span>
+                            </span>
+                        </td>
+                        <td><div>@Resources.PM</div><div>@Resources.IP</div></td>
+                        <td class="text-right">
+                            <div>@HtmlHelpers.FormatNumber(league.TotalPMWager)</div>
+                            <div>@HtmlHelpers.FormatNumber(league.TotalIPWager)</div>
+                        </td>
+                        <td class="text-right">
+                            <div>@HtmlHelpers.FormatNumber(league.TotalPMStake)</div>
+                            <div>@HtmlHelpers.FormatNumber(league.TotalIPStake)</div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    foreach (var match in league.Matches)
+                    {
+                        <tr class="childrow-@league.LeagueId">
+                            <td class="text-center">@HtmlHelpers.ShowTime(match.ShowTimeDT, match.OfferLive, true)</td>
+                            <td class="details">
+                                @if (Model.IsShowScore)
+                                {
+                                    <div class="half">
+                                        <div class="title">@Resources.HT</div>
+                                        <div class="score">@match.HTHomeScore - @match.HTAwayScore</div>
+                                    </div>
+                                    <div class="half FT">
+                                        <div class="title">@Resources.FT</div>
+                                        <div class="score">@match.LiveHomeScore - @match.LiveAwayScore</div>
+                                    </div>
+                                }
+                                @if (match.LiveType)
+                                {
+                                    <div class="live">@Resources.Live</div>
+                                }
+                            </td>
+                            <td>@match.HomeName v @match.AwayName</td>
+                            <td><div>@Resources.PM</div><div>@Resources.IP</div></td>
+                            <td class="text-right">
+                                <div>@HtmlHelpers.FormatNumber(match.PMWager)</div>
+                                <div>@HtmlHelpers.FormatNumber(match.IPWager)</div>
+                            </td>
+                            <td class="text-right">
+                                <div>
+                                    @HtmlHelpers.RenderStakeLink(match.PMWager, match.PMStake, Model.BuildViewByBetTypeLink(EventTypeConstants.Started, match.MatchId))
+                                </div>
+                                <div>
+                                    @HtmlHelpers.RenderStakeLink(match.IPWager, match.IPStake, Model.BuildViewByBetTypeLink(EventTypeConstants.Started, match.MatchId))
+                                </div>
+                            </td>
+                            <td class="text-right">
+                                @HtmlHelpers.RenderBetTypeCountLink(match.BetTypeCount, Model.BuildViewByBetTypeLink(EventTypeConstants.Started, match.MatchId))
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+            else
+            {
+                <tr><td colspan="7" class="text-center no-info">@Resources.NoInformationIsAvailable</td></tr>
+            }
+        </tbody>
+    </table>
+</div>

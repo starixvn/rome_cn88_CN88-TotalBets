@@ -12,45 +12,41 @@
 
     public class ViewByBetTypeViewModel : BaseViewModel
     {
+        private readonly ViewByBetTypeQuery filterQuery;
+
         public ViewByBetTypeViewModel(
+            string sportGroupName,
             IEnumerable<TotalBetsByBetType> totalBetsByBetTypes,
             Match match,
             SportGroupSummary summary,
             ViewByBetTypeQuery filterQuery)
-            : base(filterQuery, Resources.ViewByBetType, new Dictionary<string, object>
-            {
-                { nameof(filterQuery.MatchId), filterQuery.MatchId },
-                { nameof(filterQuery.ViewFromInPlayPage), filterQuery.ViewFromInPlayPage }
-            },
-            false,
-            filterQuery.ViewFromInPlayPage)
+            : base(
+                  filterQuery,
+                  title: sportGroupName,
+                  hiddenParams: new Dictionary<string, object>
+                  {
+                      [nameof(filterQuery.Type)] = filterQuery.Type,
+                      [nameof(filterQuery.MatchId)] = filterQuery.MatchId,
+                      [nameof(filterQuery.IsShowMarketSelection)] = filterQuery.IsShowMarketSelection,
+                      [nameof(filterQuery.IsShowKODate)] = filterQuery.IsShowKODate
+                  },
+                  leagues: null,
+                  isShowDateSelection: false,
+                  isShowMarketSelection: filterQuery.IsShowMarketSelection,
+                  isShowLeagueSelection: false)
         {
+            this.filterQuery = filterQuery;
+            SubTitle = Resources.ResourceManager.GetString(EventTypeConstants.EventTypes[filterQuery.Type]);
+
             TotalBetsByBetTypes = totalBetsByBetTypes;
             Match = match;
-            ViewFromInPlayPage = filterQuery.ViewFromInPlayPage;
-            ViewFromEarlyPage = filterQuery.Type == EventTypeConstants.Early;
+            IsShowMarketStatus = filterQuery.IsShowMarketSelection;
+            IsShowKODate = filterQuery.IsShowKODate;
             MatchSummaryMenuViewModel = new MatchSummaryMenuViewModel(
                 summary,
                 filterQuery.MatchId,
-                string.Join(
-                    "&",
-                    $"{filterQuery.AppPath}Event?Type={filterQuery.Type}",
-                    $"SportTypeGroup={filterQuery.SportTypeGroup}",
-                    $"PossType={filterQuery.PossType}",
-                    $"Stake={filterQuery.Stake}",
-                    $"StakeCondition={filterQuery.StakeCondition}",
-                    $"Market={filterQuery.Market}",
-                    $"LeagueId={filterQuery.LeagueId}"),
-                string.Join(
-                    "&",
-                    $"{filterQuery.AppPath}ViewByBetType?Type={filterQuery.Type}",
-                    $"SportTypeGroup={filterQuery.SportTypeGroup}",
-                    $"ViewFromInPlayPage={filterQuery.ViewFromInPlayPage}",
-                    $"PossType={filterQuery.PossType}",
-                    $"Stake={filterQuery.Stake}",
-                    $"StakeCondition={filterQuery.StakeCondition}",
-                    $"Market={filterQuery.Market}",
-                    $"LeagueId={filterQuery.LeagueId}"));
+                BuildSummaryPath(filterQuery),
+                BuildViewByBetTypePath(filterQuery));
         }
 
         public Match Match { get; }
@@ -65,9 +61,9 @@
 
         public MatchSummaryMenuViewModel MatchSummaryMenuViewModel { get; }
 
-        public bool ViewFromInPlayPage { get; }
+        public bool IsShowMarketStatus { get; }
 
-        public bool ViewFromEarlyPage { get; }
+        public bool IsShowKODate { get; }
 
         public object GetWagerAccountParams(int bettypeId, string betTeam, bool liveIndicator)
             => new
@@ -80,10 +76,50 @@
                 StakeCondition = FilterViewModel.StakeCondition,
                 BetType = bettypeId,
                 liveIndicator = liveIndicator ? 1 : 0,
-                betTeam = betTeam
+                betTeam = betTeam,
+                type = filterQuery.Type
             };
 
         public bool ShowScore(int sportTypeId)
-            => sportTypeId == SportTypeConstants.Soccer && ViewFromInPlayPage;
+            => sportTypeId == SportTypeConstants.Soccer && IsShowMarketStatus;
+
+        private string BuildSummaryPath(ViewByBetTypeQuery filterQuery)
+        {
+            if (filterQuery.Type == EventTypeConstants.Started)
+            {
+                return Shared.Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc(
+                    $"{filterQuery.AppPath}Started",
+                    GetRouteValues(filterQuery));
+            }
+
+            return Shared.Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc(
+                    $"{filterQuery.AppPath}Event",
+                    new Dictionary<string, object>(GetRouteValues(filterQuery))
+                    {
+                        [nameof(filterQuery.Type)] = filterQuery.Type
+                    });
+        }
+
+        private string BuildViewByBetTypePath(ViewByBetTypeQuery filterQuery)
+            => Shared.Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc(
+                $"{filterQuery.AppPath}ViewByBetType",
+                new Dictionary<string, object>(GetRouteValues(filterQuery))
+                {
+                    [nameof(filterQuery.Type)] = filterQuery.Type,
+                    [nameof(filterQuery.IsShowKODate)] = filterQuery.IsShowKODate
+                });
+
+        private IDictionary<string, object> GetRouteValues(ViewByBetTypeQuery filterQuery)
+            => new Dictionary<string, object>
+            {
+                [nameof(filterQuery.SportTypeGroup)] = filterQuery.SportTypeGroup,
+                [nameof(filterQuery.PossType)] = filterQuery.PossType,
+                [nameof(filterQuery.Stake)] = filterQuery.Stake,
+                [nameof(filterQuery.StakeCondition)] = filterQuery.StakeCondition,
+                [nameof(filterQuery.Market)] = filterQuery.Market,
+                [nameof(filterQuery.LeagueId)] = filterQuery.LeagueId,
+                [nameof(filterQuery.DateType)] = filterQuery.DateType,
+                [nameof(filterQuery.IsAutoRefresh)] = filterQuery.IsAutoRefresh
+            };
     }
 }

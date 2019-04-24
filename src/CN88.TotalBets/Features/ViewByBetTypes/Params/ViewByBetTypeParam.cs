@@ -1,7 +1,7 @@
 ﻿namespace CN88.TotalBets.Features.ViewByBetTypes.Params
 {
-    using CN88.TotalBets.Shared.Models;
-    using CN88.TotalBets.Shared.Params;
+    using Shared.Models;
+    using Shared.Params;
 
     public class ViewByBetTypeParam : FilterParam
     {
@@ -12,14 +12,19 @@
             byte stakeCondition,
             decimal stake,
             byte possType,
-            byte marketType) : base(custId, userLevel, 0, 0, stakeCondition, stake, possType)
+            byte marketType,
+            byte eventType) 
+            : base(custId, userLevel, 0, 0, stakeCondition, stake, possType)
         {
             MarketType = marketType;
             MatchId = matchId;
+            EventType = eventType;
         }
 
         public byte MarketType { get; }
 
         public int MatchId { get; }
+
+        public byte EventType { get; }
     }
 }

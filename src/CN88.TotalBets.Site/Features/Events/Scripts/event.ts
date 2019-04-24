@@ -1,6 +1,9 @@
-﻿"use strict";
+﻿/// <reference path="../../../shared/scripts/core.ts" />
+"use strict";
 class EventTotalBets extends BaseTotalBets {
     marketSelectionComponent: SingleSelectionDropdownComponent;
+
+    isShowMarketSelection: boolean;
 
     constructor(
         $: JQueryStatic,
@@ -19,15 +22,26 @@ class EventTotalBets extends BaseTotalBets {
 
         this.cacheDOMElements();
         this.renderComponents();
-        this.marketSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-market", "Market"));
         this.bindEvents();
 
         this.$.unblockUI();
     }
 
+    renderComponents(): void {
+        super.renderComponents();
+
+        this.isShowMarketSelection = cn88TotalBets.convertAttributeToBool(this.$("#IsShowMarketSelection").val())
+        if (this.isShowMarketSelection) {
+            this.marketSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-market", "Market"));
+        }
+    }
+
     onSubmit(): void {
         super.onSubmit();
-        this.marketSelectionComponent.updateSelectedValue();
+
+        if (this.isShowMarketSelection) {
+            this.marketSelectionComponent.updateSelectedValue();
+        }
     }
 
     bindEvents(): void {
@@ -39,18 +53,14 @@ class EventTotalBets extends BaseTotalBets {
         if (buttonAutoRefresh.length) {
             buttonAutoRefresh.click(() => { this.$filterForm.trigger("submit"); });
 
-            let autoRefresh: AutoRefresh = new AutoRefresh(this.$("#countDownContainer"), this.$filterForm);
-            autoRefresh.start(reloadInSeconds);
+            let autoRefresh: AutoRefresh = new AutoRefresh($, new LinkBuilderComponent($));
+            autoRefresh.render(
+                new AutoRefreshOptions(
+                    "countDownContainer",
+                    "filter-form",
+                    "chb-switch",
+                    "IsAutoRefresh",
+                    reloadInSeconds));
         }
     }
 }
-
-$(function (): void {
-    new EventTotalBets(
-        $,
-        new SummaryMenu($),
-        new SingleSelectionDropdownComponent($),
-        new SingleSelectionDropdownComponent($),
-        new SingleSelectionDropdownComponent($),
-        new SingleSelectionDropdownComponent($)).init();
-});

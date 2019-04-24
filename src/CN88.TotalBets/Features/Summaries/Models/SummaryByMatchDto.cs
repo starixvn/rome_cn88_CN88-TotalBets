@@ -12,7 +12,8 @@
             int homeId,
             int awayId,
             int wager,
-            decimal stake)
+            decimal stake,
+            bool isNeutral)
         {
             LeagueId = leagueId;
             MatchId = matchId;
@@ -20,6 +21,7 @@
             AwayId = awayId;
             Wager = wager;
             Stake = stake;
+            IsNeutral = isNeutral;
         }
 
         public int LeagueId { get; }
@@ -33,5 +35,7 @@
         public int Wager { get; }
 
         public decimal Stake { get; }
+
+        public bool IsNeutral { get; }
     }
 }

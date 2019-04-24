@@ -113,6 +113,12 @@
     <Compile Include="Features\Events\Models\MatchLeague.cs" />
     <Compile Include="Features\Events\Models\MatchLeagueTotal.cs" />
     <Compile Include="Features\Events\Params\EventParam.cs" />
+    <Compile Include="Features\Started\Criteria\GetStartedCriteria.cs" />
+    <Compile Include="Features\Started\Models\StartedLeague.cs" />
+    <Compile Include="Features\Started\Models\StartedMatch.cs" />
+    <Compile Include="Features\Started\Models\StartedMatchSummary.cs" />
+    <Compile Include="Features\Started\Params\StartedParam.cs" />
+    <Compile Include="Features\Started\StartedService.cs" />
     <Compile Include="Features\Summaries\Criteria\GetSummaryByEventCriteria.cs" />
     <Compile Include="Features\Summaries\Criteria\GetSummaryBySportTypeGroupCriteria.cs" />
     <Compile Include="Features\Summaries\Models\LeagueSummary.cs" />
@@ -144,6 +150,7 @@
     <Compile Include="Features\ViewByBetTypes\ViewByBetTypeService.cs" />
     <Compile Include="Shared\Configurations\AppSettings.cs" />
     <Compile Include="Shared\Constants\BetTypes.cs" />
+    <Compile Include="Shared\Constants\DateTypeConstants.cs" />
     <Compile Include="Shared\Constants\MarketConstants.cs" />
     <Compile Include="Shared\Constants\PossTypeConstants.cs" />
     <Compile Include="Shared\Constants\SportTypeConstants.cs" />

@@ -21,6 +21,7 @@
     using TotalBets.Features.Outright;
     using TotalBets.Features.Overview;
     using TotalBets.Features.SportTypeGroup;
+    using TotalBets.Features.Started;
     using TotalBets.Features.Summaries;
     using TotalBets.Features.WagerAccount;
     using TotalBets.Shared.Models;
@@ -101,6 +102,8 @@
 
             container.RegisterSingleton<ViewByBetTypeService, ViewByBetTypeServiceImpl>();
             container.RegisterSingleton<BetOptionBuilderFactory, BetOptionBuilderFactoryImpl>();
+
+            container.RegisterSingleton<StartedService, StartedServiceImpl>();
         }
     }
 }

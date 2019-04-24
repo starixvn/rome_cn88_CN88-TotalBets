@@ -79,6 +79,15 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All Dates.
+        /// </summary>
+        public static string AllDates {
+            get {
+                return ResourceManager.GetString("AllDates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Leagues.
         /// </summary>
         public static string AllLeagues {
@@ -115,6 +124,15 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Auto Refresh.
+        /// </summary>
+        public static string AutoRefresh {
+            get {
+                return ResourceManager.GetString("AutoRefresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Back To Summary.
         /// </summary>
         public static string BackToSummary {
@@ -129,6 +147,15 @@ namespace CN88.TotalBets.AppResources {
         public static string Company_Percentage {
             get {
                 return ResourceManager.GetString("Company_Percentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        public static string Date {
+            get {
+                return ResourceManager.GetString("Date", resourceCulture);
             }
         }
         
@@ -210,6 +237,15 @@ namespace CN88.TotalBets.AppResources {
         public static string InPlay {
             get {
                 return ResourceManager.GetString("InPlay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IP.
+        /// </summary>
+        public static string IP {
+            get {
+                return ResourceManager.GetString("IP", resourceCulture);
             }
         }
         
@@ -340,6 +376,24 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Off.
+        /// </summary>
+        public static string Off {
+            get {
+                return ResourceManager.GetString("Off", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to On.
+        /// </summary>
+        public static string On {
+            get {
+                return ResourceManager.GetString("On", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Other Bettypes.
         /// </summary>
         public static string OtherBetTypes {
@@ -381,6 +435,15 @@ namespace CN88.TotalBets.AppResources {
         public static string Parlay {
             get {
                 return ResourceManager.GetString("Parlay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PM.
+        /// </summary>
+        public static string PM {
+            get {
+                return ResourceManager.GetString("PM", resourceCulture);
             }
         }
         
@@ -606,6 +669,15 @@ namespace CN88.TotalBets.AppResources {
         public static string Wagers {
             get {
                 return ResourceManager.GetString("Wagers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yesterday.
+        /// </summary>
+        public static string Yesterday {
+            get {
+                return ResourceManager.GetString("Yesterday", resourceCulture);
             }
         }
     }

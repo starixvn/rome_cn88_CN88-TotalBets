@@ -60,8 +60,8 @@
       <HintPath>..\..\packages\Alpha.Web.1.0.1.6\lib\net40\Alpha.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CN88.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CN88.Web.1.0.0.0-beta11\lib\net461\CN88.Web.dll</HintPath>
+    <Reference Include="CN88.Web, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CN88.Web.1.0.0.1-subacc03\lib\net461\CN88.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Couchbase, Version=1.2.7.0, Culture=neutral, PublicKeyToken=05e9c6b5a9ec94c2, processorArchitecture=MSIL">
@@ -345,6 +345,14 @@
     <Content Include="assets\bundles\overview\overview.min.css">
       <DependentUpon>overview.css</DependentUpon>
     </Content>
+    <Content Include="assets\bundles\started\index.js" />
+    <Content Include="assets\bundles\started\index.min.js">
+      <DependentUpon>index.js</DependentUpon>
+    </Content>
+    <Content Include="assets\bundles\started\started.css" />
+    <Content Include="assets\bundles\started\started.min.css">
+      <DependentUpon>started.css</DependentUpon>
+    </Content>
     <Content Include="assets\bundles\viewbybettype\index.js" />
     <Content Include="assets\bundles\viewbybettype\index.min.js">
       <DependentUpon>index.js</DependentUpon>
@@ -356,6 +364,12 @@
     <Content Include="assets\bundles\wageraccount\wager-account.js" />
     <Content Include="assets\bundles\wageraccount\wager-account.min.js">
       <DependentUpon>wager-account.js</DependentUpon>
+    </Content>
+    <Content Include="Features\Started\Styles\started.css">
+      <DependentUpon>started.scss</DependentUpon>
+    </Content>
+    <Content Include="Features\Started\Styles\started.min.css">
+      <DependentUpon>started.css</DependentUpon>
     </Content>
     <Content Include="Features\ViewByBetType\Styles\images\Soccer_goal.png" />
     <Content Include="Features\ViewByBetType\Styles\viewbybettype.min.css">
@@ -420,7 +434,9 @@
     <Content Include="Web.backupMNLNap.config">
       <DependentUpon>Web.local.config</DependentUpon>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\DependencyConfig.cs" />
@@ -432,6 +448,11 @@
     <Compile Include="Features\Events\ViewModels\EventViewModel.cs" />
     <Compile Include="Features\Outright\OutrightController.cs" />
     <Compile Include="Features\Overview\OverViewController.cs" />
+    <Compile Include="Features\Started\StartedController.cs" />
+    <Compile Include="Features\Started\StartedHandler.cs" />
+    <Compile Include="Features\Started\StartedQuery.cs" />
+    <Compile Include="Shared\ViewModels\Filters\DateSelectionViewModel.cs" />
+    <Compile Include="Features\Started\ViewModels\StartedViewModel.cs" />
     <Compile Include="Features\ViewByBetType\ViewByBetTypeController.cs" />
     <Compile Include="Features\ViewByBetType\ViewByBetTypeHandler.cs" />
     <Compile Include="Features\ViewByBetType\ViewByBetTypeQuery.cs" />
@@ -464,6 +485,7 @@
     <Compile Include="Shared\ViewModels\BreadcrumbLevelViewModel.cs" />
     <Compile Include="Shared\ViewModels\Filters\FilterViewModel.cs" />
     <Compile Include="Features\ViewByBetType\ViewModels\MatchSummaryMenuViewModel.cs" />
+    <Compile Include="Shared\ViewModels\Filters\MarketSelectionViewModel.cs" />
     <Compile Include="Shared\ViewModels\Filters\SingleSelectionViewModel.cs" />
     <Compile Include="Features\Outright\OutrightViewModel.cs" />
     <Compile Include="Features\Overview\ViewModels\OverViewByOutrightViewModel.cs" />
@@ -475,6 +497,7 @@
     <Compile Include="Features\Overview\ViewModels\OverViewByParlayViewModel.cs" />
     <Compile Include="Features\Overview\ViewModels\HomeViewModel.cs" />
     <Compile Include="Features\Overview\ViewModels\OverViewTitleViewModel.cs" />
+    <Compile Include="Shared\ViewModels\TotalBetBySportBaseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -497,6 +520,7 @@
     <Content Include="App_Code\Breadcrumb.cshtml" />
     <Content Include="Features\ViewByBetType\Styles\viewbybettype.scss" />
     <Content Include="App_Data\SPNames\Main\DBARC.bodb_Archive.BODBDownlineNet" />
+    <Content Include="App_Code\Filters\DateSelection.cshtml" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
@@ -541,6 +565,9 @@
     <Content Include="Features\WagerAccount\Event\Views\Index.cshtml" />
     <Content Include="Features\WagerAccount\Event\Views\web.config" />
     <Content Include="Features\ViewByBetType\Views\MatchSummaryMenu.cshtml" />
+    <Content Include="Features\Started\Views\Index.cshtml" />
+    <Content Include="Features\Started\Views\web.config" />
+    <Content Include="Features\Started\Styles\started.scss" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -570,9 +597,13 @@
     <Content Include="App_Code\Filters\StakeConditionFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Features\Events\Scripts\event-init.ts" />
+    <TypeScriptCompile Include="Features\Started\Scripts\started.ts" />
     <TypeScriptCompile Include="Shared\Scripts\auto-refresh.ts" />
     <TypeScriptCompile Include="Shared\Scripts\base-totalbets.ts" />
+    <TypeScriptCompile Include="Shared\Scripts\components\link-builder.ts" />
     <TypeScriptCompile Include="Shared\Scripts\components\single-selection-dropdown.ts" />
+    <TypeScriptCompile Include="Shared\Scripts\core.ts" />
     <TypeScriptCompile Include="Shared\Scripts\summary-menu.ts" />
     <TypeScriptCompile Include="Features\Events\Scripts\event.ts" />
     <TypeScriptCompile Include="Features\WagerAccount\Scripts\wager-account.ts" />

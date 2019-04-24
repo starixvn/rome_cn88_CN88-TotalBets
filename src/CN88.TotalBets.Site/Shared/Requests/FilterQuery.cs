@@ -16,8 +16,6 @@
             AppPath = HttpContext.Current.Response.ApplyAppPathModifier("~/");
         }
 
-        public byte Type { get; set; }
-
         public byte SportTypeGroup { get; set; }
 
         public int LeagueId { get; set; }
@@ -30,6 +28,10 @@
 
         public byte PossType { get; set; }
 
+        public byte DateType { get; set; }
+
         public string AppPath { get; }
+
+        public bool IsAutoRefresh { get; set; } = true;
     }
 }

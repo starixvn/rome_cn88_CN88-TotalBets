@@ -2,6 +2,7 @@
 {
     using Fanex.Data;
     using Fanex.Data.Repository;
+    using Shared.Constants;
     using Shared.Models;
 
     public class GetSummaryByEventCriteria : CriteriaBase
@@ -24,11 +25,22 @@
         public UserLevel CustLevel { get; }
 
         public override string GetSettingKey()
-            => CustLevel.IsAgentLevel()
+        {
+            if (Type == EventTypeConstants.Started)
+            {
+                return CustLevel.IsAgentLevel()
+                    ? "CS_TotalBets_Summary_Started_Agent"
+                    : CustLevel.IsMasterLevel()
+                    ? "CS_TotalBets_Summary_Started_Master"
+                    : "CS_TotalBets_Summary_Started_Super";
+
+            }
+            return CustLevel.IsAgentLevel()
                 ? "CS_TotalBets_Summary_Agent"
                 : CustLevel.IsMasterLevel()
                 ? "CS_TotalBets_Summary_Master"
                 : "CS_TotalBets_Summary_Super";
+        }
 
         public override bool IsValid() => CustId > 0;
     }

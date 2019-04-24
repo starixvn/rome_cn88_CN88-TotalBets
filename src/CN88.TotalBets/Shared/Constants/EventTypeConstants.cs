@@ -8,13 +8,15 @@
         public const int Today = 2;
         public const int Early = 3;
         public const int Outright = 4;
+        public const int Started = 5;
 
         public static IDictionary<int, string> EventTypes { get; } = new Dictionary<int, string>
         {
             [InPlay] = nameof(InPlay),
             [Today] = nameof(Today),
             [Early] = nameof(Early),
-            [Outright] = nameof(Outright)
+            [Outright] = nameof(Outright),
+            [Started] = nameof(Started)
         };
     }
 }

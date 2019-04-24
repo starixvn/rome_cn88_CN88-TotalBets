@@ -18,5 +18,9 @@
   {
     "outputFile": "Features/ViewByBetType/Styles/viewbybettype.css",
     "inputFile": "Features/ViewByBetType/Styles/viewbybettype.scss"
+  },
+  {
+    "outputFile": "Features/Started/Styles/started.css",
+    "inputFile": "Features/Started/Styles/started.scss"
   }
 ]

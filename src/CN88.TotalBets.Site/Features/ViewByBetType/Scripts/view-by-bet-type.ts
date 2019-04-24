@@ -1,4 +1,5 @@
 ﻿/// <reference path="../../../shared/scripts/base-totalbets.ts" />
+/// <reference path="../../../shared/scripts/core.ts" />
 
 class ViewByBetType extends BaseTotalBets {
     marketSelectionComponent: SingleSelectionDropdownComponent;
@@ -7,6 +8,7 @@ class ViewByBetType extends BaseTotalBets {
         $: JQueryStatic,
         summaryMenu: SummaryMenu,
         stakeConditionSelectionComponent: SingleSelectionDropdownComponent,
+        dateTypeSelectionComponent: SingleSelectionDropdownComponent,
         possTypeSelectionComponent: SingleSelectionDropdownComponent,
         marketSelectionComponent: SingleSelectionDropdownComponent) {
         super($, summaryMenu, stakeConditionSelectionComponent, possTypeSelectionComponent, null);
@@ -19,10 +21,16 @@ class ViewByBetType extends BaseTotalBets {
 
         this.cacheDOMElements();
         this.renderComponents();
-        this.marketSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-market", "Market"));
         this.bindEvents();
 
         this.$.unblockUI();
+    }
+
+    renderComponents(): void {
+        super.renderComponents();
+        if (cn88TotalBets.convertAttributeToBool($("#IsShowMarketSelection").val())) {
+            this.marketSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-market", "Market"));
+        }
     }
 
     onSubmit(): void {
@@ -39,8 +47,14 @@ class ViewByBetType extends BaseTotalBets {
         if (buttonAutoRefresh.length) {
             buttonAutoRefresh.click(() => { this.$filterForm.trigger("submit"); });
 
-            let autoRefresh: AutoRefresh = new AutoRefresh(this.$("#countDownContainer"), this.$filterForm);
-            autoRefresh.start(reloadInSeconds);
+            let autoRefresh: AutoRefresh = new AutoRefresh($, new LinkBuilderComponent($));
+            autoRefresh.render(
+                new AutoRefreshOptions(
+                    "countDownContainer",
+                    "filter-form",
+                    "chb-switch",
+                    "IsAutoRefresh",
+                    reloadInSeconds));
         }
 
         this.summaryMenu.$summaryMenuItems.find(".league-wrapper").click(function (): void {
@@ -90,6 +104,7 @@ $(function (): void {
     new ViewByBetType(
         $,
         new SummaryMenu($),
+        new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($)).init();

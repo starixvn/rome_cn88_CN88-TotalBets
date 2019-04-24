@@ -255,6 +255,9 @@
   <data name="Wagers" xml:space="preserve">
     <value>注單</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>日期</value>
+  </data>
   <data name="Company_Percentage" xml:space="preserve">
     <value>公司(%)</value>
   </data>
@@ -299,5 +302,26 @@
   </data>
   <data name="MemberStake" xml:space="preserve">
     <value>會員投注額</value>
+  </data>
+  <data name="Yesterday" xml:space="preserve">
+    <value>昨日</value>
+  </data>
+  <data name="PM" xml:space="preserve">
+    <value>賽前</value>
+  </data>
+  <data name="IP" xml:space="preserve">
+    <value>滾球</value>
+  </data>
+  <data name="AllDates" xml:space="preserve">
+    <value>所有日期</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>開</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>關</value>
+  </data>
+  <data name="AutoRefresh" xml:space="preserve">
+    <value>自動更新</value>
   </data>
 </root>

@@ -1,0 +1,55 @@
+﻿.tbl-started {
+    width: 1040px;
+
+    .half {
+        display: inline-block;
+        text-align: center;
+        width: 58px;
+        &:first-child {
+            margin-right: -4px;
+        }
+        .title {
+            background-color: #ececec;
+            padding: 1px 0 2px;
+        }
+
+        &.FT .score {
+            color: #B50000;
+        }        
+    }
+
+    .score {
+        padding: 4px 0;
+    }
+
+    .live {
+        text-align: center;
+        text-transform: uppercase;
+        margin: 4px 0;
+        color: #ff0000;
+        font-weight: bold;
+    }
+    td.details {
+        padding: 0;
+        vertical-align: top;
+    }
+    tr.group td {
+        padding: 4px 8px;
+    }
+    tr.total {
+        td {
+            background-color: #ecf4e2;
+            &:first-child {
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+        }
+    }
+}
+.col-120 {
+    width: 120px;
+}
+.col-320 {
+    width: 320px;
+}
+

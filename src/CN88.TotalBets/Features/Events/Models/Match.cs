@@ -1,5 +1,4 @@
 ﻿using System;
-using CN88.TotalBets.Shared.Constants;
 using CN88.TotalBets.Shared.Services;
 
 namespace CN88.TotalBets.Features.Events.Models
@@ -48,7 +47,7 @@ namespace CN88.TotalBets.Features.Events.Models
 
         public int HomeId { get; }
 
-        public string HomeName => 
+        public string HomeName =>
             CacheRefManager.CacheRefInstance.GetTeamName(HomeId)
             + (IsNeutral ? " (N)" : string.Empty);
 
@@ -70,6 +69,6 @@ namespace CN88.TotalBets.Features.Events.Models
 
         public bool IsNeutral { get; }
 
-        public bool OfferLive { get; }        
+        public bool OfferLive { get; }
     }
 }

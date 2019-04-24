@@ -1,8 +1,9 @@
 ﻿namespace CN88.TotalBets.Features.ViewByBetTypes.Criteria
 {
-    using CN88.TotalBets.Shared.Models;
     using Fanex.Data;
     using Fanex.Data.Repository;
+    using Shared.Constants;
+    using Shared.Models;
 
     public class GetTotalBetsByBetTypeCriteria : CriteriaBase
     {
@@ -13,7 +14,8 @@
             byte stakeCondition,
             byte marketType,
             byte possType,
-            decimal stake)
+            decimal stake,
+            byte eventType)
         {
             CustId = custId;
             UserLevel = userLevel;
@@ -22,6 +24,7 @@
             PossType = possType;
             Stake = stake;
             MatchId = matchId;
+            EventType = eventType;
         }
 
         public int CustId { get; }
@@ -38,17 +41,29 @@
         public byte PossType { get; }
 
         [SpParam(Ignored = true)]
+        public byte EventType { get; }
+
+        [SpParam(Ignored = true)]
         public UserLevel UserLevel { get; }
 
         public override string GetSettingKey()
-            => UserLevel.IsSuperLevel()
-            ? "CS_TotalBets_Bettype_Super"
-#pragma warning disable S3358 // Ternary operators should not be nested
-            : UserLevel.IsMasterLevel()
+        { 
+            if(EventType == EventTypeConstants.Started)
+            {
+                return UserLevel.IsSuperLevel()
+                    ? "CS_TotalBets_Bettype_Started_Super"
+                    : UserLevel.IsMasterLevel()
+                    ? "CS_TotalBets_Bettype_Started_Master"
+                    : "CS_TotalBets_Bettype_Started_Agent";
+            }
+
+            return UserLevel.IsSuperLevel()
+                ? "CS_TotalBets_Bettype_Super"
+                : UserLevel.IsMasterLevel()
                 ? "CS_TotalBets_Bettype_Master"
                 : "CS_TotalBets_Bettype_Agent";
+        }
 
-#pragma warning restore S3358 // Ternary operators should not be nested
 
         public override bool IsValid()
             => CustId > 0 && MatchId > 0;

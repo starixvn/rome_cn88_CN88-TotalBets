@@ -7,7 +7,7 @@
     using TotalBets.Features.Outright.Models;
     using TotalBets.Features.Summaries.Models;
 
-    public class OutrightViewModel : BaseViewModel
+    public class OutrightViewModel : TotalBetBySportBaseViewModel
     {
         private const string outrightVirtualPath = "Outright/Index";
 
@@ -17,7 +17,7 @@
             IEnumerable<TeamLeague> teamLeagues,
             IEnumerable<SportGroupSummary> summaries,
             IEnumerable<SelectListItem> leagues)
-            : base(query, sportGroupName, $"{query.AppPath}{outrightVirtualPath}", summaries, leagues)
+            : base(query, sportGroupName, $"{query.AppPath}{outrightVirtualPath}", new Dictionary<string, object>(), summaries, leagues)
         {
             TeamLeagues = teamLeagues;
             SubTitle = Resources.Outright;

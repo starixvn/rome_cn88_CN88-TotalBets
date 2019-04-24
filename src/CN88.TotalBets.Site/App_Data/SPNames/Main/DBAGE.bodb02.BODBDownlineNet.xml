@@ -10,4 +10,36 @@
     <Setting Key="Age_Rpt_CustomerConsolidatedGroup_CheckBelonging" SpName="Age_Rpt_CustomerConsolidatedGroup_CheckBelonging" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
     <Setting Key="Age_CustomerStatusSel" SpName="Age_CustomerStatusSel" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
   </Function>
+  <Function Name="Started">
+    <Setting Key="CS_TotalBets_Started_Super" SpName="CS_TotalBets_Started_Super" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Started_Master" SpName="CS_TotalBets_Started_Master" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Started_Agent" SpName="CS_TotalBets_Started_Agent" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+  </Function>
+  <Function Name="Summary">
+    <Setting Key="CS_TotalBets_Summary_Started_Agent" SpName="CS_TotalBets_Summary_Started_Agent" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Summary_Started_Master" SpName="CS_TotalBets_Summary_Started_Master" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Summary_Started_Super" SpName="CS_TotalBets_Summary_Started_Super" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Detail_Started_Agent" SpName="CS_TotalBets_Detail_Started_Agent" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Detail_Started_Master" SpName="CS_TotalBets_Detail_Started_Master" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Detail_Started_Super" SpName="CS_TotalBets_Detail_Started_Super" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+  </Function>
+  <Function Name="Wager By Account">
+    <Setting Key="CS_TotalBets_WagerAccount_Started_Agent" SpName="CS_TotalBets_WagerAccount_Started_Agent" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_WagerAccount_Started_Master" SpName="CS_TotalBets_WagerAccount_Started_Master" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_WagerAccount_Started_Member" SpName="CS_TotalBets_WagerAccount_Started_Member" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0" />
+  </Function>
+<Function Name="ViewByBetType">
+    <Setting Key="CS_TotalBets_Bettype_Started_Super" SpName="CS_TotalBets_Bettype_Started_Super" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0">
+      <Mapping DataField="liveindicator" ObjectProperty="IsLive"></Mapping>
+      <Mapping DataField="bettypegroup" ObjectProperty="BetTypeId"></Mapping>
+    </Setting>
+    <Setting Key="CS_TotalBets_Bettype_Started_Master" SpName="CS_TotalBets_Bettype_Started_Master" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0">
+      <Mapping DataField="liveindicator" ObjectProperty="IsLive"></Mapping>
+      <Mapping DataField="bettypegroup" ObjectProperty="BetTypeId"></Mapping>
+    </Setting>
+    <Setting Key="CS_TotalBets_Bettype_Started_Agent" SpName="CS_TotalBets_Bettype_Started_Agent" DbName="DBAGE.bodb02.BODBDownlineNet" Plain="0">
+      <Mapping DataField="liveindicator" ObjectProperty="IsLive"></Mapping>
+      <Mapping DataField="bettypegroup" ObjectProperty="BetTypeId"></Mapping>
+    </Setting>
+  </Function>
 </Functions>
