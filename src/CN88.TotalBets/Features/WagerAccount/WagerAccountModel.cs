@@ -4,7 +4,6 @@
     {
         public WagerAccountModel()
         {
-
         }
 
         public int CustId { get; }

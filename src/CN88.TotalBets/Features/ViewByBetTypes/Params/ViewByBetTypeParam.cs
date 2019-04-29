@@ -13,7 +13,7 @@
             decimal stake,
             byte possType,
             byte marketType,
-            byte eventType) 
+            byte eventType)
             : base(custId, userLevel, 0, 0, stakeCondition, stake, possType)
         {
             MarketType = marketType;

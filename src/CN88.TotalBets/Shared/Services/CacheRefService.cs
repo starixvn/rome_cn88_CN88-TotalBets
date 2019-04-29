@@ -22,7 +22,7 @@
         {
             get
             {
-                if(remotingRefService == null)
+                if (remotingRefService == null)
                 {
                     remotingRefService = new CacheRefServiceImpl(new RemotingRefService());
                 }
@@ -35,7 +35,6 @@
                 remotingRefService = value;
             }
         }
-
     }
 
     public class CacheRefServiceImpl : CacheRefService

@@ -1,7 +1,6 @@
 ﻿namespace CN88.TotalBets.Shared.Configurations
 {
     using System;
-    using System.Linq;
     using System.Collections.Generic;
     using System.Collections.Specialized;
     using System.Configuration;
@@ -47,6 +46,7 @@
                 return orderBy;
             }
         }
+
         public static string GetConfigValue(string configName) => AppSettingValues[configName];
 
         public static void Verify()

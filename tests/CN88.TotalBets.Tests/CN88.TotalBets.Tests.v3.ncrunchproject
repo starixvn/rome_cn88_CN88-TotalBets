@@ -1,0 +1,15 @@
+﻿<ProjectConfiguration>
+  <Settings>
+    <IgnoredTests>
+      <NamedTestSelector>
+        <TestName>CN88.TotalBets.Tests.Features.Summaries.Criteria.GetSummaryByEventCriteriaTests.GetSettingKey_Always_ReturnRightData("100", "4", "CS_TotalBets_Summary_Super")</TestName>
+      </NamedTestSelector>
+      <NamedTestSelector>
+        <TestName>CN88.TotalBets.Tests.Features.Summaries.Criteria.GetSummaryByEventCriteriaTests.GetSettingKey_Always_ReturnRightData("200", "3", "CS_TotalBets_Summary_Master")</TestName>
+      </NamedTestSelector>
+      <NamedTestSelector>
+        <TestName>CN88.TotalBets.Tests.Features.Summaries.Criteria.GetSummaryByEventCriteriaTests.GetSettingKey_Always_ReturnRightData("300", "2", "CS_TotalBets_Summary_Agent")</TestName>
+      </NamedTestSelector>
+    </IgnoredTests>
+  </Settings>
+</ProjectConfiguration>

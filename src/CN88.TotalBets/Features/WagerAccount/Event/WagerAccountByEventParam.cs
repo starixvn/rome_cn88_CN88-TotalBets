@@ -26,6 +26,5 @@
         public int LiveIndicator { get; }
 
         public byte EventType { get; }
-
     }
 }
