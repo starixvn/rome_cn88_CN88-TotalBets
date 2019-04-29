@@ -11,7 +11,7 @@
         {
             BetOptions = betOptions;
             IsLive = isLive;
-            LiveText = IsLive ? Resources.InPlay: Resources.PreMatch;
+            LiveText = IsLive ? Resources.InPlay : Resources.PreMatch;
         }
 
         public IEnumerable<BetOption> BetOptions { get; }

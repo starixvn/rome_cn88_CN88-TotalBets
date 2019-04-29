@@ -43,7 +43,8 @@
                 message.Market,
                 message.Type));
 
-            var summary = await summaryService.GetSportGroupSummary(message.ViewerId, message.ActorLevel, message.Type, message.SportTypeGroup);
+            var summary = await summaryService
+                .GetSportGroupSummary(message.ViewerId, message.ActorLevel, message.Type, message.SportTypeGroup);
 
             return new ViewByBetTypeViewModel(
                 await sportTypeGroupService.GetSportTypeGroupName(message.SportTypeGroup),

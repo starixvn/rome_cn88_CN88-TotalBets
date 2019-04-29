@@ -17,6 +17,7 @@ namespace CN88.TotalBets.Tests.Features.Summaries.Criteria
             Fixture = new Fixture();
         }
 
+        [Fact]
         public void GetSummaryByEventCriteria_Ctor_CustLevelIsMember_Throw_ArgumentOutOfRangeException()
         {
             var custId = Fixture.Create<int>();

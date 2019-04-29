@@ -28,6 +28,77 @@
             this.betOptionBuilderFactory = betOptionBuilderFactory;
         }
 
+        public async Task<IDictionary<int, TotalBetsByBetType>> GetBetTypes(ViewByBetTypeParam param)
+        {
+            var betOptions = await dynamicRepository.FetchAsync<BetOption>(
+                new GetTotalBetsByBetTypeCriteria(
+                param.CustId,
+                param.UserLevel,
+                param.MatchId,
+                param.StakeCondition,
+                param.MarketType,
+                param.PossType,
+                param.Stake,
+                param.EventType));
+
+            var betOptionGroups = CreateBetOptionsGroups(param, betOptions);
+
+            var otherBetTypeBetOptions = betOptions
+                .Where(i => string.IsNullOrEmpty(i.BetTeam))
+                .OrderBy(bo => bo.BetTypeId);
+
+            AddOtherBetTypeOptionsBetOptionsToGroup(betOptionGroups, otherBetTypeBetOptions);
+
+            return betOptionGroups;
+        }
+
+        private Dictionary<int, TotalBetsByBetType> CreateBetOptionsGroups(
+            ViewByBetTypeParam param,
+            IEnumerable<BetOption> betOptions)
+        {
+            var unionBetOptions = CreateDefaultBetOptions(betOptions, param.MarketType)
+                .Select(bo =>
+                {
+                    var dbBetOption = betOptions.FirstOrDefault(dbbo => dbbo.Equals(bo));
+                    if (dbBetOption != null)
+                    {
+                        bo.Stake = dbBetOption.Stake;
+                        bo.Wager = dbBetOption.Wager;
+                    }
+
+                    return bo;
+                });
+
+            var betOptionGroups = unionBetOptions
+                .GroupBy(option => option.BetTypeId)
+                .OrderBy(group => group.Key)
+                .ThenBy(group => betOptionBuilderFactory.IsUseDefaultBetOptionBuider(group.Key) ? 1 : 0)
+                .ToDictionary(
+                group => group.Key,
+                group => BuildTotalBetsByBetType(group));
+
+            return betOptionGroups;
+        }
+
+        private static void AddOtherBetTypeOptionsBetOptionsToGroup(Dictionary<int, TotalBetsByBetType> betOptionGroups, IOrderedEnumerable<BetOption> otherBetTypeBetOptions)
+        {
+            if (otherBetTypeBetOptions.Any())
+            {
+                betOptionGroups.Add(
+                    (int)BetTypes.Others,
+                    new TotalBetsByBetType(
+                        (int)BetTypes.Others,
+                        otherBetTypeBetOptions.Sum(bo => bo.Wager),
+                        otherBetTypeBetOptions.Sum(bo => bo.Stake),
+                        new List<BetOptionGroup> {
+                            new BetOptionGroup(otherBetTypeBetOptions
+                            .OrderBy(bo => bo.BetTypeId)
+                            .ThenBy(bo => bo.IsLive ? 0 : 1),
+                            false)
+                        }));
+            }
+        }
+
         private IEnumerable<BetOption> CreateDefaultBetOptions(IEnumerable<BetOption> availableBetOptions, byte marketType)
         {
             var betOptions = new List<BetOption>();
@@ -188,62 +259,6 @@
                 new BetOption(betTypeId, "2", isLive)
             };
 
-        public async Task<IDictionary<int, TotalBetsByBetType>> GetBetTypes(ViewByBetTypeParam param)
-        {
-            var betOptions = await dynamicRepository.FetchAsync<BetOption>(
-                new GetTotalBetsByBetTypeCriteria(
-                param.CustId,
-                param.UserLevel,
-                param.MatchId,
-                param.StakeCondition,
-                param.MarketType,
-                param.PossType,
-                param.Stake,
-                param.EventType));
-
-            var defaultBetOption = CreateDefaultBetOptions(betOptions, param.MarketType);
-            var unionBetOptions = defaultBetOption
-                .Select(bo =>
-                {
-                    var dbBetOption = betOptions.FirstOrDefault(dbbo => dbbo.Equals(bo));
-                    if (dbBetOption != null)
-                    {
-                        bo.Stake = dbBetOption.Stake;
-                        bo.Wager = dbBetOption.Wager;
-                    }
-
-                    return bo;
-                });
-
-            var otherBetTypeBetOptions = betOptions.Where(i => string.IsNullOrEmpty(i.BetTeam)).OrderBy(bo => bo.BetTypeId);
-
-            var betOptionGroups = unionBetOptions
-                .GroupBy(option => option.BetTypeId)
-                .OrderBy(group => group.Key)
-                .ThenBy(group => betOptionBuilderFactory.IsUseDefaultBetOptionBuider(group.Key) ? 1 : 0)
-                .ToDictionary(
-                group => group.Key,
-                group => BuildTotalBetsByBetType(group));
-
-            if (otherBetTypeBetOptions.Any())
-            {
-                betOptionGroups.Add(
-                    (int)BetTypes.Others,
-                    new TotalBetsByBetType(
-                        (int)BetTypes.Others,
-                        otherBetTypeBetOptions.Sum(bo => bo.Wager),
-                        otherBetTypeBetOptions.Sum(bo => bo.Stake),
-                        new List<BetOptionGroup> {
-                            new BetOptionGroup(otherBetTypeBetOptions
-                            .OrderBy(bo => bo.BetTypeId)
-                            .ThenBy(bo => bo.IsLive ? 0 : 1),
-                            false)
-                        }));
-            }
-
-            return betOptionGroups;
-        }
-
         private static TotalBetsByBetType BuildTotalBetsByBetType(IGrouping<int, BetOption> group)
         {
             var totalWager = 0;
@@ -255,6 +270,7 @@
             {
                 totalWager += item.Wager;
                 totalStake += item.Stake;
+
                 if (item.IsLive)
                 {
                     liveBetOptions.Add(item);

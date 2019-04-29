@@ -69,7 +69,7 @@
                     g => new MatchSummary(
                         g.MatchId,
                         g.HomeId,
-                        cacheRefService.GetTeamName(g.HomeId) + (g.IsNeutral? " (N)": string.Empty),
+                        cacheRefService.GetTeamName(g.HomeId) + (g.IsNeutral ? " (N)" : string.Empty),
                         g.AwayId,
                         cacheRefService.GetTeamName(g.AwayId),
                         g.Wager, g.Stake));
