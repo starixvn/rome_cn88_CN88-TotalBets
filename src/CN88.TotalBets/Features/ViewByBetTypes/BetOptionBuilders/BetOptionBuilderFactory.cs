@@ -1,6 +1,7 @@
 ﻿namespace CN88.TotalBets.Features.ViewByBetTypes.BetOptionBuilders
 {
     using System.Collections.Generic;
+    using CN88.TotalBets.Shared.Constants;
 
     public interface BetOptionBuilderFactory
     {
@@ -16,24 +17,24 @@
         private static readonly IDictionary<int, IBetOptionBuilder> BetOptionBuilderContainer
             = new Dictionary<int, IBetOptionBuilder>
             {
-                { 1, new BetOptionBuilder1() },
-                { 7, new BetOptionBuilder1() },
-                { 17, new BetOptionBuilder1() },
-                { 20, new BetOptionBuilder1() },
-                { 21, new BetOptionBuilder1() },
+                { (int)BetTypes.Handicap, new BetOptionBuilder1() },
+                { (int)BetTypes._1st_Handicap, new BetOptionBuilder1() },
+                { (int)BetTypes._2nd_HDP, new BetOptionBuilder1() },
+                { (int)BetTypes.Money_Line, new BetOptionBuilder1() },
+                { (int)BetTypes._1st_Money_Line, new BetOptionBuilder1() },
 
-                { 2, new BetOptionBuilder2() },
-                { 12, new BetOptionBuilder2() },
-                { 184, new BetOptionBuilder428() },
+                { (int)BetTypes.Odd_Even, new BetOptionBuilder2() },
+                { (int)BetTypes._1st_Odd_Even, new BetOptionBuilder2() },
+                { (int)BetTypes._2ndOddEven, new BetOptionBuilder428() },
                 { 428, new BetOptionBuilder428() },
 
-                { 3, new BetOptionBuilder3() },
-                { 8, new BetOptionBuilder3() },
-                { 18, new BetOptionBuilder18() },
+                { (int)BetTypes.Over_Under, new BetOptionBuilder3() },
+                { (int)BetTypes._1st_Over_Under, new BetOptionBuilder3() },
+                { (int)BetTypes._2nd_Over_Under, new BetOptionBuilder18() },
 
-                { 5, new BetOptionBuilder5() },
-                { 15, new BetOptionBuilder5() },
-                { 177, new BetOptionBuilder5() },
+                { (int)BetTypes.FT_1X2, new BetOptionBuilder5() },
+                { (int)BetTypes.FirstHalf_1X2, new BetOptionBuilder5() },
+                { (int)BetTypes._2nd1x2, new BetOptionBuilder5() },
                 { 430, new BetOptionBuilder5() }
             };
 

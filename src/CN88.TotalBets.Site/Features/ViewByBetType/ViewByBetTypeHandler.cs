@@ -32,7 +32,7 @@
         {
             var match = await eventService.GetMatch(message.MatchId);
 
-            var totalBetByBetTypes = await viewByBetTypeService.GetBetTypes(
+            var totalBetByBetTypes = await viewByBetTypeService.GetTotalBetsByBetTypes(
                 new ViewByBetTypeParam(
                 message.ViewerId,
                 message.ActorLevel,

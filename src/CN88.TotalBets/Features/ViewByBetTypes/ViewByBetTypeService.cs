@@ -12,7 +12,7 @@
 
     public interface ViewByBetTypeService
     {
-        Task<IDictionary<int, TotalBetsByBetType>> GetBetTypes(ViewByBetTypeParam param);
+        Task<IDictionary<int, TotalBetsByBetType>> GetTotalBetsByBetTypes(ViewByBetTypeParam param);
     }
 
     public class ViewByBetTypeServiceImpl : ViewByBetTypeService
@@ -28,7 +28,7 @@
             this.betOptionBuilderFactory = betOptionBuilderFactory;
         }
 
-        public async Task<IDictionary<int, TotalBetsByBetType>> GetBetTypes(ViewByBetTypeParam param)
+        public async Task<IDictionary<int, TotalBetsByBetType>> GetTotalBetsByBetTypes(ViewByBetTypeParam param)
         {
             var betOptions = await dynamicRepository.FetchAsync<BetOption>(
                 new GetTotalBetsByBetTypeCriteria(
@@ -41,18 +41,18 @@
                 param.Stake,
                 param.EventType));
 
-            var betOptionGroups = CreateBetOptionsGroups(param, betOptions);
+            var totalBetsByBetTypes = CreateTotalBetsByBetTypes(param, betOptions);
 
             var otherBetTypeBetOptions = betOptions
                 .Where(i => string.IsNullOrEmpty(i.BetTeam))
                 .OrderBy(bo => bo.BetTypeId);
 
-            AddOtherBetTypeOptionsBetOptionsToGroup(betOptionGroups, otherBetTypeBetOptions);
+            AddOtherBetTypeBetOptionsToTotalBets(totalBetsByBetTypes, otherBetTypeBetOptions);
 
-            return betOptionGroups;
+            return totalBetsByBetTypes;
         }
 
-        private Dictionary<int, TotalBetsByBetType> CreateBetOptionsGroups(
+        private Dictionary<int, TotalBetsByBetType> CreateTotalBetsByBetTypes(
             ViewByBetTypeParam param,
             IEnumerable<BetOption> betOptions)
         {
@@ -80,7 +80,9 @@
             return betOptionGroups;
         }
 
-        private static void AddOtherBetTypeOptionsBetOptionsToGroup(Dictionary<int, TotalBetsByBetType> betOptionGroups, IOrderedEnumerable<BetOption> otherBetTypeBetOptions)
+        private static void AddOtherBetTypeBetOptionsToTotalBets(
+            Dictionary<int, TotalBetsByBetType> betOptionGroups, 
+            IOrderedEnumerable<BetOption> otherBetTypeBetOptions)
         {
             if (otherBetTypeBetOptions.Any())
             {
