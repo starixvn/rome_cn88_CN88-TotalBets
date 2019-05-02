@@ -61,6 +61,6 @@
 
         public SingleSelectionViewModel PossTypeSelectionViewModel { get; }
 
-        public bool IsDevices => browserHelper.IsMobile(isOnlyTablet: false);
+        public bool IsDevices => !browserHelper.IsMobile(isOnlyTablet: false);
     }
 }

@@ -30,8 +30,19 @@ class OverView {
 
         this.$sportGroups = this.$("#sport-groups .group");
         this.$("#sport-groups .group-title").on("click touchend", function () {
+            var $this = self.$(this);
+
+            if ($this.parent().hasClass("active")) {
+                return;
+            }
+
+            var activeGroup = self.$("#sport-groups .group.active .list-item");
+            activeGroup.slideUp('fast');
+
             self.$sportGroups.removeClass("active");
-            self.$(this).parent().addClass("active");
+
+            $this.parent().addClass("active");
+            $this.next().slideDown('fast');
         });
     }
 
