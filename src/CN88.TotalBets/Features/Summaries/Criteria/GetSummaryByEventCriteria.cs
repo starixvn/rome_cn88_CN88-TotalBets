@@ -25,6 +25,7 @@
 
         public int CustId { get; }
 
+        [SpParam(SqlParamName = "Type")]
         public byte EventType { get; }
 
         [SpParam(Ignored = true)]

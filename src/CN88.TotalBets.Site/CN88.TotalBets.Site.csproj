@@ -568,6 +568,10 @@
     <Content Include="Features\Started\Views\Index.cshtml" />
     <Content Include="Features\Started\Views\web.config" />
     <Content Include="Features\Started\Styles\started.scss" />
+    <Content Include="Features\Overview\Views\ParlayTable.cshtml" />
+    <Content Include="Features\Overview\Views\TotalTable.cshtml" />
+    <Content Include="Features\Overview\Views\SportsTable.cshtml" />
+    <Content Include="Features\Overview\Views\MobileSportsTable.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

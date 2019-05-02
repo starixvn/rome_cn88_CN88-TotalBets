@@ -55,5 +55,7 @@
         public OverViewTitleViewModel HeaderTable { get; }
 
         public SingleSelectionViewModel PossTypeSelectionViewModel { get; }
+
+        public bool IsDevices => System.Web.HttpContext.Current.Request.Browser.IsMobileDevice;
     }
 }

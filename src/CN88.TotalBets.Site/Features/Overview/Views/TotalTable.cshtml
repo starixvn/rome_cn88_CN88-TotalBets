@@ -1,0 +1,13 @@
+﻿@model HomeViewModel
+<table class="tbl-style2 tbl-total">
+    <tbody>
+        <tr>
+            <td>@Resources.TotalWarger</td>
+            <td class="text-right">@HtmlHelpers.FormatNumber(Model.Total.Wager)</td>
+        </tr>
+        <tr>
+            <td>@Resources.TotalStake</td>
+            <td class="text-right">@HtmlHelpers.FormatNumber(Model.Total.Stake)</td>
+        </tr>
+    </tbody>
+</table>

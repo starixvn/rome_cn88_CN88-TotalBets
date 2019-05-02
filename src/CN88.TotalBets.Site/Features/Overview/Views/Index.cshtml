@@ -2,7 +2,6 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Shared/Views/_Layout.cshtml";
-    var even = true;
 }
 @section Styles {
     @StaticResources.RenderStyles("~/assets/bundles/overview/overview")
@@ -12,99 +11,17 @@
     <form class="form-inline filter" role="form" id="overview-form">
         @PossTypeSelection.Render(Model.PossTypeSelectionViewModel)
     </form>
-    <table class="tbl-style2 tbl-total">
-        <tbody>
-            <tr>
-                <td>@Resources.TotalWarger</td>
-                <td class="text-right">@HtmlHelpers.FormatNumber(Model.Total.Wager)</td>
-            </tr>
-            <tr>
-                <td>@Resources.TotalStake</td>
-                <td class="text-right">@HtmlHelpers.FormatNumber(Model.Total.Stake)</td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="tbl-style2 tbl-betdetail">
-        <thead>
-            <tr>
-                <th></th>
-                <th class="text-center">@Resources.AllSports</th>
-                @for (var i = 0; i < Model.HeaderTable.HeaderName.Count; i++)
-                {
-                    <th class="text-center"><span data-toggle="tooltip" data-placement="top" title="@Model.HeaderTable.ToolTip[i]">@Model.HeaderTable.HeaderName[i]</span></th>
-                }
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var row in Model.BySportType)
-            {
-                <tr>
-                    <td>@row.Text</td>
-                    <td>
-                        <span>@HtmlHelpers.FormatNumber(row.Total.Wager)</span>
-                        <span>@HtmlHelpers.FormatNumber(row.Total.Stake)</span>
-                    </td>
-                    @foreach (var sportColumn in row.SportsColumn)
-                    {
-                        even = !even;
-                        <td class="@(even ? "even" : "")">
-                            <span>@HtmlHelpers.FormatNumberWithLink(sportColumn.Wager, row.Url(Model.PossType, sportColumn.SportTypeGroup), row.SubMenuId)</span>
-                            <span>@HtmlHelpers.FormatNumberWithLink(sportColumn.Stake, row.Url(Model.PossType, sportColumn.SportTypeGroup), row.SubMenuId)</span>
-                        </td>
-                        
-                    }
-                </tr>
-            }
-        </tbody>
-    </table>
-    <table class="tbl-style2 tbl-betdetail">
-        <thead>
-            <tr>
-                <th></th>
-                <th class="text-center">@Resources.AllParlays</th>
-                <th class="text-center">@Resources.Soccer</th>
-                <th class="text-center">@Resources.NonSoccer</th>
-                <th class="text-center">@Resources.MixSports</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>@Model.ByParlay.Text</td>
-                <td>
-                    <span>
-                        @HtmlHelpers.FormatNumber(Model.ByParlay.Total.Wager)
-                    </span>
-                    <span>
-                        @HtmlHelpers.FormatNumber(Model.ByParlay.Total.Stake)
-                    </span>
-                </td>
-                <td>
-                    <span>
-                        @HtmlHelpers.FormatNumberWithLink(Model.ByParlay.Soccer.Wager, Model.ByParlay.Url(Model.PossType,Model.ByParlay.Soccer.SportTypeGroup), Model.ByParlay.SubMenuId)
-                    </span>
-                    <span>
-                        @HtmlHelpers.FormatNumberWithLink(Model.ByParlay.Soccer.Stake, Model.ByParlay.Url(Model.PossType, Model.ByParlay.Soccer.SportTypeGroup), Model.ByParlay.SubMenuId)
-                    </span>
-                </td>
-                <td class="even">
-                    <span>
-                        @HtmlHelpers.FormatNumberWithLink(Model.ByParlay.NonSoccer.Wager, Model.ByParlay.Url(Model.PossType, Model.ByParlay.NonSoccer.SportTypeGroup), Model.ByParlay.SubMenuId)
-                    </span>
-                    <span>
-                        @HtmlHelpers.FormatNumberWithLink(Model.ByParlay.NonSoccer.Stake, Model.ByParlay.Url(Model.PossType, Model.ByParlay.NonSoccer.SportTypeGroup), Model.ByParlay.SubMenuId)
-                    </span>
-                </td>
-                <td>
-                    <span>
-                        @HtmlHelpers.FormatNumberWithLink(Model.ByParlay.MixSports.Wager, Model.ByParlay.Url(Model.PossType, Model.ByParlay.MixSports.SportTypeGroup), Model.ByParlay.SubMenuId)
-                    </span>
-                    <span>
-                        @HtmlHelpers.FormatNumberWithLink(Model.ByParlay.MixSports.Stake, Model.ByParlay.Url(Model.PossType, Model.ByParlay.MixSports.SportTypeGroup), Model.ByParlay.SubMenuId)
-                    </span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    @Html.Partial("~/Features/Overview/Views/TotalTable.cshtml", Model)
+    @if (Model.IsDevices)
+    {
+        @Html.Partial("~/Features/Overview/Views/MobileSportsTable.cshtml", Model)
+    }
+    else
+    {
+        @Html.Partial("~/Features/Overview/Views/SportsTable.cshtml", Model)
+    }
+
+    @Html.Partial("~/Features/Overview/Views/ParlayTable.cshtml", Model)
 </div>
 @section Scripts {
     @StaticResources.RenderScripts("~/assets/bundles/overview/index")
