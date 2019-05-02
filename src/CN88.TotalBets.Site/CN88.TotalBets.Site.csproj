@@ -451,6 +451,8 @@
     <Compile Include="Features\Started\StartedController.cs" />
     <Compile Include="Features\Started\StartedHandler.cs" />
     <Compile Include="Features\Started\StartedQuery.cs" />
+    <Compile Include="Shared\Helpers\BrowserHelper.cs" />
+    <Compile Include="Shared\Helpers\BrowserHelperImpl.cs" />
     <Compile Include="Shared\ViewModels\Filters\DateSelectionViewModel.cs" />
     <Compile Include="Features\Started\ViewModels\StartedViewModel.cs" />
     <Compile Include="Features\ViewByBetType\ViewByBetTypeController.cs" />

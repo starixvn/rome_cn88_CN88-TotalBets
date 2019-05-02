@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Web.Mvc;
     using AppResources;
+    using Shared.Helpers;
     using Shared.ViewModels.Filters;
     using Site.ViewModels.OverView;
     using TotalBets.Features.Overview.Models;
@@ -12,10 +13,13 @@
 
     public class HomeViewModel
     {
+        private readonly BrowserHelper browserHelper;
+
         public HomeViewModel(
             OverViewQuery message,
             OverViewModel overViewModel,
-            IEnumerable<SportGroup> allSportTypeGroup)
+            IEnumerable<SportGroup> allSportTypeGroup,
+            BrowserHelper browserHelper)
         {
             this.message = message;
             BySportType = new List<OverViewByBaseViewModel>
@@ -40,6 +44,7 @@
                    Selected = x.Key == message.PossType
                });
             PossTypeSelectionViewModel = new SingleSelectionViewModel(possTypeSelectListItems, message.PossType);
+            this.browserHelper = browserHelper;
         }
 
         private OverViewQuery message { get; }
@@ -56,6 +61,6 @@
 
         public SingleSelectionViewModel PossTypeSelectionViewModel { get; }
 
-        public bool IsDevices => System.Web.HttpContext.Current.Request.Browser.IsMobileDevice;
+        public bool IsDevices => browserHelper.IsMobile(isOnlyTablet: false);
     }
 }
