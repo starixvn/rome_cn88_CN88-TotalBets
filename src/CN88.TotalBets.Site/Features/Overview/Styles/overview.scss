@@ -57,3 +57,97 @@
         cursor: pointer;
     }
 }
+
+.group-list {
+    display: none;
+}
+
+@media (max-device-width: 767px) {
+    .page-title {
+        display: none;
+    }
+
+    .tbl-total {
+        width: 100%;
+    }
+
+    .hide-mobile {
+        display: none;
+    }
+
+    .group-list {
+        display: block;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border: 1px solid #D2D2D2;
+    }
+    
+    .group-title {
+        position: relative;
+        height: 36px;
+        line-height: 36px;
+        padding: 0 8px;
+        border-bottom: 1px solid #D2D2D2;
+        background-color: #F4F1F1;
+        color: #3B3B3B;
+
+        &:after {
+            position: absolute;
+            right: 4px;
+            content: "\e908";
+            font-family: "CN88Icon";
+            font-size: 13px; 
+        }
+    }
+
+    .group.active {
+        .group-title:after {
+            content: "\e900";
+        }
+
+        .list-item {
+            display: block;
+        }
+    }
+
+    .list-item {
+        display: none;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-bottom: 1px solid #D2D2D2;
+        background-color: #ECF4E2;
+    }
+
+    .item {
+        height: 36px;
+        padding: 0 8px;
+        border-top: 1px solid #D2D2D2;
+
+         &:first-child {
+            border-top: none;
+        }
+
+         .lbl {
+             float: left;
+             line-height: 36px;
+         }
+
+         .value-detail {
+             line-height: 18px;
+         }
+    }
+
+    .tbl-betdetail {
+        margin-top: 16px;
+
+       tbody td {
+           width: auto;
+       }
+
+       tbody td:first-child {
+           min-width: 50px;
+       }
+    }
+}

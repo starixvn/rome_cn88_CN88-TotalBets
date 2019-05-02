@@ -1,15 +1,17 @@
 ﻿@model HomeViewModel
-<ul>
-    <li>
-        @Resources.AllSports
-        <ul>
+<ul class="group-list">
+    <li class="group active">
+        <div class="group-title">@Resources.AllSports</div>        
+        <ul class="list-item">
             @for (var j = 0; j < Model.BySportType.Count(); j++)
             {
                 var row = Model.BySportType.ElementAt(j);
-                <li>
-                    <span>@row.Text</span>
-                    <span>@HtmlHelpers.FormatNumber(row.Total.Wager)</span>
-                    <span>@HtmlHelpers.FormatNumber(row.Total.Stake)</span>
+                <li class="item">
+                    <div class="lbl">@row.Text</div>
+                    <div class="values text-right">
+                        <div class="value-detail">@HtmlHelpers.FormatNumber(row.Total.Wager)</div>
+                        <div class="value-detail">@HtmlHelpers.FormatNumber(row.Total.Stake)</div>
+                    </div>                    
                 </li>
             }
         </ul>
@@ -17,16 +19,20 @@
     @for (var i = 0; i < Model.HeaderTable.HeaderName.Count; i++)
     {
         <li>
-            <span data-toggle="tooltip" data-placement="top" title="@Model.HeaderTable.ToolTip[i]">@Model.HeaderTable.HeaderName[i]</span>
-            <ul>
+            <div class="group-title">
+                <span data-toggle="tooltip" data-placement="top" title="@Model.HeaderTable.ToolTip[i]">@Model.HeaderTable.HeaderName[i]</span>
+            </div>            
+            <ul class="list-item">
                 @for (var j = 0; j < Model.BySportType.Count(); j++)
                 {
                     var row = Model.BySportType.ElementAt(j);
                     var sportColumn = row.SportsColumn[i];
-                    <li>
-                        <span>@row.Text</span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(sportColumn.Wager, row.Url(Model.PossType, sportColumn.SportTypeGroup), row.SubMenuId)</span>
-                        <span>@HtmlHelpers.FormatNumberWithLink(sportColumn.Stake, row.Url(Model.PossType, sportColumn.SportTypeGroup), row.SubMenuId)</span>
+                    <li class="item">
+                        <div class="lbl">@row.Text</div>
+                        <div class="values text-right">
+                            <div class="value-detail">@HtmlHelpers.FormatNumberWithLink(sportColumn.Wager, row.Url(Model.PossType, sportColumn.SportTypeGroup), row.SubMenuId)</div>
+                            <div class="value-detail">@HtmlHelpers.FormatNumberWithLink(sportColumn.Stake, row.Url(Model.PossType, sportColumn.SportTypeGroup), row.SubMenuId)</div>
+                        </div>                        
                     </li>
                 }
             </ul>
