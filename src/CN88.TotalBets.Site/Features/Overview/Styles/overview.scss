@@ -63,6 +63,11 @@
 }
 
 @media (max-device-width: 767px) {
+
+    .page-overview {
+        padding: 12px;
+    }
+
     .page-title {
         display: none;
     }
