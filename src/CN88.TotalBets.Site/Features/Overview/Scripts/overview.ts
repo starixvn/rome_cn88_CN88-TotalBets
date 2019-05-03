@@ -32,12 +32,15 @@ class OverView {
         this.$("#sport-groups .group-title").on("click touchend", function () {
             var $this = self.$(this);
 
-            if ($this.parent().hasClass("active")) {
-                return;
+            var activeGroup = self.$("#sport-groups .group.active .list-item");
+            if (activeGroup.length) {
+                activeGroup.slideUp('fast');
             }
 
-            var activeGroup = self.$("#sport-groups .group.active .list-item");
-            activeGroup.slideUp('fast');
+            if ($this.parent().hasClass("active")) {
+                $this.parent().removeClass("active");
+                return;
+            }
 
             self.$sportGroups.removeClass("active");
 
