@@ -36,20 +36,23 @@ class OverView {
 
             var $this = self.$(this);
 
-            var activeGroup = self.$("#sport-groups .group.active .list-item");
-            if (activeGroup.length) {
-                activeGroup.slideUp('fast');
-            }
-
             if ($this.parent().hasClass("active")) {
-                $this.parent().removeClass("active");
+                $this.next().slideUp('fast', () => { $this.parent().removeClass("active"); });
                 return;
             }
 
-            self.$sportGroups.removeClass("active");
+            var activeGroup = self.$("#sport-groups .group.active .list-item");
+            if (activeGroup.length) {
+                activeGroup.slideUp('fast', () => {
+                    self.$sportGroups.removeClass("active");
 
-            $this.parent().addClass("active");
-            $this.next().slideDown('fast');
+                    $this.parent().addClass("active");
+                    $this.next().slideDown('fast');
+                });
+            } else {
+                $this.parent().addClass("active");
+                $this.next().slideDown('fast');
+            }
         });
     }
 
