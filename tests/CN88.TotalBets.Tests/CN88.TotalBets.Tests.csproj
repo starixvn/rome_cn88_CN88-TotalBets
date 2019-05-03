@@ -90,7 +90,6 @@
     <Compile Include="Features\Summaries\Criteria\GetSummaryBySportTypeGroupCriteria.cs" />
     <Compile Include="Features\Summaries\Criteria\GetSummaryByEventCriteriaTests.cs" />
     <Compile Include="Features\ViewByBetTypes\BetOptionBuilders\BetOptionBuilderFactoryTests.cs" />
-    <Compile Include="Features\ViewByBetTypes\ViewByBetTypeServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util.cs" />
   </ItemGroup>
