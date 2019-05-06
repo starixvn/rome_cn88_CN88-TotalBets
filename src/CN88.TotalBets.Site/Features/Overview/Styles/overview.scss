@@ -92,14 +92,14 @@
         position: relative;
         height: 36px;
         line-height: 36px;
-        padding: 0 8px;
+        padding: 0 8px 0 24px;
         border-bottom: 1px solid #D2D2D2;
         background-color: #F4F1F1;
         color: #3B3B3B;
 
-        &:after {
+        &:before {
             position: absolute;
-            right: 4px;
+            left: 6px;
             content: "\e908";
             font-family: "CN88Icon";
             font-size: 13px; 
@@ -107,7 +107,7 @@
     }
 
     .group.active {
-        .group-title:after {
+        .group-title:before {
             content: "\e900";
         }
 
@@ -133,15 +133,6 @@
          &:first-child {
             border-top: none;
         }
-
-         .lbl {
-             float: left;
-             line-height: 36px;
-         }
-
-         .value-detail {
-             line-height: 18px;
-         }
     }
 
     .tbl-betdetail {
@@ -154,5 +145,20 @@
        tbody td:first-child {
            min-width: 50px;
        }
+    }
+
+    .lbl {
+        float: left;
+        line-height: 36px;
+    }
+
+
+    .values {
+        float: right;
+        text-align: right;
+
+        .value-detail {
+            line-height: 18px;
+        }
     }
 }

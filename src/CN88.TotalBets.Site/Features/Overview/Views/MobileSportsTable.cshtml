@@ -5,7 +5,7 @@
             <div class="lbl">@Resources.AllSports</div>
             @{
                 var allTotal = Model.GetTotal(-1);
-                <div class="values text-right">
+                <div class="values">
                     <div class="value-detail">@HtmlHelpers.FormatNumber(allTotal.Wager)</div>
                     <div class="value-detail">@HtmlHelpers.FormatNumber(allTotal.Stake)</div>
                 </div>
@@ -32,7 +32,7 @@
                 <span data-toggle="tooltip" data-placement="top" title="@Model.HeaderTable.ToolTip[i]">@Model.HeaderTable.HeaderName[i]</span>
                 @{
                     var total = Model.GetTotal(i);
-                    <div class="values text-right">
+                    <div class="values">
                         <div class="value-detail">@HtmlHelpers.FormatNumber(total.Wager)</div>
                         <div class="value-detail">@HtmlHelpers.FormatNumber(total.Stake)</div>
                     </div>
@@ -45,7 +45,7 @@
                     var sportColumn = row.SportsColumn[i];
                     <li class="item">
                         <div class="lbl">@row.Text</div>
-                        <div class="values text-right">
+                        <div class="values">
                             <div class="value-detail">@HtmlHelpers.FormatNumberWithLink(sportColumn.Wager, row.Url(Model.PossType, sportColumn.SportTypeGroup), row.SubMenuId)</div>
                             <div class="value-detail">@HtmlHelpers.FormatNumberWithLink(sportColumn.Stake, row.Url(Model.PossType, sportColumn.SportTypeGroup), row.SubMenuId)</div>
                         </div>
