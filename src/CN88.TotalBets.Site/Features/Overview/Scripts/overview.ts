@@ -41,18 +41,8 @@ class OverView {
                 return;
             }
 
-            var activeGroup = self.$("#sport-groups .group.active .list-item");
-            if (activeGroup.length) {
-                activeGroup.slideUp('fast', () => {
-                    self.$sportGroups.removeClass("active");
-
-                    $this.parent().addClass("active");
-                    $this.next().slideDown('fast');
-                });
-            } else {
-                $this.parent().addClass("active");
-                $this.next().slideDown('fast');
-            }
+            $this.parent().addClass("active");
+            $this.next().slideDown('fast');
         });
     }
 
