@@ -1,7 +1,16 @@
 ﻿@model HomeViewModel
 <ul id="sport-groups" class="group-list">
     <li class="group active">
-        <div class="group-title">@Resources.AllSports</div>
+        <div class="group-title">
+            <div class="lbl">@Resources.AllSports</div>
+            @{
+                var allTotal = Model.GetTotal(-1);
+                <div class="values text-right">
+                    <div class="value-detail">@HtmlHelpers.FormatNumber(allTotal.Wager)</div>
+                    <div class="value-detail">@HtmlHelpers.FormatNumber(allTotal.Stake)</div>
+                </div>
+            }
+        </div>
         <ul class="list-item">
             @for (var j = 0; j < Model.BySportType.Count(); j++)
             {
@@ -21,6 +30,13 @@
         <li class="group">
             <div class="group-title">
                 <span data-toggle="tooltip" data-placement="top" title="@Model.HeaderTable.ToolTip[i]">@Model.HeaderTable.HeaderName[i]</span>
+                @{
+                    var total = Model.GetTotal(i);
+                    <div class="values text-right">
+                        <div class="value-detail">@HtmlHelpers.FormatNumber(total.Wager)</div>
+                        <div class="value-detail">@HtmlHelpers.FormatNumber(total.Stake)</div>
+                    </div>
+                }
             </div>
             <ul class="list-item" style="display: none;">
                 @for (var j = 0; j < Model.BySportType.Count(); j++)
@@ -37,5 +53,5 @@
                 }
             </ul>
         </li>
-    }
+                    }
 </ul>

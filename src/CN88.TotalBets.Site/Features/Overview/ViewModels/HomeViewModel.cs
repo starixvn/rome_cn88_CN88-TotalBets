@@ -62,5 +62,20 @@
         public SingleSelectionViewModel PossTypeSelectionViewModel { get; }
 
         public bool IsDevices => browserHelper.IsMobile(isOnlyTablet: false);
+
+        public OverViewItemModel GetTotal(int colIndex)
+        {
+            int wager = 0;
+            decimal stake = 0;
+            for (var i = 0; i < BySportType.Count(); i++)
+            {
+                var row = BySportType.ElementAt(i);
+                var sportColumn = colIndex == -1 ? row.Total : row.SportsColumn[colIndex];
+                wager += sportColumn.Wager;
+                stake += sportColumn.Stake;
+            }
+
+            return new OverViewItemModel(colIndex, wager, stake);
+        }
     }
 }
