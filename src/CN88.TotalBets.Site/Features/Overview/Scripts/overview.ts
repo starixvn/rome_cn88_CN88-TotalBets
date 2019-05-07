@@ -6,6 +6,7 @@ class OverView {
     $tooltip: JQuery;
     $topWindow: any;
     $sportGroups: any;
+    isScrolling = false;
 
     constructor(
         $: JQueryStatic,
@@ -23,6 +24,10 @@ class OverView {
         this.$tooltip.tooltip();
 
         var self = this;
+        $(document).on("touchmove", () => { self.isScrolling = true; });
+
+        $(document).on("touchend", () => { self.isScrolling = false; });
+
         this.$(".page-overview table a").click(function () {
             var subMenuId = self.$(this).attr("data-submenuid");
             self.$topWindow.indexManager.subMenuClick(subMenuId);
@@ -30,6 +35,12 @@ class OverView {
 
         this.$sportGroups = this.$("#sport-groups .group");
         this.$("#sport-groups .group-title").on("click touchend", function (event) {
+            if (self.isScrolling) {
+                self.isScrolling = false;
+                event.stopPropagation();
+                return false;
+            }
+
             if (event.type == 'touchend') {
                 $(this).off('click');
             }
