@@ -18,6 +18,7 @@
         <div>@Model.Title</div>
         <div class="sub-title">
             <div class="event">@Model.SubTitle</div>
+            <span class="icon-filter-down" id="filter-toggle-icon"></span>
             @if (Model.IsShowMarketStatus)
             {
                 <button type="button" class="btn-submit btn-refresh" id="btn-refresh">
@@ -35,10 +36,11 @@
                     <span class="auto-refresh">@Resources.AutoRefresh</span>
                 </div>
             }
+            
         </div>
     </div>
     @Html.Partial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel)
-    <div class="viewbettype-content">
+    <div class="viewbettype-content" id="tblTotalBets">
         @RenderMatch(Model)
         <table class="tbl-style2 tbl-totalbet tbl-viewbettype" id="tblTotalBets">
             <tbody>

@@ -53,3 +53,8 @@
     width: 320px;
 }
 
+@media (max-device-width: 767px) {
+    .tbl-started {
+        width: 100%;
+    }
+}

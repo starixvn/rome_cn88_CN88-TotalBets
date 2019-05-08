@@ -15,6 +15,7 @@
         <div>@Model.Title</div>
         <div class="sub-title">
             <div class="event">@Model.SubTitle</div>
+            <span class="icon-filter-down" id="filter-toggle-icon"></span>
             @if (Model.IsInPlay)
             {
                 <button type="button" class="btn-submit btn-refresh" id="btn-refresh">
@@ -32,7 +33,9 @@
                     <span class="auto-refresh">@Resources.AutoRefresh</span>
                 </div>
             }
+            
         </div>
+        
     </div>
     @{ Html.RenderPartial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel); }
     <table class="tbl-style2 tbl-totalbet" id="tblTotalBets">
@@ -46,11 +49,11 @@
         {
             <thead>
                 <tr>
-                    <th class="col-100">@(Model.IsInPlay ? Resources.Details : Resources.Time)</th>
+                    <th class="col-status">@(Model.IsInPlay ? Resources.Details : Resources.Time)</th>
                     <th>@Resources.Event</th>
-                    <th class="col-120 text-right">@Resources.Wagers [@HtmlHelpers.FormatNumber(Model.EventModel.TotalWager)]</th>
-                    <th class="col-180 text-right">@Resources.Stake [@HtmlHelpers.FormatNumber(Model.EventModel.TotalStake)]</th>
-                    <th class="col-80">&nbsp;</th>
+                    <th class="col-wagers text-right">@Resources.Wagers [@HtmlHelpers.FormatNumber(Model.EventModel.TotalWager)]</th>
+                    <th class="col-stake text-right">@Resources.Stake [@HtmlHelpers.FormatNumber(Model.EventModel.TotalStake)]</th>
+                    <th class="col-drill-down">&nbsp;</th>
                 </tr>
             </thead>
             <tbody>
@@ -71,7 +74,10 @@
                     {
                         <tr class="childrow-@league.LeagueId">
                             <td>@RenderScoreColumn(match)</td>
-                            <td>@match.HomeName v @match.AwayName</td>
+                            <td>
+                                <span class="home-team">@match.HomeName</span>
+                                <span class="away-team">v @match.AwayName</span>                                
+                            </td>
                             <td class="text-right">@HtmlHelpers.FormatNumber(match.Wager)</td>
                             <td class="text-right">
                                 @HtmlHelpers.RenderStakeLink(match.Wager, match.Stake, Model.BuildViewByBetTypeLink(Model.Query.Type, match.MatchId))

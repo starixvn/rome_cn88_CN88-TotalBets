@@ -165,3 +165,77 @@
         }
     }
 }
+
+@media (max-device-width: 767px) {
+    .viewbettype-content {
+        width: 100%;
+    }
+
+    .head-match {
+        background: #63882B;
+        height: auto;
+        min-height: 64px;
+        padding: 10px 10px 0;
+
+        .match {
+            display: table;
+            left: 2%;
+            right: 2%;        
+            width: 96%;
+            background-color: transparent;
+        }
+
+        .show-time {
+            display: block;
+            margin-left: 0;
+            margin-bottom: 8px;
+        }
+
+        .match {
+            height: auto;
+            line-height: 24px;
+        }
+        
+        .match .team-name {
+            font-size: 10.5px;
+            display: table-cell;
+
+            &:first-child {
+                text-align: left;
+            }
+
+            &:last-child {
+                text-align: right;
+            }
+        }
+
+        .match .score,
+        .match .vs {            
+            display: table-cell;
+            width: 50px;
+            padding: 0;
+        }
+    }
+
+    .bet-team-container .index {
+        width: 60px;
+    }
+
+    .bet-team-container .team-name {
+        width: calc(100% - 60px - 8px);
+    }
+
+    .bet-team-container .bet-team-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bet-team-container .bet-team {
+        width: 100%;
+        border-right: none;
+
+        &:last-child {
+            border-top: 1px solid #D2D2D2;
+        }
+    }
+}

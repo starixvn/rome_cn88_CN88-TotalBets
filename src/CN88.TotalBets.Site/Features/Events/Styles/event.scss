@@ -6,3 +6,39 @@
         text-transform: uppercase;
     }
 }
+
+@media (max-device-width: 767px) {    
+
+    #tblTotalBets {
+        width: 100%;
+        margin-top: 12px;
+
+        tr th {
+            .lbl,
+            .number {
+                display: block;
+            }
+        }
+    }
+
+    .col-status {
+        width: 70px;
+    }
+
+    .col-wagers {
+        width: 72px;
+    }
+
+    .col-stake {
+        width: 56px;
+    }
+
+    .col-drill-down {
+        width: 60px;
+    }
+
+    .home-team,
+    .away-team {
+        display: block;
+    }
+}

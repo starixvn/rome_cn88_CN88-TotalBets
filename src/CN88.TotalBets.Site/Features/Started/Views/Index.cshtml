@@ -15,6 +15,7 @@
         <div>@Model.Title</div>
         <div class="sub-title">
             <div class="event">@Model.SubTitle</div>
+            <span class="icon-filter-down" id="filter-toggle-icon"></span>
             <button type="button" class="btn-submit btn-refresh" id="btn-refresh">
                 <span class="icon-refresh"></span>
                 <span id="countDownContainer">..</span>
@@ -37,12 +38,12 @@
         <thead>
             <tr>
                 <th class="col-100 text-center">@Resources.Time</th>
-                <th class="col-120 text-center">@Resources.Details</th>
+                <th class="col-status text-center">@Resources.Details</th>
                 <th class="col-320">@Resources.Event</th>
                 <th class="col-100">@Resources.Wagers</th>
                 <th class="col-100 text-right">[@HtmlHelpers.FormatNumber(Model.TotalWager)]</th>
                 <th class="col-180 text-right">@Resources.Stake [@HtmlHelpers.FormatNumber(Model.TotalStake)]</th>
-                <th class="col-80">&nbsp;</th>
+                <th class="col-drill-down">&nbsp;</th>
             </tr>
         </thead>
         <tbody>
