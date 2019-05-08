@@ -29,21 +29,17 @@
                         index++;
                         if (index % 2 == 1)
                         {
-                            @:
-                            <tr class="childrow-@league.LeagueId">
-                                @RenderOutright(team)
-                                }
-                                else
-                                {
-                                @:@RenderOutright(team)
-                            </tr>
+                            @:<tr class="childrow-@league.LeagueId">@RenderOutright(team)
+                        }
+                        else
+                        {
+                            @:@RenderOutright(team)</tr>
                         }
                     }
 
                     if (index % 2 == 1)
                     {
-                        @:
-                    <td>&nbsp;</td></tr>
+                        @:<td>&nbsp;</td></tr>
                     }
                 }
             }
@@ -51,34 +47,33 @@
             {
                 <tr><td colspan="2" class="text-center no-info">@Resources.NoInformationIsAvailable</td></tr>
             }
-            </tbody>
-        </table>
-    </div>
-    @Html.Hidden("IsDevice", Model.IsDevices ? 1 : 0)
-    @helper RenderLeague(TeamLeague league)
-    {
-        <tr class="group" data-leagueid="@league.LeagueId">
-            <td colspan="2">
-                <span class="group-name-wrapper">
-                    <span class="icon-chevron-down"></span>
-                    <span class="group-name">@league.LeagueName</span>
-                </span>
-                <span class="index text-right">@HtmlHelpers.FormatNumber(league.TotalWager) | @HtmlHelpers.FormatNumber(league.TotalStake)</span>
-            </td>
-        </tr>
+        </tbody>
+    </table>
+</div>
+@Html.Hidden("IsDevice", Model.IsDevices ? 1 : 0)
+@helper RenderLeague(TeamLeague league)
+{
+    <tr class="group" data-leagueid="@league.LeagueId">
+        <td colspan="2">
+            <span class="group-name-wrapper">
+                <span class="icon-chevron-down"></span>
+                <span class="group-name">@league.LeagueName</span>
+            </span>
+            <span class="index text-right">@HtmlHelpers.FormatNumber(league.TotalWager) | @HtmlHelpers.FormatNumber(league.TotalStake)</span>
+        </td>
+    </tr>
 }
-    @helper RenderOutright(Team team)
-    {
-        <td class="team">
-            <span class="team-name">@team.TeamName</span>
-            <span class="index text-right">
-                @HtmlHelpers.FormatNumber(team.Wager)
-                @Html.ActionLink(
+@helper RenderOutright(Team team)
+{
+    <td class="team">
+        <span class="team-name">@team.TeamName</span>
+        <span class="index text-right">@HtmlHelpers.FormatNumber(team.Wager)
+            @Html.ActionLink(
                 HtmlHelpers.FormatNumber(team.Stake).ToHtmlString(),
                 "GetByOutright",
                 "WagerAccount",
                 Model.GetWagerAccountParams(team.MatchId),
                 new { @class = "stake link" })
-            </span>
-        </td>
+        </span>
+    </td>
 }
