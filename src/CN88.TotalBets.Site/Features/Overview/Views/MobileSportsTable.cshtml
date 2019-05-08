@@ -2,7 +2,7 @@
 <ul id="sport-groups" class="group-list">
     <li class="group active">
         <div class="group-title">
-            <div class="lbl">@Resources.AllSports</div>
+            <div class="item-lbl">@Resources.AllSports</div>
             @{
                 var allTotal = Model.GetTotal(-1);
                 <div class="values">
@@ -11,12 +11,12 @@
                 </div>
             }
         </div>
-        <ul class="list-item">
+        <ul class="list-item special-area">
             @for (var j = 0; j < Model.BySportType.Count(); j++)
             {
                 var row = Model.BySportType.ElementAt(j);
                 <li class="item">
-                    <div class="lbl">@row.Text</div>
+                    <div class="item-lbl">@row.Text</div>
                     <div class="values text-right">
                         <div class="value-detail">@HtmlHelpers.FormatNumber(row.Total.Wager)</div>
                         <div class="value-detail">@HtmlHelpers.FormatNumber(row.Total.Stake)</div>
@@ -44,7 +44,7 @@
                     var row = Model.BySportType.ElementAt(j);
                     var sportColumn = row.SportsColumn[i];
                     <li class="item">
-                        <div class="lbl">@row.Text</div>
+                        <div class="item-lbl">@row.Text</div>
                         <div class="values">
                             <div class="value-detail">@HtmlHelpers.FormatNumberWithLink(sportColumn.Wager, row.Url(Model.PossType, sportColumn.SportTypeGroup), row.SubMenuId)</div>
                             <div class="value-detail">@HtmlHelpers.FormatNumberWithLink(sportColumn.Stake, row.Url(Model.PossType, sportColumn.SportTypeGroup), row.SubMenuId)</div>

@@ -416,3 +416,53 @@
         }
     }
 }
+
+@media (max-device-width: 767px) {
+    .main-content {
+        margin: 12px 0;
+    }
+
+    .menu-container {
+        position: fixed;
+        left: auto;
+        right: -220px;
+        bottom: 0;
+        border: 1px solid #D2D2D2;
+        z-index: 90;
+        background-color: #fff;
+
+        .head-menu {
+            background-color: #7D1514;
+        }
+
+        .icon-menu {
+            display: none;
+        }
+    }
+
+    .menu-container.expanded {
+        width: 220px;
+        right: 0;
+        background-color: #fff;
+    }
+
+    .main-content.expanded {
+        margin-left: 0;
+    }
+
+    .collapse-expand-summary-menu {
+        position: absolute;
+        top: 0;
+        left: -32px;
+        height: 32px;
+        width: 32px;
+        padding: 8px;
+        background-color: #7D1514;
+        color: #fff;
+        border-radius: 3px 0 0 3px;
+
+        .icon-left-menu {
+            font-size: 16px;
+        }
+    }
+}

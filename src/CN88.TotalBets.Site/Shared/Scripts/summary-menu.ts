@@ -26,7 +26,7 @@ class SummaryMenu {
         this.$summaryMenuItems = this.$("#summary-menu-items");
 
         this.$("#head-menu").click(() => {
-            this.collapseMenu();
+            this.collapseMenuMobile();
         });
     }
 
@@ -43,6 +43,21 @@ class SummaryMenu {
         } else {
             this.$summaryMenuItems.hide();
             this.$summaryMenu.addClass(collapsedClass);
+            this.$mainContent.addClass(expandedClass);
+        }
+    }
+
+    collapseMenuMobile(): void {
+        let collapsedClass = 'collapsed';
+        let expandedClass = 'expanded';
+
+        let isCollapsed = this.$summaryMenu.hasClass(expandedClass);
+
+        if (isCollapsed) {
+            this.$summaryMenu.removeClass(expandedClass);
+            this.$mainContent.removeClass(expandedClass);
+        } else {
+            this.$summaryMenu.addClass(expandedClass);
             this.$mainContent.addClass(expandedClass);
         }
     }

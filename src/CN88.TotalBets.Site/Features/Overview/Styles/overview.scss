@@ -64,6 +64,9 @@
 
 @media (max-device-width: 767px) {
 
+    $height-small: 40px;
+    $height-large: 56px;
+
     .page-overview {
         padding: 12px;
     }
@@ -74,6 +77,11 @@
 
     .tbl-total {
         width: 100%;
+
+        tbody td {
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
     }
 
     .hide-mobile {
@@ -90,8 +98,8 @@
     
     .group-title {
         position: relative;
-        height: 36px;
-        line-height: 36px;
+        height: $height-small;
+        line-height: $height-small;
         padding: 0 8px 0 24px;
         border-bottom: 1px solid #D2D2D2;
         background-color: #F4F1F1;
@@ -122,11 +130,14 @@
         padding: 0;
         list-style: none;
         border-bottom: 1px solid #D2D2D2;
-        background-color: #ECF4E2;
+
+        &.special-area {
+            background-color: #ecf4e2;
+        }
     }
 
     .item {
-        height: 36px;
+        height: $height-large;
         padding: 0 8px;
         border-top: 1px solid #D2D2D2;
 
@@ -140,25 +151,49 @@
 
        tbody td {
            width: auto;
+           padding-top: 0;
+           padding-bottom: 0;
        }
 
        tbody td:first-child {
            min-width: 50px;
        }
-    }
 
-    .lbl {
+       .values {
+           float: none;
+       }
+
+       .values .value-detail {
+            line-height: $height-large/2;
+        }
+    }
+    
+   .item-lbl {
         float: left;
-        line-height: 36px;
     }
-
 
     .values {
         float: right;
         text-align: right;
+    }
+
+    .list-item {
+        .item-lbl {
+            line-height: $height-large;
+        }
+
+       .value-detail {
+            line-height: $height-large/2;
+        }
+    }
+
+    .group-title {
+        .item-lbl {
+            line-height: $height-small;
+        }
 
         .value-detail {
-            line-height: 18px;
+            line-height: $height-small/2;
         }
     }
 }
