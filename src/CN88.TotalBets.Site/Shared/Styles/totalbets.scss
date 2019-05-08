@@ -425,11 +425,13 @@
     .menu-container {
         position: fixed;
         left: auto;
+        top: 8px;
         right: -220px;
         bottom: 0;
         border: 1px solid #D2D2D2;
         z-index: 90;
         background-color: #fff;
+        transition: right .2s ease-in-out .1s;
 
         .head-menu {
             background-color: #7D1514;
@@ -438,16 +440,13 @@
         .icon-menu {
             display: none;
         }
-    }
 
-    .menu-container.expanded {
-        width: 220px;
-        right: 0;
-        background-color: #fff;
-    }
-
-    .main-content.expanded {
-        margin-left: 0;
+        &.expanded {
+            width: 220px;
+            right: 0;
+            background-color: #fff;
+            transition: right .1s ease-out .2s;
+        }
     }
 
     .collapse-expand-summary-menu {
@@ -464,5 +463,9 @@
         .icon-left-menu {
             font-size: 16px;
         }
+    }
+
+    .main-content.expanded {
+        margin-left: 0;
     }
 }
