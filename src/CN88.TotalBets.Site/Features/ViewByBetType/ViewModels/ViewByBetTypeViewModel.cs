@@ -89,6 +89,7 @@
 
         public bool IsDevices => browserHelper.IsMobile() && !browserHelper.IsTablet();
 
+
         private string BuildSummaryPath(ViewByBetTypeQuery filterQuery)
         {
             if (filterQuery.Type == EventTypeConstants.Started)

@@ -34,6 +34,7 @@
 
         public bool IsDevices => browserHelper.IsMobile() && !browserHelper.IsTablet();
 
+
         public string BuildViewByBetTypeLink(byte type, int matchId)
             => Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc(
                 Helpers.UrlHelper.GetTotalBetsAppPath("~/ViewByBetType/Index"),

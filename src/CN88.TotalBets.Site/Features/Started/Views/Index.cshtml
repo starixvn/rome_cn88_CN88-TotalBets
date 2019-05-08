@@ -31,8 +31,8 @@
             </div>
         </div>
     </div>
-    @Html.Partial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel)    
-   
+    @Html.Partial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel)
+
     <table class="tbl-style2 tbl-totalbet tbl-started" id="tblTotalBets">
         <thead>
             <tr>
@@ -131,3 +131,4 @@
         </tbody>
     </table>
 </div>
+@Html.Hidden("IsDevice", Model.IsDevices ? 1 : 0)

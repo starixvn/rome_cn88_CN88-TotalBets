@@ -13,6 +13,7 @@ class SummaryMenu {
     $summaryMenu: JQuery;
     $summaryMenuItems: JQuery;
     $mainContent: JQuery;
+    isDevice: boolean = false;
 
     constructor($: JQueryStatic) {
         this.$ = $;
@@ -24,9 +25,14 @@ class SummaryMenu {
         this.$mainContent = this.$("#" + this.options.mainContentId);
         this.$summaryMenu = this.$("#summary-menu");
         this.$summaryMenuItems = this.$("#summary-menu-items");
+        this.isDevice = this.$("#IsDevice").val() == "1";
 
         this.$("#head-menu").click(() => {
-            this.collapseMenuMobile();
+            if (this.isDevice) {
+                this.collapseMenuMobile();
+            } else {
+                this.collapseMenu();
+            }
         });
     }
 

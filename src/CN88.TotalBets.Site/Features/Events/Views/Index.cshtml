@@ -86,6 +86,7 @@
         }
     </table>
 </div>
+@Html.Hidden("IsDevice", Model.IsDevices ? 1 : 0)
 @helper RenderScoreColumn(Match match)
 {
 if (Model.IsInPlay)

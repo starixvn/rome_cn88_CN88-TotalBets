@@ -146,6 +146,7 @@ foreach (var betOptionGroup in betType.BetOptionGroups)
 }
 }
 
+@Html.Hidden("IsDevice", Model.IsDevices ? 1 : 0)
 @helper BuildWagerAndStake(BetOption betOption)
 {
     @HtmlHelpers.FormatNumber(betOption.Wager)
