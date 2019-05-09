@@ -523,6 +523,7 @@
     <Content Include="Features\ViewByBetType\Styles\viewbybettype.scss" />
     <Content Include="App_Data\SPNames\Main\DBARC.bodb_Archive.BODBDownlineNet" />
     <Content Include="App_Code\Filters\DateSelection.cshtml" />
+    <Content Include="App_Code\Filters\RefreshCountDown.cshtml" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
@@ -608,6 +609,7 @@
     <TypeScriptCompile Include="Shared\Scripts\auto-refresh.ts" />
     <TypeScriptCompile Include="Shared\Scripts\base-totalbets.ts" />
     <TypeScriptCompile Include="Shared\Scripts\components\link-builder.ts" />
+    <TypeScriptCompile Include="Shared\Scripts\components\refresh-count-down.ts" />
     <TypeScriptCompile Include="Shared\Scripts\components\single-selection-dropdown.ts" />
     <TypeScriptCompile Include="Shared\Scripts\core.ts" />
     <TypeScriptCompile Include="Shared\Scripts\summary-menu.ts" />

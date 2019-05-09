@@ -15,27 +15,12 @@
         <div>@Model.Title</div>
         <div class="sub-title">
             <div class="event">@Model.SubTitle</div>
-            <span class="icon-filter-down" id="filter-toggle-icon"></span>
             @if (Model.IsInPlay)
             {
-                <button type="button" class="btn-submit btn-refresh" id="btn-refresh">
-                    <span class="icon-refresh"></span>
-                    <span id="countDownContainer">..</span>
-                </button>
-                <div id="btn-turn-off-on" class="btn-turn-off-on">
-                    <div id="lbl-switch" class="onoffswitch">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="chb-switch" @(Model.IsAutoRefresh ? "checked" : string.Empty)>
-                        <label class="onoffswitch-label" for="chb-switch">
-                            <span class="onoffswitch-inner" data-on="@Resources.On" data-off="@Resources.Off"></span>
-                            <span class="onoffswitch-switch"></span>
-                        </label>
-                    </div>
-                    <span class="auto-refresh">@Resources.AutoRefresh</span>
-                </div>
+                @RefreshCountDown.Render(Model.CountDownSecs)
             }
-            
         </div>
-        
+
     </div>
     @{ Html.RenderPartial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel); }
     <table class="tbl-style2 tbl-totalbet" id="tblTotalBets">
@@ -76,7 +61,7 @@
                             <td>@RenderScoreColumn(match)</td>
                             <td>
                                 <span class="home-team">@match.HomeName</span>
-                                <span class="away-team">v @match.AwayName</span>                                
+                                <span class="away-team">v @match.AwayName</span>
                             </td>
                             <td class="text-right">@HtmlHelpers.FormatNumber(match.Wager)</td>
                             <td class="text-right">

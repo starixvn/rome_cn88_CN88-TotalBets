@@ -268,6 +268,15 @@ namespace CN88.TotalBets.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Loading.
+        /// </summary>
+        public static string Loading {
+            get {
+                return ResourceManager.GetString("Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MA + Agent %.
         /// </summary>
         public static string MA_Agent_Percentage {
@@ -453,6 +462,24 @@ namespace CN88.TotalBets.AppResources {
         public static string PreMatch {
             get {
                 return ResourceManager.GetString("PreMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refresh.
+        /// </summary>
+        public static string Refresh {
+            get {
+                return ResourceManager.GetString("Refresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  sec.
+        /// </summary>
+        public static string sec {
+            get {
+                return ResourceManager.GetString("sec", resourceCulture);
             }
         }
         

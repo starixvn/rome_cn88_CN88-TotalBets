@@ -53,6 +53,8 @@
 
         public bool HasEventData { get; }
 
+        public IEnumerable<int> CountDownSecs => new List<int> { 10, 20, 30, 40, 50, 60 };
+
         protected override IDictionary<string, object> GetViewByBetTypeRoutesValues(byte type, int matchId)
         {
             if (IsInPlay)

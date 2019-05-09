@@ -1,0 +1,19 @@
+﻿@using CN88.TotalBets.AppResources
+@helper Render(IEnumerable<int> countDownSecs)
+{
+    <div class="dropdown-refresh">
+        <div class="btnCountDown">
+            <div id="CountDownRefresh" class="btnRefresh" title="@Resources.Refresh"
+                 data-loading-text="@Resources.Loading">CountDownRefresh</div>
+            <div class="btnDown btn-show-options">btnDown</div>
+        </div>
+        <ul id="CountDownMenu" class="panelDown hide">
+            @foreach (var countDownSec in countDownSecs)
+            {
+                <li id="option_@countDownSec" class="menuitem count-down-option" data-value="@countDownSec">
+                    @countDownSec @Resources.sec
+                </li>
+            }
+        </ul>
+    </div>
+}
