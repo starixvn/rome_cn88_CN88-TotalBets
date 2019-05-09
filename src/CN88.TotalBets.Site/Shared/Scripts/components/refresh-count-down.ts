@@ -39,6 +39,9 @@ class RefreshCountDown {
         this.$countDownOptions.on("click touchend", function () {
             self.saveOption(self.$(this).attr("data-value"));
         });
+        this.$("#count-down-off").on("click touchend", function () {
+            self.turnOffCountDown(self.$(this).html());
+        });
 
         var currentOption = cn88TotalBets.localStorage.get(this.countDownOptionCookie);
         if (currentOption && currentOption != 0) {
@@ -57,6 +60,7 @@ class RefreshCountDown {
     saveOption = (option) => {
         cn88TotalBets.localStorage.set(this.countDownOptionCookie, option);
         this.setCountDown(option);
+        this.$countDownMenu.addClass("hide");
     };
     doRefresh = () => {
         if (this.countDownTimer != null) {
@@ -96,6 +100,15 @@ class RefreshCountDown {
                 $option.addClass("active");
             }
         }
-    }
+    };
+    turnOffCountDown = (optionText) => {
+        this.$btnRefresh.html(optionText);
+
+        if (this.countDownTimer != null) {
+            clearTimeout(this.countDownTimer);
+        }
+
+        this.$countDownMenu.addClass("hide");
+    };
 }
 
