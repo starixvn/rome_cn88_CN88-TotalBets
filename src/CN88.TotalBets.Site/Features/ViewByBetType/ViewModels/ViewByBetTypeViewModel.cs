@@ -69,6 +69,8 @@
 
         public bool IsShowKODate { get; }
 
+        public IEnumerable<int> CountDownSecs => new List<int> { 10, 20, 30, 40, 50, 60 };
+
         public object GetWagerAccountParams(int bettypeId, string betTeam, bool liveIndicator)
             => new
             {

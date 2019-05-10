@@ -55,6 +55,8 @@
 
         public decimal TotalStake => TotalPMStake + TotalIPStake;
 
+        public IEnumerable<int> CountDownSecs => new List<int> { 10, 20, 30, 40, 50, 60 };
+
         protected override IDictionary<string, object> GetViewByBetTypeRoutesValues(byte type, int matchId)
             => new Dictionary<string, object>(base.GetViewByBetTypeRoutesValues(type, matchId))
             {
