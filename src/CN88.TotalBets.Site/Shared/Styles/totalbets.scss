@@ -426,26 +426,29 @@
 
 .dropdown-refresh {
     display: inline-block;
-    position: relative;    
+    position: relative;  
+    height: 24px;
 
     .icon-refresh {
         display: table-cell;
         width: 24px;
+        height: 100%;
+        vertical-align: middle;
         background-color: #1D8763;
         color: #fff;
         text-align: center;
         font-size: 14px;
 
         &:before {
+            content: "\e91d";
             position: relative;
-            top: -5px;
+            top: 1px;
         }
     }
 
     .btnCountDown {
         display: table;
-        height: 24px;
-        width: 74px;
+        height: 100%;
     }
 
     .btnRefresh {
@@ -498,6 +501,20 @@
     }
 }
 
+@media (min-device-width: 768px) {
+    .dropdown-refresh {
+        margin-left: 10px;
+
+        .btnCountDown {
+            width: 80px;
+        }
+
+        .btnRefresh,
+        .list-options {
+            font-size: 13px;
+        } 
+    }
+}
 
 @media (max-device-width: 767px) {
 
