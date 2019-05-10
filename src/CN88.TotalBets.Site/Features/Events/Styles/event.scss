@@ -19,6 +19,10 @@
                 display: block;
             }
         }
+
+        tr.group td {
+            height: 36px;
+        }
     }
 
     .col-status {
