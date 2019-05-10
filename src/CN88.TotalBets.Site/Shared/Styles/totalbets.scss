@@ -422,6 +422,46 @@
     display: none;
 }
 
+// Refresh count down 
+
+.dropdown-refresh {
+    display: table;
+    height: 24px;
+    width: 74px;
+    background-color: #27A67B;
+    color: #fff;
+
+    .icon-refresh {
+        display: table-cell;
+        background-color: #1D8763;
+    }
+
+    .btn-show-options {
+        display: table-cell;
+    }
+
+    .list-options {
+        position: absolute;
+        top: 24px;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background-color: #fff;
+
+        .count-down-option {
+            line-height: 28px;
+            color: #3B3B3B;
+        }
+
+        .active {
+            background-color: #DBDBDB;
+        }
+    }
+}
+
+
 @media (max-device-width: 767px) {
 
     // Summary Menu

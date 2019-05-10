@@ -3,15 +3,19 @@
 {
     <div class="dropdown-refresh">
         <div class="btnCountDown">
-            <div id="CountDownRefresh" class="btnRefresh" title="@Resources.Refresh"
-                 data-loading-text="@Resources.Loading">CountDownRefresh</div>
-            <div class="btnDown btn-show-options">btnDown</div>
+            <div class="icon-refresh"></div>
+            <div class="btn-show-options">
+                <div id="CountDownRefresh" class="btnRefresh" title="@Resources.Refresh"
+                     data-loading-text="@Resources.Loading">
+                </div>
+                <span class="icon-chevron-down"></span>
+            </div>
         </div>
-        <ul id="CountDownMenu" class="panelDown hide">
+        <ul id="CountDownMenu" class="list-options hide">
             @foreach (var countDownSec in countDownSecs)
             {
                 <li id="option_@countDownSec" class="menuitem count-down-option" data-value="@countDownSec">
-                    @countDownSec @Resources.sec
+                    @countDownSec
                 </li>
             }
             <li id="count-down-off" class="menuitem" data-value="-1">@Resources.Off</li>

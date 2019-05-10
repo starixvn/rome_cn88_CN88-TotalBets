@@ -34,8 +34,14 @@ class RefreshCountDown {
         this.loadingText = this.$btnRefresh.attr("data-loading-text");
         this.$countDownOptions = this.$(".count-down-option");
 
-        this.$(".btnRefresh").on("click touchend", this.doRefresh);
-        this.$(".btn-show-options").on("click touchend", this.showOptions);
+        this.$(".icon-refresh").on("click touchend", this.doRefresh);
+        this.$(".btn-show-options").on("click touchend",function (event) {
+            if (event.type == 'touchend') {
+                self.$(this).off('click');
+            }
+
+            self.showOptions();
+        });
         this.$countDownOptions.on("click touchend", function () {
             self.saveOption(self.$(this).attr("data-value"));
         });
