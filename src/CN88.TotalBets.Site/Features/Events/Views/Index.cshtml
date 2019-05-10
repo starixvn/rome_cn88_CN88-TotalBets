@@ -15,6 +15,7 @@
         <div>@Model.Title</div>
         <div class="sub-title">
             <div class="event">@Model.SubTitle</div>
+            <span class="icon-filter-down" id="filter-toggle-icon"></span>
             @if (Model.IsInPlay)
             {
                 @RefreshCountDown.Render(Model.CountDownSecs)

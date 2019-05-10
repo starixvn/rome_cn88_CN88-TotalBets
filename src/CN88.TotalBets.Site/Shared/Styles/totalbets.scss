@@ -425,33 +425,70 @@
 // Refresh count down 
 
 .dropdown-refresh {
-    display: table;
-    height: 24px;
-    width: 74px;
-    background-color: #27A67B;
-    color: #fff;
+    display: inline-block;
+    position: relative;    
 
     .icon-refresh {
         display: table-cell;
+        width: 24px;
         background-color: #1D8763;
+        color: #fff;
+        text-align: center;
+        font-size: 14px;
+
+        &:before {
+            position: relative;
+            top: -5px;
+        }
+    }
+
+    .btnCountDown {
+        display: table;
+        height: 24px;
+        width: 74px;
+    }
+
+    .btnRefresh {
+        float: left;
+        line-height: 24px;
+        font-size: 13px;
     }
 
     .btn-show-options {
         display: table-cell;
+        position: relative;        
+        padding-right: 18px;
+        padding-left: 9px;
+        background-color: #27A67B;
+        color: #fff;
+        text-align: center;
+
+        &:after {
+            position: absolute;
+            right: 3px;
+            content: "\e900";
+            color: #fff;
+            font-family: "CN88Icon";
+        }
     }
 
     .list-options {
         position: absolute;
-        top: 24px;
+        top: 27px;
         left: 0;
         right: 0;
         margin: 0;
         padding: 0;
         list-style: none;
+        box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+        border: 1px solid #c8c8c8;
         background-color: #fff;
+        font-size: 13px;
+        z-index: 90;        
 
         .count-down-option {
             line-height: 28px;
+            text-align: center;
             color: #3B3B3B;
         }
 
@@ -557,6 +594,36 @@
     .main-content .btn-refresh {
         margin-left: 0;
     }
-
     
+    .dropdown-refresh {
+        .btnCountDown {
+            width: 74px;
+        }
+
+        .btnRefresh,
+        .list-options {
+            font-size: 10.5px;
+        } 
+    }
+
+    .tbl-totalbet {
+        [class^="icon-chevron"] {
+            position: absolute;
+            left: -2px;
+            top: -3px;
+            font-size: 17px;
+        }
+
+        .group-name-wrapper {
+            position: relative;
+            display: block;
+            padding-left: 20px;            
+        }
+
+        tr.group .group-name {
+            top: 0;
+        }
+    }
+    
+       
 }
