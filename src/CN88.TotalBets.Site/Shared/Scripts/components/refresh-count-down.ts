@@ -35,7 +35,7 @@ class RefreshCountDown {
         this.$countDownOptions = this.$(".count-down-option");
 
         this.$(".icon-refresh").on("click touchend", this.doRefresh);
-        this.$(".btn-show-options").on("click touchend",function (event) {
+        this.$(".btn-show-options").on("click touchend", function (event) {
             if (event.type == 'touchend') {
                 self.$(this).off('click');
             }
@@ -64,6 +64,10 @@ class RefreshCountDown {
         }
     };
     saveOption = (option) => {
+        if (option == "-1") {
+            return;
+        }
+
         cn88TotalBets.localStorage.set(this.countDownOptionCookie, option);
         this.setCountDown(option);
         this.$countDownMenu.addClass("hide");
