@@ -3,6 +3,7 @@
 
 class ViewByBetType extends BaseTotalBets {
     marketSelectionComponent: SingleSelectionDropdownComponent;
+    isMobile: boolean;
 
     constructor(
         $: JQueryStatic,
@@ -31,6 +32,8 @@ class ViewByBetType extends BaseTotalBets {
         if (cn88TotalBets.convertAttributeToBool($("#IsShowMarketSelection").val())) {
             this.marketSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-market", "Market"));
         }
+
+        this.isMobile = this.$("#IsDevice").val() == "1";
     }
 
     onSubmit(): void {
@@ -62,10 +65,16 @@ class ViewByBetType extends BaseTotalBets {
             }
         });
 
+        let me = this;
         this.$tblTotalBets.find(".stake-link").click(function (e: any): void {
             e.preventDefault();
             e.stopPropagation();
-            window.open(this.href, "WagerDetails", "width=1000, height=500");
+            if (me.isMobile) {
+                window.open(this.href, "_blank");
+            }
+            else {
+                window.open(this.href, "WagerDetails", "width=1000, height=500");
+            }
         });
 
         this.$(".sport").click(function (): void {
