@@ -426,13 +426,12 @@
 
 .dropdown-refresh {
     display: inline-block;
-    position: relative;  
-    height: 24px;
+    position: relative;
 
     .icon-refresh {
-        display: table-cell;
+        float: left;
         width: 24px;
-        height: 100%;
+        height: 24px;
         vertical-align: middle;
         background-color: #1D8763;
         color: #fff;
@@ -442,7 +441,7 @@
         &:before {
             content: "\e91d";
             position: relative;
-            top: 1px;
+            top: 5px;
         }
     }
 
@@ -457,27 +456,29 @@
         font-size: 13px;
     }
 
-    .btn-show-options {
-        display: table-cell;
-        position: relative;        
+    .show-values {
+        float: left;
+        position: relative;
+        width: 50px;      
+        height: 24px;  
         padding-right: 18px;
         padding-left: 9px;
         background-color: #27A67B;
         color: #fff;
         text-align: center;
+    }
 
-        &:after {
-            position: absolute;
-            right: 3px;
-            content: "\e900";
-            color: #fff;
-            font-family: "CN88Icon";
-        }
+    .btn-show-options {
+        height: 24px;
+        display: inline-block;
+        position: absolute;
+        right: 2px;
+        top: 4px;
     }
 
     .list-options {
         position: absolute;
-        top: 27px;
+        top: 24px;
         left: 0;
         right: 0;
         margin: 0;
@@ -505,8 +506,8 @@
     .dropdown-refresh {
         margin-left: 10px;
 
-        .btnCountDown {
-            width: 80px;
+        .show-values {
+            width: 60px;
         }
 
         .btnRefresh,
@@ -613,8 +614,8 @@
     }
     
     .dropdown-refresh {
-        .btnCountDown {
-            width: 74px;
+        .show-values {
+            width: 50px;
         }
 
         .btnRefresh,
