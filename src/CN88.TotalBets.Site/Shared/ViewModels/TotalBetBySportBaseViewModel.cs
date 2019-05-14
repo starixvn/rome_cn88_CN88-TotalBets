@@ -27,6 +27,7 @@
 
         public SummaryMenuViewModel SummaryMenuViewModel { get; }
 
+        public bool IsDevices => browserHelper.IsMobile();
         public string BuildViewByBetTypeLink(byte type, int matchId)
             => Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc(
                 Helpers.UrlHelper.GetTotalBetsAppPath("~/ViewByBetType/Index"),
