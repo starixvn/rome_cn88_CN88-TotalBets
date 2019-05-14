@@ -106,7 +106,7 @@
                                 <div>@HtmlHelpers.FormatNumber(match.PMWager)</div>
                                 <div>@HtmlHelpers.FormatNumber(match.IPWager)</div>
                             </td>
-                            <td class="text-right">
+                            <td class="text-right col-stake">
                                 <div>
                                     @HtmlHelpers.RenderStakeLink(match.PMWager, match.PMStake, Model.BuildViewByBetTypeLink(EventTypeConstants.Started, match.MatchId))
                                 </div>

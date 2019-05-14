@@ -59,7 +59,7 @@
                     foreach (var match in league.Matches)
                     {
                         <tr class="childrow-@league.LeagueId">
-                            <td>@RenderScoreColumn(match)</td>
+                            <td class="col-status">@RenderScoreColumn(match)</td>
                             <td>
                                 <span class="home-team">@match.HomeName</span>
                                 <span class="away-team">v @match.AwayName</span>

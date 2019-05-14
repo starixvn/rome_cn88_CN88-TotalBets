@@ -85,7 +85,7 @@
 
         .col-time {
             width: 100px;
-            text-align: left;
+            text-align: left !important;
         }
 
         .col-event-mobile {
@@ -96,6 +96,10 @@
         .col-total-wager,
         .col-stake {
              width: 50px;
+        }
+
+        td.col-stake {
+            line-height: 16px;
         }
 
         .col-drill-down {

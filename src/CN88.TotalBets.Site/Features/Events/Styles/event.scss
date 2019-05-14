@@ -7,6 +7,22 @@
     }
 }
 
+.col-status {
+    width: 100px;
+}
+
+.col-wagers {
+    width: 120px;
+}
+
+.col-stake {
+    width: 56px;
+}
+
+.col-drill-down {
+    width: 36px;
+}
+
 @media (max-device-width: 767px) {    
 
     #tblTotalBets {
@@ -26,7 +42,8 @@
     }
 
     .col-status {
-        width: 70px;
+       width: 40px;
+       white-space: nowrap;
     }
 
     .col-wagers {
