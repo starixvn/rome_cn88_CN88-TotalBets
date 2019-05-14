@@ -684,4 +684,23 @@
             padding: 6px 12px 6px 4px;
         }
     }
+
+    // Wager Detail drill dowm from Inplay
+    .window-page {
+        .nav-tabs {
+            display: table;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .nav-tabs > li {
+            display: table-cell;
+            width: 50%;
+            float: none;
+        }
+
+        .page-title-mobile {
+            margin-bottom: 10px;
+        }
+    }
 }

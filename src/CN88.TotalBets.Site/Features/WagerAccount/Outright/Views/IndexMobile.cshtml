@@ -11,10 +11,11 @@
 }
 @model WagerAccountByOutrightViewModel
 
-sdfsdfsdf
+<div class="new-page-header">
+    @Resources.WagerDetails
+</div>
 <div class="wager-account-page window-page">
-    <div class="page-title">@Resources.WagerDetails</div>
-    <ul id="nav-tabs" class="nav nav-tabs-style2" role="tablist">
+    <ul id="nav-tabs" class="nav nav-tabs" role="tablist">
         <li class="lnk-changetab" role="presentation">
             <a href="#by-account">@Resources.ViewByAccount</a>
         </li>
@@ -26,19 +27,21 @@ sdfsdfsdf
         <div class="tab-pane active" role="tabpanel" id="by-account">
             @if (Model.IsMobile && !string.IsNullOrWhiteSpace(backLink.Text))
             {
-                <span id="btn-back" class="back-area">
-                    @if (string.IsNullOrWhiteSpace(backLink.Link))
-                    {
-                        @backLink.Text
-                    }
-                    else
-                    {
-                        <a href="@backLink.Link">
-                            <span class="icon-chevron-left back-step"></span>
+                <div class="page-title-mobile">
+                    <span id="btn-back" class="back-area">
+                        @if (string.IsNullOrWhiteSpace(backLink.Link))
+                        {
+                            @backLink.Text
+                        }
+                        else
+                        {
+                            <a href="@backLink.Link">
+                                <span class="icon-chevron-left back-step"></span>
                             @Model.Message.CustName
-                        </a>
-                    }
-                </span>
+                            </a>
+                        }
+                    </span>
+                </div>                
             }
             else
             {
