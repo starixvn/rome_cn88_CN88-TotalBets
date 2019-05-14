@@ -7,6 +7,7 @@ abstract class BaseTotalBets {
     $stake: JQuery;
     $filterToggleIcon: JQuery;
     cleaveStake: any;
+    isMobile: boolean;
 
     summaryMenu: SummaryMenu;
     stakeConditionSelectionComponent: SingleSelectionDropdownComponent;
@@ -47,6 +48,7 @@ abstract class BaseTotalBets {
         this.$tblTotalBets = this.$("#tblTotalBets");
         this.$stake = this.$("#Stake");
         this.$filterToggleIcon = this.$("#filter-toggle-icon");
+        this.isMobile = this.$("#IsDevice").val() == "1";
     }
 
     protected bindEvents(): void {

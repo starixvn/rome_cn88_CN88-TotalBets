@@ -23,11 +23,17 @@ class Outright extends BaseTotalBets {
 
     bindEvents(): void {
         super.bindEvents();
+        var me = this;
 
         this.$tblTotalBets.find(".stake").click(function (e: any): void {
             e.preventDefault();
             e.stopPropagation();
-            window.open(this.href, "WagerDetails", "width=1000, height=500");
+            if (me.isMobile) {
+                window.open(this.href, "_blank");
+            }
+            else {
+                window.open(this.href, "WagerDetails", "width=1000, height=500");
+            }
         });
     }
 }
