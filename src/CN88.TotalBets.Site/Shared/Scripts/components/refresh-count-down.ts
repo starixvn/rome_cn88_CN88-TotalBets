@@ -33,7 +33,6 @@ class RefreshCountDown {
         this.$countDownMenu = this.$("#" + options.countDownMenuId);
         this.loadingText = this.$btnRefresh.attr("data-loading-text");
         this.$countDownOptions = this.$(".count-down-option");
-
         this.$(".icon-refresh").on("click touchend", this.doRefresh);
         this.$(".btn-show-options").on("click touchend", function (event) {
             if (event.type == 'touchend') {
