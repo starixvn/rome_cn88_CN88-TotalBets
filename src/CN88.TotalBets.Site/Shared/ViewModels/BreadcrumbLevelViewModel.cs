@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using CN88.TotalBets.Shared.Models;
-using CN88.TotalBets.Site.Shared.Helpers;
-
-namespace CN88.TotalBets.Site.Shared.ViewModels
+﻿namespace CN88.TotalBets.Site.Shared.ViewModels
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using CN88.TotalBets.Shared.Models;
+    using CN88.TotalBets.Site.Shared.Helpers;
+
     public class BreadcrumbLevelViewModel
     {
         public BreadcrumbLevelViewModel(
@@ -37,5 +35,30 @@ namespace CN88.TotalBets.Site.Shared.ViewModels
                     ["BreadcrumbLevelJson"] = BreadcrumbLevelJson,
                 });
         }
+
+        public IEnumerable<BreadcrumbItem> BuildBreadcrumbLinks(string currentLink, IEnumerable<string> breadcrumbParamByLevel = null)
+        {
+            if (BreadcrumbLevel.Any())
+            {
+                var linkIndex = 0;
+                return BreadcrumbLevel.Select(custInfo =>
+                    new BreadcrumbItem(custInfo.CustName, BuildBreadcrumbLink(custInfo, currentLink, breadcrumbParamByLevel, linkIndex++)));
+            }
+
+            return Enumerable.Empty<BreadcrumbItem>();
+        }
+    }
+
+    public class BreadcrumbItem
+    {
+        public BreadcrumbItem(string text, string link)
+        {
+            Text = text;
+            Link = link;
+        }
+
+        public string Text { get; }
+
+        public string Link { get; }
     }
 }

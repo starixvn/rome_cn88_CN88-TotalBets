@@ -3,24 +3,43 @@
     using System.Threading.Tasks;
     using System.Web.Mvc;
     using System.Web.SessionState;
+    using CN88.TotalBets.Site.Shared.Helpers;
     using MediatR;
     using Shared.Controllers;
 
     [SessionState(SessionStateBehavior.ReadOnly)]
     public class WagerAccountController : SiteBaseController
     {
-        private const string OurightViewPath = "~/Features/WagerAccount/Outright/Views/Index.cshtml";
+        private const string OutrightViewPath = "~/Features/WagerAccount/Outright/Views/Index.cshtml";
         private const string EventViewPath = "~/Features/WagerAccount/Event/Views/Index.cshtml";
+        private const string OutrightMobileViewPath = "~/Features/WagerAccount/Outright/Views/IndexMobile.cshtml";
+        private const string EventMobileViewPath = "~/Features/WagerAccount/Event/Views/IndexMobile.cshtml";
+        private readonly BrowserHelper browserHelper;
 
-        public WagerAccountController(IMediator mediator)
+        public WagerAccountController(IMediator mediator, BrowserHelper browserHelper)
             : base(mediator)
         {
+            this.browserHelper = browserHelper;
         }
 
         public async Task<ActionResult> GetByOutright(WagerAccountByOutrightQuery message)
-            => await ViewAsync(message, OurightViewPath);
+        {
+            message.CurrentUrl = Request.Url.Query;
+
+            return await ViewAsync(message, 
+                this.browserHelper.IsMobile() 
+                ? OutrightMobileViewPath
+                : OutrightViewPath);
+        }
 
         public async Task<ActionResult> GetByEvent(WagerAccountByEventQuery message)
-            => await ViewAsync(message, EventViewPath);
+        {
+            message.CurrentUrl = Request.Url.Query;
+
+            return await ViewAsync(message, 
+                this.browserHelper.IsMobile()
+                ? EventMobileViewPath
+                : EventViewPath);
+        }
     }
 }

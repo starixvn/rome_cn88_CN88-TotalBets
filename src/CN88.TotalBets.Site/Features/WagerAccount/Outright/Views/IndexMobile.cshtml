@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = Resources.WagerDetails;
+    Layout = "~/Shared/Views/_Layout.cshtml";
+    var backLink = Model.BuildBackLink();
+}
+@section Styles {
+    @StaticResources.RenderStyles("~/assets/bundles/outright/outright")
+}
+@section Scripts {
+    @StaticResources.RenderScripts("~/assets/bundles/wageraccount/wager-account")
+}
+@model WagerAccountByOutrightViewModel
+
+sdfsdfsdf
+<div class="wager-account-page window-page">
+    <div class="page-title">@Resources.WagerDetails</div>
+    <ul id="nav-tabs" class="nav nav-tabs-style2" role="tablist">
+        <li class="lnk-changetab" role="presentation">
+            <a href="#by-account">@Resources.ViewByAccount</a>
+        </li>
+        <li class="lnk-changetab">
+            <a href="@Model.GetWagerDetailUrl()">@Resources.ViewWagerDetails</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" role="tabpanel" id="by-account">
+            @if (Model.IsMobile && !string.IsNullOrWhiteSpace(backLink.Text))
+            {
+                <span id="btn-back" class="back-area">
+                    @if (string.IsNullOrWhiteSpace(backLink.Link))
+                    {
+                        @backLink.Text
+                    }
+                    else
+                    {
+                        <a href="@backLink.Link">
+                            <span class="icon-chevron-left back-step"></span>
+                            @backLink.Text
+                        </a>
+                    }
+                </span>
+            }
+            else
+            {
+                @Breadcrumb.Render(Model.BreadcrumbLevelViewModel, Request.Url.Query, null)
+            }
+            <table class="tbl-style2 tbl-wager" id="tbl-viewaccount">
+                <thead>
+                    <tr>
+                        <th class="text-left col-300">
+                            @Resources.ResourceManager.GetString(Model.Message.CustLevel.GetDirectDownLineLevel().DisplayName)
+                        </th>
+                        <th class="text-left">@Resources.Name</th>
+                        <th class="text-right col-180">@Resources.Wagers</th>
+                        <th class="text-right col-180">@Resources.Stake</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="total">
+                        <td class="text-left" colspan="2">@Resources.Total</td>
+                        <td class="text-right">@Model.Total.Wager</td>
+                        <td class="text-right">@HtmlHelpers.FormatNumber(Model.Total.Stake)</td>
+                    </tr>
+                    @foreach (var item in Model.WagerAccounts)
+                    {
+                        <tr>
+                            <td class="text-left"><a href="@Model.GetDownLineUrl(item.CustId,item.UserName)">@item.UserName</a></td>
+                            <td class="text-left">@item.FirstName</td>
+                            <td class="text-right">@item.Wager</td>
+                            <td class="text-right">@HtmlHelpers.FormatNumber(item.Stake)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane" role="tabpanel" id="wager-detail">
+        </div>
+    </div>
+</div>

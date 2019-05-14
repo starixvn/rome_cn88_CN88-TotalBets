@@ -1,6 +1,7 @@
 ﻿namespace CN88.TotalBets.Site.Features.WagerAccount
 {
     using System.Threading.Tasks;
+    using CN88.TotalBets.Site.Shared.Helpers;
     using MediatR;
     using Shared.Handlers;
     using TotalBets.Features.WagerAccount;
@@ -10,14 +11,19 @@
         IAsyncRequestHandler<WagerAccountByEventQuery, WagerAccountByEventViewModel>
     {
         private readonly IWagerAccountService wagerAccountService;
+        private readonly BrowserHelper browserHelper;
 
-        public WagerAccountHandler(IWagerAccountService wagerAccountService)
+        public WagerAccountHandler(
+            IWagerAccountService wagerAccountService,
+            BrowserHelper browserHelper)
         {
             this.wagerAccountService = wagerAccountService;
+            this.browserHelper = browserHelper;
         }
 
         public async Task<WagerAccountByOutrightViewModel> Handle(WagerAccountByOutrightQuery message)
         {
+            var isMobile = browserHelper.IsMobile();
             var param = new WagerAccountParam(
                 message.CustId,
                 message.MatchId,
@@ -27,11 +33,12 @@
 
             var wagerAccounts = await wagerAccountService.GetByOutright(param);
 
-            return new WagerAccountByOutrightViewModel(wagerAccounts, message);
+            return new WagerAccountByOutrightViewModel(wagerAccounts, message, isMobile);
         }
 
         public async Task<WagerAccountByEventViewModel> Handle(WagerAccountByEventQuery message)
         {
+            var isMobile = browserHelper.IsMobile();
             var param = new WagerAccountByEventParam(
                 message.CustId,
                 message.MatchId,
@@ -45,7 +52,7 @@
 
             var wagerAccounts = await wagerAccountService.GetByEvent(param);
 
-            return new WagerAccountByEventViewModel(wagerAccounts, message);
+            return new WagerAccountByEventViewModel(wagerAccounts, message, isMobile);
         }
     }
 }
