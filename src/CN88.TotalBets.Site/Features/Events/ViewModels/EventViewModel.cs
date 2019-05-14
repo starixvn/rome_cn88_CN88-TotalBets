@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Web.Mvc;
     using AppResources;
+    using Shared.Helpers;
     using Shared.ViewModels;
     using TotalBets.Features.Events.Models;
     using TotalBets.Features.Summaries.Models;
@@ -18,7 +19,8 @@
             string sportTypeGroup,
             MatchLeagueTotal eventModel,
             IEnumerable<SportGroupSummary> summaries,
-            IEnumerable<SelectListItem> leagues) : base(
+            IEnumerable<SelectListItem> leagues,
+            BrowserHelper browserHelper) : base(
                 query,
                 sportTypeGroup,
                 $"{query.AppPath}{eventVirtualPath}?Type={query.Type}&IsAutoRefresh={query.IsAutoRefresh}",
@@ -29,6 +31,7 @@
                 },
                 summaries,
                 leagues,
+                browserHelper,
                 false,
                 query.IsShowMarketSelection)
         {

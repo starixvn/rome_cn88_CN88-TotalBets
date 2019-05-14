@@ -2,6 +2,7 @@
 {
     using System.Threading.Tasks;
     using MediatR;
+    using Shared.Helpers;
     using TotalBets.Features.Events;
     using TotalBets.Features.SportTypeGroup;
     using TotalBets.Features.Summaries;
@@ -15,17 +16,20 @@
         private readonly EventService eventService;
         private readonly SummaryService summaryService;
         private readonly SportTypeGroupService sportTypeGroupService;
+        private readonly BrowserHelper browserHelper;
 
         public ViewByBetTypeHandler(
             ViewByBetTypeService viewByBetTypeService,
             EventService eventService,
             SummaryService summaryService,
-            SportTypeGroupService sportTypeGroupService)
+            SportTypeGroupService sportTypeGroupService,
+            BrowserHelper browserHelper)
         {
             this.viewByBetTypeService = viewByBetTypeService;
             this.eventService = eventService;
             this.summaryService = summaryService;
             this.sportTypeGroupService = sportTypeGroupService;
+            this.browserHelper = browserHelper;
         }
 
         public async Task<ViewByBetTypeViewModel> Handle(ViewByBetTypeQuery message)
@@ -51,7 +55,8 @@
                 totalBetByBetTypes.Values,
                 match,
                 summary,
-                message);
+                message,
+                browserHelper);
         }
     }
 }

@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Web.Mvc;
     using AppResources;
+    using Shared.Helpers;
     using Shared.ViewModels;
     using TotalBets.Features.Outright.Models;
     using TotalBets.Features.Summaries.Models;
@@ -16,8 +17,9 @@
             string sportGroupName,
             IEnumerable<TeamLeague> teamLeagues,
             IEnumerable<SportGroupSummary> summaries,
-            IEnumerable<SelectListItem> leagues)
-            : base(query, sportGroupName, $"{query.AppPath}{outrightVirtualPath}", new Dictionary<string, object>(), summaries, leagues)
+            IEnumerable<SelectListItem> leagues,
+            BrowserHelper browserHelper)
+            : base(query, sportGroupName, $"{query.AppPath}{outrightVirtualPath}", new Dictionary<string, object>(), summaries, leagues, browserHelper)
         {
             TeamLeagues = teamLeagues;
             SubTitle = Resources.Outright;

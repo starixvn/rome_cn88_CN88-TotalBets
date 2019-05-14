@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Web.Mvc;
     using AppResources;
+    using Shared.Helpers;
     using Shared.ViewModels;
     using TotalBets.Features.Started.Models;
     using TotalBets.Features.Summaries.Models;
@@ -17,7 +18,8 @@
             string sportTypeGroup,
             IEnumerable<StartedLeague> data,
             IEnumerable<SportGroupSummary> summaries,
-            IEnumerable<SelectListItem> leagues)
+            IEnumerable<SelectListItem> leagues,
+            BrowserHelper browserHelper)
             : base(
                   query,
                   sportTypeGroup,
@@ -29,6 +31,7 @@
                   },
                   summaries,
                   leagues,
+                  browserHelper,
                   isShowDateSelection: true,
                   isShowMarketSelection: true)
         {
@@ -36,7 +39,7 @@
             Data = data;
         }
 
-        
+
 
         public IEnumerable<StartedLeague> Data { get; }
 
