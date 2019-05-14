@@ -314,20 +314,24 @@
     }
 
     .bettypecount {
+        position: relative;
+        display: inline-block;
+        min-width: 40px;
         border-radius: 4px;
         background-color: #ca9d49;
         color: #fff;
-        padding: 6px;
-        position: relative;
-        top: -3px;
+        padding: 6px 14px 6px 10px;
         cursor: pointer;
         white-space: nowrap;
+        text-align: left;
 
-        .icon-chevron-right {
+        .icon-chevron-right {            
+            position: absolute;
+            top: 12px;
+            right: -1px;
+            left: auto;
+            line-height: 0;
             font-size: 18px;
-            position: relative;
-            top: 3px;
-            right: -6px;
         }
 
         .link {
@@ -509,6 +513,14 @@
 }
 
 @media (min-device-width: 768px) {
+    .menu-container {
+        top: 3px;
+    }
+
+    .icon-left-menu {
+        display: none;
+    }
+
     .dropdown-refresh {
         margin-left: 10px;
 
@@ -648,6 +660,8 @@
             left: -2px;
             top: -3px;
             font-size: 17px;
+            line-height: 0;
+            top: 50%;
         }
 
         .group-name-wrapper {
@@ -659,7 +673,15 @@
         tr.group .group-name {
             top: 0;
         }
+
+        tr.group .index {
+            top: 0;
+        }
+
+        .bettypecount {
+            min-width: 30px;
+            color: #fff;
+            padding: 6px 12px 6px 4px;
+        }
     }
-    
-       
 }

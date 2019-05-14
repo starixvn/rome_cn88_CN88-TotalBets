@@ -45,16 +45,81 @@
             }
         }
     }
+
+    tr.group .col-event-span-mobile,
+    .col-event-mobile {
+        display: none;
+    }
+
+    .col-time,
+    .col-wagers,
+    .col-total-wager {
+            width: 100px;
+    }
+
+    .col-stake {
+            width: 180px;
+    }
+
+    .col-event {
+        width: 320px;
+    }
+
+     .col-drill-down {
+        width: 80px;
+    }
+
+    .col-time {
+        text-align: center;
+    }
 }
-.col-120 {
-    width: 120px;
-}
-.col-320 {
-    width: 320px;
-}
+
+
 
 @media (max-device-width: 767px) {
     .tbl-started {
         width: 100%;
+        .col-status {
+            width: 36px;
+        }
+
+        .col-time {
+            width: 100px;
+            text-align: left;
+        }
+
+        .col-event-mobile {
+            text-align: left;
+        }
+        
+        .col-wagers,
+        .col-total-wager,
+        .col-stake {
+             width: 50px;
+        }
+
+        .col-drill-down {
+            width: 36px;
+        }
+
+        .col-event {
+            display: none;
+        }
+        
+        
+        tr.group {
+            .col-event-span-desktop {
+                display: none;
+            }
+
+            .col-event-span-mobile {
+                display: table-cell;
+            }
+        }
+        
+        .col-event-mobile {
+            display: block;
+            margin-top: 6px;
+        }
     }
 }

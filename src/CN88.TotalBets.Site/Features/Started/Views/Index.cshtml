@@ -15,7 +15,7 @@
         <div>@Model.Title</div>
         <div class="sub-title">
             <div class="event">@Model.SubTitle</div>
-
+            <span class="icon-filter-down" id="filter-toggle-icon"></span>
             @RefreshCountDown.Render(Model.CountDownSecs)
         </div>
     </div>
@@ -24,12 +24,12 @@
     <table class="tbl-style2 tbl-totalbet tbl-started" id="tblTotalBets">
         <thead>
             <tr>
-                <th class="col-100 text-center">@Resources.Time</th>
+                <th class="col-time text-center">@Resources.Time</th>
                 <th class="col-status text-center">@Resources.Details</th>
-                <th class="col-320">@Resources.Event</th>
-                <th class="col-100">@Resources.Wagers</th>
-                <th class="col-100 text-right">[@HtmlHelpers.FormatNumber(Model.TotalWager)]</th>
-                <th class="col-180 text-right">@Resources.Stake [@HtmlHelpers.FormatNumber(Model.TotalStake)]</th>
+                <th class="col-event">@Resources.Event</th>
+                <th class="col-wager">@Resources.Wagers</th>
+                <th class="col-total-wager text-right">[@HtmlHelpers.FormatNumber(Model.TotalWager)]</th>
+                <th class="col-stake text-right">@Resources.Stake [@HtmlHelpers.FormatNumber(Model.TotalStake)]</th>
                 <th class="col-drill-down">&nbsp;</th>
             </tr>
         </thead>
@@ -37,8 +37,8 @@
             @if (Model.Data.Any())
             {
                 <tr class="total">
-                    <td>@Resources.Total</td>
-                    <td colspan="2"></td>
+                    <td colspan="2">@Resources.Total</td>
+                    <td class="col-event"></td>
                     <td><div>@Resources.PM</div><div>@Resources.IP</div></td>
                     <td class="text-right">
                         <div>@HtmlHelpers.FormatNumber(Model.TotalPMWager)</div>
@@ -53,7 +53,13 @@
                 foreach (var league in Model.Data)
                 {
                     <tr class="group" data-leagueid="@league.LeagueId">
-                        <td colspan="3">
+                        <td class="col-event-span-desktop" colspan="3">
+                            <span class="group-name-wrapper">
+                                <span class="icon-chevron-down"></span>
+                                <span class="group-name">@league.LeagueName</span>
+                            </span>
+                        </td>
+                        <td class="col-event-span-mobile" colspan="2">
                             <span class="group-name-wrapper">
                                 <span class="icon-chevron-down"></span>
                                 <span class="group-name">@league.LeagueName</span>
@@ -73,7 +79,10 @@
                     foreach (var match in league.Matches)
                     {
                         <tr class="childrow-@league.LeagueId">
-                            <td class="text-center">@HtmlHelpers.ShowTime(match.ShowTimeDT, match.OfferLive, true)</td>
+                            <td class="col-time">
+                                @HtmlHelpers.ShowTime(match.ShowTimeDT, match.OfferLive, true)
+                                <div class="col-event-mobile">@match.HomeName v <br /> @match.AwayName</div>
+                            </td>
                             <td class="details">
                                 @if (Model.IsShowScore)
                                 {
@@ -91,7 +100,7 @@
                                     <div class="live">@Resources.Live</div>
                                 }
                             </td>
-                            <td>@match.HomeName v @match.AwayName</td>
+                            <td class="col-event">@match.HomeName v @match.AwayName</td>
                             <td><div>@Resources.PM</div><div>@Resources.IP</div></td>
                             <td class="text-right">
                                 <div>@HtmlHelpers.FormatNumber(match.PMWager)</div>
