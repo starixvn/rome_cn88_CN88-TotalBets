@@ -577,6 +577,7 @@
     <Content Include="Features\Overview\Views\MobileSportsTable.cshtml" />
     <Content Include="Features\WagerAccount\Event\Views\IndexMobile.cshtml" />
     <Content Include="Features\WagerAccount\Outright\Views\IndexMobile.cshtml" />
+    <Content Include="Shared\Styles\_variables.scss" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

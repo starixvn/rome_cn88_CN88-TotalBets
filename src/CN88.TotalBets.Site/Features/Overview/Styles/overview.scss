@@ -1,4 +1,6 @@
-﻿.page-title, .filter {
+﻿@import "../../../Shared/Styles/variables";
+
+.page-title, .filter {
     display: inline-block;
     vertical-align: middle;
 }
@@ -62,7 +64,8 @@
     display: none;
 }
 
-@media (max-device-width: 767px) {
+@media (max-device-width: $screen-device-lower768),
+    (min-device-width: $screen-device-greater768) and (max-device-width: $screen-device-lower1024) and (orientation: landscape){
 
     $height-small: 40px;
     $height-large: 56px;

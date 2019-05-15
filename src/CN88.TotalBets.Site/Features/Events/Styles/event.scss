@@ -1,4 +1,6 @@
-﻿#tblTotalBets {
+﻿@import "../../../Shared/Styles/variables";
+
+#tblTotalBets {
     width: 1040px;
 
     .live {
@@ -23,7 +25,8 @@
     width: 36px;
 }
 
-@media (max-device-width: 767px) {    
+@media (max-device-width: $screen-device-lower768),
+    (min-device-width: $screen-device-greater768) and (max-device-width: $screen-device-lower1024) and (orientation: landscape){  
 
     #tblTotalBets {
         width: 100%;
