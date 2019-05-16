@@ -28,23 +28,23 @@
             @if (Model.IsMobile && !string.IsNullOrWhiteSpace(backLink.Text))
             {
                 <div class="page-title-mobile">
-                    <div id="btn-back" class="back-area">
-                        @if (string.IsNullOrWhiteSpace(backLink.Link))
-                        {
-                            <div id="btn-back">
-                                @backLink.Text
-                            </div>                           
-                        }
-                        else
-                        {
-                            <div id="btn-back" class="back-area">
-                                <a href="@backLink.Link">
-                                    <span class="icon-chevron-left back-step"></span>
-                                    @Model.Message.CustName
-                                </a>
-                            </div>                            
-                        }
-                </div>                
+                    
+                    @if (string.IsNullOrWhiteSpace(backLink.Link))
+                    {
+                        <div id="btn-back">
+                            @backLink.Text
+                        </div>
+                    }
+                    else
+                    {
+                        <div id="btn-back" class="back-area">
+                            <a href="@backLink.Link">
+                                <span class="icon-chevron-left back-step"></span>
+                                @Model.Message.CustName
+                            </a>
+                        </div>
+                    }
+                </div>
             }
             else
             {
