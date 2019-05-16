@@ -442,12 +442,12 @@
         background-color: #1D8763;
         color: #fff;
         text-align: center;
-        font-size: 14px;
+        font-size: 16px;
 
         &:before {
             content: "\e91d";
             position: relative;
-            top: 8px;
+            top: 7px;
         }
     }
 
@@ -548,7 +548,7 @@
     .menu-container {
         position: absolute;
         left: -220px;
-        top: 0;
+        top: 36px;
         bottom: 0;
         border: 1px solid #D2D2D2;
         border-left: none;
@@ -587,18 +587,38 @@
 
     .collapse-expand-summary-menu {
         position: absolute;
-        top: 36px;
-        right: -30px;
+        top: 0;
         height: 30px;
         width: 30px;
-        padding: 7px 8px;
+        padding: 8px 9px;
         border-radius: 0 3px 3px 0;
         background-color: #7D1514;
         color: #fff;        
 
         .icon-left-menu {
             display: block;
-            font-size: 16px;
+            font-size: 13px;
+        }
+
+        &.-left {
+            left: 0;
+        }
+
+        &.-right {
+            opacity: 1;
+            right: -30px;
+            transition: opacity .3s ease-out .1s;
+        }
+    }
+
+    .menu-container.expanded {
+        .collapse-expand-summary-menu.-right {
+            opacity: 0;
+            transition: opacity .2s ease-out .1s;
+        }
+
+        .head-menu {
+            padding-left: 30px;
         }
     }
 
@@ -662,6 +682,10 @@
         .list-options {
             font-size: 10.5px;
         } 
+    }
+
+    .viewbettype-content {
+        margin-top: 12px;
     }
 
     .tbl-totalbet {        
