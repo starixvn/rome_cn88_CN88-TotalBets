@@ -436,8 +436,8 @@
 
     .icon-refresh {
         float: left;
-        width: 24px;
-        height: 24px;
+        width: 30px;
+        height: 30px;
         vertical-align: middle;
         background-color: #1D8763;
         color: #fff;
@@ -447,7 +447,7 @@
         &:before {
             content: "\e91d";
             position: relative;
-            top: 5px;
+            top: 8px;
         }
     }
 
@@ -458,7 +458,7 @@
 
     .btnRefresh {
         float: left;
-        line-height: 24px;
+        line-height: 30px;
         font-size: 13px;
     }
 
@@ -466,7 +466,7 @@
         float: left;
         position: relative;
         width: 50px;      
-        height: 24px;  
+        height: 30px;  
         padding-right: 20px;
         padding-left: 9px;
         background-color: #27A67B;
@@ -479,18 +479,18 @@
         position: absolute;
         right: 0;
         top: 0px;
-        height: 24px;
+        height: 30px;
         width: 20px;
 
         &:before {
             position: relative;
-            top: 4px;
+            top: 7px;
         }
     }
 
     .list-options {
         position: absolute;
-        top: 24px;
+        top: 30px;
         left: 0;
         right: 0;
         margin: 0;
@@ -546,23 +546,23 @@
     }
 
     .menu-container {
-        position: fixed;
-        left: auto;
-        top: 8px;
-        right: -220px;
+        position: absolute;
+        left: -220px;
+        top: 0;
         bottom: 0;
         border: 1px solid #D2D2D2;
+        border-left: none;
         border-top: none;
         z-index: 90;
         background-color: #fff;
-        transition: right .2s ease-in-out .1s;        
+        transition: left .2s ease-in-out .1s;        
 
         .head-menu {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 32px;
+            height: 30px;
             background-color: #7D1514;
             z-index: 91;
         }
@@ -573,28 +573,28 @@
 
         &.expanded {
             width: 220px;
-            right: 0;
+            left: 0;
             background-color: #fff;
-            transition: right .1s ease-out .2s;
+            transition: left .1s ease-out .2s;
         }
 
         .list-sports {
             height: 100%;
-            padding-top: 32px;
+            padding-top: 30px;
             overflow-y: auto;
         }
     }
 
     .collapse-expand-summary-menu {
         position: absolute;
-        top: 0;
-        left: -32px;
-        height: 32px;
-        width: 32px;
-        padding: 8px;
+        top: 36px;
+        right: -30px;
+        height: 30px;
+        width: 30px;
+        padding: 7px 8px;
+        border-radius: 0 3px 3px 0;
         background-color: #7D1514;
-        color: #fff;
-        border-radius: 3px 0 0 3px;
+        color: #fff;        
 
         .icon-left-menu {
             display: block;
@@ -632,13 +632,19 @@
     }
 
     .sub-title {
+        width: 100%;
+
         .event {
             display: none;
         }
 
         [class^="icon-filter"] {
-            float: left;
+            float: right;
             display: inline-block;
+        }
+
+        .dropdown-refresh {
+            float: right;
             margin-right: 10px;
         }
     }
@@ -658,7 +664,9 @@
         } 
     }
 
-    .tbl-totalbet {
+    .tbl-totalbet {        
+        margin-top: 12px;
+
         [class^="icon-chevron"] {
             position: absolute;
             left: -2px;
