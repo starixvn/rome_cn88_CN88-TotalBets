@@ -157,7 +157,7 @@
     <value>总代理 (%)</value>
   </data>
   <data name="SMA_Percentage" xml:space="preserve">
-    <value>超级代理 (%)</value>
+    <value>股东 (%)</value>
   </data>
   <data name="AllSports" xml:space="preserve">
     <value>所有球类</value>
@@ -262,7 +262,7 @@
     <value>公司(%)</value>
   </data>
   <data name="SMA_MA_Agent_Percentage" xml:space="preserve">
-    <value>超级代理+总代理+代理商(%)</value>
+    <value>股东+总代理+代理商(%)</value>
   </data>
   <data name="TotalWarger" xml:space="preserve">
     <value>总投注</value>
@@ -271,7 +271,7 @@
     <value>菜单</value>
   </data>
   <data name="SMA_MA_Percentage" xml:space="preserve">
-    <value>超级代理+总代理(%)</value>
+    <value>股东+总代理(%)</value>
   </data>
   <data name="BackToSummary" xml:space="preserve">
     <value>回到摘要</value>
