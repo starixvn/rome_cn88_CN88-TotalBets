@@ -691,16 +691,9 @@
 
     // Wager Detail drill dowm from Inplay
     .window-page {
-        .nav-tabs {
-            display: table;
-            width: 100%;
-            margin-top: 10px;
-        }
 
         .nav-tabs > li {
-            display: table-cell;
             width: 50%;
-            float: none;
         }
 
         .page-title-mobile {
