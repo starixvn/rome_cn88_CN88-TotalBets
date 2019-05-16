@@ -27,13 +27,22 @@ class SummaryMenu {
         this.$summaryMenuItems = this.$("#summary-menu-items");
         this.isDevice = this.$("#IsDevice").val() == "1";
 
-        this.$("#head-menu").click(() => {
-            if (this.isDevice) {
-                this.collapseMenuMobile();
+        var self = this;
+        this.$("#head-menu").on("click touchend", function (event) {
+            if (self.isDevice) {
+                self.$(this).off('click');
+                self.collapseMenuMobile();
+
+                event.stopPropagation();
+                return false;
             } else {
-                this.collapseMenu();
+                self.collapseMenu();
             }
         });
+
+        if (this.isDevice) {
+            this.$(window).on("click touchend", () => { this.hideMenuMobile(); });
+        }
     }
 
     collapseMenu(): void {
@@ -66,5 +75,16 @@ class SummaryMenu {
             this.$summaryMenu.addClass(expandedClass);
             this.$mainContent.addClass(expandedClass);
         }
+    }
+
+    hideMenuMobile(): void {
+        let expandedClass = 'expanded';
+        let isCollapsed = this.$summaryMenu.hasClass(expandedClass);
+        if (!isCollapsed) {
+            return;
+        }
+
+        this.$summaryMenu.removeClass(expandedClass);
+        this.$mainContent.removeClass(expandedClass);
     }
 }
