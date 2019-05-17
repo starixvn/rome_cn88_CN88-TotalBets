@@ -70,9 +70,7 @@
             var currentCustomer = UserSession.Current;
 
             if (ex is FormatException &&
-                Request.Params.AllKeys.Any(
-                    key => Alpha.Auth.Configurations.AuthorizationSection.Instance.CustIdQueryStringParamNames.Any(
-                        cf => string.Equals(key, cf, StringComparison.OrdinalIgnoreCase))))
+                Request.Params.AllKeys.Any(key => Alpha.Auth.Configurations.AuthorizationSection.Instance.CustIdQueryStringParamNames.Any(cf => string.Equals(key, cf, StringComparison.OrdinalIgnoreCase))))
             {
                 return;
             }

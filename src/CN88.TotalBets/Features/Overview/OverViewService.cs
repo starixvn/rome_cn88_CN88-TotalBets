@@ -31,7 +31,7 @@
             return new OverViewModel(overViewBySportType, overView.Item2.FirstOrDefault(), overView.Item3.FirstOrDefault());
         }
 
-        private static IEnumerable<OverViewBySportTypeModel> OrderBy(IEnumerable<OverViewBySportTypeModel> list)
+        private IEnumerable<OverViewBySportTypeModel> OrderBy(IEnumerable<OverViewBySportTypeModel> list)
         {
             var orderBySportTypeGroupInOverviewPage = AppSettings.OrderBySportTypeGroupInOverviewPage;
             var sportTypeHasConfigurate = list.Where(i => orderBySportTypeGroupInOverviewPage.ContainsKey(i.SportTypeGroup))

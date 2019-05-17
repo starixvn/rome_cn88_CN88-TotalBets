@@ -4,7 +4,7 @@
     using TotalBets.Shared.Constants;
     using TotalBets.Shared.Models;
 
-    public class FilterQuery : BaseQuery
+    public abstract class FilterQuery : BaseQuery
     {
         protected FilterQuery(IUser viewer)
             : base(viewer)

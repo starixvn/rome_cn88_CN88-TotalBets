@@ -35,7 +35,7 @@
                 custId = query.ViewerId,
                 custLevelId = query.ViewerLevelId,
                 custName = query.ViewerName,
-                matchId,
+                matchId = matchId,
                 Stake = FilterViewModel.Stake,
                 StakeCondition = FilterViewModel.StakeCondition
             };

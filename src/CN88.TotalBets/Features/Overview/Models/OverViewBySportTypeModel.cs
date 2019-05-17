@@ -2,6 +2,10 @@
 {
     public class OverViewBySportTypeModel
     {
+        public OverViewBySportTypeModel()
+        {
+        }
+
         public int SportTypeGroup { get; }
 
         public int InplayWager { get; }

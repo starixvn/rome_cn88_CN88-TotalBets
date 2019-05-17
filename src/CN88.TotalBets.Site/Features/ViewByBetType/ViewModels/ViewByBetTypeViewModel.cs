@@ -82,7 +82,7 @@
                 StakeCondition = FilterViewModel.StakeCondition,
                 BetType = bettypeId,
                 liveIndicator = liveIndicator ? 1 : 0,
-                betTeam,
+                betTeam = betTeam,
                 type = filterQuery.Type
             };
 
@@ -92,7 +92,7 @@
         public bool IsDevices => browserHelper.IsMobile() && !browserHelper.IsTablet();
 
 
-        private static string BuildSummaryPath(ViewByBetTypeQuery filterQuery)
+        private string BuildSummaryPath(ViewByBetTypeQuery filterQuery)
         {
             if (filterQuery.Type == EventTypeConstants.Started)
             {
@@ -109,7 +109,7 @@
                     });
         }
 
-        private static string BuildViewByBetTypePath(ViewByBetTypeQuery filterQuery)
+        private string BuildViewByBetTypePath(ViewByBetTypeQuery filterQuery)
             => Shared.Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc(
                 $"{filterQuery.AppPath}ViewByBetType",
                 new Dictionary<string, object>(GetRouteValues(filterQuery))
@@ -118,7 +118,7 @@
                     [nameof(filterQuery.IsShowKODate)] = filterQuery.IsShowKODate
                 });
 
-        private static IDictionary<string, object> GetRouteValues(ViewByBetTypeQuery filterQuery)
+        private IDictionary<string, object> GetRouteValues(ViewByBetTypeQuery filterQuery)
             => new Dictionary<string, object>
             {
                 [nameof(filterQuery.SportTypeGroup)] = filterQuery.SportTypeGroup,
