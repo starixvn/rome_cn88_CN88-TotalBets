@@ -68,7 +68,7 @@
     }
 
      .col-drill-down {
-        width: 80px;
+        width: 36px;
     }
 
     .col-time {
@@ -81,11 +81,11 @@
     .tbl-started {
         width: 100%;
         .col-status {
-            width: 36px;
+            min-width: 36px;
         }
 
         .col-time {
-            width: 100px;
+            min-width: 100px;
             text-align: left !important;
         }
 
@@ -96,17 +96,13 @@
         .col-wagers,
         .col-total-wager,
         .col-stake {
-             width: 50px;
+             min-width: 50px;
         }
 
         td.col-stake {
             line-height: 16px;
         }
-
-        .col-drill-down {
-            width: 36px;
-        }
-
+        
         .col-event {
             display: none;
         }

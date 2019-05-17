@@ -18,7 +18,7 @@
 }
 
 .col-stake {
-    width: 56px;
+    width: 180px;
 }
 
 .col-drill-down {
@@ -44,20 +44,20 @@
     }
 
     .col-status {
-       width: 40px;
+       min-width: 40px;
        white-space: nowrap;
     }
 
     .col-wagers {
-        width: 72px;
+        min-width: 72px;
     }
 
     .col-stake {
-        width: 56px;
+        min-width: 56px;
     }
 
     .col-drill-down {
-        width: 36px;
+        min-width: 36px;
     }
 
     .home-team,
