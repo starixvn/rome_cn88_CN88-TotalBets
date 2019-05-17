@@ -57,20 +57,13 @@
 
         protected override IDictionary<string, object> GetViewByBetTypeRoutesValues(byte type, int matchId)
         {
-            if (IsInPlay)
+            return IsInPlay ? new Dictionary<string, object>(base.GetViewByBetTypeRoutesValues(type, matchId))
             {
-                return new Dictionary<string, object>(base.GetViewByBetTypeRoutesValues(type, matchId))
-                {
-                    [nameof(Query.Market)] = Query.Market
-                };
-            }
-            else
+                [nameof(Query.Market)] = Query.Market
+            } : new Dictionary<string, object>(base.GetViewByBetTypeRoutesValues(type, matchId))
             {
-                return new Dictionary<string, object>(base.GetViewByBetTypeRoutesValues(type, matchId))
-                {
-                    ["IsShowKODate"] = IsEarly
-                };
-            }
+                ["IsShowKODate"] = IsEarly
+            };
         }
     }
 }

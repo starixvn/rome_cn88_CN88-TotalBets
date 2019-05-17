@@ -15,6 +15,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CN88.TotalBets.Tests", "tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CN88.TotalBets.Site.Tests", "tests\CN88.TotalBets.Site.Tests\CN88.TotalBets.Site.Tests.csproj", "{89928FBD-488F-4D03-863C-A6A659D7062E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{DFD5A92C-56A4-4EC5-B2FC-F5AD3E921990}"
+	ProjectSection(SolutionItems) = preProject
+		SonarQube\CN88-TotalBetsCSharp.ruleset = SonarQube\CN88-TotalBetsCSharp.ruleset
+		SonarQube\SolutionBinding.sqconfig = SonarQube\SolutionBinding.sqconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

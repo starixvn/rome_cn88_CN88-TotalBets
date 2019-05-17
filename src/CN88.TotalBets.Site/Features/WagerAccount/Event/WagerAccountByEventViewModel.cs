@@ -93,7 +93,7 @@
             return UrlHelper.AddQueryStringParamsFunc(url, param);
         }
 
-        public string GetUserLevelName(UserLevel custLevel)
+        public static string GetUserLevelName(UserLevel custLevel)
             => Resources.ResourceManager.GetString(custLevel.DisplayName);
 
         private IEnumerable<CustInfo> GetBreadcrumbLevel()

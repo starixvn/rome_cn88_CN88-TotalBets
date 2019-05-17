@@ -8,7 +8,7 @@
     using Requests;
     using TotalBets.Shared.Constants;
 
-    public abstract class BaseViewModel
+    public class BaseViewModel
     {
         protected readonly FilterQuery query;
 

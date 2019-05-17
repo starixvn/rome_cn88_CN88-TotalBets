@@ -101,7 +101,7 @@
             }
         }
 
-        private IEnumerable<BetOption> CreateDefaultBetOptions(IEnumerable<BetOption> availableBetOptions, byte marketType)
+        private static IEnumerable<BetOption> CreateDefaultBetOptions(IEnumerable<BetOption> availableBetOptions, byte marketType)
         {
             var betOptions = new List<BetOption>();
 
@@ -128,7 +128,7 @@
                     || (!betOption.IsLive && marketType == MarketConstants.PreMatch));
         }
 
-        private void AddBetOption1x2(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
+        private static void AddBetOption1x2(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
         {
             if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes.FT_1X2 && bo.IsLive == isLive))
             {
@@ -146,7 +146,7 @@
             }
         }
 
-        private void AddBetOptionOddEven(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
+        private static void AddBetOptionOddEven(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
         {
             if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes._2ndOddEven && bo.IsLive == isLive))
             {
@@ -154,7 +154,7 @@
             }
         }
 
-        private void AddBetOptionOverUnder(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
+        private static void AddBetOptionOverUnder(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
         {
             if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes._2nd_Over_Under && bo.IsLive == isLive))
             {
@@ -162,7 +162,7 @@
             }
         }
 
-        private void AddBetOptionHomeAway(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
+        private static void AddBetOptionHomeAway(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
         {
             AddBetOptionHomeAwayHandicap(availableBetOptions, betOptions, isLive);
 
@@ -173,7 +173,7 @@
             AddBetOptionHomeAwayOddEven(availableBetOptions, betOptions, isLive);
         }
 
-        private void AddBetOptionHomeAwayOddEven(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
+        private static void AddBetOptionHomeAwayOddEven(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
         {
             // For oddeven, because old business return betteam 'h', 'a'
             if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes.Odd_Even && bo.IsLive == isLive))
@@ -187,7 +187,7 @@
             }
         }
 
-        private void AddBetOptionHomeAwayOverUnder(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
+        private static void AddBetOptionHomeAwayOverUnder(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
         {
             // For overunder, because old business return betteam 'h', 'a'
             if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes.Over_Under && bo.IsLive == isLive))
@@ -201,7 +201,7 @@
             }
         }
 
-        private void AddBetOptionHomeAwayMoneyLine(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
+        private static void AddBetOptionHomeAwayMoneyLine(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
         {
             if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes.Money_Line && bo.IsLive == isLive))
             {
@@ -214,7 +214,7 @@
             }
         }
 
-        private void AddBetOptionHomeAwayHandicap(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
+        private static void AddBetOptionHomeAwayHandicap(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
         {
             if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes.Handicap && bo.IsLive == isLive))
             {
@@ -232,28 +232,28 @@
             }
         }
 
-        private IEnumerable<BetOption> CreateDefaultHomeAwayBetOptions(int betTypeId, bool isLive)
+        private static IEnumerable<BetOption> CreateDefaultHomeAwayBetOptions(int betTypeId, bool isLive)
             => new List<BetOption>
             {
                 new BetOption(betTypeId, "h", isLive),
                 new BetOption(betTypeId, "a", isLive)
             };
 
-        private IEnumerable<BetOption> CreateDefaultOverUnderBetOptions(int betTypeId, bool isLive)
+        private static IEnumerable<BetOption> CreateDefaultOverUnderBetOptions(int betTypeId, bool isLive)
             => new List<BetOption>
             {
                 new BetOption(betTypeId, "o", isLive),
                 new BetOption(betTypeId, "u", isLive)
             };
 
-        private IEnumerable<BetOption> CreateDefaultOddEvenBetOptions(int betTypeId, bool isLive)
+        private static IEnumerable<BetOption> CreateDefaultOddEvenBetOptions(int betTypeId, bool isLive)
             => new List<BetOption>
             {
                 new BetOption(betTypeId, "o", isLive),
                 new BetOption(betTypeId, "e", isLive)
             };
 
-        private IEnumerable<BetOption> CreateDefault1x2BetOptions(int betTypeId, bool isLive)
+        private static IEnumerable<BetOption> CreateDefault1x2BetOptions(int betTypeId, bool isLive)
             => new List<BetOption>
             {
                 new BetOption(betTypeId, "1", isLive),
