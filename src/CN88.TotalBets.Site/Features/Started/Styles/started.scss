@@ -74,6 +74,10 @@
     .col-time {
         text-align: center;
     }
+
+    .col-status {
+        width: 120px;
+    }
 }
 
 @media (max-device-width: $screen-device-lower768),
