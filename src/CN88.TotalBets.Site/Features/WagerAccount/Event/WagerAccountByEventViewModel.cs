@@ -131,7 +131,7 @@
             var firstItem = breadcrumbLinks.First();
 
             return totalItem > 1
-                    ? breadcrumbLinks.ElementAt(breadcrumbLinks.Count() - 1)
+                    ? breadcrumbLinks.ElementAt(breadcrumbLinks.Count() - 2)
                     : new BreadcrumbItem(firstItem.Text, string.Empty);
         }
     }
