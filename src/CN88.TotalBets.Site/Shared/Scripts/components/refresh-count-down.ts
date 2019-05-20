@@ -43,8 +43,10 @@ class RefreshCountDown {
             event.stopPropagation();
             return false;
         });
-        this.$countDownOptions.on("click touchend", function () {
+        this.$countDownOptions.on("click touchend", function (event) {
             self.saveOption(self.$(this).attr("data-value"));
+            event.stopPropagation();
+            return false;
         });
         this.$("#count-down-off").on("click touchend", function () {
             self.turnOffCountDown(self.$(this).html());
