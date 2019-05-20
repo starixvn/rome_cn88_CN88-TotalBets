@@ -36,7 +36,7 @@
             <thead>
                 <tr>
                     <th class="col-status">@(Model.IsInPlay ? Resources.Details : Resources.Time)</th>
-                    <th>@Resources.Event</th>
+                    <th class="col-event">@Resources.Event</th>
                     <th class="col-wagers text-right">@Resources.Wagers [@HtmlHelpers.FormatNumber(Model.EventModel.TotalWager)]</th>
                     <th class="col-stake text-right">@Resources.Stake [@HtmlHelpers.FormatNumber(Model.EventModel.TotalStake)]</th>
                     <th class="col-drill-down">&nbsp;</th>

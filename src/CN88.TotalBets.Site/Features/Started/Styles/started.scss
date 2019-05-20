@@ -102,11 +102,13 @@
         td.col-stake {
             line-height: 16px;
         }
-        
+        .col-wager {
+            min-width: 38px;
+        }
+
         .col-event {
             display: none;
-        }
-        
+        }        
         
         tr.group {
             .col-event-span-desktop {
