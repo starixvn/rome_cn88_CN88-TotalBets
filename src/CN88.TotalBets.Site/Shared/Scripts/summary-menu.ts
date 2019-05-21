@@ -42,6 +42,9 @@ class SummaryMenu {
 
         if (this.isDevice) {
             this.$(window).on("click touchend", () => { this.hideMenuMobile(); });
+            this.$summaryMenu.on("click touchend", (event) => {
+                event.stopPropagation();
+            });
         }
     }
 
