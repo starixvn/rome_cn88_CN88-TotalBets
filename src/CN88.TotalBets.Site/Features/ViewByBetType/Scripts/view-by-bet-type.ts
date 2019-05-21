@@ -103,7 +103,7 @@ class ViewByBetType extends BaseTotalBets {
 $(function (): void {
     new ViewByBetType(
         $,
-        new SummaryMenu($),
+        new SummaryMenu($, top),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),

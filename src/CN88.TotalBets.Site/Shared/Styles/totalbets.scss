@@ -577,12 +577,13 @@ body.phone {
             left: 0;
             background-color: #fff;
             transition: left .1s ease-out .2s;
-            overflow-y: auto;    
+            //overflow: hidden auto;  
         }
 
         .list-sports {
             height: 100%;
             padding-top: 30px;
+            overflow-y: auto;
         }
 
         .summary-menu-items {
@@ -706,7 +707,7 @@ body.phone {
     .tbl-totalbet {        
         margin-top: 12px;
 
-        [class^="icon-chevron"] {
+        .group-name-wrapper [class^="icon-chevron"] {
             position: absolute;
             left: -2px;
             top: -3px;

@@ -41,7 +41,7 @@ class Outright extends BaseTotalBets {
 $(function (): void {
     new Outright(
         $,
-        new SummaryMenu($),
+        new SummaryMenu($, top),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($)).init();

@@ -8,6 +8,7 @@ class SummaryMenuOption {
 
 class SummaryMenu {
     $: JQueryStatic;
+    $topWindow: any;
 
     options = new SummaryMenuOption();
     $summaryMenu: JQuery;
@@ -15,8 +16,9 @@ class SummaryMenu {
     $mainContent: JQuery;
     isDevice: boolean = false;
 
-    constructor($: JQueryStatic) {
+    constructor($: JQueryStatic, topWindow: any) {
         this.$ = $;
+        this.$topWindow = topWindow;
     }
 
     render = (options: SummaryMenuOption = new SummaryMenuOption()) => {
@@ -42,8 +44,14 @@ class SummaryMenu {
 
         if (this.isDevice) {
             this.$(window).on("click touchend", () => { this.hideMenuMobile(); });
-            this.$summaryMenu.on("click touchend", (event) => {
+            this.$summaryMenu.on("click touchend", (event) => {                
                 event.stopPropagation();
+            });
+
+            this.calculateMenuHeight();
+
+            this.$(window).resize(() => {
+                this.calculateMenuHeight();
             });
         }
     }
@@ -89,5 +97,20 @@ class SummaryMenu {
 
         this.$summaryMenu.removeClass(expandedClass);
         this.$mainContent.removeClass(expandedClass);
+    }
+
+    calculateMenuHeight(): void {
+        if (!this.isDevice) {
+            return;
+        }
+        var menu = this.$("#summary-menu"),
+            mainHeight = this.$(this.$topWindow).height() - this.$topWindow.$("#header").height() - parseInt(menu.css("top"),0),
+            menuHeight = menu.outerHeight();
+        
+        if (menuHeight >= mainHeight) {
+            menu.height(mainHeight);
+        } else {
+            menu.css("height", "auto");
+        }
     }
 }
