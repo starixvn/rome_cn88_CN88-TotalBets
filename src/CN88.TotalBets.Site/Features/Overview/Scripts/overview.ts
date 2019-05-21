@@ -28,7 +28,7 @@ class OverView {
 
         $(document).on("touchend", () => { self.isScrolling = false; });
 
-        this.$(".page-overview table a").click(function () {
+        this.$(".page-overview table a, .page-overview .link[data-submenuid]").click(function () {
             var subMenuId = self.$(this).attr("data-submenuid");
             self.$topWindow.indexManager.subMenuClick(subMenuId);
         });
