@@ -539,8 +539,6 @@
 
 // For Phone
 body.phone {
-    padding-bottom: 37px;
-
     // Summary Menu
     .main-content {
         margin: 12px 0;
@@ -651,6 +649,7 @@ body.phone {
             .btn-group {
                 float: left;
                 width: 30%;
+                top: 0;
             }
 
             input[type='text'] {
