@@ -50,6 +50,8 @@ class ViewByBetType extends BaseTotalBets {
 
         let reloadInSeconds: number = <number>this.$("#ReloadTimeInSeconds").val();
         let autoRefresh: RefreshCountDown = new RefreshCountDown($, new LinkBuilderComponent($));
+         cn88TotalBets.localStorage.set("cn88-total-bets-page-id", "viewByBetType");
+
         autoRefresh.render(new RefreshCountDownOptions("CountDownMenu", "viewByBetType", reloadInSeconds, () => {
             this.onSubmit();
             this.$filterForm.trigger("submit");
