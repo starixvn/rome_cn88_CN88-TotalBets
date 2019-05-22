@@ -31,8 +31,11 @@ class SummaryMenu {
 
         var self = this;
         this.$("#head-menu").on("click touchend", function (event) {
-            if (self.isDevice) {
+            if (event.type == 'touchend') {
                 self.$(this).off('click');
+            }
+
+            if (self.isDevice) {
                 self.collapseMenuMobile();
 
                 event.stopPropagation();
@@ -44,7 +47,7 @@ class SummaryMenu {
 
         if (this.isDevice) {
             this.$(window).on("click touchend", () => { this.hideMenuMobile(); });
-            this.$summaryMenu.on("click touchend", (event) => {                
+            this.$summaryMenu.on("click touchend", (event) => {
                 event.stopPropagation();
             });
 
@@ -104,9 +107,9 @@ class SummaryMenu {
             return;
         }
         var menu = this.$("#summary-menu"),
-            mainHeight = this.$(this.$topWindow).height() - this.$topWindow.$("#header").height() - parseInt(menu.css("top"),0),
+            mainHeight = this.$(this.$topWindow).height() - this.$topWindow.$("#header").height() - parseInt(menu.css("top"), 0),
             menuHeight = menu.outerHeight();
-        
+
         if (menuHeight >= mainHeight) {
             menu.height(mainHeight);
         } else {
