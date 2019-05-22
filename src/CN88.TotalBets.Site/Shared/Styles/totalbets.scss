@@ -577,21 +577,19 @@ body.phone {
             left: 0;
             background-color: #fff;
             transition: left .1s ease-out .2s;
-            //overflow: hidden auto;  
         }
 
-        .list-sports {
+        .list-sports,
+        .summary-menu-items {
             height: 100%;
             padding-top: 30px;
             overflow-y: auto;
         }
 
-        .summary-menu-items {
-            padding-top: 30px;
-        }
-
         .summary-menu-items .list-sports {
             padding-top: 0;
+            overflow-y: initial;
+            height: auto;
         }
 
         .menu-item.back-to-sum {
