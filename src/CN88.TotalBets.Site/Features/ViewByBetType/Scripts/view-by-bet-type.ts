@@ -50,7 +50,7 @@ class ViewByBetType extends BaseTotalBets {
 
         let reloadInSeconds: number = <number>this.$("#ReloadTimeInSeconds").val();
         let autoRefresh: RefreshCountDown = new RefreshCountDown($, new LinkBuilderComponent($));
-        autoRefresh.render(new RefreshCountDownOptions("CountDownMenu", reloadInSeconds, () => {
+        autoRefresh.render(new RefreshCountDownOptions("CountDownMenu", "viewByBetType", reloadInSeconds, () => {
             this.onSubmit();
             this.$filterForm.trigger("submit");
         }));

@@ -3,6 +3,7 @@
 class RefreshCountDownOptions {
     constructor(
         public countDownMenuId: string = "CountDownMenu",
+        public pageId: string = "Page1",
         public reloadInSeconds: number = 30,
         public countDownFunc: Function = () => { }) {
     }
@@ -52,7 +53,7 @@ class RefreshCountDown {
             self.turnOffCountDown(self.$(this).html());
         });
 
-        var currentOption = cn88TotalBets.localStorage.get(this.countDownOptionCookie);
+        var currentOption = cn88TotalBets.localStorage.get(this.countDownOptionCookie + this.options.pageId);
         if (currentOption && currentOption != 0) {
             this.setCountDown(currentOption);
         } else {
@@ -71,7 +72,7 @@ class RefreshCountDown {
         }
     };
     saveOption = (option) => {
-        cn88TotalBets.localStorage.set(this.countDownOptionCookie, option);
+        cn88TotalBets.localStorage.set(this.countDownOptionCookie + this.options.pageId, option);
         if (option == "-1") {
             return;
         }
