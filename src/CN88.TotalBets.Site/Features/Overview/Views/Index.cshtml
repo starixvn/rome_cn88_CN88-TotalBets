@@ -23,6 +23,7 @@
 
     @Html.Partial("~/Features/Overview/Views/ParlayTable.cshtml", Model)
 </div>
+@Html.Hidden("IsDevice", Model.IsDevices ? 1 : 0)
 @section Scripts {
     @StaticResources.RenderScripts("~/assets/bundles/overview/index")
 }

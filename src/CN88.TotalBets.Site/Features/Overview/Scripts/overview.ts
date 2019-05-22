@@ -6,6 +6,7 @@ class OverView {
     $tooltip: JQuery;
     $topWindow: any;
     $sportGroups: any;
+    isMobile: boolean;
     isScrolling = false;
 
     constructor(
@@ -55,6 +56,11 @@ class OverView {
             $this.parent().addClass("active");
             $this.next().slideDown('fast');
         });
+
+        this.isMobile = this.$("#IsDevice").val() == "1";
+        if (this.isMobile) {
+            this.$('body').backtop();
+        }
     }
 
     public onReportSubmit = () => {
