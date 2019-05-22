@@ -18,6 +18,7 @@ class RefreshCountDown {
     $countDownOptions: JQuery;
 
     countDownOptionCookie = "cn88-total-bets-count-down";
+    pageIdCookie = "cn88-total-bets-page-id";
     currentCountDown = 0;
     countDownTimer = null;
     loadingText = "";
@@ -29,6 +30,13 @@ class RefreshCountDown {
 
     render = (options: RefreshCountDownOptions = new RefreshCountDownOptions()) => {
         this.options = <RefreshCountDownOptions>this.$.extend({}, this.options, options);
+        var pageId = cn88TotalBets.localStorage.get(this.pageIdCookie);
+        if (pageId != options.pageId) {
+            cn88TotalBets.localStorage.set(this.countDownOptionCookie, null);
+        }
+
+        cn88TotalBets.localStorage.set(this.pageIdCookie, options.pageId);
+
         var self = this;
         this.$btnRefresh = this.$(".btnRefresh");
         this.$countDownMenu = this.$("#" + options.countDownMenuId);
@@ -53,7 +61,7 @@ class RefreshCountDown {
             self.turnOffCountDown(self.$(this).html());
         });
 
-        var currentOption = cn88TotalBets.localStorage.get(this.countDownOptionCookie + this.options.pageId);
+        var currentOption = cn88TotalBets.localStorage.get(this.countDownOptionCookie);
         if (currentOption && currentOption != 0) {
             this.setCountDown(currentOption);
         } else {
@@ -72,7 +80,7 @@ class RefreshCountDown {
         }
     };
     saveOption = (option) => {
-        cn88TotalBets.localStorage.set(this.countDownOptionCookie + this.options.pageId, option);
+        cn88TotalBets.localStorage.set(this.countDownOptionCookie, option);
         if (option == "-1") {
             return;
         }
