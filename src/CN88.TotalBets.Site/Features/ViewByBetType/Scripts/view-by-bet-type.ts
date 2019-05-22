@@ -4,9 +4,11 @@
 class ViewByBetType extends BaseTotalBets {
     marketSelectionComponent: SingleSelectionDropdownComponent;
     isMobile: boolean;
+    $topWindow: any;
 
     constructor(
         $: JQueryStatic,
+        topWindow: any,
         summaryMenu: SummaryMenu,
         stakeConditionSelectionComponent: SingleSelectionDropdownComponent,
         dateTypeSelectionComponent: SingleSelectionDropdownComponent,
@@ -15,6 +17,7 @@ class ViewByBetType extends BaseTotalBets {
         super($, summaryMenu, stakeConditionSelectionComponent, possTypeSelectionComponent, null);
 
         this.marketSelectionComponent = marketSelectionComponent;
+        this.$topWindow = topWindow;
     }
 
     init(): void {
@@ -25,6 +28,7 @@ class ViewByBetType extends BaseTotalBets {
         this.bindEvents();
 
         this.$.unblockUI();
+        this.$topWindow.$("body").scrollTop(0);
     }
 
     renderComponents(): void {
@@ -103,6 +107,7 @@ class ViewByBetType extends BaseTotalBets {
 $(function (): void {
     new ViewByBetType(
         $,
+        top,
         new SummaryMenu($, top),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),
