@@ -31,6 +31,7 @@ class RefreshCountDown {
     render = (options: RefreshCountDownOptions = new RefreshCountDownOptions()) => {
         this.options = <RefreshCountDownOptions>this.$.extend({}, this.options, options);
         var pageId = cn88TotalBets.localStorage.get(this.pageIdCookie);
+        options.pageId = options.pageId || pageId;
         if (pageId != options.pageId) {
             cn88TotalBets.localStorage.set(this.countDownOptionCookie, null);
         }
