@@ -547,7 +547,7 @@ body.phone {
     .menu-container {
         position: absolute;
         left: -220px;
-        top: 38px;
+        top: 36px;
         bottom: 0;
         border: 1px solid #D2D2D2;
         border-left: none;
@@ -668,6 +668,11 @@ body.phone {
         .btn-submit {
             width: 100%;
         }
+    }
+
+    .main-title {
+        height: 20px;
+        line-height: 20px;
     }
 
     .sub-title {
