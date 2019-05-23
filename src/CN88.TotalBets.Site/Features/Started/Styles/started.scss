@@ -128,5 +128,14 @@ body.phone {
             display: block;
             margin-top: 6px;
         }
+
+        td.details {
+            padding: 0 !important;
+            min-width: 42px;
+        }
+
+        .half {
+            width: 100%;
+        }
     }
 }

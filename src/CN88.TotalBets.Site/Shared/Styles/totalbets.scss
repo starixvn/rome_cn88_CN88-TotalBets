@@ -656,6 +656,7 @@ body.phone {
                 float: left;
                 width: 66%;            
                 margin-left: 4%;
+                font-size: $font-size-mobile-input;
             }
         }
 
@@ -693,7 +694,7 @@ body.phone {
 
         .btnRefresh,
         .list-options {
-            font-size: 10.5px;
+            font-size: $font-size-mobile;
         } 
     }
 
