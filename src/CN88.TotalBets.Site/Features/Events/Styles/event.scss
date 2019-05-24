@@ -36,6 +36,11 @@ body.phone {
         tr.group td {
             height: 36px;
         }
+
+        .live {
+            text-transform: uppercase;
+            color: #f00;
+        }
     }
 
     .col-status {
