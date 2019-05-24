@@ -8,23 +8,20 @@
 
     public class DefaultBetOptionBuilder : IBetOptionBuilder
     {
+        private const string isShowMarketStatusKey = "isShowMarketStatus";
+
         public string BuildBetChoice(BetOption betOption, Match match, IDictionary<string, object> parameters = null)
         {
-            var isShowMarketStatus = parameters != null && parameters.ContainsKey("isShowMarketStatus")
-                ? (bool?)parameters["isShowMarketStatus"]
+            var isShowMarketStatus = parameters != null && parameters.ContainsKey(isShowMarketStatusKey)
+                ? (bool?)parameters[isShowMarketStatusKey]
                 : false;
 
             var betTypeName = CacheRefManager.CacheRefInstance.GetBetTypeName(betOption.BetTypeId);
+            var isLiveText = betOption.IsLive ? Resources.InPlay : Resources.PreMatch;
 
             return
                 isShowMarketStatus.HasValue && isShowMarketStatus.Value
-                ? string.Join(
-                string.Empty,
-                betTypeName,
-                " ",
-                "(",
-                betOption.IsLive ? Resources.InPlay : Resources.PreMatch,
-                ")")
+                ? $"{betTypeName} ({isLiveText})"
                 : betTypeName;
         }
     }

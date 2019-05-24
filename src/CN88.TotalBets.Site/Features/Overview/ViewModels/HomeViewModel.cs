@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Web.Mvc;
     using AppResources;
+    using Shared.Helpers;
     using Shared.ViewModels.Filters;
     using Site.ViewModels.OverView;
     using TotalBets.Features.Overview.Models;
@@ -12,10 +13,13 @@
 
     public class HomeViewModel
     {
+        private readonly BrowserHelper browserHelper;
+
         public HomeViewModel(
             OverViewQuery message,
             OverViewModel overViewModel,
-            IEnumerable<SportGroup> allSportTypeGroup)
+            IEnumerable<SportGroup> allSportTypeGroup,
+            BrowserHelper browserHelper)
         {
             this.message = message;
             BySportType = new List<OverViewByBaseViewModel>
@@ -40,6 +44,7 @@
                    Selected = x.Key == message.PossType
                });
             PossTypeSelectionViewModel = new SingleSelectionViewModel(possTypeSelectListItems, message.PossType);
+            this.browserHelper = browserHelper;
         }
 
         private OverViewQuery message { get; }
@@ -55,5 +60,22 @@
         public OverViewTitleViewModel HeaderTable { get; }
 
         public SingleSelectionViewModel PossTypeSelectionViewModel { get; }
+
+        public bool IsDevices => browserHelper.IsMobile() && !browserHelper.IsTablet();
+
+        public OverViewItemModel GetTotal(int colIndex)
+        {
+            int wager = 0;
+            decimal stake = 0;
+            for (var i = 0; i < BySportType.Count(); i++)
+            {
+                var row = BySportType.ElementAt(i);
+                var sportColumn = colIndex == -1 ? row.Total : row.SportsColumn[colIndex];
+                wager += sportColumn.Wager;
+                stake += sportColumn.Stake;
+            }
+
+            return new OverViewItemModel(colIndex, wager, stake);
+        }
     }
 }

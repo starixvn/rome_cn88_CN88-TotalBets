@@ -1,4 +1,6 @@
-﻿.page-title, .filter {
+﻿@import "../../../Shared/Styles/variables";
+
+.page-title, .filter {
     display: inline-block;
     vertical-align: middle;
 }
@@ -55,5 +57,148 @@
     }
     th [data-toggle="tooltip"]{
         cursor: pointer;
+    }
+}
+
+.group-list {
+    display: none;
+}
+
+// For Phone
+body.phone {
+    padding-bottom: 37px;
+
+    $height-small: 40px;
+    $height-large: 56px;
+
+    .page-overview {
+        padding: 12px;
+    }
+
+    .page-title {
+        display: none;
+    }
+
+    .tbl-total {
+        width: 100%;
+
+        tbody td {
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+    }
+
+    .hide-mobile {
+        display: none;
+    }
+
+    .group-list {
+        display: block;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border: 1px solid #D2D2D2;
+    }
+    
+    .group-title {
+        position: relative;
+        height: $height-small;
+        line-height: $height-small;
+        padding: 0 8px 0 24px;
+        border-bottom: 1px solid #D2D2D2;
+        background-color: #F4F1F1;
+        color: #3B3B3B;
+
+        &:before {
+            position: absolute;
+            left: 6px;
+            content: "\e908";
+            font-family: "CN88Icon";
+            font-size: 13px; 
+        }
+    }
+
+    .group.active {
+        .group-title:before {
+            content: "\e900";
+        }
+
+        .list-item {
+            display: block;
+        }
+    }
+
+    .list-item {
+        display: none;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-bottom: 1px solid #D2D2D2;
+
+        &.special-area {
+            background-color: #ecf4e2;
+        }
+    }
+
+    .item {
+        height: $height-large;
+        padding: 0 8px;
+        border-top: 1px solid #D2D2D2;
+
+         &:first-child {
+            border-top: none;
+        }
+    }
+
+    .tbl-betdetail {
+        width: 100%;
+        margin-top: 16px;
+
+       tbody td {
+           width: auto;
+           padding-top: 0;
+           padding-bottom: 0;
+       }
+
+       tbody td:first-child {
+           min-width: 50px;
+       }
+
+       .values {
+           float: none;
+       }
+
+       .values .value-detail {
+            line-height: $height-large/2;
+        }
+    }
+    
+   .item-lbl {
+        float: left;
+    }
+
+    .values {
+        float: right;
+        text-align: right;
+    }
+
+    .list-item {
+        .item-lbl {
+            line-height: $height-large;
+        }
+
+       .value-detail {
+            line-height: $height-large/2;
+        }
+    }
+
+    .group-title {
+        .item-lbl {
+            line-height: $height-small;
+        }
+
+        .value-detail {
+            line-height: $height-small/2;
+        }
     }
 }

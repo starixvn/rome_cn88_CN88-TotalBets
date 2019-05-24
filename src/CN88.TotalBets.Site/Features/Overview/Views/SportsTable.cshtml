@@ -1,0 +1,37 @@
+﻿@model HomeViewModel
+@{
+    var even = true;
+}
+<table class="tbl-style2 tbl-betdetail hide-mobile">
+    <thead>
+        <tr>
+            <th></th>
+            <th class="text-center">@Resources.AllSports</th>
+            @for (var i = 0; i < Model.HeaderTable.HeaderName.Count; i++)
+            {
+                <th class="text-center"><span data-toggle="tooltip" data-placement="top" title="@Model.HeaderTable.ToolTip[i]">@Model.HeaderTable.HeaderName[i]</span></th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in Model.BySportType)
+            {
+            <tr>
+                <td>@row.Text</td>
+                <td>
+                    <span>@HtmlHelpers.FormatNumber(row.Total.Wager)</span>
+                    <span>@HtmlHelpers.FormatNumber(row.Total.Stake)</span>
+                </td>
+                @foreach (var sportColumn in row.SportsColumn)
+                {
+                    even = !even;
+                    <td class="@(even ? "even" : "")">
+                        <span>@HtmlHelpers.FormatNumberWithLink(sportColumn.Wager, row.Url(Model.PossType, sportColumn.SportTypeGroup), row.SubMenuId)</span>
+                        <span>@HtmlHelpers.FormatNumberWithLink(sportColumn.Stake, row.Url(Model.PossType, sportColumn.SportTypeGroup), row.SubMenuId)</span>
+                    </td>
+
+                }
+            </tr>
+        }
+    </tbody>
+</table>

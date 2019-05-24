@@ -47,8 +47,8 @@
         public UserLevel UserLevel { get; }
 
         public override string GetSettingKey()
-        { 
-            if(EventType == EventTypeConstants.Started)
+        {
+            if (EventType == EventTypeConstants.Started)
             {
                 return UserLevel.IsSuperLevel()
                     ? "CS_TotalBets_Bettype_Started_Super"
@@ -63,7 +63,6 @@
                 ? "CS_TotalBets_Bettype_Master"
                 : "CS_TotalBets_Bettype_Agent";
         }
-
 
         public override bool IsValid()
             => CustId > 0 && MatchId > 0;

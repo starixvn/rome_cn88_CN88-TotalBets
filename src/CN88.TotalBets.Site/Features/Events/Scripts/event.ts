@@ -47,20 +47,15 @@ class EventTotalBets extends BaseTotalBets {
     bindEvents(): void {
         super.bindEvents();
 
-        let buttonAutoRefresh: JQuery = this.$("#btn-refresh");
         let reloadInSeconds: number = <number>this.$("#ReloadTimeInSeconds").val();
+        let autoRefresh: RefreshCountDown = new RefreshCountDown($, new LinkBuilderComponent($));
+        if (this.$(".btnCountDown").length) {
+            var eventType = this.$("#Type");
 
-        if (buttonAutoRefresh.length) {
-            buttonAutoRefresh.click(() => { this.$filterForm.trigger("submit"); });
-
-            let autoRefresh: AutoRefresh = new AutoRefresh($, new LinkBuilderComponent($));
-            autoRefresh.render(
-                new AutoRefreshOptions(
-                    "countDownContainer",
-                    "filter-form",
-                    "chb-switch",
-                    "IsAutoRefresh",
-                    reloadInSeconds));
+            autoRefresh.render(new RefreshCountDownOptions("CountDownMenu", eventType.length ? "event" + eventType.val() : "event0", reloadInSeconds, () => {
+                this.onSubmit();
+                this.$filterForm.trigger("submit");
+            }));
         }
     }
 }

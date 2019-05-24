@@ -3,12 +3,15 @@
     using System.Collections.Generic;
     using System.Web.Mvc;
     using Filters;
+    using Helpers;
     using Requests;
     using TotalBets.Features.Summaries.Models;
     using TotalBets.Shared.Constants;
 
     public class TotalBetBySportBaseViewModel : BaseViewModel
     {
+        private readonly BrowserHelper browserHelper;
+
         public TotalBetBySportBaseViewModel(
             FilterQuery query,
             string title,
@@ -16,16 +19,21 @@
             IDictionary<string, object> hiddenParams,
             IEnumerable<SportGroupSummary> summaries,
             IEnumerable<SelectListItem> leagues,
+            BrowserHelper browserHelper,
             bool isShowDateSelection = false,
             bool isShowMarketSelection = false)
             : base(query, title, hiddenParams, leagues, isShowDateSelection, isShowMarketSelection, true)
         {
             SummaryMenuViewModel = new SummaryMenuViewModel(summaries, query.SportTypeGroup, appPath);
+            this.browserHelper = browserHelper;
         }
 
         public bool IsShowScore => query.SportTypeGroup == SportTypeConstants.Soccer;
 
         public SummaryMenuViewModel SummaryMenuViewModel { get; }
+
+        public bool IsDevices => browserHelper.IsMobile() && !browserHelper.IsTablet();
+
 
         public string BuildViewByBetTypeLink(byte type, int matchId)
             => Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc(

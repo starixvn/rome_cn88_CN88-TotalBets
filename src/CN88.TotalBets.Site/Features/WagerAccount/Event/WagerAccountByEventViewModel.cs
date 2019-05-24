@@ -16,12 +16,14 @@
     {
         public WagerAccountByEventViewModel(
             IEnumerable<WagerAccountModel> wagerAccounts,
-            WagerAccountByEventQuery message)
+            WagerAccountByEventQuery message,
+            bool isMobile)
         {
             WagerAccounts = wagerAccounts;
             Total = new OverViewItemModel(0, WagerAccounts.Sum(i => i.Wager), WagerAccounts.Sum(i => i.Stake));
             Message = message;
             breadcrumbLevel = GetBreadcrumbLevel();
+            IsMobile = isMobile;
         }
 
         private IEnumerable<CustInfo> breadcrumbLevel { get; }
@@ -29,6 +31,8 @@
         public IEnumerable<WagerAccountModel> WagerAccounts { get; }
 
         public OverViewItemModel Total { get; }
+
+        public bool IsMobile { get; }
 
         public WagerAccountByEventQuery Message { get; }
 
@@ -112,6 +116,23 @@
             breadcrumbLevel.Add(new CustInfo(Message.CustId, Message.CustName, Message.CustLevelId, false));
 
             return breadcrumbLevel;
+        }
+
+        public BreadcrumbItem BuildBackLink()
+        {
+            var breadcrumbLinks = BreadcrumbLevelViewModel.BuildBreadcrumbLinks(Message.CurrentUrl);
+            var totalItem = breadcrumbLinks.Count();
+
+            if(totalItem == 0)
+            {
+                return new BreadcrumbItem(string.Empty, string.Empty);
+            }
+
+            var firstItem = breadcrumbLinks.First();
+
+            return totalItem > 1
+                    ? breadcrumbLinks.ElementAt(breadcrumbLinks.Count() - 2)
+                    : new BreadcrumbItem(firstItem.Text, string.Empty);
         }
     }
 }

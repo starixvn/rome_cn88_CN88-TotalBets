@@ -1,4 +1,6 @@
-﻿.tbl-outright {
+﻿@import "../../../Shared/Styles/variables";
+
+.tbl-outright {
     width: 1040px;
 
     tr.group {
@@ -37,6 +39,61 @@
     
     .stake {
         display: block;
+    }
+}
+
+// For Phone
+body.phone {
+    .tbl-outright {
+        width: 100%;
+        margin-top: 12px;
+
+         tbody tr:not(.group) {
+            display: block;
+            border-bottom: none;
+
+            &[class^="childrow"] {
+                border-bottom: 1px solid #e5e5e5;
+            }
+        }
+
+        tbody tr.row-no-info {
+            display: table-row;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        > tbody > tr > td {
+            height: 42px;
+        }
+
+        tr.group td  {      
+            height: 36px;
+        }
+
+        .team {
+            width: 100%;
+            display: table;
+            padding: 0;
+            border-right: none !important;
+            margin: 0;
+            border-bottom: 1px solid #e5e5e5;
+
+            .team-name {
+                line-height: 40px;
+            }
+
+            .index {
+                line-height: 16px;
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+
+         .col-empty {
+            display: none;
+        }
     }
 }
 

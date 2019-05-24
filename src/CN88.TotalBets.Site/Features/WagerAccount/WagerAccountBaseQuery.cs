@@ -18,5 +18,7 @@
         public decimal Stake { get; set; }
 
         public IEnumerable<CustInfo> BreadcrumbLevel { get; set; }
+
+        public string CurrentUrl { get; set; }
     }
 }

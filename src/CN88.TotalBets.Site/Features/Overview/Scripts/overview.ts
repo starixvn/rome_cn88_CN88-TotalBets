@@ -5,6 +5,10 @@ class OverView {
     $reportForm: JQuery;
     $tooltip: JQuery;
     $topWindow: any;
+    $sportGroups: any;
+    isMobile: boolean;
+    isScrolling = false;
+
     constructor(
         $: JQueryStatic,
         viewModeSelectionComponent: SingleSelectionDropdownComponent,
@@ -19,12 +23,44 @@ class OverView {
         this.$reportForm = this.$("#overview-form");
         this.$tooltip = this.$('[data-toggle="tooltip"]');
         this.$tooltip.tooltip();
-        
+
         var self = this;
-        this.$(".page-overview table a").click(function () {            
+        $(document).on("touchmove", () => { self.isScrolling = true; });
+
+        $(document).on("touchend", () => { self.isScrolling = false; });
+
+        this.$(".page-overview table a, .page-overview .link[data-submenuid]").click(function () {
             var subMenuId = self.$(this).attr("data-submenuid");
             self.$topWindow.indexManager.subMenuClick(subMenuId);
-        })
+        });
+
+        this.$sportGroups = this.$("#sport-groups .group");
+        this.$("#sport-groups .group-title").on("click touchend", function (event) {
+            if (self.isScrolling) {
+                self.isScrolling = false;
+                event.stopPropagation();
+                return false;
+            }
+
+            if (event.type == 'touchend') {
+                $(this).off('click');
+            }
+
+            var $this = self.$(this);
+
+            if ($this.parent().hasClass("active")) {
+                $this.next().slideUp('fast', () => { $this.parent().removeClass("active"); });
+                return;
+            }
+
+            $this.parent().addClass("active");
+            $this.next().slideDown('fast');
+        });
+
+        this.isMobile = this.$("#IsDevice").val() == "1";
+        if (this.isMobile) {
+            this.$('body').backtop();
+        }
     }
 
     public onReportSubmit = () => {

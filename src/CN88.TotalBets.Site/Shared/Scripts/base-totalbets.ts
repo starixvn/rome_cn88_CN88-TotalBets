@@ -5,8 +5,9 @@ abstract class BaseTotalBets {
     $filterForm: JQuery;
     $tblTotalBets: JQuery;
     $stake: JQuery;
-
+    $filterToggleIcon: JQuery;
     cleaveStake: any;
+    isMobile: boolean;
 
     summaryMenu: SummaryMenu;
     stakeConditionSelectionComponent: SingleSelectionDropdownComponent;
@@ -40,12 +41,18 @@ abstract class BaseTotalBets {
             numeralDecimalMark: '.',
             delimiter: ','
         });
+
+        if (this.isMobile) {
+            this.$('body').backtop();
+        }
     }
 
     protected cacheDOMElements(): void {
         this.$filterForm = this.$("#filter-form");
         this.$tblTotalBets = this.$("#tblTotalBets");
         this.$stake = this.$("#Stake");
+        this.$filterToggleIcon = this.$("#filter-toggle-icon");
+        this.isMobile = this.$("#IsDevice").val() == "1";
     }
 
     protected bindEvents(): void {
@@ -64,6 +71,30 @@ abstract class BaseTotalBets {
         });
 
         this.$filterForm.submit(() => { this.onSubmit(); });
+
+        this.$filterToggleIcon.on("click touchend", (e) => {
+            e.preventDefault();
+            let isCollapsed = this.$filterToggleIcon.hasClass("icon-filter-down");
+
+            if (isCollapsed) {
+                this.$filterForm
+                    .slideDown(200);
+                this.$tblTotalBets
+                    .slideUp(210);
+                this.$filterToggleIcon
+                    .removeClass("icon-filter-down")
+                    .addClass("icon-filter-up");
+            }
+            else {
+                this.$filterForm.slideUp(200);
+                this.$tblTotalBets
+                    .slideDown(210);
+                this.$filterToggleIcon
+                    .removeClass("icon-filter-up")
+                    .addClass("icon-filter-down");
+            }
+        });
+
     }
 
     protected onSubmit(): void {

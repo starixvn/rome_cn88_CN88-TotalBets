@@ -1,7 +1,7 @@
 ﻿namespace CN88.TotalBets.Features.Summaries.Criteria
 {
-    using Shared.Models;
     using Shared.Constants;
+    using Shared.Models;
 
     public class GetSummaryBySportTypeGroupCriteria : GetSummaryByEventCriteria
     {
@@ -18,21 +18,8 @@
         public byte SportTypeGroup { get; }
 
         public override string GetSettingKey()
-        {
-            if (Type == EventTypeConstants.Started)
-            {
-                return CustLevel.IsAgentLevel()
-                    ? "CS_TotalBets_Detail_Started_Agent"
-                    : CustLevel.IsMasterLevel()
-                    ? "CS_TotalBets_Detail_Started_Master"
-                    : "CS_TotalBets_Detail_Started_Super";
-            }
-
-            return CustLevel.IsAgentLevel()
-                ? "CS_TotalBets_Detail_Agent"
-                : CustLevel.IsMasterLevel()
-                ? "CS_TotalBets_Detail_Master"
-                : "CS_TotalBets_Detail_Super";
-        }
+             => EventType == EventTypeConstants.Started
+                ? $"CS_TotalBets_Detail_Started_{CustLevel.DisplayName}"
+                : $"CS_TotalBets_Detail_{CustLevel.DisplayName}";
     }
 }

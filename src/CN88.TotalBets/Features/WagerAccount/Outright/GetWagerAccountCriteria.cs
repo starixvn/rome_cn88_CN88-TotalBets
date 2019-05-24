@@ -32,9 +32,9 @@ namespace CN88.TotalBets.Features.WagerAccount
             Role.IsMasterLevel() ? "CS_TotalBets_WagerAccount_Outright_Agent" : "CS_TotalBets_WagerAccount_Outright_Member";
 
         public override bool IsValid()
-            => CustId > 0 && 
-            Stake >= 0 && 
-            MatchId > 0 && 
+            => CustId > 0 &&
+            Stake >= 0 &&
+            MatchId > 0 &&
             StakeConditionConstants.Conditions.ContainsKey(StakeCondition);
     }
 }

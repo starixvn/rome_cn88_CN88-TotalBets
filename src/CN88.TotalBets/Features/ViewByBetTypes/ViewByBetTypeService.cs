@@ -12,7 +12,7 @@
 
     public interface ViewByBetTypeService
     {
-        Task<IDictionary<int, TotalBetsByBetType>> GetBetTypes(ViewByBetTypeParam param);
+        Task<IDictionary<int, TotalBetsByBetType>> GetTotalBetsByBetTypes(ViewByBetTypeParam param);
     }
 
     public class ViewByBetTypeServiceImpl : ViewByBetTypeService
@@ -26,6 +26,79 @@
         {
             this.dynamicRepository = dynamicRepository;
             this.betOptionBuilderFactory = betOptionBuilderFactory;
+        }
+
+        public async Task<IDictionary<int, TotalBetsByBetType>> GetTotalBetsByBetTypes(ViewByBetTypeParam param)
+        {
+            var betOptions = await dynamicRepository.FetchAsync<BetOption>(
+                new GetTotalBetsByBetTypeCriteria(
+                param.CustId,
+                param.UserLevel,
+                param.MatchId,
+                param.StakeCondition,
+                param.MarketType,
+                param.PossType,
+                param.Stake,
+                param.EventType));
+
+            var totalBetsByBetTypes = CreateTotalBetsByBetTypes(param, betOptions);
+
+            var otherBetTypeBetOptions = betOptions
+                .Where(i => string.IsNullOrEmpty(i.BetTeam))
+                .OrderBy(bo => bo.BetTypeId);
+
+            AddOtherBetTypeBetOptionsToTotalBets(totalBetsByBetTypes, otherBetTypeBetOptions);
+
+            return totalBetsByBetTypes;
+        }
+
+        private Dictionary<int, TotalBetsByBetType> CreateTotalBetsByBetTypes(
+            ViewByBetTypeParam param,
+            IEnumerable<BetOption> betOptions)
+        {
+            var unionBetOptions = CreateDefaultBetOptions(betOptions, param.MarketType)
+                .Select(bo =>
+                {
+                    var dbBetOption = betOptions.FirstOrDefault(dbbo => dbbo.Equals(bo));
+                    if (dbBetOption != null)
+                    {
+                        bo.Stake = dbBetOption.Stake;
+                        bo.Wager = dbBetOption.Wager;
+                    }
+
+                    return bo;
+                });
+
+            var betOptionGroups = unionBetOptions
+                .GroupBy(option => option.BetTypeId)
+                .OrderBy(group => group.Key)
+                .ThenBy(group => betOptionBuilderFactory.IsUseDefaultBetOptionBuider(group.Key) ? 1 : 0)
+                .ToDictionary(
+                group => group.Key,
+                group => BuildTotalBetsByBetType(group));
+
+            return betOptionGroups;
+        }
+
+        private static void AddOtherBetTypeBetOptionsToTotalBets(
+            Dictionary<int, TotalBetsByBetType> betOptionGroups, 
+            IOrderedEnumerable<BetOption> otherBetTypeBetOptions)
+        {
+            if (otherBetTypeBetOptions.Any())
+            {
+                betOptionGroups.Add(
+                    (int)BetTypes.Others,
+                    new TotalBetsByBetType(
+                        (int)BetTypes.Others,
+                        otherBetTypeBetOptions.Sum(bo => bo.Wager),
+                        otherBetTypeBetOptions.Sum(bo => bo.Stake),
+                        new List<BetOptionGroup> {
+                            new BetOptionGroup(otherBetTypeBetOptions
+                            .OrderBy(bo => bo.BetTypeId)
+                            .ThenBy(bo => bo.IsLive ? 0 : 1),
+                            false)
+                        }));
+            }
         }
 
         private IEnumerable<BetOption> CreateDefaultBetOptions(IEnumerable<BetOption> availableBetOptions, byte marketType)
@@ -91,6 +164,58 @@
 
         private void AddBetOptionHomeAway(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
         {
+            AddBetOptionHomeAwayHandicap(availableBetOptions, betOptions, isLive);
+
+            AddBetOptionHomeAwayMoneyLine(availableBetOptions, betOptions, isLive);
+
+            AddBetOptionHomeAwayOverUnder(availableBetOptions, betOptions, isLive);
+
+            AddBetOptionHomeAwayOddEven(availableBetOptions, betOptions, isLive);
+        }
+
+        private void AddBetOptionHomeAwayOddEven(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
+        {
+            // For oddeven, because old business return betteam 'h', 'a'
+            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes.Odd_Even && bo.IsLive == isLive))
+            {
+                betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes.Odd_Even, isLive));
+            }
+
+            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes._1st_Odd_Even && bo.IsLive == isLive))
+            {
+                betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes._1st_Odd_Even, isLive));
+            }
+        }
+
+        private void AddBetOptionHomeAwayOverUnder(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
+        {
+            // For overunder, because old business return betteam 'h', 'a'
+            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes.Over_Under && bo.IsLive == isLive))
+            {
+                betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes.Over_Under, isLive));
+            }
+
+            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes._1st_Over_Under && bo.IsLive == isLive))
+            {
+                betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes._1st_Over_Under, isLive));
+            }
+        }
+
+        private void AddBetOptionHomeAwayMoneyLine(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
+        {
+            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes.Money_Line && bo.IsLive == isLive))
+            {
+                betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes.Money_Line, isLive));
+            }
+
+            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes._1st_Money_Line && bo.IsLive == isLive))
+            {
+                betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes._1st_Money_Line, isLive));
+            }
+        }
+
+        private void AddBetOptionHomeAwayHandicap(IEnumerable<BetOption> availableBetOptions, List<BetOption> betOptions, bool isLive)
+        {
             if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes.Handicap && bo.IsLive == isLive))
             {
                 betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes.Handicap, isLive));
@@ -104,38 +229,6 @@
             if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes._2nd_HDP && bo.IsLive == isLive))
             {
                 betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes._2nd_HDP, isLive));
-            }
-
-            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes.Money_Line && bo.IsLive == isLive))
-            {
-                betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes.Money_Line, isLive));
-            }
-
-            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes._1st_Money_Line && bo.IsLive == isLive))
-            {
-                betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes._1st_Money_Line, isLive));
-            }
-
-            // For overunder, because old business return betteam 'h', 'a'
-            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes.Over_Under && bo.IsLive == isLive))
-            {
-                betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes.Over_Under, isLive));
-            }
-
-            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes._1st_Over_Under && bo.IsLive == isLive))
-            {
-                betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes._1st_Over_Under, isLive));
-            }
-
-            // For oddeven, because old business return betteam 'h', 'a'
-            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes.Odd_Even && bo.IsLive == isLive))
-            {
-                betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes.Odd_Even, isLive));
-            }
-
-            if (availableBetOptions.Any(bo => bo.BetTypeId == (int)BetTypes._1st_Odd_Even && bo.IsLive == isLive))
-            {
-                betOptions.AddRange(CreateDefaultHomeAwayBetOptions((int)BetTypes._1st_Odd_Even, isLive));
             }
         }
 
@@ -168,62 +261,6 @@
                 new BetOption(betTypeId, "2", isLive)
             };
 
-        public async Task<IDictionary<int, TotalBetsByBetType>> GetBetTypes(ViewByBetTypeParam param)
-        {
-            var betOptions = await dynamicRepository.FetchAsync<BetOption>(
-                new GetTotalBetsByBetTypeCriteria(
-                param.CustId,
-                param.UserLevel,
-                param.MatchId,
-                param.StakeCondition,
-                param.MarketType,
-                param.PossType,
-                param.Stake,
-                param.EventType));
-
-            var defaultBetOption = CreateDefaultBetOptions(betOptions, param.MarketType);
-            var unionBetOptions = defaultBetOption
-                .Select(bo =>
-                {
-                    var dbBetOption = betOptions.FirstOrDefault(dbbo => dbbo.Equals(bo));
-                    if (dbBetOption != null)
-                    {
-                        bo.Stake = dbBetOption.Stake;
-                        bo.Wager = dbBetOption.Wager;
-                    }
-
-                    return bo;
-                });
-
-            var otherBetTypeBetOptions = betOptions.Where(i => string.IsNullOrEmpty(i.BetTeam)).OrderBy(bo => bo.BetTypeId);
-
-            var betOptionGroups = unionBetOptions
-                .GroupBy(option => option.BetTypeId)
-                .OrderBy(group => group.Key)
-                .ThenBy(group => betOptionBuilderFactory.IsUseDefaultBetOptionBuider(group.Key) ? 1 : 0)
-                .ToDictionary(
-                group => group.Key,
-                group => BuildTotalBetsByBetType(group));
-
-            if (otherBetTypeBetOptions.Any())
-            {
-                betOptionGroups.Add(
-                    (int)BetTypes.Others,
-                    new TotalBetsByBetType(
-                        (int)BetTypes.Others,
-                        otherBetTypeBetOptions.Sum(bo => bo.Wager),
-                        otherBetTypeBetOptions.Sum(bo => bo.Stake),
-                        new List<BetOptionGroup> {
-                            new BetOptionGroup(otherBetTypeBetOptions
-                            .OrderBy(bo => bo.BetTypeId)
-                            .ThenBy(bo => bo.IsLive ? 0 : 1),
-                            false)
-                        }));
-            }
-
-            return betOptionGroups;
-        }
-
         private static TotalBetsByBetType BuildTotalBetsByBetType(IGrouping<int, BetOption> group)
         {
             var totalWager = 0;
@@ -235,6 +272,7 @@
             {
                 totalWager += item.Wager;
                 totalStake += item.Stake;
+
                 if (item.IsLive)
                 {
                     liveBetOptions.Add(item);

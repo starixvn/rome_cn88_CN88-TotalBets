@@ -28,7 +28,7 @@ class StartedTotalBets extends EventTotalBets {
 $(function (): void {
     new StartedTotalBets(
         $,
-        new SummaryMenu($),
+        new SummaryMenu($, top),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),

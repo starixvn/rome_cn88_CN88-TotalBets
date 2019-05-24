@@ -1,4 +1,6 @@
-﻿.menu-container {
+﻿@import "../../../Shared/Styles/variables";
+
+.menu-container {
     .menu-item{
         cursor: pointer;        
         padding-right: 0;
@@ -162,6 +164,100 @@
         font {
             display: block;
             margin-bottom: 2px;
+        }
+    }
+}
+
+// For Phone
+body.phone {
+    .viewbettype-content {
+        width: 100%;
+    }
+
+    .head-match {
+        float: left;
+        width: 100%;        
+        height: auto;
+        padding: 0 10px;
+        background: #63882B;
+
+        .match {
+            position: initial;
+            display: table;
+            width: 100%;
+            padding: 5px 0 10px;
+            height: auto;
+            line-height: 1;
+            background-color: transparent;            
+        }
+
+        .show-time {
+            display: block;
+            margin-left: 0;
+            padding: 10px 0 5px;
+            line-height: 16px;
+        }
+        
+        .match .team-name {
+            font-size: $font-size-mobile;
+            display: table-cell;
+            width: 40%;
+
+            &:first-child {
+                text-align: left;
+            }
+
+            &:last-child {
+                text-align: right;
+            }
+        }
+
+        .match .score,
+        .match .vs {            
+            display: table-cell;
+            width: 20%;
+            padding: 0;
+        }
+    }
+
+    .bet-team-container {
+        .bet-team {
+            height: 42px; 
+        }
+
+        .index {
+            width: 60px;
+            line-height: 16px;
+        }
+
+        .team-name {
+            width: calc(100% - 60px - 8px);
+            padding-top: 14px;
+            padding-bottom: 14px;
+        }
+
+        .bet-team-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bet-team {
+            width: 100%;
+            border-right: none;
+            padding: 0 8px;
+            border-bottom: 1px solid #e5e5e5;
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+
+    .tbl-viewbettype {
+        margin-top: 0 !important;
+
+        .group-name-wrapper {
+            display: inline-block;
         }
     }
 }

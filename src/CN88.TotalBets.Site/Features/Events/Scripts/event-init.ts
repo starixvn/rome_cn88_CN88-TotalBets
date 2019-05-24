@@ -1,7 +1,7 @@
 ﻿$(function (): void {
     new EventTotalBets(
         $,
-        new SummaryMenu($),
+        new SummaryMenu($, top),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),

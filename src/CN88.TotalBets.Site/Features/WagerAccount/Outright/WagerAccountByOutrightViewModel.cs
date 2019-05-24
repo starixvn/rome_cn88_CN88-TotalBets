@@ -14,12 +14,14 @@
     {
         public WagerAccountByOutrightViewModel(
             IEnumerable<WagerAccountModel> wagerAccounts,
-            WagerAccountByOutrightQuery message)
+            WagerAccountByOutrightQuery message,
+            bool isMobile)
         {
             WagerAccounts = wagerAccounts;
             Total = new OverViewItemModel(0, WagerAccounts.Sum(i => i.Wager), WagerAccounts.Sum(i => i.Stake));
             Message = message;
             breadcrumbLevel = GetBreadcrumbLevel();
+            IsMobile = isMobile;
         }
 
         private IEnumerable<CustInfo> breadcrumbLevel { get; }
@@ -29,6 +31,8 @@
         public OverViewItemModel Total { get; }
 
         public WagerAccountByOutrightQuery Message { get; }
+
+        public bool IsMobile { get; }
 
         public BreadcrumbLevelViewModel BreadcrumbLevelViewModel
             => new BreadcrumbLevelViewModel(breadcrumbLevel);
@@ -73,7 +77,7 @@
 
         private IEnumerable<CustInfo> GetBreadcrumbLevel()
         {
-            var breadcrumbLevel = new List<CustInfo>();
+            var breadcrumbLevels = new List<CustInfo>();
 
             if (Message.BreadcrumbLevel != null)
             {
@@ -84,13 +88,30 @@
                         break;
                     }
                     custInfo.IsLink = true;
-                    breadcrumbLevel.Add(custInfo);
+                    breadcrumbLevels.Add(custInfo);
                 }
             }
 
-            breadcrumbLevel.Add(new CustInfo(Message.CustId, Message.CustName, Message.CustLevelId, false));
+            breadcrumbLevels.Add(new CustInfo(Message.CustId, Message.CustName, Message.CustLevelId, false));
 
-            return breadcrumbLevel;
+            return breadcrumbLevels;
+        }
+
+        public BreadcrumbItem BuildBackLink()
+        {
+            var breadcrumbLinks = BreadcrumbLevelViewModel.BuildBreadcrumbLinks(Message.CurrentUrl);
+            var totalItem = breadcrumbLinks.Count();
+
+            if (totalItem == 0)
+            {
+                return new BreadcrumbItem(string.Empty, string.Empty);
+            }
+
+            var firstItem = breadcrumbLinks.First();
+
+            return totalItem > 1
+                    ? breadcrumbLinks.ElementAt(breadcrumbLinks.Count() - 2)
+                    : new BreadcrumbItem(firstItem.Text, string.Empty);
         }
     }
 }

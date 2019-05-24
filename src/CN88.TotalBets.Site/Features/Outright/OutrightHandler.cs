@@ -3,6 +3,7 @@
     using System.Threading.Tasks;
     using MediatR;
     using Shared.Handlers;
+    using Shared.Helpers;
     using TotalBets.Features.Leagues;
     using TotalBets.Features.Outright;
     using TotalBets.Features.Outright.Params;
@@ -16,17 +17,20 @@
         private readonly LeagueService leagueService;
         private readonly SummaryService summaryService;
         private readonly SportTypeGroupService sportTypeGroupService;
+        private readonly BrowserHelper browserHelper;
 
         public OutrightHandler(
             OutrightService outrightService,
             LeagueService leagueService,
             SummaryService summaryService,
-            SportTypeGroupService sportTypeGroupService)
+            SportTypeGroupService sportTypeGroupService,
+            BrowserHelper browserHelper)
         {
             this.outrightService = outrightService;
             this.leagueService = leagueService;
             this.summaryService = summaryService;
             this.sportTypeGroupService = sportTypeGroupService;
+            this.browserHelper = browserHelper;
         }
 
         public async Task<OutrightViewModel> Handle(OutrightQuery message)
@@ -40,7 +44,8 @@
                 await sportTypeGroupService.GetSportTypeGroupName(message.SportTypeGroup),
                 outrightLeagues,
                 summaries,
-                BuildLeagueSelectListItems(leagues, message.LeagueId));
+                BuildLeagueSelectListItems(leagues, message.LeagueId),
+                browserHelper);
         }
 
         private static OutrightParam ToOutrightParam(OutrightQuery message)

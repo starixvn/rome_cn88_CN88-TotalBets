@@ -3,6 +3,7 @@
     using System.Threading.Tasks;
     using MediatR;
     using Shared.Handlers;
+    using Shared.Helpers;
     using TotalBets.Features.Leagues;
     using TotalBets.Features.SportTypeGroup;
     using TotalBets.Features.Started;
@@ -17,17 +18,20 @@
         private readonly LeagueService leagueService;
         private readonly SummaryService summaryService;
         private readonly SportTypeGroupService sportTypeGroupService;
+        private readonly BrowserHelper browserHelper;
 
         public StartedHandler(
             StartedService startedService,
             LeagueService leagueService,
             SummaryService summaryService,
-            SportTypeGroupService sportTypeGroupService)
+            SportTypeGroupService sportTypeGroupService,
+            BrowserHelper browserHelper)
         {
             this.startedService = startedService;
             this.leagueService = leagueService;
             this.summaryService = summaryService;
             this.sportTypeGroupService = sportTypeGroupService;
+            this.browserHelper = browserHelper;
         }
 
         public async Task<StartedViewModel> Handle(StartedQuery message)
@@ -52,7 +56,8 @@
                 await sportTypeGroupService.GetSportTypeGroupName(message.SportTypeGroup),
                 data,
                 summaries,
-                BuildLeagueSelectListItems(leagues, message.LeagueId));
+                BuildLeagueSelectListItems(leagues, message.LeagueId),
+                browserHelper);
         }
     }
 }

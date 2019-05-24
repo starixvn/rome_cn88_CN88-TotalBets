@@ -27,8 +27,8 @@
       "Shared/Scripts/summary-menu.js",
       "Shared/Scripts/components/link-builder.js",
       "Shared/Scripts/components/single-selection-dropdown.js",
+      "Shared/Scripts/components/refresh-count-down.js",
       "Shared/Scripts/base-totalbets.js",
-      "Shared/Scripts/auto-refresh.js",
       "Features/Events/Scripts/event.js",
       "Features/Events/Scripts/event-init.js"
     ]
@@ -69,8 +69,8 @@
       "Shared/Scripts/summary-menu.js",
       "Shared/Scripts/components/link-builder.js",
       "Shared/Scripts/components/single-selection-dropdown.js",
+      "Shared/Scripts/components/refresh-count-down.js",
       "Shared/Scripts/base-totalbets.js",
-      "Shared/Scripts/auto-refresh.js",
       "Features/ViewByBetType/Scripts/view-by-bet-type.js"
     ]
   },
@@ -88,8 +88,8 @@
       "Shared/Scripts/summary-menu.js",
       "Shared/Scripts/components/link-builder.js",
       "Shared/Scripts/components/single-selection-dropdown.js",
+      "Shared/Scripts/components/refresh-count-down.js",
       "Shared/Scripts/base-totalbets.js",
-      "Shared/Scripts/auto-refresh.js",
       "Features/Events/Scripts/event.js",
       "Features/Started/Scripts/started.js"
     ]

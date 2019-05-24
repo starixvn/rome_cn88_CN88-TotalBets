@@ -10,6 +10,7 @@
     using Fanex.RemotingRef;
     using MediatR;
     using Shared.Controllers;
+    using Shared.Helpers;
     using Shared.Models;
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
@@ -82,6 +83,7 @@
 
         private static void RegisterServices(Container container)
         {
+            container.RegisterSingleton<BrowserHelper, BrowserHelperImpl>();
             container.RegisterSingleton<IUserSession, UserSessionExt>();
             container.RegisterSingleton<IUser, User>();
             container.RegisterSingleton(Fanex.Logging.Logger.Log);

@@ -3,6 +3,7 @@
     using System.Threading.Tasks;
     using MediatR;
     using Shared.Handlers;
+    using Shared.Helpers;
     using TotalBets.Features.Events;
     using TotalBets.Features.Events.Params;
     using TotalBets.Features.Leagues;
@@ -16,17 +17,20 @@
         private readonly LeagueService leagueService;
         private readonly SummaryService summaryService;
         private readonly SportTypeGroupService sportTypeGroupService;
+        private readonly BrowserHelper browserHelper;
 
         public EventHandler(
             EventService eventService,
             LeagueService leagueService,
             SummaryService summaryService,
-            SportTypeGroupService sportTypeGroupService)
+            SportTypeGroupService sportTypeGroupService,
+            BrowserHelper browserHelper)
         {
             this.eventService = eventService;
             this.leagueService = leagueService;
             this.summaryService = summaryService;
             this.sportTypeGroupService = sportTypeGroupService;
+            this.browserHelper = browserHelper;
         }
 
         public async Task<EventViewModel> Handle(EventQuery message)
@@ -40,7 +44,8 @@
                 await sportTypeGroupService.GetSportTypeGroupName(message.SportTypeGroup),
                 eventModel,
                 summaries,
-                BuildLeagueSelectListItems(leagues, message.LeagueId));
+                BuildLeagueSelectListItems(leagues, message.LeagueId),
+                browserHelper);
         }
 
         private static EventParam ToEventParam(EventQuery message)

@@ -10,7 +10,7 @@
         {
             Wager = wager;
             Stake = stake;
-            SportTypeGroup = sportTypeGroup;            
+            SportTypeGroup = sportTypeGroup;
         }
 
         public int SportTypeGroup { get; private set; }

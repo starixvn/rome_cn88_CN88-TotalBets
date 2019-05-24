@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using AppResources;
+    using Shared.Helpers;
     using Shared.ViewModels;
     using TotalBets.Features.Events.Models;
     using TotalBets.Features.Summaries.Models;
@@ -13,13 +14,15 @@
     public class ViewByBetTypeViewModel : BaseViewModel
     {
         private readonly ViewByBetTypeQuery filterQuery;
+        private readonly BrowserHelper browserHelper;
 
         public ViewByBetTypeViewModel(
             string sportGroupName,
             IEnumerable<TotalBetsByBetType> totalBetsByBetTypes,
             Match match,
             SportGroupSummary summary,
-            ViewByBetTypeQuery filterQuery)
+            ViewByBetTypeQuery filterQuery,
+            BrowserHelper browserHelper)
             : base(
                   filterQuery,
                   title: sportGroupName,
@@ -47,6 +50,7 @@
                 filterQuery.MatchId,
                 BuildSummaryPath(filterQuery),
                 BuildViewByBetTypePath(filterQuery));
+            this.browserHelper = browserHelper;
         }
 
         public Match Match { get; }
@@ -65,6 +69,8 @@
 
         public bool IsShowKODate { get; }
 
+        public IEnumerable<int> CountDownSecs => new List<int> { 10, 20, 30, 40, 50, 60 };
+
         public object GetWagerAccountParams(int bettypeId, string betTeam, bool liveIndicator)
             => new
             {
@@ -82,6 +88,9 @@
 
         public bool ShowScore(int sportTypeId)
             => sportTypeId == SportTypeConstants.Soccer && IsShowMarketStatus;
+
+        public bool IsDevices => browserHelper.IsMobile() && !browserHelper.IsTablet();
+
 
         private string BuildSummaryPath(ViewByBetTypeQuery filterQuery)
         {
