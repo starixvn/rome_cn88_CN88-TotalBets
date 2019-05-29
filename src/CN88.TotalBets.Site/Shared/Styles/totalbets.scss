@@ -27,6 +27,23 @@
     bottom: 0;
     border-right: 1px solid #d9d9d9;
 
+    .head-menu {
+        background-color: #7a301c;
+        color: #fff;
+        padding: 10px;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        .icon-menu {
+            padding-right: 2px;
+            cursor: pointer;
+        }
+
+        .menu {
+            display: inline-block;
+        }
+    }
+
     &.collapsed {
         width: 36px;
         background-color: #7a301c;
@@ -37,19 +54,6 @@
             .icon-menu {
                 font-size: 13px;
             }
-        }
-    }
-
-    .head-menu {
-        background-color: #7a301c;
-        color: #fff;
-        padding: 10px;
-        text-transform: uppercase;
-        cursor: pointer;
-
-        .icon-menu {
-            padding-right: 16px;
-            cursor: pointer;
         }
     }
 
@@ -125,6 +129,93 @@
     }
 }
 
+
+// Refresh count down 
+
+.dropdown-refresh {
+    display: inline-block;
+    position: relative;
+
+    .icon-refresh {
+        float: left;
+        width: 30px;
+        height: 30px;
+        vertical-align: middle;
+        background-color: #1D8763;
+        color: #fff;
+        text-align: center;
+        font-size: 16px;
+
+        &:before {
+            content: "\e91d";
+            position: relative;
+            top: 7px;
+        }
+    }
+
+    .btnCountDown {
+        display: table;
+        height: 100%;
+    }
+
+    .btnRefresh {
+        float: left;
+        line-height: 30px;
+        font-size: 13px;
+    }
+
+    .show-values {
+        float: left;
+        position: relative;
+        width: 50px;      
+        height: 30px;  
+        padding-right: 20px;
+        padding-left: 9px;
+        background-color: #27A67B;
+        color: #fff;
+        text-align: center;
+    }
+
+    .btn-show-options {
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        top: 0px;
+        height: 30px;
+        width: 20px;
+
+        &:before {
+            position: relative;
+            top: 7px;
+        }
+    }
+
+    .list-options {
+        position: absolute;
+        top: 30px;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+        border: 1px solid #c8c8c8;
+        background-color: #fff;
+        font-size: 13px;
+        z-index: 90;        
+
+        .count-down-option {
+            line-height: 28px;
+            text-align: center;
+            color: #3B3B3B;
+        }
+
+        .active {
+            background-color: #DBDBDB;
+        }
+    }
+}
+
 .main-content {
     margin: 12px 0 0 220px;
     padding: 0 12px;
@@ -143,18 +234,6 @@
         }
     }
 
-    .sub-title {
-        display: table;
-        line-height: 25px;
-        padding-top: 4px;
-
-        .event,
-        .btn-refresh,
-        .btn-turn-off-on {
-            float: left;
-        }
-    }
-    
     .btn-refresh {
         margin-left: 10px;
         margin-right: 10px;
@@ -180,141 +259,24 @@
             text-transform: capitalize;
         }
     }
+
+    .sub-title {
+        display: table;
+        line-height: 25px;
+        padding-top: 4px;
+
+        .event {
+            float: left;
+        }
+    }
+    
     .filter {
         display: inline-block;
     }
 
 }
 
-// Turn on/off auto refresh
-
-.onoffswitch {
-    float: left;
-    position: relative;
-    width: 50px;
-    margin-right: 5px;
-    -webkit-user-select:none;
-    -moz-user-select:none;
-    -ms-user-select: none;
-}
-.onoffswitch-checkbox {
-    display: none;
-}
-.onoffswitch-label {
-    display: block;
-    overflow: hidden;
-    cursor: pointer;
-    height: 24px;
-}
-.onoffswitch-inner {
-    display: block;
-    width: 200%;
-    margin-left: -100%;
-    transition: margin 0.1s ease-in 0s;
-}
-.onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block;
-    float: left;
-    width: 50%;
-    height: 24px;
-    padding: 0;
-    font-weight: normal;
-    font-size: 13px;
-    text-transform: capitalize;
-    line-height: 25px;
-    box-sizing: border-box;
-}
-.onoffswitch-inner:before {
-    content: attr(data-on);
-    padding-left: 5px;
-    background-color: #27a67b;
-    color: #FFFFFF;
-}
-.onoffswitch-inner:after {
-    content: attr(data-off);
-    padding-right: 7px;
-    background-color: #7a7a7a;
-    color: #ffffff;
-    text-align: right;
-}
-.onoffswitch-switch {
-    display: block;
-    height: 20px;
-    width: 20px;
-    margin: 2px;
-    background: #f4f1f1;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 26px;
-    border-radius: 2px;
-    transition: all 0.1s ease-in 0s;
-
-    &:before {
-        position: absolute;
-        left: 6px;
-        line-height: 20px;
-        content: "\e922";
-        font-family: "CN88Icon";
-        font-size: 7px;
-        font-weight: normal;
-        color: #afafaf;
-    }
-}
-
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-    margin-left: 0;
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0px; 
-}
-
-
 .tbl-totalbet {
-    tr.group {
-        td {
-            background-color: #585555;
-            color: #fff;
-            padding: 8px;
-            height: 30px;
-        }
-
-        &:hover {
-            cursor: pointer;
-        }
-
-        td {
-            padding: 4px;
-            border: none;
-            border-bottom: 1px solid #fff;
-        }
-
-        .icon-chevron-down, .icon-chevron-right {
-            font-size: 20px;
-        }
-
-        .group-name {
-            position: relative;
-            top: -3px;
-        }
-
-        .index {
-            width: 150px;
-            display: inline-block;
-            position: relative;
-            top: -2px;
-        }
-    }
-
-    > tbody > tr > td {
-        padding: 4px 8px;
-        height: 40px;
-
-        &.no-info {
-            border: none;
-        }
-    }
-
     .bettypecount {
         position: relative;
         display: inline-block;
@@ -339,6 +301,47 @@
         .link {
             color: inherit;
             text-decoration: none;
+        }
+    }
+
+    > tbody > tr > td {
+        padding: 4px 8px;
+        height: 40px;
+
+        &.no-info {
+            border: none;
+        }
+    }
+
+    tr.group {
+        td {            
+            height: 30px;
+            padding: 4px;
+            border: none;
+            border-bottom: 1px solid #fff;
+            background-color: #585555;
+            color: #fff;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        .icon-chevron-down,
+        .icon-chevron-right {
+            font-size: 20px;
+        }
+
+        .group-name {
+            position: relative;
+            top: -3px;
+        }
+
+        .index {
+            width: 150px;
+            display: inline-block;
+            position: relative;
+            top: -2px;
         }
     }
 }
@@ -428,91 +431,6 @@
     display: none;
 }
 
-// Refresh count down 
-
-.dropdown-refresh {
-    display: inline-block;
-    position: relative;
-
-    .icon-refresh {
-        float: left;
-        width: 30px;
-        height: 30px;
-        vertical-align: middle;
-        background-color: #1D8763;
-        color: #fff;
-        text-align: center;
-        font-size: 16px;
-
-        &:before {
-            content: "\e91d";
-            position: relative;
-            top: 7px;
-        }
-    }
-
-    .btnCountDown {
-        display: table;
-        height: 100%;
-    }
-
-    .btnRefresh {
-        float: left;
-        line-height: 30px;
-        font-size: 13px;
-    }
-
-    .show-values {
-        float: left;
-        position: relative;
-        width: 50px;      
-        height: 30px;  
-        padding-right: 20px;
-        padding-left: 9px;
-        background-color: #27A67B;
-        color: #fff;
-        text-align: center;
-    }
-
-    .btn-show-options {
-        display: inline-block;
-        position: absolute;
-        right: 0;
-        top: 0px;
-        height: 30px;
-        width: 20px;
-
-        &:before {
-            position: relative;
-            top: 7px;
-        }
-    }
-
-    .list-options {
-        position: absolute;
-        top: 30px;
-        left: 0;
-        right: 0;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
-        border: 1px solid #c8c8c8;
-        background-color: #fff;
-        font-size: 13px;
-        z-index: 90;        
-
-        .count-down-option {
-            line-height: 28px;
-            text-align: center;
-            color: #3B3B3B;
-        }
-
-        .active {
-            background-color: #DBDBDB;
-        }
-    }
-}
 
 @media (min-device-width: 768px) {
     .menu-container {
@@ -575,13 +493,6 @@ body.phone {
             line-height: 30px;
         }
 
-        &.expanded {
-            width: 220px;
-            left: 0;
-            background-color: #fff;
-            transition: left .1s ease-out .2s;
-        }
-
         .list-sports,
         .summary-menu-items {
             height: 100%;
@@ -629,6 +540,11 @@ body.phone {
     }
 
     .menu-container.expanded {
+        width: 220px;
+        left: 0;
+        background-color: #fff;
+        transition: left .1s ease-out .2s;
+
         .collapse-expand-summary-menu.-right {
             opacity: 0;
             transition: opacity .2s ease-out .1s;
@@ -675,6 +591,17 @@ body.phone {
         line-height: 20px;
     }
 
+    .dropdown-refresh {
+        .show-values {
+            width: 50px;
+        }
+
+        .btnRefresh,
+        .list-options {
+            font-size: $font-size-mobile;
+        } 
+    }
+
     .sub-title {
         width: 100%;
 
@@ -695,18 +622,8 @@ body.phone {
 
     .main-content .btn-refresh {
         margin-left: 0;
-    }
+    }   
     
-    .dropdown-refresh {
-        .show-values {
-            width: 50px;
-        }
-
-        .btnRefresh,
-        .list-options {
-            font-size: $font-size-mobile;
-        } 
-    }
 
     .viewbettype-content {
         margin-top: 12px;
