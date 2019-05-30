@@ -41,10 +41,6 @@ abstract class BaseTotalBets {
             numeralDecimalMark: '.',
             delimiter: ','
         });
-
-        if (this.isMobile) {
-            this.$('body').backtop();
-        }
     }
 
     protected cacheDOMElements(): void {
