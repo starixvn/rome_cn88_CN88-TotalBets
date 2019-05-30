@@ -318,6 +318,9 @@
     <Content Include="App_Data\SPNames\Internal\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBONUSER.ON_USER.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Dev\DB042.bodb02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Dev\DBAGE.bodb02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Dev\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Main\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Main\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Main\DBONUSER.ON_USER.BODBDownlineNet.xml" />
@@ -524,6 +527,7 @@
     <Content Include="App_Data\SPNames\Main\DBARC.bodb_Archive.BODBDownlineNet" />
     <Content Include="App_Code\Filters\DateSelection.cshtml" />
     <Content Include="App_Code\Filters\RefreshCountDown.cshtml" />
+    <Content Include="App_Data\SPNames\Dev\DBARC.bodb_Archive.BODBDownlineNet" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
