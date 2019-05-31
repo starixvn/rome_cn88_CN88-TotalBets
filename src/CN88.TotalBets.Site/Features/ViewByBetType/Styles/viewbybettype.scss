@@ -2,7 +2,7 @@
 
 .menu-container {
     .menu-item{
-        cursor: pointer;        
+        cursor: pointer;
         padding-right: 0;
         .icon-chevron-down, .icon-chevron-right {
             width: 18px;
@@ -23,7 +23,7 @@
     }
 
     .league-wrapper {
-        background-color: #f4f1f1;        
+        background-color: #f4f1f1;
     }
 }
 
@@ -45,7 +45,7 @@
     }
 }
 
-.tbl-viewbettype {   
+.tbl-viewbettype {
     .group-name-wrapper {
         width: calc(100% - 150px - 8px);
         display: inline-block;
@@ -176,7 +176,7 @@ body.phone {
 
     .head-match {
         float: left;
-        width: 100%;        
+        width: 100%;
         height: auto;
         padding: 0 10px;
         background: #63882B;
@@ -188,7 +188,7 @@ body.phone {
             padding: 5px 0 10px;
             height: auto;
             line-height: 1;
-            background-color: transparent;            
+            background-color: transparent;
         }
 
         .show-time {
@@ -197,7 +197,7 @@ body.phone {
             padding: 10px 0 5px;
             line-height: 16px;
         }
-        
+
         .match .team-name {
             font-size: $font-size-mobile;
             display: table-cell;
@@ -213,7 +213,7 @@ body.phone {
         }
 
         .match .score,
-        .match .vs {            
+        .match .vs {
             display: table-cell;
             width: 20%;
             padding: 0;
@@ -222,7 +222,7 @@ body.phone {
 
     .bet-team-container {
         .bet-team {
-            height: 42px; 
+            height: 42px;
         }
 
         .index {

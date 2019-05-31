@@ -26,8 +26,8 @@
         {
             message.CurrentUrl = Request.Url.Query;
 
-            return await ViewAsync(message, 
-                this.browserHelper.IsMobile() 
+            return await ViewAsync(message,
+                this.browserHelper.IsMobile()
                 ? OutrightMobileViewPath
                 : OutrightViewPath);
         }
@@ -36,7 +36,7 @@
         {
             message.CurrentUrl = Request.Url.Query;
 
-            return await ViewAsync(message, 
+            return await ViewAsync(message,
                 this.browserHelper.IsMobile()
                 ? EventMobileViewPath
                 : EventViewPath);

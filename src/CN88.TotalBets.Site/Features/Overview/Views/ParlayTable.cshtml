@@ -11,7 +11,7 @@
     </thead>
     <tbody>
         <tr>
-            <td>@Model.ByParlay.Text</td>
+            <td>@Resources.ResourceManager.GetString("Parlay")</td>
             <td class="values">
                 <span class="value-detail">
                     @HtmlHelpers.FormatNumber(Model.ByParlay.Total.Wager)
@@ -22,26 +22,26 @@
             </td>
             <td class="values">
                 <span class="value-detail">
-                    @HtmlHelpers.FormatNumberWithLink(Model.ByParlay.Soccer.Wager, Model.ByParlay.Url(Model.PossType, Model.ByParlay.Soccer.SportTypeGroup), Model.ByParlay.SubMenuId)
+                    @HtmlHelpers.FormatNumberWithLink(Model.ByParlay.Soccer.Wager, Model.ByParlay.Url(Model.PossType, Model.ByParlay.Soccer.SportTypeGroup), "PARLAY")
                 </span>
                 <span class="value-detail">
-                    @HtmlHelpers.FormatNumberWithLink(Model.ByParlay.Soccer.Stake, Model.ByParlay.Url(Model.PossType, Model.ByParlay.Soccer.SportTypeGroup), Model.ByParlay.SubMenuId)
+                    @HtmlHelpers.FormatNumberWithLink(Model.ByParlay.Soccer.Stake, Model.ByParlay.Url(Model.PossType, Model.ByParlay.Soccer.SportTypeGroup), "PARLAY")
                 </span>
             </td>
             <td class="even values">
                 <span class="value-detail">
-                    @HtmlHelpers.FormatNumberWithLink(Model.ByParlay.NonSoccer.Wager, Model.ByParlay.Url(Model.PossType, Model.ByParlay.NonSoccer.SportTypeGroup), Model.ByParlay.SubMenuId)
+                    @HtmlHelpers.FormatNumberWithLink(Model.ByParlay.NonSoccer.Wager, Model.ByParlay.Url(Model.PossType, Model.ByParlay.NonSoccer.SportTypeGroup), "PARLAY")
                 </span>
                 <span class="value-detail">
-                    @HtmlHelpers.FormatNumberWithLink(Model.ByParlay.NonSoccer.Stake, Model.ByParlay.Url(Model.PossType, Model.ByParlay.NonSoccer.SportTypeGroup), Model.ByParlay.SubMenuId)
+                    @HtmlHelpers.FormatNumberWithLink(Model.ByParlay.NonSoccer.Stake, Model.ByParlay.Url(Model.PossType, Model.ByParlay.NonSoccer.SportTypeGroup), "PARLAY")
                 </span>
             </td>
             <td class="values">
                 <span class="value-detail">
-                    @HtmlHelpers.FormatNumberWithLink(Model.ByParlay.MixSports.Wager, Model.ByParlay.Url(Model.PossType, Model.ByParlay.MixSports.SportTypeGroup), Model.ByParlay.SubMenuId)
+                    @HtmlHelpers.FormatNumberWithLink(Model.ByParlay.MixSports.Wager, Model.ByParlay.Url(Model.PossType, Model.ByParlay.MixSports.SportTypeGroup), "PARLAY")
                 </span>
                 <span class="value-detail">
-                    @HtmlHelpers.FormatNumberWithLink(Model.ByParlay.MixSports.Stake, Model.ByParlay.Url(Model.PossType, Model.ByParlay.MixSports.SportTypeGroup), Model.ByParlay.SubMenuId)
+                    @HtmlHelpers.FormatNumberWithLink(Model.ByParlay.MixSports.Stake, Model.ByParlay.Url(Model.PossType, Model.ByParlay.MixSports.SportTypeGroup), "PARLAY")
                 </span>
             </td>
         </tr>

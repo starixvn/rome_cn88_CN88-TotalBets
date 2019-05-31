@@ -2,10 +2,6 @@
 {
     public class OverViewByParlayModel
     {
-        public OverViewByParlayModel()
-        {
-        }
-
         public int SportTypeGroup { get; }
 
         public int SoccerParlayWager { get; }

@@ -143,4 +143,3 @@ class RefreshCountDown {
         this.$countDownMenu.addClass("hide");
     };
 }
-

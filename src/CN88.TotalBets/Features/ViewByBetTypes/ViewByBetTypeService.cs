@@ -81,7 +81,7 @@
         }
 
         private static void AddOtherBetTypeBetOptionsToTotalBets(
-            Dictionary<int, TotalBetsByBetType> betOptionGroups, 
+            Dictionary<int, TotalBetsByBetType> betOptionGroups,
             IOrderedEnumerable<BetOption> otherBetTypeBetOptions)
         {
             if (otherBetTypeBetOptions.Any())
@@ -232,28 +232,28 @@
             }
         }
 
-        private IEnumerable<BetOption> CreateDefaultHomeAwayBetOptions(int betTypeId, bool isLive)
+        private static IEnumerable<BetOption> CreateDefaultHomeAwayBetOptions(int betTypeId, bool isLive)
             => new List<BetOption>
             {
                 new BetOption(betTypeId, "h", isLive),
                 new BetOption(betTypeId, "a", isLive)
             };
 
-        private IEnumerable<BetOption> CreateDefaultOverUnderBetOptions(int betTypeId, bool isLive)
+        private static IEnumerable<BetOption> CreateDefaultOverUnderBetOptions(int betTypeId, bool isLive)
             => new List<BetOption>
             {
                 new BetOption(betTypeId, "o", isLive),
                 new BetOption(betTypeId, "u", isLive)
             };
 
-        private IEnumerable<BetOption> CreateDefaultOddEvenBetOptions(int betTypeId, bool isLive)
+        private static IEnumerable<BetOption> CreateDefaultOddEvenBetOptions(int betTypeId, bool isLive)
             => new List<BetOption>
             {
                 new BetOption(betTypeId, "o", isLive),
                 new BetOption(betTypeId, "e", isLive)
             };
 
-        private IEnumerable<BetOption> CreateDefault1x2BetOptions(int betTypeId, bool isLive)
+        private static IEnumerable<BetOption> CreateDefault1x2BetOptions(int betTypeId, bool isLive)
             => new List<BetOption>
             {
                 new BetOption(betTypeId, "1", isLive),

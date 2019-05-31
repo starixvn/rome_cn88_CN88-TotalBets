@@ -39,8 +39,6 @@
             Data = data;
         }
 
-
-
         public IEnumerable<StartedLeague> Data { get; }
 
         public int TotalPMWager => Data.Sum(item => item.TotalPMWager);

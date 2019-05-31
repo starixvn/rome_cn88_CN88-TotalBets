@@ -129,8 +129,7 @@
     }
 }
 
-
-// Refresh count down 
+// Refresh count down
 
 .dropdown-refresh {
     display: inline-block;
@@ -167,8 +166,8 @@
     .show-values {
         float: left;
         position: relative;
-        width: 50px;      
-        height: 30px;  
+        width: 50px;
+        height: 30px;
         padding-right: 20px;
         padding-left: 9px;
         background-color: #27A67B;
@@ -202,7 +201,7 @@
         border: 1px solid #c8c8c8;
         background-color: #fff;
         font-size: 13px;
-        z-index: 90;        
+        z-index: 90;
 
         .count-down-option {
             line-height: 28px;
@@ -269,11 +268,10 @@
             float: left;
         }
     }
-    
+
     .filter {
         display: inline-block;
     }
-
 }
 
 .tbl-totalbet {
@@ -289,7 +287,7 @@
         white-space: nowrap;
         text-align: left;
 
-        .icon-chevron-right {            
+        .icon-chevron-right {
             position: absolute;
             top: 12px;
             right: -1px;
@@ -314,7 +312,7 @@
     }
 
     tr.group {
-        td {            
+        td {
             height: 30px;
             padding: 4px;
             border: none;
@@ -431,7 +429,6 @@
     display: none;
 }
 
-
 @media (min-device-width: 768px) {
     .menu-container {
         top: 3px;
@@ -451,7 +448,7 @@
         .btnRefresh,
         .list-options {
             font-size: 13px;
-        } 
+        }
     }
 }
 
@@ -521,7 +518,7 @@ body.phone {
         padding: 8px 9px;
         border-radius: 0 3px 3px 0;
         background-color: #7D1514;
-        color: #fff;        
+        color: #fff;
 
         .icon-left-menu {
             display: block;
@@ -575,7 +572,7 @@ body.phone {
 
             input[type='text'] {
                 float: left;
-                width: 66%;            
+                width: 66%;
                 margin-left: 4%;
                 font-size: $font-size-mobile-input;
             }
@@ -599,7 +596,7 @@ body.phone {
         .btnRefresh,
         .list-options {
             font-size: $font-size-mobile;
-        } 
+        }
     }
 
     .sub-title {
@@ -622,14 +619,13 @@ body.phone {
 
     .main-content .btn-refresh {
         margin-left: 0;
-    }   
-    
+    }
 
     .viewbettype-content {
         margin-top: 12px;
     }
 
-    .tbl-totalbet {        
+    .tbl-totalbet {
         margin-top: 12px;
 
         .group-name-wrapper [class^="icon-chevron"] {
@@ -644,7 +640,7 @@ body.phone {
         .group-name-wrapper {
             position: relative;
             display: block;
-            padding-left: 20px;            
+            padding-left: 20px;
         }
 
         tr.group .group-name {
@@ -664,7 +660,6 @@ body.phone {
 
     // Wager Detail drill dowm from Inplay
     .window-page {
-
         .nav-tabs > li {
             width: 50%;
         }

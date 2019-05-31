@@ -6,7 +6,7 @@
     using Shared.Handlers;
     using TotalBets.Features.WagerAccount;
 
-    public class WagerAccountHandler : BaseHandler, 
+    public class WagerAccountHandler : BaseHandler,
         IAsyncRequestHandler<WagerAccountByOutrightQuery, WagerAccountByOutrightViewModel>,
         IAsyncRequestHandler<WagerAccountByEventQuery, WagerAccountByEventViewModel>
     {

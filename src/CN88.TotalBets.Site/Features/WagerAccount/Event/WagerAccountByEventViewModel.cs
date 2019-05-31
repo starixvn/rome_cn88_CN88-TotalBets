@@ -78,7 +78,6 @@
                 ["BetTeam"] = Message.BetTeam,
                 ["Type"] = Message.Type,
                 ["BreadcrumbLevelJson"] = JsonHelper.ToJsonFunc(breadscrumbToDonwline)
-
             };
             var url = AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/WagerAccount/GetByEvent");
             if (Message.CustLevel.GetDirectDownLineLevel().IsMemberLevel())
@@ -123,7 +122,7 @@
             var breadcrumbLinks = BreadcrumbLevelViewModel.BuildBreadcrumbLinks(Message.CurrentUrl);
             var totalItem = breadcrumbLinks.Count();
 
-            if(totalItem == 0)
+            if (totalItem == 0)
             {
                 return new BreadcrumbItem(string.Empty, string.Empty);
             }

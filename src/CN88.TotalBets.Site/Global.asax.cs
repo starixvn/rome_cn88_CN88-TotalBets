@@ -69,8 +69,11 @@
             Exception ex = Server.GetLastError();
             var currentCustomer = UserSession.Current;
 
-            if (ex is FormatException &&
-                Request.Params.AllKeys.Any(key => Alpha.Auth.Configurations.AuthorizationSection.Instance.CustIdQueryStringParamNames.Any(cf => string.Equals(key, cf, StringComparison.OrdinalIgnoreCase))))
+            if (ex is FormatException
+                && Request
+                    .Params
+                    .AllKeys
+                    .Any(key => Alpha.Auth.Configurations.AuthorizationSection.Instance.CustIdQueryStringParamNames.Any(cf => string.Equals(key, cf, StringComparison.OrdinalIgnoreCase))))
             {
                 return;
             }

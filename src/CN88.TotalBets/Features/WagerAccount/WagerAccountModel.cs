@@ -2,10 +2,6 @@
 {
     public class WagerAccountModel
     {
-        public WagerAccountModel()
-        {
-        }
-
         public int CustId { get; }
 
         public string UserName { get; }

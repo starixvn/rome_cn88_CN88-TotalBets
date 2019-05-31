@@ -12,7 +12,6 @@
 @model ViewByBetTypeViewModel
 @Html.Partial("~/Features/ViewByBetType/Views/MatchSummaryMenu.cshtml", Model.MatchSummaryMenuViewModel)
 
-
 <div class="main-content" id="main-content">
     <div class="page-title">
         <div class="main-title">@Model.Title</div>
@@ -23,7 +22,6 @@
             {
                 @RefreshCountDown.Render(Model.CountDownSecs)
             }
-
         </div>
     </div>
     @Html.Partial("~/Shared/Views/Filter.cshtml", Model.FilterViewModel)
@@ -47,7 +45,6 @@
         </table>
     </div>
 </div>
-
 
 @helper RenderMatch(ViewByBetTypeViewModel model)
 {

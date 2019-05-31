@@ -19,10 +19,6 @@
             Total = Soccer + NonSoccer + MixSports;
         }
 
-        public string Text => Resources.ResourceManager.GetString("Parlay");
-
-        public string SubMenuId => "PARLAY";
-
         public OverViewItemModel Soccer { get; }
 
         public OverViewItemModel NonSoccer { get; }

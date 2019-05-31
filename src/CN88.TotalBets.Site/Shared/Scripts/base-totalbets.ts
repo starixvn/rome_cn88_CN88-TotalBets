@@ -90,7 +90,6 @@ abstract class BaseTotalBets {
                     .addClass("icon-filter-down");
             }
         });
-
     }
 
     protected onSubmit(): void {

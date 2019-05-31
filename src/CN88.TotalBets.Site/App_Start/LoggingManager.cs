@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Web;
+using Alpha.Web.Configurations;
 using Fanex.Logging;
 using Fanex.Logging.Extensions.Database;
 using Fanex.Logging.Extensions.Web;
 using Fanex.Logging.RabbitMQ;
 using Fanex.Logging.Sentry.RavenClient;
-using Alpha.Web.Configurations;
 
 namespace CN88.TotalBets.Site.App_Start
 {

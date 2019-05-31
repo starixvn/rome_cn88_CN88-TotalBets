@@ -9,7 +9,7 @@
         public const int NonSoccer = 2;
         public const int MixSports = 3;
 
-        public static IEnumerable<int> Sports =
+        public static readonly IEnumerable<int> Sports =
             new List<int> { All, Soccer, NonSoccer, MixSports };
     }
 }
