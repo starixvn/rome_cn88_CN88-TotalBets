@@ -14,7 +14,8 @@
             byte stakeCondition,
             decimal stake,
             byte possType,
-            byte market) : base(custId, userLevel, sportTypeGroup, leagueId, stakeCondition, stake, possType)
+            byte market)
+            : base(custId, userLevel, sportTypeGroup, leagueId, stakeCondition, stake, possType)
         {
             Type = type;
             Market = market;

@@ -5,7 +5,7 @@ class OverView {
     $reportForm: JQuery;
     $tooltip: JQuery;
     $topWindow: any;
-    $sportGroups: any;
+    $sportGroups: JQuery;
     isScrolling = false;
 
     constructor(
@@ -23,37 +23,36 @@ class OverView {
         this.$tooltip = this.$('[data-toggle="tooltip"]');
         this.$tooltip.tooltip();
 
-        var self = this;
-        $(document).on("touchmove", () => { self.isScrolling = true; });
+        $(document).on("touchmove", () => { this.isScrolling = true; });
 
-        $(document).on("touchend", () => { self.isScrolling = false; });
+        $(document).on("touchend", () => { this.isScrolling = false; });
 
-        this.$(".page-overview table a, .page-overview .link[data-submenuid]").click(function () {
-            var subMenuId = self.$(this).attr("data-submenuid");
-            self.$topWindow.indexManager.subMenuClick(subMenuId);
+        this.$(".page-overview table a, .page-overview .link[data-submenuid]").click((event: JQueryEventObject) => {
+            var subMenuId = this.$(event.currentTarget).attr("data-submenuid");
+            this.$topWindow.indexManager.subMenuClick(subMenuId);
         });
 
         this.$sportGroups = this.$("#sport-groups .group");
-        this.$("#sport-groups .group-title").on("click touchend", function (event) {
-            if (self.isScrolling) {
-                self.isScrolling = false;
+        this.$("#sport-groups .group-title").on("click touchend", (event: JQueryEventObject) => {
+            if (this.isScrolling) {
+                this.isScrolling = false;
                 event.stopPropagation();
                 return false;
             }
 
-            if (event.type == 'touchend') {
-                $(this).off('click');
+            const $this = this.$(event.currentTarget);
+
+            if (event.type === "touchend") {
+                $this.off("click");
             }
 
-            var $this = self.$(this);
-
             if ($this.parent().hasClass("active")) {
-                $this.next().slideUp('fast', () => { $this.parent().removeClass("active"); });
+                $this.next().slideUp("fast", () => { $this.parent().removeClass("active"); });
                 return;
             }
 
             $this.parent().addClass("active");
-            $this.next().slideDown('fast');
+            $this.next().slideDown("fast");
         });
     }
 

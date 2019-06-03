@@ -2,10 +2,10 @@
 {
     using System.Threading.Tasks;
     using MediatR;
-    using Shared.Helpers;
     using TotalBets.Features.Overview;
     using TotalBets.Features.SportTypeGroup;
     using ViewModels;
+    using Web.Helpers;
 
     public class OverViewHandler : IAsyncRequestHandler<OverViewQuery, HomeViewModel>
     {

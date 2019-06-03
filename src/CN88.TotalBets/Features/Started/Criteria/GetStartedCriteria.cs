@@ -26,10 +26,6 @@
         public byte Market { get; }
 
         public override string GetSettingKey()
-            => UserLevel.IsAgentLevel()
-            ? "CS_TotalBets_Started_Agent"
-            : UserLevel.IsMasterLevel()
-            ? "CS_TotalBets_Started_Master"
-            : "CS_TotalBets_Started_Super";
+            => $"CS_TotalBets_Started_{UserLevel.DisplayName}";
     }
 }

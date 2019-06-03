@@ -4,12 +4,12 @@
     using System.Linq;
     using System.Web.Mvc;
     using AppResources;
-    using Shared.Helpers;
     using Shared.ViewModels.Filters;
     using Site.ViewModels.OverView;
     using TotalBets.Features.Overview.Models;
     using TotalBets.Features.SportTypeGroup.Models;
     using TotalBets.Shared.Constants;
+    using Web.Helpers;
 
     public class HomeViewModel
     {

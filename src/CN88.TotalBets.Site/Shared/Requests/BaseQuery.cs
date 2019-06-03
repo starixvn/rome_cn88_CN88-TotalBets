@@ -4,11 +4,8 @@
 
     public class BaseQuery
     {
-        private readonly IUser viewer;
-
         protected BaseQuery(IUser viewer)
         {
-            this.viewer = viewer;
             ViewerId = viewer.Id;
             ViewerLevelId = viewer.LevelId;
             ViewerName = viewer.Name;

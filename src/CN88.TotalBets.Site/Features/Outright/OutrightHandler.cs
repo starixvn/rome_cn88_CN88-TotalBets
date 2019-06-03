@@ -3,13 +3,13 @@
     using System.Threading.Tasks;
     using MediatR;
     using Shared.Handlers;
-    using Shared.Helpers;
     using TotalBets.Features.Leagues;
     using TotalBets.Features.Outright;
     using TotalBets.Features.Outright.Params;
     using TotalBets.Features.SportTypeGroup;
     using TotalBets.Features.Summaries;
     using TotalBets.Shared.Constants;
+    using Web.Helpers;
 
     public class OutrightHandler : BaseHandler, IAsyncRequestHandler<OutrightQuery, OutrightViewModel>
     {

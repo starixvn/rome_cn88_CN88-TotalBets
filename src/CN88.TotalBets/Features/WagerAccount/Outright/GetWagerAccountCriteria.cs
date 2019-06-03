@@ -1,10 +1,10 @@
-﻿using CN88.TotalBets.Shared.Constants;
-using CN88.TotalBets.Shared.Models;
-using Fanex.Data;
-using Fanex.Data.Repository;
-
-namespace CN88.TotalBets.Features.WagerAccount
+﻿namespace CN88.TotalBets.Features.WagerAccount
 {
+    using Fanex.Data;
+    using Fanex.Data.Repository;
+    using Shared.Constants;
+    using Shared.Models;
+
     public class GetWagerAccountCriteria : CriteriaBase
     {
         public GetWagerAccountCriteria(WagerAccountParam param)
@@ -28,8 +28,7 @@ namespace CN88.TotalBets.Features.WagerAccount
         public UserLevel Role { get; }
 
         public override string GetSettingKey()
-            => Role.IsSuperLevel() ? "CS_TotalBets_WagerAccount_Outright_Master" :
-            Role.IsMasterLevel() ? "CS_TotalBets_WagerAccount_Outright_Agent" : "CS_TotalBets_WagerAccount_Outright_Member";
+            => $"CS_TotalBets_WagerAccount_Outright_{Role.GetDirectDownLineLevel().DisplayName}";
 
         public override bool IsValid()
             => CustId > 0 &&

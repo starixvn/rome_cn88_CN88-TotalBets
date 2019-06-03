@@ -10,12 +10,12 @@
     using TotalBets.Features.ViewByBetTypes.Models;
     using TotalBets.Shared.Constants;
     using TotalBets.Shared.Services;
+    using Web.Helpers;
 
     public class ViewByBetTypeViewModel : BaseViewModel
     {
         private readonly ViewByBetTypeQuery filterQuery;
         private readonly BrowserHelper browserHelper;
-        public readonly IEnumerable<int> CountDownSecs;
 
         public ViewByBetTypeViewModel(
             string sportGroupName,
@@ -40,9 +40,6 @@
                   isShowLeagueSelection: false)
         {
             this.filterQuery = filterQuery;
-#pragma warning disable S109 // Magic numbers should not be used
-            CountDownSecs = new List<int> { 10, 20, 30, 40, 50, 60 };
-#pragma warning restore S109 // Magic numbers should not be used
             SubTitle = Resources.ResourceManager.GetString(EventTypeConstants.EventTypes[filterQuery.Type]);
 
             TotalBetsByBetTypes = totalBetsByBetTypes;
@@ -72,6 +69,8 @@
         public bool IsShowMarketStatus { get; }
 
         public bool IsShowKODate { get; }
+
+        public IEnumerable<int> CountDownSecs { get; } = new List<int> { 10, 20, 30, 40, 50, 60 };
 
         public object GetWagerAccountParams(int bettypeId, string betTeam, bool liveIndicator)
             => new

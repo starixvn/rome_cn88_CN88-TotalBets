@@ -4,11 +4,11 @@
     using System.Linq;
     using System.Web.Mvc;
     using AppResources;
-    using Shared.Helpers;
     using Shared.ViewModels;
     using TotalBets.Features.Events.Models;
     using TotalBets.Features.Summaries.Models;
     using TotalBets.Shared.Constants;
+    using Web.Helpers;
 
     public class EventViewModel : TotalBetBySportBaseViewModel
     {
@@ -53,7 +53,7 @@
 
         public bool HasEventData { get; }
 
-        public IEnumerable<int> CountDownSecs => new List<int> { 10, 20, 30, 40, 50, 60 };
+        public IEnumerable<int> CountDownSecs { get; } = new List<int> { 10, 20, 30, 40, 50, 60 };
 
         protected override IDictionary<string, object> GetViewByBetTypeRoutesValues(byte type, int matchId)
         {

@@ -3,10 +3,10 @@
     using System.Collections.Generic;
     using System.Web.Mvc;
     using Filters;
-    using Helpers;
     using Requests;
     using TotalBets.Features.Summaries.Models;
     using TotalBets.Shared.Constants;
+    using Web.Helpers;
 
     public class TotalBetBySportBaseViewModel : BaseViewModel
     {

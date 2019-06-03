@@ -30,7 +30,7 @@ class EventTotalBets extends BaseTotalBets {
     renderComponents(): void {
         super.renderComponents();
 
-        this.isShowMarketSelection = cn88TotalBets.convertAttributeToBool(this.$("#IsShowMarketSelection").val())
+        this.isShowMarketSelection = cn88TotalBets.convertAttributeToBool(this.$("#IsShowMarketSelection").val());
         if (this.isShowMarketSelection) {
             this.marketSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-market", "Market"));
         }
@@ -47,12 +47,12 @@ class EventTotalBets extends BaseTotalBets {
     bindEvents(): void {
         super.bindEvents();
 
-        let reloadInSeconds: number = <number>this.$("#ReloadTimeInSeconds").val();
-        let autoRefresh: RefreshCountDown = new RefreshCountDown($, new LinkBuilderComponent($));
+        const reloadInSeconds: number = this.$("#ReloadTimeInSeconds").val() as number;
+        const autoRefresh: RefreshCountDown = new RefreshCountDown($, new LinkBuilderComponent($));
         if (this.$(".btnCountDown").length) {
-            var eventType = this.$("#Type");
+            const eventType = this.$("#Type");
 
-            autoRefresh.render(new RefreshCountDownOptions("CountDownMenu", eventType.length ? "event" + eventType.val() : "event0", reloadInSeconds, () => {
+            autoRefresh.render(new RefreshCountDownOptions("CountDownMenu", eventType.length ? `event${eventType.val()}` : "event0", reloadInSeconds, () => {
                 this.onSubmit();
                 this.$filterForm.trigger("submit");
             }));

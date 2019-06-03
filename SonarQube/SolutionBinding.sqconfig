@@ -2,7 +2,6 @@
   "ServerUri": "http://sonarqube.nexdev.net",
   "Organization": null,
   "ProjectKey": "CN88-TotalBets",
-  "ProjectName": "CN88 / TotalBets",
   "Profiles": {
     "CSharp": {
       "ProfileKey": "cs-sonar-way-80515",

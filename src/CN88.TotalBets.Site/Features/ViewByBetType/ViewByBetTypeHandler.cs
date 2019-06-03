@@ -2,13 +2,13 @@
 {
     using System.Threading.Tasks;
     using MediatR;
-    using Shared.Helpers;
     using TotalBets.Features.Events;
     using TotalBets.Features.SportTypeGroup;
     using TotalBets.Features.Summaries;
     using TotalBets.Features.ViewByBetTypes;
     using TotalBets.Features.ViewByBetTypes.Params;
     using ViewModels;
+    using Web.Helpers;
 
     public class ViewByBetTypeHandler : IAsyncRequestHandler<ViewByBetTypeQuery, ViewByBetTypeViewModel>
     {

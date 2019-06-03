@@ -4,10 +4,12 @@
     display: inline-block;
     vertical-align: middle;
 }
+
 .page-title {
     width: unset;
-    margin: 0 20px 16px 0 ;
+    margin: 0 20px 16px 0;
 }
+
 .filter {
     padding-top: 0;
 }
@@ -34,28 +36,35 @@
 
 .tbl-betdetail {
     margin-bottom: 12px;
+
     tbody td {
         padding: 3px 8px;
+
         span {
             display: block;
         }
+
         &.even {
             background-color: #ececec;
         }
+
         &:nth-child(2) {
             background-color: #ecf4e2;
         }
+
         &:first-child {
             min-width: 120px;
             background-color: #6b6b6b;
             color: #fff;
         }
+
         &:not(:first-child) {
             width: 110px;
             text-align: right;
         }
     }
-    th [data-toggle="tooltip"]{
+
+    th [data-toggle="tooltip"] {
         cursor: pointer;
     }
 }
@@ -113,7 +122,7 @@ body.phone {
             position: absolute;
             left: 6px;
             content: "\e908";
-            font-family: "CN88Icon";
+            font-family: "CN88Icon", sans-serif !important;
             font-size: 13px;
         }
     }
@@ -145,7 +154,7 @@ body.phone {
         padding: 0 8px;
         border-top: 1px solid #D2D2D2;
 
-         &:first-child {
+        &:first-child {
             border-top: none;
         }
     }
@@ -154,26 +163,26 @@ body.phone {
         width: 100%;
         margin-top: 16px;
 
-       tbody td {
-           width: auto;
-           padding-top: 0;
-           padding-bottom: 0;
-       }
+        tbody td {
+            width: auto;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
 
-       tbody td:first-child {
-           min-width: 50px;
-       }
+        tbody td:first-child {
+            min-width: 50px;
+        }
 
-       .values {
-           float: none;
-       }
+        .values {
+            float: none;
+        }
 
-       .values .value-detail {
+        .values .value-detail {
             line-height: $height-large/2;
         }
     }
 
-   .item-lbl {
+    .item-lbl {
         float: left;
     }
 
@@ -187,7 +196,7 @@ body.phone {
             line-height: $height-large;
         }
 
-       .value-detail {
+        .value-detail {
             line-height: $height-large/2;
         }
     }
