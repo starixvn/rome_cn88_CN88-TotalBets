@@ -8,7 +8,7 @@ class SummaryMenuOption {
 
 class SummaryMenu {
     $: JQueryStatic;
-    $topWindow: any;
+    $topWindow: Window;
 
     options = new SummaryMenuOption();
     $summaryMenu: JQuery;
@@ -19,7 +19,7 @@ class SummaryMenu {
     expandedClass = "expanded";
     clickTouchendEvents = "click touchend";
 
-    constructor($: JQueryStatic, topWindow: any) {
+    constructor($: JQueryStatic, topWindow: Window) {
         this.$ = $;
         this.$topWindow = topWindow;
     }

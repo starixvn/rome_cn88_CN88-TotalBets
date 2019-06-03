@@ -581,6 +581,7 @@
     <Content Include="Features\WagerAccount\Event\Views\IndexMobile.cshtml" />
     <Content Include="Features\WagerAccount\Outright\Views\IndexMobile.cshtml" />
     <Content Include="Shared\Styles\_variables.scss" />
+    <Content Include="tsconfig.json" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.14.0.8411\analyzers\Google.Protobuf.dll" />

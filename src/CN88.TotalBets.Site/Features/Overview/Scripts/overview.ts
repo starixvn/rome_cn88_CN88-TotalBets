@@ -4,14 +4,14 @@ class OverView {
     viewModeSelectionComponent: SingleSelectionDropdownComponent;
     $reportForm: JQuery;
     $tooltip: JQuery;
-    $topWindow: any;
+    $topWindow: Window;
     $sportGroups: JQuery;
     isScrolling = false;
 
     constructor(
         $: JQueryStatic,
         viewModeSelectionComponent: SingleSelectionDropdownComponent,
-        topWindow: any) {
+        topWindow: Window) {
         this.$ = $;
         this.viewModeSelectionComponent = viewModeSelectionComponent;
         this.$topWindow = topWindow;
@@ -28,8 +28,8 @@ class OverView {
         $(document).on("touchend", () => { this.isScrolling = false; });
 
         this.$(".page-overview table a, .page-overview .link[data-submenuid]").click((event: JQueryEventObject) => {
-            var subMenuId = this.$(event.currentTarget).attr("data-submenuid");
-            this.$topWindow.indexManager.subMenuClick(subMenuId);
+            const subMenuId = this.$(event.currentTarget).attr("data-submenuid");
+            this.$topWindow["indexManager"].subMenuClick(subMenuId);
         });
 
         this.$sportGroups = this.$("#sport-groups .group");

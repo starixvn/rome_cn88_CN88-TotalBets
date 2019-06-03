@@ -2,9 +2,9 @@
 
 class RefreshCountDownOptions {
     constructor(
-        public countDownMenuId: string = "CountDownMenu",
-        public pageId: string = "Page1",
-        public reloadInSeconds: number = 30,
+        public countDownMenuId = "CountDownMenu",
+        public pageId = "Page1",
+        public reloadInSeconds = 30,
         public countDownFunc: Function = () => { }) {
     }
 }
@@ -21,7 +21,9 @@ class RefreshCountDown {
     pageIdCookie = "cn88-total-bets-page-id";
     currentCountDown = 0;
     countDownTimer = null;
+    countDownTimeOut = 1000;
     loadingText = "";
+    clickTouchendEvents = "click touchend";
 
     constructor($: JQueryStatic, linkBuilderComponent: LinkBuilderComponent) {
         this.$ = $;
@@ -29,50 +31,50 @@ class RefreshCountDown {
     }
 
     render = (options: RefreshCountDownOptions = new RefreshCountDownOptions()) => {
-        this.options = <RefreshCountDownOptions>this.$.extend({}, this.options, options);
-        var pageId = cn88TotalBets.localStorage.get(this.pageIdCookie);
+        this.options = this.$.extend({}, this.options, options) as RefreshCountDownOptions;
+        const pageId = cn88TotalBets.localStorage.get(this.pageIdCookie);
         options.pageId = options.pageId || pageId;
-        if (pageId != options.pageId) {
+        if (pageId !== options.pageId) {
             cn88TotalBets.localStorage.set(this.countDownOptionCookie, null);
         }
 
         cn88TotalBets.localStorage.set(this.pageIdCookie, options.pageId);
 
-        var self = this;
         this.$btnRefresh = this.$(".btnRefresh");
         this.$countDownMenu = this.$("#" + options.countDownMenuId);
         this.loadingText = this.$btnRefresh.attr("data-loading-text");
         this.$countDownOptions = this.$(".count-down-option");
-        this.$(".icon-refresh").on("click touchend", this.doRefresh);
-        this.$(".btn-show-options").on("click touchend", function (event) {
-            if (event.type == 'touchend') {
-                self.$(this).off('click');
+        this.$(".icon-refresh").on(this.clickTouchendEvents, this.doRefresh);
+        this.$(".btn-show-options").on(this.clickTouchendEvents, (event) => {
+            if (event.type === "touchend") {
+                this.$(event.currentTarget).off("click");
             }
 
-            self.showOptions();
+            this.showOptions();
             event.stopPropagation();
             return false;
         });
-        this.$countDownOptions.on("click touchend", function (event) {
-            self.saveOption(self.$(this).attr("data-value"));
+        this.$countDownOptions.on(this.clickTouchendEvents, (event) => {
+            this.saveOption(this.$(event.currentTarget).attr("data-value"));
             event.stopPropagation();
             return false;
         });
-        this.$("#count-down-off").on("click touchend", function () {
-            self.turnOffCountDown(self.$(this).html());
+        this.$("#count-down-off").on(this.clickTouchendEvents, (event) => {
+            this.turnOffCountDown(this.$(event.currentTarget).html());
         });
 
-        var currentOption = cn88TotalBets.localStorage.get(this.countDownOptionCookie);
-        if (currentOption && currentOption != 0) {
+        const currentOption = cn88TotalBets.localStorage.get(this.countDownOptionCookie);
+        if (currentOption && currentOption !== 0) {
             this.setCountDown(currentOption);
         } else {
             this.setCountDown(options.reloadInSeconds);
         }
 
-        this.$(window).bind("click touchend", (event) => {
+        this.$(window).bind(this.clickTouchendEvents, () => {
             this.$countDownMenu.addClass("hide");
         });
     };
+    
     showOptions = () => {
         if (this.$countDownMenu.hasClass("hide")) {
             this.$countDownMenu.removeClass("hide");
@@ -80,15 +82,17 @@ class RefreshCountDown {
             this.$countDownMenu.addClass("hide");
         }
     };
+
     saveOption = (option) => {
         cn88TotalBets.localStorage.set(this.countDownOptionCookie, option);
-        if (option == "-1") {
+        if (option === "-1") {
             return;
         }
 
         this.setCountDown(option);
         this.$countDownMenu.addClass("hide");
     };
+
     doRefresh = () => {
         if (this.countDownTimer != null) {
             clearTimeout(this.countDownTimer);
@@ -99,14 +103,16 @@ class RefreshCountDown {
         this.currentCountDown = this.options.reloadInSeconds;
         this.countDownTick();
     };
+
     setCountDown = (option) => {
         this.options.reloadInSeconds = option;
         this.currentCountDown = option;
-        this.activeSelectedOption(option);
+        this.activeSelectedOption();
         this.countDownTick();
     };
+
     countDownTick = () => {
-        if (this.currentCountDown == -1) {
+        if (this.currentCountDown === -1) {
             this.$btnRefresh.html(this.$(".count-down-option.active").html().toUpperCase());
             return;
         }
@@ -117,22 +123,24 @@ class RefreshCountDown {
             clearTimeout(this.countDownTimer);
         }
 
-        this.countDownTimer = setTimeout(this.countDownTick, 1000);
+        this.countDownTimer = setTimeout(this.countDownTick, this.countDownTimeOut);
 
-        if (this.currentCountDown == 0) {
+        if (this.currentCountDown === 0) {
             this.options.countDownFunc();
             this.currentCountDown = this.options.reloadInSeconds;
         }
     };
-    activeSelectedOption = (option) => {
+
+    activeSelectedOption = () => {
         this.$countDownOptions.removeClass("active");
-        for (var i = 0; i < this.$countDownOptions.length; i++) {
-            var $option = this.$(this.$countDownOptions[i]);
-            if ($option.attr("data-value") == this.options.reloadInSeconds.toString()) {
+        this.$countDownOptions.each((index: number, elem: Element) => {
+            const $option = this.$(elem);
+            if ($option.attr("data-value") === this.options.reloadInSeconds.toString()) {
                 $option.addClass("active");
             }
-        }
+        });
     };
+
     turnOffCountDown = (optionText) => {
         this.$btnRefresh.html(optionText);
 

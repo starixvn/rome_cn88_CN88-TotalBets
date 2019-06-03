@@ -14,6 +14,11 @@ abstract class BaseTotalBets {
     possTypeSelectionComponent: SingleSelectionDropdownComponent;
     leagueSelectionComponent: SingleSelectionDropdownComponent;
 
+    iconFilterDownClass = "icon-filter-down";
+    iconFilterUpClass = "icon-filter-up";
+    filterFormSlideDuration = 200;
+    tblSlideDuration = 210;
+
     protected constructor(
         $: JQueryStatic,
         summaryMenu: SummaryMenu,
@@ -48,14 +53,14 @@ abstract class BaseTotalBets {
         this.$tblTotalBets = this.$("#tblTotalBets");
         this.$stake = this.$("#Stake");
         this.$filterToggleIcon = this.$("#filter-toggle-icon");
-        this.isMobile = this.$("#IsDevice").val() == "1";
+        this.isMobile = this.$("#IsDevice").val() === "1";
     }
 
     protected bindEvents(): void {
         this.$tblTotalBets.find(".group").click(function (): void {
-            let $this: JQuery = $(this);
-            let icon: JQuery = $this.find(".group-name-wrapper").children().first();
-            let children: any = $this.siblings(`.childrow-${$this.data("leagueid")}`);
+            const $this: JQuery = $(this);
+            const icon: JQuery = $this.find(".group-name-wrapper").children().first();
+            const children = $this.siblings(`.childrow-${$this.data("leagueid")}`);
 
             if (icon.hasClass("icon-chevron-down")) {
                 icon.removeClass().addClass("icon-chevron-right");
@@ -70,24 +75,24 @@ abstract class BaseTotalBets {
 
         this.$filterToggleIcon.on("click touchend", (e) => {
             e.preventDefault();
-            let isCollapsed = this.$filterToggleIcon.hasClass("icon-filter-down");
+            const isCollapsed = this.$filterToggleIcon.hasClass(this.iconFilterDownClass);
 
             if (isCollapsed) {
                 this.$filterForm
-                    .slideDown(200);
+                    .slideDown(this.filterFormSlideDuration);
                 this.$tblTotalBets
-                    .slideUp(210);
+                    .slideUp(this.tblSlideDuration);
                 this.$filterToggleIcon
-                    .removeClass("icon-filter-down")
-                    .addClass("icon-filter-up");
+                    .removeClass(this.iconFilterDownClass)
+                    .addClass(this.iconFilterUpClass);
             }
             else {
-                this.$filterForm.slideUp(200);
+                this.$filterForm.slideUp(this.filterFormSlideDuration);
                 this.$tblTotalBets
-                    .slideDown(210);
+                    .slideDown(this.tblSlideDuration);
                 this.$filterToggleIcon
-                    .removeClass("icon-filter-up")
-                    .addClass("icon-filter-down");
+                    .removeClass(this.iconFilterUpClass)
+                    .addClass(this.iconFilterDownClass);
             }
         });
     }
@@ -99,10 +104,10 @@ abstract class BaseTotalBets {
         if (this.leagueSelectionComponent != null) {
             this.leagueSelectionComponent.updateSelectedValue();
         }
-    };
+    }
 
     updateStakeValue(): void {
-        let stake = parseFloat(this.cleaveStake.getRawValue());
+        const stake = parseFloat(this.cleaveStake.getRawValue());
         this.$stake.val(stake);
     }
 }
