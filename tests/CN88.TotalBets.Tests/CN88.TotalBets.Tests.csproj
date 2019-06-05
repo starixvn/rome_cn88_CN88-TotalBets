@@ -87,6 +87,7 @@
       <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -106,6 +107,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\Events\Criteria\GetEventCriteriaTests.cs" />
+    <Compile Include="Features\Events\Criteria\GetEventInfoCriteriaTests.cs" />
+    <Compile Include="Features\Leagues\Criteria\GetLeagueCriteriaTests.cs" />
+    <Compile Include="Features\Outright\Criteria\GetOutrightCriteriaTests.cs" />
+    <Compile Include="Features\Overview\Criteria\GetOverViewCriteriaTests.cs" />
     <Compile Include="Features\Summaries\Criteria\GetSummaryBySportTypeGroupCriteria.cs" />
     <Compile Include="Features\Summaries\Criteria\GetSummaryByEventCriteriaTests.cs" />
     <Compile Include="Features\ViewByBetTypes\BetOptionBuilders\BetOptionBuilderFactoryTests.cs" />
@@ -125,7 +131,9 @@
       <Name>CN88.TotalBets</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
