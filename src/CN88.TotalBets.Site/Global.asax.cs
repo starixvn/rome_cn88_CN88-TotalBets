@@ -56,7 +56,8 @@
 
             RefDataTypeContainer
                 .ConnectTo(new Uri(AppSettings.RemoteRefURL))
-                .FromApplication("CN88.TotalBets.Site");
+                .FromApplication("CN88.TotalBets.Site")
+                .RegisterSupportedLanguages("en-US", "zh-Hans", "zh-TW");
         }
 
         protected void Application_Error(object sender, EventArgs e)
