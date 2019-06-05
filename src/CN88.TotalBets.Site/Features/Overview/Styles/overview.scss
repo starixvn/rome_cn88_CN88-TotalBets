@@ -126,15 +126,14 @@ body.phone {
             font-size: 13px;
         }
     }
+    
+    .item-lbl {
+        float: left;
+    }
 
-    .group.active {
-        .group-title:before {
-            content: "\e900";
-        }
-
-        .list-item {
-            display: block;
-        }
+    .values {
+        float: right;
+        text-align: right;
     }
 
     .list-item {
@@ -146,6 +145,14 @@ body.phone {
 
         &.special-area {
             background-color: #ecf4e2;
+        }
+
+        .item-lbl {
+            line-height: $height-large;
+        }
+
+        .value-detail {
+            line-height: $height-large/2;
         }
     }
 
@@ -159,6 +166,26 @@ body.phone {
         }
     }
 
+    .group.active {
+        .group-title:before {
+            content: "\e900";
+        }
+
+        .list-item {
+            display: block;
+        }
+    }
+    
+    .group-title {
+        .item-lbl {
+            line-height: $height-small;
+        }
+
+        .value-detail {
+            line-height: $height-small/2;
+        }
+    }
+    
     .tbl-betdetail {
         width: 100%;
         margin-top: 16px;
@@ -181,33 +208,5 @@ body.phone {
             line-height: $height-large/2;
         }
     }
-
-    .item-lbl {
-        float: left;
-    }
-
-    .values {
-        float: right;
-        text-align: right;
-    }
-
-    .list-item {
-        .item-lbl {
-            line-height: $height-large;
-        }
-
-        .value-detail {
-            line-height: $height-large/2;
-        }
-    }
-
-    .group-title {
-        .item-lbl {
-            line-height: $height-small;
-        }
-
-        .value-detail {
-            line-height: $height-small/2;
-        }
-    }
+    
 }

@@ -27,21 +27,47 @@
     }
 }
 
-.viewbettype-content {
-    width: 1040px;
+.bet-team-container {
+    padding: 0 !important;
 
-    .league {
-        margin-bottom: 6px;
-
-        .link:hover {
-            cursor: text;
-            color: #0072bb;
+    .bet-team {
+        height: 40px;
+        flex: 1 1 0;
+        align-self: center;
+        padding: 6px 8px 2px;
+        border-right: 1px solid #e5e5e5;
+         &:last-child {
+            border-right: none;
         }
     }
 
-    .live {
-        color: #ff946e !important;
-        text-transform: uppercase;
+    .bet-team-wrapper {
+        display: flex;
+        &.other-bettype {
+            display: block;
+            .bet-team {
+                border-right: none;
+                border-bottom: 1px solid #e5e5e5;
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+    
+    .team-name, .index {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .index {
+        width: 120px;
+        .stake {
+            display: block;
+        }
+    }
+    .team-name {
+        width: calc(100% - 120px - 8px);
     }
 }
 
@@ -67,6 +93,10 @@
             vertical-align: middle;
         }
 
+        .stake {
+            display: block;
+        }
+
         .index {
             width: 120px;
 
@@ -74,10 +104,6 @@
                 cursor: pointer;
                 text-decoration: none;
             }
-        }
-
-        .stake {
-            display: block;
         }
 
         .team-name {
@@ -91,45 +117,25 @@
     }
 }
 
-.bet-team-container {
-    padding: 0 !important;
-    .bet-team-wrapper {
-        display: flex;
-        &.other-bettype {
-            display: block;
-            .bet-team {
-                border-right: none;
-                border-bottom: 1px solid #e5e5e5;
-                &:last-child {
-                    border-bottom: none;
-                }
-            }
+.viewbettype-content {
+    width: 1040px;
+
+    .league {
+        margin-bottom: 6px;
+
+        .link:hover {
+            cursor: text;
+            color: #0072bb;
         }
     }
-    .bet-team {
-        height: 40px;
-        flex: 1 1 0;
-        align-self: center;
-        padding: 6px 8px 2px;
-        border-right: 1px solid #e5e5e5;
-         &:last-child {
-            border-right: none;
-        }
-    }
-    .team-name, .index {
-        display: inline-block;
-        vertical-align: middle;
-    }
-    .index {
-        width: 120px;
-        .stake {
-            display: block;
-        }
-    }
-    .team-name {
-        width: calc(100% - 120px - 8px);
+
+    .live {
+        color: #ff946e !important;
+        text-transform: uppercase;
     }
 }
+
+
 .head-match {
     background: url("images/Soccer_goal.png");
     height: 100px;
@@ -172,6 +178,36 @@
 body.phone {
     .viewbettype-content {
         width: 100%;
+    }
+
+    .bet-team-container {
+        .index {
+            width: 60px;
+            line-height: 16px;
+        }
+
+        .team-name {
+            width: calc(100% - 60px - 8px);
+            padding-top: 14px;
+            padding-bottom: 14px;
+        }
+
+        .bet-team-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bet-team {
+            width: 100%;
+            height: 42px;
+            border-right: none;
+            padding: 0 8px;
+            border-bottom: 1px solid #e5e5e5;
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
     }
 
     .head-match {
@@ -217,39 +253,6 @@ body.phone {
             display: table-cell;
             width: 20%;
             padding: 0;
-        }
-    }
-
-    .bet-team-container {
-        .bet-team {
-            height: 42px;
-        }
-
-        .index {
-            width: 60px;
-            line-height: 16px;
-        }
-
-        .team-name {
-            width: calc(100% - 60px - 8px);
-            padding-top: 14px;
-            padding-bottom: 14px;
-        }
-
-        .bet-team-wrapper {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .bet-team {
-            width: 100%;
-            border-right: none;
-            padding: 0 8px;
-            border-bottom: 1px solid #e5e5e5;
-
-            &:last-child {
-                border-bottom: none;
-            }
         }
     }
 
