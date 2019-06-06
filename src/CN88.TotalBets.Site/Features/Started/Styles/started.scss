@@ -94,6 +94,8 @@ body.phone {
         }
 
         .col-event-mobile {
+            display: block;
+            margin-top: 6px;
             text-align: left;
         }
 
@@ -122,11 +124,6 @@ body.phone {
             .col-event-span-mobile {
                 display: table-cell;
             }
-        }
-
-        .col-event-mobile {
-            display: block;
-            margin-top: 6px;
         }
 
         td.details {

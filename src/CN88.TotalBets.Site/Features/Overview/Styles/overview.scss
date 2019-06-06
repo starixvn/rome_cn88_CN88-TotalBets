@@ -101,6 +101,16 @@ body.phone {
         display: none;
     }
 
+    
+    .item-lbl {
+        float: left;
+    }
+
+    .values {
+        float: right;
+        text-align: right;
+    }
+
     .group-list {
         display: block;
         list-style: none;
@@ -135,14 +145,6 @@ body.phone {
         }
     }
     
-    .item-lbl {
-        float: left;
-    }
-
-    .values {
-        float: right;
-        text-align: right;
-    }
 
     .list-item {
         display: none;
