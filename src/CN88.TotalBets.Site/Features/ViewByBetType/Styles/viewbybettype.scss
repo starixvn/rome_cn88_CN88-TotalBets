@@ -43,18 +43,8 @@
 
     .bet-team-wrapper {
         display: flex;
-        &.other-bettype {
-            display: block;
-            .bet-team {
-                border-right: none;
-                border-bottom: 1px solid #e5e5e5;
-                &:last-child {
-                    border-bottom: none;
-                }
-            }
-        }
     }
-    
+        
     .team-name, .index {
         display: inline-block;
         vertical-align: middle;
@@ -68,6 +58,18 @@
     }
     .team-name {
         width: calc(100% - 120px - 8px);
+    }
+}
+
+.bet-team-wrapper.other-bettype {
+    display: block;
+
+    .bet-team {
+        border-right: none;
+        border-bottom: 1px solid #e5e5e5;
+        &:last-child {
+            border-bottom: none;
+        }
     }
 }
 

@@ -125,6 +125,14 @@ body.phone {
             font-family: "CN88Icon", sans-serif !important;
             font-size: 13px;
         }
+
+        .item-lbl {
+            line-height: $height-small;
+        }
+
+        .value-detail {
+            line-height: $height-small/2;
+        }
     }
     
     .item-lbl {
@@ -173,16 +181,6 @@ body.phone {
 
         .list-item {
             display: block;
-        }
-    }
-    
-    .group-title {
-        .item-lbl {
-            line-height: $height-small;
-        }
-
-        .value-detail {
-            line-height: $height-small/2;
         }
     }
     

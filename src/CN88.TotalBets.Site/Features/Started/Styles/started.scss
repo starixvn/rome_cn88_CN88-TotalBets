@@ -3,6 +3,10 @@
 .tbl-started {
     width: 1040px;
 
+    .score {
+        padding: 4px 0;
+    }
+
     .half {
         display: inline-block;
         text-align: center;
@@ -18,10 +22,6 @@
         &.FT .score {
             color: #B50000;
         }
-    }
-
-    .score {
-        padding: 4px 0;
     }
 
     .live {
