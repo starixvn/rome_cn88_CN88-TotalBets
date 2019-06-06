@@ -41,7 +41,8 @@
       <HintPath>..\..\packages\AutoFixture.Xunit2.4.8.0\lib\net452\AutoFixture.Xunit2.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Castle.Core.4.3.1\lib\net45\Castle.Core.dll</HintPath>
+      <HintPath>..\..\packages\Castle.Core.4.4.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Dapper, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
@@ -55,8 +56,9 @@
     <Reference Include="Fare, Version=2.1.0.0, Culture=neutral, PublicKeyToken=ea68d375bf33a7c8, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fare.2.1.1\lib\net35\Fare.dll</HintPath>
     </Reference>
-    <Reference Include="NSubstitute, Version=4.0.0.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\NSubstitute.4.0.0\lib\net46\NSubstitute.dll</HintPath>
+    <Reference Include="NSubstitute, Version=4.2.0.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NSubstitute.4.2.0\lib\net46\NSubstitute.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -109,9 +111,12 @@
   <ItemGroup>
     <Compile Include="Features\Events\Criteria\GetEventCriteriaTests.cs" />
     <Compile Include="Features\Events\Criteria\GetEventInfoCriteriaTests.cs" />
+    <Compile Include="Features\Events\EventServiceImplTests.cs" />
     <Compile Include="Features\Leagues\Criteria\GetLeagueCriteriaTests.cs" />
     <Compile Include="Features\Outright\Criteria\GetOutrightCriteriaTests.cs" />
     <Compile Include="Features\Overview\Criteria\GetOverViewCriteriaTests.cs" />
+    <Compile Include="Features\SportTypeGroup\Criteria\GetSportGroupsCriteriaTests.cs" />
+    <Compile Include="Features\Started\Criteria\GetStartedCriteriaTests.cs" />
     <Compile Include="Features\Summaries\Criteria\GetSummaryBySportTypeGroupCriteria.cs" />
     <Compile Include="Features\Summaries\Criteria\GetSummaryByEventCriteriaTests.cs" />
     <Compile Include="Features\ViewByBetTypes\BetOptionBuilders\BetOptionBuilderFactoryTests.cs" />
