@@ -1,6 +1,6 @@
 ﻿namespace CN88.TotalBets.Site.Shared.Requests
 {
-    using System.Web;
+    using Helpers;
     using TotalBets.Shared.Constants;
     using TotalBets.Shared.Models;
 
@@ -13,7 +13,7 @@
             StakeCondition = StakeConditionConstants.GreaterThan;
             PossType = PossTypeConstants.Full_Percentage;
             Market = MarketConstants.AllMarkets;
-            AppPath = HttpContext.Current.Response.ApplyAppPathModifier("~/");
+            AppPath = UrlHelper.MapTotalBetsPath("~/");
         }
 
         public byte SportTypeGroup { get; set; }

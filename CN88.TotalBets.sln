@@ -13,13 +13,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CN88.TotalBets", "src\CN88.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CN88.TotalBets.Tests", "tests\CN88.TotalBets.Tests\CN88.TotalBets.Tests.csproj", "{1A07D5E9-5368-4A39-AE94-E62765AD50D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CN88.TotalBets.Site.Tests", "tests\CN88.TotalBets.Site.Tests\CN88.TotalBets.Site.Tests.csproj", "{89928FBD-488F-4D03-863C-A6A659D7062E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{64331AF0-E667-4AC0-A257-F8633061A465}"
 	ProjectSection(SolutionItems) = preProject
 		SonarQube\CN88-TotalBetsCSharp.ruleset = SonarQube\CN88-TotalBetsCSharp.ruleset
 		SonarQube\SolutionBinding.sqconfig = SonarQube\SolutionBinding.sqconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CN88.TotalBets.Site.Tests", "tests\CN88.TotalBets.Site.Tests\CN88.TotalBets.Site.Tests.csproj", "{A835E013-549F-4EA5-A723-971C70D922BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,10 +39,10 @@ Global
 		{1A07D5E9-5368-4A39-AE94-E62765AD50D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A07D5E9-5368-4A39-AE94-E62765AD50D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A07D5E9-5368-4A39-AE94-E62765AD50D0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{89928FBD-488F-4D03-863C-A6A659D7062E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89928FBD-488F-4D03-863C-A6A659D7062E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89928FBD-488F-4D03-863C-A6A659D7062E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89928FBD-488F-4D03-863C-A6A659D7062E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A835E013-549F-4EA5-A723-971C70D922BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A835E013-549F-4EA5-A723-971C70D922BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A835E013-549F-4EA5-A723-971C70D922BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A835E013-549F-4EA5-A723-971C70D922BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,7 +51,7 @@ Global
 		{C0628024-C29A-4415-B2E2-A5207CF3A1AC} = {945031E0-9815-413B-AC66-CD32E488B4D9}
 		{3E6592E0-8BA5-43D7-A158-FAB938FDF25B} = {945031E0-9815-413B-AC66-CD32E488B4D9}
 		{1A07D5E9-5368-4A39-AE94-E62765AD50D0} = {DC7A244B-D3EC-4C9D-B65B-1815EADF77AE}
-		{89928FBD-488F-4D03-863C-A6A659D7062E} = {DC7A244B-D3EC-4C9D-B65B-1815EADF77AE}
+		{A835E013-549F-4EA5-A723-971C70D922BF} = {DC7A244B-D3EC-4C9D-B65B-1815EADF77AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E66A7862-2401-46D4-A58A-60DD5BCC9235}

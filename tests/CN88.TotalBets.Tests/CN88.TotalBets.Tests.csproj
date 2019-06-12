@@ -47,14 +47,31 @@
     <Reference Include="Dapper, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Data, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Data.3.0.0\lib\net461\Fanex.Data.dll</HintPath>
+    <Reference Include="Fanex.Caching, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Caching.2.1.0\lib\net461\Fanex.Caching.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Data, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Data.3.0.2\lib\net461\Fanex.Data.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Data.Repository, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Data.Repository.3.0.0\lib\net461\Fanex.Data.Repository.dll</HintPath>
     </Reference>
+    <Reference Include="Fanex.RemotingRef, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.RemotingRef.1.3.0\lib\net461\Fanex.RemotingRef.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Fare, Version=2.1.0.0, Culture=neutral, PublicKeyToken=ea68d375bf33a7c8, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fare.2.1.1\lib\net35\Fare.dll</HintPath>
+    </Reference>
+    <Reference Include="KellermanSoftware.Compare-NET-Objects, Version=4.59.0.0, Culture=neutral, PublicKeyToken=d970ace04cc85217, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CompareNETObjects.4.59.0\lib\net46\KellermanSoftware.Compare-NET-Objects.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MessagePack, Version=1.7.3.4, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MessagePack.1.7.3.4\lib\net45\MessagePack.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="NSubstitute, Version=4.2.0.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NSubstitute.4.2.0\lib\net46\NSubstitute.dll</HintPath>
@@ -89,6 +106,10 @@
       <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -109,18 +130,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\CacheCollection.cs" />
     <Compile Include="Features\Events\Criteria\GetEventCriteriaTests.cs" />
     <Compile Include="Features\Events\Criteria\GetEventInfoCriteriaTests.cs" />
     <Compile Include="Features\Events\EventServiceImplTests.cs" />
     <Compile Include="Features\Leagues\Criteria\GetLeagueCriteriaTests.cs" />
+    <Compile Include="Features\Leagues\LeagueServiceImplTests.cs" />
     <Compile Include="Features\Outright\Criteria\GetOutrightCriteriaTests.cs" />
+    <Compile Include="Features\Outright\OutrightServiceImplTests.cs" />
     <Compile Include="Features\Overview\Criteria\GetOverViewCriteriaTests.cs" />
+    <Compile Include="Features\Overview\OverViewServiceTests.cs" />
     <Compile Include="Features\SportTypeGroup\Criteria\GetSportGroupsCriteriaTests.cs" />
+    <Compile Include="Features\SportTypeGroup\Models\SportGroupTests.cs" />
+    <Compile Include="Features\SportTypeGroup\SportTypeGroupDataAccessImplTests.cs" />
+    <Compile Include="Features\SportTypeGroup\SportTypeGroupServiceImplTests.cs" />
     <Compile Include="Features\Started\Criteria\GetStartedCriteriaTests.cs" />
+    <Compile Include="Features\Started\StartedServiceImplTests.cs" />
     <Compile Include="Features\Summaries\Criteria\GetSummaryBySportTypeGroupCriteria.cs" />
     <Compile Include="Features\Summaries\Criteria\GetSummaryByEventCriteriaTests.cs" />
+    <Compile Include="Features\Summaries\SummaryServiceImplTests.cs" />
     <Compile Include="Features\ViewByBetTypes\BetOptionBuilders\BetOptionBuilderFactoryTests.cs" />
+    <Compile Include="Features\ViewByBetTypes\Criteria\GetTotalBetsByBetTypeCriteriaTests.cs" />
+    <Compile Include="Features\ViewByBetTypes\ViewByBetTypeServiceImplTests.cs" />
+    <Compile Include="Features\WagerAccount\GetWagerAccountByEventCriteriaTests.cs" />
+    <Compile Include="Features\WagerAccount\GetWagerAccountCriteriaTests.cs" />
+    <Compile Include="Features\WagerAccount\WagerAccountServiceTests.cs" />
+    <Compile Include="Fixtures\CacheFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shared\Configurations\AppSettingsTests.cs" />
+    <Compile Include="Shared\Models\CustInfoTests.cs" />
+    <Compile Include="Shared\Models\UserLevelTestCases.cs" />
+    <Compile Include="Shared\Models\UserLevelTests.cs" />
+    <Compile Include="Shared\Services\CacheRefServiceImplTests.cs" />
     <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>

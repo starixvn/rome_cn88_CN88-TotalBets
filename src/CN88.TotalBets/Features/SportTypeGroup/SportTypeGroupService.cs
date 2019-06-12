@@ -7,6 +7,7 @@
     using Criteria;
     using Fanex.Caching;
     using Models;
+    using Shared.Services;
 
     public interface SportTypeGroupService
     {
@@ -20,14 +21,14 @@
         private const string SportGroupsCacheKey = "CN88.TotalBets.ServicesCN88.TotalBets.Services.SportGroupServiceImpl.SportGroups";
 
         private readonly SportTypeGroupDataAccess sportGroupDataAccess;
-        private readonly Func<int, string> getSportDisplayName;
+        private readonly CacheRefService cacheRefService;
 
         public SportTypeGroupServiceImpl(
             SportTypeGroupDataAccess sportGroupDataAccess,
-            Func<int, string> getSportDisplayName)
+            CacheRefService cacheRefService)
         {
             this.sportGroupDataAccess = sportGroupDataAccess;
-            this.getSportDisplayName = getSportDisplayName;
+            this.cacheRefService = cacheRefService;
         }
 
         public async Task<IEnumerable<SportGroup>> GetSportTypeGroups()
@@ -37,7 +38,7 @@
                 {
                     var sportGroups = sportGroupDataAccess.GetSportGroups(new GetSportGroupsCriteria());
 
-                    return sportGroups.Select(group => new SportGroup(group.Id, group.DisplaySportIds, getSportDisplayName));
+                    return sportGroups.Select(group => new SportGroup(group.Id, group.DisplaySportIds, cacheRefService.GetSportName));
                 },
                 new CacheItemOptions().SetAbsoluteExpiration(TimeSpan.FromDays(1)));
 

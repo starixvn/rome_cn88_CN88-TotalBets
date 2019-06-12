@@ -4,6 +4,7 @@ using Xunit;
 
 namespace CN88.TotalBets.Tests.Features.Events.Criteria
 {
+    [Trait("Category", "Event")]
     public class GetEventInfoCriteriaTests
     {
         private readonly Fixture fixture;

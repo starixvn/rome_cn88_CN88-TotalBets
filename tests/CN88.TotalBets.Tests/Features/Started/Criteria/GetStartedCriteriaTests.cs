@@ -7,6 +7,7 @@ using Xunit;
 
 namespace CN88.TotalBets.Tests.Features.Started.Criteria
 {
+    [Trait("Category", "Started")]
     public class GetStartedCriteriaTests
     {
         private readonly Fixture fixture;

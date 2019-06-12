@@ -5,6 +5,7 @@ using Xunit;
 
 namespace CN88.TotalBets.Tests.Features.Overview.Criteria
 {
+    [Trait("Category", "Overview")]
     public class GetOverViewCriteriaTests
     {
         private readonly Fixture fixture;

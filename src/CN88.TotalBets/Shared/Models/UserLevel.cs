@@ -60,12 +60,7 @@
         public bool IsUplineOf(Enumeration downlineLevel)
             => (downlineLevel != null) && IsUplineOf(downlineLevel.Value);
 
-        public bool IsEqualOrUplineOf(Enumeration custLevel)
-           => Value == custLevel.Value || IsUplineOf(custLevel.Value);
-
         public UserLevel GetDirectDownLineLevel() => FromValue<UserLevel>((byte)(Value - 1));
-
-        public UserLevel GetDirectUpLineLevel() => IsSuperLevel() ? Headline : FromValue<UserLevel>((byte)(Value + 1));
 
         public bool IsDirectDownlineOf(Enumeration uplineLevel)
             => (uplineLevel != null) && GapBetweenTwoLevels(uplineLevel.Value, Value) == 1;

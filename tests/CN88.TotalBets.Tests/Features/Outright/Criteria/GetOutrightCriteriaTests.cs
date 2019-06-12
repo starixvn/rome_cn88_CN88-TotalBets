@@ -7,6 +7,7 @@ using Xunit;
 
 namespace CN88.TotalBets.Tests.Features.Outright.Criteria
 {
+    [Trait("Category", "OutRight")]
     public class GetOutrightCriteriaTests
     {
         private readonly Fixture fixture;

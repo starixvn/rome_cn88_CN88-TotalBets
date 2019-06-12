@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using AutoFixture;
 using CN88.TotalBets.Features.Events;
 using CN88.TotalBets.Features.Events.Criteria;
@@ -7,14 +9,17 @@ using CN88.TotalBets.Features.Events.Params;
 using CN88.TotalBets.Shared.Constants;
 using CN88.TotalBets.Shared.Services;
 using Fanex.Data.Repository;
+using KellermanSoftware.CompareNetObjects;
 using NSubstitute;
 using Xunit;
 
 namespace CN88.TotalBets.Tests.Features.Events
 {
+    [Trait("Category", "Event")]
     public class EventServiceImplTests
     {
         private readonly Fixture fixture;
+        private readonly CompareLogic compareLogic;
         private readonly IDynamicRepository dynamicRepository;
         private readonly CacheRefService cacheRefService;
         private readonly EventServiceImpl eventService;
@@ -22,6 +27,7 @@ namespace CN88.TotalBets.Tests.Features.Events
         public EventServiceImplTests()
         {
             fixture = new Fixture();
+            compareLogic = new CompareLogic();
             dynamicRepository = Substitute.For<IDynamicRepository>();
             cacheRefService = Substitute.For<CacheRefService>();
             eventService = new EventServiceImpl(dynamicRepository, cacheRefService);
@@ -54,9 +60,77 @@ namespace CN88.TotalBets.Tests.Features.Events
                         && x.SportTypeGroup == param.SportTypeGroup
                         && x.LeagueId == param.LeagueId
                         && x.StakeCondition == param.StakeCondition
-                        && x.Stake == param.StakeCondition
+                        && x.Stake == param.Stake
                         && x.PossType == param.PossType
                         && x.Market == param.Market));
+        }
+
+        [Fact]
+        public void GetEventsAsync_EmptyDataReturnFromDb_ReturnsCorrectResult()
+        {
+            // Arrange
+            var param = new EventParam(
+                custId: Util.RandomValidCustId(fixture),
+                userLevel: Util.RandomSMALevel(fixture),
+                type: EventTypeConstants.InPlay,
+                sportTypeGroup: fixture.Create<int>(),
+                leagueId: fixture.Create<int>(),
+                stakeCondition: StakeConditionConstants.GreaterThan,
+                stake: fixture.Create<int>(),
+                possType: PossTypeConstants.Agent_Percentage,
+                market: MarketConstants.AllMarkets);
+            var expectedResult = new MatchLeagueTotal(param.Type, Enumerable.Empty<MatchLeague>(), 0, 0);
+            dynamicRepository.FetchAsync<Match>(Arg.Compat.Any<GetEventCriteria>())
+                .Returns(Enumerable.Empty<Match>());
+
+            // Act
+            var actualResult = eventService.GetEventsAsync(param)
+                .GetAwaiter().GetResult();
+
+            // Assert
+            Assert.True(compareLogic.Compare(expectedResult, actualResult).AreEqual);
+        }
+
+        [Fact]
+        public void GetEventsAsync_HasDataReturnFromDb_ReturnsCorrectResult()
+        {
+            // Arrange
+            var param = new EventParam(
+                custId: Util.RandomValidCustId(fixture),
+                userLevel: Util.RandomSMALevel(fixture),
+                type: EventTypeConstants.InPlay,
+                sportTypeGroup: fixture.Create<int>(),
+                leagueId: fixture.Create<int>(),
+                stakeCondition: StakeConditionConstants.GreaterThan,
+                stake: fixture.Create<int>(),
+                possType: PossTypeConstants.Agent_Percentage,
+                market: MarketConstants.AllMarkets);
+
+            var matches = new List<Match>
+            {
+                new Match(1,1,DateTime.Now,1,2,1,1,10,10000,2,1,false,true),
+                new Match(1,2,DateTime.Now,1,2,1,1,10,20000,2,1,false,true)
+            };
+            dynamicRepository.FetchAsync<Match>(Arg.Compat.Any<GetEventCriteria>())
+                .Returns(matches);
+            cacheRefService.GetLeagueName(1).Returns("League Name");
+            var matchLeagues = new List<MatchLeague>
+            {
+                new MatchLeague(1,"League Name",matches.OrderByDescending(x=>x.Stake),20,30000)
+            };
+
+            var expectedResult = new MatchLeagueTotal(
+                param.Type,
+                matchLeagues.OrderBy(x => x.LeagueName).ToList(),
+                20,
+                30000);
+
+            // Act
+            var actualResult = eventService.GetEventsAsync(param)
+                .GetAwaiter().GetResult();
+
+            // Assert
+            Assert.True(compareLogic.Compare(expectedResult, actualResult).AreEqual);
         }
 
         [Fact]
