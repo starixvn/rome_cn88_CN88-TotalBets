@@ -20,10 +20,6 @@
 
         string IP { get; }
 
-        bool HasUpdatePermission { get; }
-
-        bool HasAddNewPermission { get; }
-
         bool IsAdminCanViewVNIP { get; }
 
         int AdminId { get; }

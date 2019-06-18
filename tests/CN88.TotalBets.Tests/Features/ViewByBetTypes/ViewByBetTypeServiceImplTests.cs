@@ -1,4 +1,5 @@
-﻿using AutoFixture;
+﻿using System.Collections.Generic;
+using AutoFixture;
 using CN88.TotalBets.Features.ViewByBetTypes;
 using CN88.TotalBets.Features.ViewByBetTypes.BetOptionBuilders;
 using CN88.TotalBets.Features.ViewByBetTypes.Criteria;
@@ -39,6 +40,13 @@ namespace CN88.TotalBets.Tests.Features.ViewByBetTypes
                 fixture.Create<byte>(),
                 fixture.Create<byte>(),
                 EventTypeConstants.Started);
+            var data = new List<BetOption>
+            {
+                new BetOption( 1, "a", true),
+                new BetOption( 2, string.Empty, false)
+            };
+            dynamicRepository.FetchAsync<BetOption>(Arg.Compat.Any<GetTotalBetsByBetTypeCriteria>())
+                .Returns(data);
 
             // Act
             viewByBetTypeService.GetTotalBetsByBetTypes(param).ConfigureAwait(false);

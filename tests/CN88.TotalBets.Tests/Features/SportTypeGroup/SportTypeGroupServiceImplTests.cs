@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using CN88.TotalBets.Features.SportTypeGroup;
 using CN88.TotalBets.Features.SportTypeGroup.Criteria;
 using CN88.TotalBets.Features.SportTypeGroup.Models;
@@ -25,14 +26,14 @@ namespace CN88.TotalBets.Tests.Features.SportTypeGroup
         public SportTypeGroupServiceImplTests(CacheFixture cacheFixture)
         {
             this.cacheFixture = cacheFixture;
-            dataInCache = new List<SportGroup> { new SportGroup(1, new List<int> { 1 }) };
+            dataInCache = new List<SportGroup> { new SportGroup(1, new List<int> { 1 }, (id) => "SportGroupName") };
             cacheFixture.CacheForTesting.TryGetAsync<IEnumerable<SportGroup>>(SportGroupsCacheKey)
                 .Returns(_ => { return Tuple.Create(dataInCache != null, dataInCache); });
             ConfiguredCacheService.Remove(SportGroupsCacheKey);
 
             sportTypeGroupDataAccess = Substitute.For<SportTypeGroupDataAccess>();
             cacheRefService = Substitute.For<CacheRefService>();
-            sportTypeGroupService = new SportTypeGroupServiceImpl(sportTypeGroupDataAccess, cacheRefService);
+            sportTypeGroupService = Substitute.ForPartsOf<SportTypeGroupServiceImpl>(sportTypeGroupDataAccess, cacheRefService);
         }
 
         [Fact]
@@ -59,6 +60,19 @@ namespace CN88.TotalBets.Tests.Features.SportTypeGroup
 
             // Assert
             Assert.True(compareLogic.Compare(dataInCache, result).AreEqual);
+        }
+
+        [Fact]
+        public async Task GetSportTypeGroupName_Always_CallsGetSportTypeGroups()
+        {
+            // Arrange
+            var sportTypeGroup = 1;
+
+            // Act
+            await sportTypeGroupService.GetSportTypeGroupName(sportTypeGroup).ConfigureAwait(false);
+
+            // Assert
+            await sportTypeGroupService.Received().GetSportTypeGroups();
         }
     }
 }

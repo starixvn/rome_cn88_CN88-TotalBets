@@ -1,12 +1,20 @@
-﻿using CN88.TotalBets.Features.Events;
+﻿using System.Collections.Generic;
+using System.Linq;
+using CN88.TotalBets.Features.Events;
+using CN88.TotalBets.Features.Events.Models;
 using CN88.TotalBets.Features.SportTypeGroup;
 using CN88.TotalBets.Features.Summaries;
+using CN88.TotalBets.Features.Summaries.Models;
 using CN88.TotalBets.Features.ViewByBetTypes;
+using CN88.TotalBets.Features.ViewByBetTypes.Models;
 using CN88.TotalBets.Features.ViewByBetTypes.Params;
+using CN88.TotalBets.Shared.Constants;
 using CN88.TotalBets.Shared.Models;
 using CN88.TotalBets.Site.Features.ViewByBetType;
+using CN88.TotalBets.Site.Features.ViewByBetType.ViewModels;
 using CN88.TotalBets.Site.Tests.Helpers;
 using CN88.Web.Helpers;
+using KellermanSoftware.CompareNetObjects;
 using NSubstitute;
 using Xunit;
 
@@ -94,6 +102,45 @@ namespace CN88.TotalBets.Site.Tests.Features.ViewByBetType
 
             // Assert
             summaryService.Received().GetSportGroupSummary(message.ViewerId, message.ActorLevel, message.Type, message.SportTypeGroup);
+        }
+
+        [Fact]
+        public void HandleViewByBetTypeQuery_Always_ReturnsCorrectViewModel()
+        {
+            // Arrange
+            var message = new ViewByBetTypeQuery(user);
+            message.MatchId = 1;
+            message.Type = EventTypeConstants.Today;
+            message.SportTypeGroup = 1;
+
+            var match = new Match();
+            eventService.GetMatch(message.MatchId).Returns(match);
+
+            var totalBetByBetTypes = new Dictionary<int, TotalBetsByBetType>
+            {
+                [1] = new TotalBetsByBetType(1, 5, 5000, Enumerable.Empty<BetOptionGroup>())
+            };
+            viewByBetTypeService.GetTotalBetsByBetTypes(Arg.Compat.Any<ViewByBetTypeParam>())
+                .Returns(totalBetByBetTypes);
+
+            var sportGroupSummary = new SportGroupSummary();
+            summaryService.GetSportGroupSummary(message.ViewerId, message.ActorLevel, message.Type, message.SportTypeGroup)
+                .Returns(sportGroupSummary);
+
+            sportTypeGroupService.GetSportTypeGroupName(message.SportTypeGroup).Returns("SportTypeGroupName");
+
+            var expectedViewModel = new ViewByBetTypeViewModel(
+                "SportTypeGroupName",
+                totalBetByBetTypes.Values,
+                match,
+                sportGroupSummary,
+                message, browserHelper);
+
+            // Act
+            var actualViewModel = handler.Handle(message).GetAwaiter().GetResult();
+
+            // Assert
+            Assert.True(new CompareLogic().Compare(expectedViewModel, actualViewModel).AreEqual);
         }
     }
 }
