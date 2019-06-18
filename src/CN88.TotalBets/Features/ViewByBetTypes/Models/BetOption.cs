@@ -1,4 +1,6 @@
-﻿namespace CN88.TotalBets.Features.ViewByBetTypes.Models
+﻿using System;
+
+namespace CN88.TotalBets.Features.ViewByBetTypes.Models
 {
     public class BetOption
     {
@@ -45,7 +47,7 @@
 
             return betOption.BetTypeId == BetTypeId
                 && betOption.IsLive == IsLive
-                && string.Compare(betOption.BetTeam, BetTeam, true) == 0;
+                && betOption.BetTeam.Equals(BetTeam, StringComparison.OrdinalIgnoreCase);
         }
 
         public override int GetHashCode()

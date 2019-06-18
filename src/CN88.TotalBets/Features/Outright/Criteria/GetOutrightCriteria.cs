@@ -18,8 +18,6 @@
         }
 
         public override string GetSettingKey()
-            => UserLevel.IsSuperLevel()
-            ? "CS_TotalBets_Outright_Super"
-            : (UserLevel.IsMasterLevel() ? "CS_TotalBets_Outright_Master" : "CS_TotalBets_Outright_Agent");
+            => $"CS_TotalBets_Outright_{UserLevel.DisplayName}";
     }
 }

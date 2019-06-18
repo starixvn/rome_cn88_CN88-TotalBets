@@ -1,12 +1,12 @@
 ﻿namespace CN88.TotalBets.Site.Features.WagerAccount
 {
     using System.Threading.Tasks;
-    using CN88.TotalBets.Site.Shared.Helpers;
     using MediatR;
     using Shared.Handlers;
     using TotalBets.Features.WagerAccount;
+    using Web.Helpers;
 
-    public class WagerAccountHandler : BaseHandler, 
+    public class WagerAccountHandler : BaseHandler,
         IAsyncRequestHandler<WagerAccountByOutrightQuery, WagerAccountByOutrightViewModel>,
         IAsyncRequestHandler<WagerAccountByEventQuery, WagerAccountByEventViewModel>
     {

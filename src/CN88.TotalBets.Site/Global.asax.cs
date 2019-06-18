@@ -56,7 +56,8 @@
 
             RefDataTypeContainer
                 .ConnectTo(new Uri(AppSettings.RemoteRefURL))
-                .FromApplication("CN88.TotalBets.Site");
+                .FromApplication("CN88.TotalBets.Site")
+                .RegisterSupportedLanguages("en-US", "zh-Hans", "zh-TW");
         }
 
         protected void Application_Error(object sender, EventArgs e)
@@ -69,8 +70,11 @@
             Exception ex = Server.GetLastError();
             var currentCustomer = UserSession.Current;
 
-            if (ex is FormatException &&
-                Request.Params.AllKeys.Any(key => Alpha.Auth.Configurations.AuthorizationSection.Instance.CustIdQueryStringParamNames.Any(cf => string.Equals(key, cf, StringComparison.OrdinalIgnoreCase))))
+            if (ex is FormatException
+                && Request
+                    .Params
+                    .AllKeys
+                    .Any(key => Alpha.Auth.Configurations.AuthorizationSection.Instance.CustIdQueryStringParamNames.Any(cf => string.Equals(key, cf, StringComparison.OrdinalIgnoreCase))))
             {
                 return;
             }

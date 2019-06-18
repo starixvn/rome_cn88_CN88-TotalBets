@@ -41,22 +41,9 @@
         public UserLevel Role { get; }
 
         public override string GetSettingKey()
-        {
-            if (EventType == EventTypeConstants.Started)
-            {
-                return Role.IsSuperLevel()
-                    ? "CS_TotalBets_WagerAccount_Started_Master"
-                    : Role.IsMasterLevel()
-                    ? "CS_TotalBets_WagerAccount_Started_Agent"
-                    : "CS_TotalBets_WagerAccount_Started_Member";
-            }
-
-            return Role.IsSuperLevel()
-                ? "CS_TotalBets_WagerAccount_Event_Master"
-                : Role.IsMasterLevel()
-                ? "CS_TotalBets_WagerAccount_Event_Agent"
-                : "CS_TotalBets_WagerAccount_Event_Member";
-        }
+            => EventType == EventTypeConstants.Started
+                ? $"CS_TotalBets_WagerAccount_Started_{Role.GetDirectDownLineLevel().DisplayName}"
+                : $"CS_TotalBets_WagerAccount_Event_{Role.GetDirectDownLineLevel().DisplayName}";
 
         public override bool IsValid()
             => CustId > 0 &&

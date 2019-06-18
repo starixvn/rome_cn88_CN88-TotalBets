@@ -2,7 +2,7 @@
 
 .menu-container {
     .menu-item{
-        cursor: pointer;        
+        cursor: pointer;
         padding-right: 0;
         .icon-chevron-down, .icon-chevron-right {
             width: 18px;
@@ -23,29 +23,57 @@
     }
 
     .league-wrapper {
-        background-color: #f4f1f1;        
+        background-color: #f4f1f1;
     }
 }
 
-.viewbettype-content {
-    width: 1040px;
+.bet-team-container {
+    padding: 0 !important;
 
-    .league {
-        margin-bottom: 6px;
-
-        .link:hover {
-            cursor: text;
-            color: #0072bb;
+    .bet-team {
+        height: 40px;
+        flex: 1 1 0;
+        align-self: center;
+        padding: 6px 8px 2px;
+        border-right: 1px solid #e5e5e5;
+         &:last-child {
+            border-right: none;
         }
     }
 
-    .live {
-        color: #ff946e !important;
-        text-transform: uppercase;
+    .bet-team-wrapper {
+        display: flex;
+    }
+        
+    .team-name, .index {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .index {
+        width: 120px;
+        .stake {
+            display: block;
+        }
+    }
+    .team-name {
+        width: calc(100% - 120px - 8px);
     }
 }
 
-.tbl-viewbettype {   
+.bet-team-wrapper.other-bettype {
+    display: block;
+
+    .bet-team {
+        border-right: none;
+        border-bottom: 1px solid #e5e5e5;
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+.tbl-viewbettype {
     .group-name-wrapper {
         width: calc(100% - 150px - 8px);
         display: inline-block;
@@ -67,6 +95,10 @@
             vertical-align: middle;
         }
 
+        .stake {
+            display: block;
+        }
+
         .index {
             width: 120px;
 
@@ -74,10 +106,6 @@
                 cursor: pointer;
                 text-decoration: none;
             }
-        }
-
-        .stake {
-            display: block;
         }
 
         .team-name {
@@ -91,45 +119,25 @@
     }
 }
 
-.bet-team-container {
-    padding: 0 !important;
-    .bet-team-wrapper {
-        display: flex;
-        &.other-bettype {
-            display: block;
-            .bet-team {
-                border-right: none;
-                border-bottom: 1px solid #e5e5e5;
-                &:last-child {
-                    border-bottom: none;
-                }
-            }
+.viewbettype-content {
+    width: 1040px;
+
+    .league {
+        margin-bottom: 6px;
+
+        .link:hover {
+            cursor: text;
+            color: #0072bb;
         }
     }
-    .bet-team {
-        height: 40px;
-        flex: 1 1 0;
-        align-self: center;
-        padding: 6px 8px 2px;
-        border-right: 1px solid #e5e5e5;
-         &:last-child {
-            border-right: none;
-        }
-    }
-    .team-name, .index {
-        display: inline-block;
-        vertical-align: middle;
-    }
-    .index {
-        width: 120px;
-        .stake {
-            display: block;
-        }
-    }
-    .team-name {
-        width: calc(100% - 120px - 8px);
+
+    .live {
+        color: #ff946e !important;
+        text-transform: uppercase;
     }
 }
+
+
 .head-match {
     background: url("images/Soccer_goal.png");
     height: 100px;
@@ -174,57 +182,7 @@ body.phone {
         width: 100%;
     }
 
-    .head-match {
-        float: left;
-        width: 100%;        
-        height: auto;
-        padding: 0 10px;
-        background: #63882B;
-
-        .match {
-            position: initial;
-            display: table;
-            width: 100%;
-            padding: 5px 0 10px;
-            height: auto;
-            line-height: 1;
-            background-color: transparent;            
-        }
-
-        .show-time {
-            display: block;
-            margin-left: 0;
-            padding: 10px 0 5px;
-            line-height: 16px;
-        }
-        
-        .match .team-name {
-            font-size: $font-size-mobile;
-            display: table-cell;
-            width: 40%;
-
-            &:first-child {
-                text-align: left;
-            }
-
-            &:last-child {
-                text-align: right;
-            }
-        }
-
-        .match .score,
-        .match .vs {            
-            display: table-cell;
-            width: 20%;
-            padding: 0;
-        }
-    }
-
     .bet-team-container {
-        .bet-team {
-            height: 42px; 
-        }
-
         .index {
             width: 60px;
             line-height: 16px;
@@ -243,6 +201,7 @@ body.phone {
 
         .bet-team {
             width: 100%;
+            height: 42px;
             border-right: none;
             padding: 0 8px;
             border-bottom: 1px solid #e5e5e5;
@@ -250,6 +209,52 @@ body.phone {
             &:last-child {
                 border-bottom: none;
             }
+        }
+    }
+
+    .head-match {
+        float: left;
+        width: 100%;
+        height: auto;
+        padding: 0 10px;
+        background: #63882B;
+
+        .match {
+            position: initial;
+            display: table;
+            width: 100%;
+            padding: 5px 0 10px;
+            height: auto;
+            line-height: 1;
+            background-color: transparent;
+        }
+
+        .show-time {
+            display: block;
+            margin-left: 0;
+            padding: 10px 0 5px;
+            line-height: 16px;
+        }
+
+        .match .team-name {
+            font-size: $font-size-mobile;
+            display: table-cell;
+            width: 40%;
+
+            &:first-child {
+                text-align: left;
+            }
+
+            &:last-child {
+                text-align: right;
+            }
+        }
+
+        .match .score,
+        .match .vs {
+            display: table-cell;
+            width: 20%;
+            padding: 0;
         }
     }
 

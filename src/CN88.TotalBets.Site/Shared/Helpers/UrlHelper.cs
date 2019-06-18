@@ -4,11 +4,28 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text.RegularExpressions;
+    using System.Web;
     using Alpha.Web.Helpers;
     using TotalBets.Shared.Configurations;
 
     public static class UrlHelper
     {
+        [ThreadStatic]
+        private static Func<string, string> mapTotalBetsPath;
+
+        public static Func<string, string> MapTotalBetsPath
+        {
+            get
+            {
+                return mapTotalBetsPath ?? HttpContext.Current.Response.ApplyAppPathModifier;
+            }
+
+            internal set
+            {
+                mapTotalBetsPath = value;
+            }
+        }
+
         [ThreadStatic]
         private static Func<string, IDictionary<string, object>, string> replaceOrAddQueryStringParamsFunc;
 

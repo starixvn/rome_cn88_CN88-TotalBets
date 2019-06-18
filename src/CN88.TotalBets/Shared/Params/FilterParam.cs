@@ -2,7 +2,7 @@
 {
     using Models;
 
-    public abstract class FilterParam
+    public class FilterParam
     {
         protected FilterParam(
             int custId,

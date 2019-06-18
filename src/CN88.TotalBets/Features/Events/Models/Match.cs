@@ -1,8 +1,8 @@
-﻿using System;
-using CN88.TotalBets.Shared.Services;
-
-namespace CN88.TotalBets.Features.Events.Models
+﻿namespace CN88.TotalBets.Features.Events.Models
 {
+    using System;
+    using Shared.Services;
+
     public class Match
     {
         public Match()

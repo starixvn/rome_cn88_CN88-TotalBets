@@ -11,7 +11,8 @@
             int bettypeGroup,
             string betteam,
             int liveIndicator,
-            byte eventType) : base(custId, matchId, stake, stakeCondition, roleId)
+            byte eventType)
+            : base(custId, matchId, stake, stakeCondition, roleId)
         {
             BettypeGroup = bettypeGroup;
             BetTeam = betteam;

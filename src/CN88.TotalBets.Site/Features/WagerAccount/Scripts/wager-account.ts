@@ -10,7 +10,7 @@ class WagerAccount {
 
     init(): void {
         this.$navTabs = this.$("#nav-tabs");
-        $('#nav-tabs .lnk-changetab:first').tab('show');        
+        $('#nav-tabs .lnk-changetab:first').tab('show');
     }
 }
 

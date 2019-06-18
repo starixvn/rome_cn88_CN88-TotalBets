@@ -26,8 +26,6 @@
         public byte Market { get; }
 
         public override string GetSettingKey()
-            => UserLevel.IsSuperLevel()
-            ? "CS_TotalBets_Event_Super"
-            : (UserLevel.IsMasterLevel() ? "CS_TotalBets_Event_Master" : "CS_TotalBets_Event_Agent");
+            => $"CS_TotalBets_Event_{UserLevel.DisplayName}";
     }
 }

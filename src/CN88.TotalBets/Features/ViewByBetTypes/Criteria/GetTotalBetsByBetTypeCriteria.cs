@@ -47,22 +47,9 @@
         public UserLevel UserLevel { get; }
 
         public override string GetSettingKey()
-        {
-            if (EventType == EventTypeConstants.Started)
-            {
-                return UserLevel.IsSuperLevel()
-                    ? "CS_TotalBets_Bettype_Started_Super"
-                    : UserLevel.IsMasterLevel()
-                    ? "CS_TotalBets_Bettype_Started_Master"
-                    : "CS_TotalBets_Bettype_Started_Agent";
-            }
-
-            return UserLevel.IsSuperLevel()
-                ? "CS_TotalBets_Bettype_Super"
-                : UserLevel.IsMasterLevel()
-                ? "CS_TotalBets_Bettype_Master"
-                : "CS_TotalBets_Bettype_Agent";
-        }
+            => EventType == EventTypeConstants.Started
+                ? $"CS_TotalBets_Bettype_Started_{UserLevel.DisplayName}"
+                : $"CS_TotalBets_Bettype_{UserLevel.DisplayName}";
 
         public override bool IsValid()
             => CustId > 0 && MatchId > 0;

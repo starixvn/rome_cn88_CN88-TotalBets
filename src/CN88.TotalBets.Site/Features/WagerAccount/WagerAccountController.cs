@@ -3,9 +3,9 @@
     using System.Threading.Tasks;
     using System.Web.Mvc;
     using System.Web.SessionState;
-    using CN88.TotalBets.Site.Shared.Helpers;
     using MediatR;
     using Shared.Controllers;
+    using Web.Helpers;
 
     [SessionState(SessionStateBehavior.ReadOnly)]
     public class WagerAccountController : SiteBaseController
@@ -26,8 +26,8 @@
         {
             message.CurrentUrl = Request.Url.Query;
 
-            return await ViewAsync(message, 
-                this.browserHelper.IsMobile() 
+            return await ViewAsync(message,
+                this.browserHelper.IsMobile()
                 ? OutrightMobileViewPath
                 : OutrightViewPath);
         }
@@ -36,7 +36,7 @@
         {
             message.CurrentUrl = Request.Url.Query;
 
-            return await ViewAsync(message, 
+            return await ViewAsync(message,
                 this.browserHelper.IsMobile()
                 ? EventMobileViewPath
                 : EventViewPath);

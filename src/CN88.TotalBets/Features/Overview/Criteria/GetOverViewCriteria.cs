@@ -24,7 +24,6 @@
             => CustId > 0 && PossType >= 0;
 
         public override string GetSettingKey()
-            => UserLevel.IsSuperLevel() ? "CS_TotalBets_Overview_Super" : UserLevel.IsMasterLevel() ?
-            "CS_TotalBets_Overview_Master" : "CS_TotalBets_Overview_Agent";
+            => $"CS_TotalBets_Overview_{UserLevel.DisplayName}";
     }
 }

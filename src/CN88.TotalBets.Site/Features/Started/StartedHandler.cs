@@ -3,7 +3,6 @@
     using System.Threading.Tasks;
     using MediatR;
     using Shared.Handlers;
-    using Shared.Helpers;
     using TotalBets.Features.Leagues;
     using TotalBets.Features.SportTypeGroup;
     using TotalBets.Features.Started;
@@ -11,6 +10,7 @@
     using TotalBets.Features.Summaries;
     using TotalBets.Shared.Constants;
     using ViewModels;
+    using Web.Helpers;
 
     public class StartedHandler : BaseHandler, IAsyncRequestHandler<StartedQuery, StartedViewModel>
     {

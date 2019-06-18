@@ -3,10 +3,10 @@
     using System.Collections.Generic;
     using System.Web.Mvc;
     using AppResources;
-    using Shared.Helpers;
     using Shared.ViewModels;
     using TotalBets.Features.Outright.Models;
     using TotalBets.Features.Summaries.Models;
+    using Web.Helpers;
 
     public class OutrightViewModel : TotalBetBySportBaseViewModel
     {
@@ -35,9 +35,9 @@
                 custId = query.ViewerId,
                 custLevelId = query.ViewerLevelId,
                 custName = query.ViewerName,
-                matchId = matchId,
-                Stake = FilterViewModel.Stake,
-                StakeCondition = FilterViewModel.StakeCondition
+                matchId,
+                FilterViewModel.Stake,
+                FilterViewModel.StakeCondition
             };
     }
 }

@@ -2,118 +2,111 @@
 
 class SummaryMenuOption {
     constructor(
-        public mainContentId: string = "main-content") {
+        public mainContentId = "main-content") {
     }
 }
 
 class SummaryMenu {
     $: JQueryStatic;
-    $topWindow: any;
+    $topWindow: Window;
 
     options = new SummaryMenuOption();
     $summaryMenu: JQuery;
     $summaryMenuItems: JQuery;
     $mainContent: JQuery;
-    isDevice: boolean = false;
+    isDevice = false;
+    collapsedClass = "collapsed";
+    expandedClass = "expanded";
+    clickTouchendEvents = "click touchend";
 
-    constructor($: JQueryStatic, topWindow: any) {
+    constructor($: JQueryStatic, topWindow: Window) {
         this.$ = $;
         this.$topWindow = topWindow;
     }
 
     render = (options: SummaryMenuOption = new SummaryMenuOption()) => {
-        this.options = <SummaryMenuOption>this.$.extend({}, this.options, options);
+        this.options = this.$.extend({}, this.options, options) as SummaryMenuOption;
 
         this.$mainContent = this.$("#" + this.options.mainContentId);
         this.$summaryMenu = this.$("#summary-menu");
         this.$summaryMenuItems = this.$("#summary-menu-items");
-        this.isDevice = this.$("#IsDevice").val() == "1";
+        this.isDevice = this.$("#IsDevice").val() === "1";
 
-        var self = this;
-        this.$("#head-menu").on("click touchend", function (event) {
-            if (event.type == 'touchend') {
-                self.$(this).off('click');
+        this.$("#head-menu").on(this.clickTouchendEvents, (event: JQueryEventObject) => {
+            if (event.type === "touchend") {
+                this.$(event.currentTarget).off('click');
             }
 
-            if (self.isDevice) {
-                self.collapseMenuMobile();
+            if (this.isDevice) {
+                this.collapseMenuMobile();
 
                 event.stopPropagation();
                 return false;
             } else {
-                self.collapseMenu();
+                this.collapseMenu();
             }
         });
 
         if (this.isDevice) {
-            this.$(window).on("click touchend", () => { this.hideMenuMobile(); });
-            this.$summaryMenu.on("click touchend", (event) => {
+            this.$(window).on(this.clickTouchendEvents, this.hideMenuMobile);
+            this.$summaryMenu.on(this.clickTouchendEvents, (event) => {
                 event.stopPropagation();
             });
 
             this.calculateMenuHeight();
 
-            this.$(window).resize(() => {
-                this.calculateMenuHeight();
-            });
+            this.$(window).resize(this.calculateMenuHeight);
         }
     }
 
     collapseMenu(): void {
-        let collapsedClass = 'collapsed';
-        let expandedClass = 'expanded';
-
-        let isCollapsed = this.$summaryMenu.hasClass(collapsedClass);
+        const isCollapsed = this.$summaryMenu.hasClass(this.collapsedClass);
 
         if (isCollapsed) {
             this.$summaryMenuItems.show();
-            this.$summaryMenu.removeClass(collapsedClass);
-            this.$mainContent.removeClass(expandedClass);
+            this.$summaryMenu.removeClass(this.collapsedClass);
+            this.$mainContent.removeClass(this.expandedClass);
         } else {
             this.$summaryMenuItems.hide();
-            this.$summaryMenu.addClass(collapsedClass);
-            this.$mainContent.addClass(expandedClass);
+            this.$summaryMenu.addClass(this.collapsedClass);
+            this.$mainContent.addClass(this.expandedClass);
         }
     }
 
     collapseMenuMobile(): void {
-        let collapsedClass = 'collapsed';
-        let expandedClass = 'expanded';
-
-        let isCollapsed = this.$summaryMenu.hasClass(expandedClass);
+        const isCollapsed = this.$summaryMenu.hasClass(this.expandedClass);
 
         if (isCollapsed) {
-            this.$summaryMenu.removeClass(expandedClass);
-            this.$mainContent.removeClass(expandedClass);
+            this.$summaryMenu.removeClass(this.expandedClass);
+            this.$mainContent.removeClass(this.expandedClass);
         } else {
-            this.$summaryMenu.addClass(expandedClass);
-            this.$mainContent.addClass(expandedClass);
+            this.$summaryMenu.addClass(this.expandedClass);
+            this.$mainContent.addClass(this.expandedClass);
         }
     }
 
-    hideMenuMobile(): void {
-        let expandedClass = 'expanded';
-        let isCollapsed = this.$summaryMenu.hasClass(expandedClass);
+    hideMenuMobile = () => {
+        const isCollapsed = this.$summaryMenu.hasClass(this.expandedClass);
         if (!isCollapsed) {
             return;
         }
 
-        this.$summaryMenu.removeClass(expandedClass);
-        this.$mainContent.removeClass(expandedClass);
+        this.$summaryMenu.removeClass(this.expandedClass);
+        this.$mainContent.removeClass(this.expandedClass);
     }
 
-    calculateMenuHeight(): void {
+    calculateMenuHeight = () => {
         if (!this.isDevice) {
             return;
         }
-        var menu = this.$("#summary-menu"),
-            mainHeight = this.$(this.$topWindow).height() - this.$topWindow.$("#header").height() - parseInt(menu.css("top"), 0),
-            menuHeight = menu.outerHeight();
+
+        const mainHeight = this.$(this.$topWindow).height() - this.$topWindow.$("#header").height() - parseInt(this.$summaryMenu.css("top"), 0);
+        const menuHeight = this.$summaryMenu.outerHeight();
 
         if (menuHeight >= mainHeight) {
-            menu.height(mainHeight);
+            this.$summaryMenu.height(mainHeight);
         } else {
-            menu.css("height", "auto");
+            this.$summaryMenu.css("height", "auto");
         }
     }
 }

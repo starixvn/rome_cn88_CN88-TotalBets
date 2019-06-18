@@ -4,10 +4,12 @@
     display: inline-block;
     vertical-align: middle;
 }
+
 .page-title {
     width: unset;
-    margin: 0 20px 16px 0 ;
+    margin: 0 20px 16px 0;
 }
+
 .filter {
     padding-top: 0;
 }
@@ -34,28 +36,35 @@
 
 .tbl-betdetail {
     margin-bottom: 12px;
+
     tbody td {
         padding: 3px 8px;
+
         span {
             display: block;
         }
+
         &.even {
             background-color: #ececec;
         }
+
         &:nth-child(2) {
             background-color: #ecf4e2;
         }
+
         &:first-child {
             min-width: 120px;
             background-color: #6b6b6b;
             color: #fff;
         }
+
         &:not(:first-child) {
             width: 110px;
             text-align: right;
         }
     }
-    th [data-toggle="tooltip"]{
+
+    th [data-toggle="tooltip"] {
         cursor: pointer;
     }
 }
@@ -92,6 +101,16 @@ body.phone {
         display: none;
     }
 
+    
+    .item-lbl {
+        float: left;
+    }
+
+    .values {
+        float: right;
+        text-align: right;
+    }
+
     .group-list {
         display: block;
         list-style: none;
@@ -99,7 +118,7 @@ body.phone {
         padding: 0;
         border: 1px solid #D2D2D2;
     }
-    
+
     .group-title {
         position: relative;
         height: $height-small;
@@ -113,8 +132,47 @@ body.phone {
             position: absolute;
             left: 6px;
             content: "\e908";
-            font-family: "CN88Icon";
-            font-size: 13px; 
+            font-family: "CN88Icon", sans-serif !important;
+            font-size: 13px;
+        }
+
+        .item-lbl {
+            line-height: $height-small;
+        }
+
+        .value-detail {
+            line-height: $height-small/2;
+        }
+    }
+    
+
+    .list-item {
+        display: none;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-bottom: 1px solid #D2D2D2;
+
+        &.special-area {
+            background-color: #ecf4e2;
+        }
+
+        .item-lbl {
+            line-height: $height-large;
+        }
+
+        .value-detail {
+            line-height: $height-large/2;
+        }
+    }
+
+    .item {
+        height: $height-large;
+        padding: 0 8px;
+        border-top: 1px solid #D2D2D2;
+
+        &:first-child {
+            border-top: none;
         }
     }
 
@@ -127,78 +185,28 @@ body.phone {
             display: block;
         }
     }
-
-    .list-item {
-        display: none;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        border-bottom: 1px solid #D2D2D2;
-
-        &.special-area {
-            background-color: #ecf4e2;
-        }
-    }
-
-    .item {
-        height: $height-large;
-        padding: 0 8px;
-        border-top: 1px solid #D2D2D2;
-
-         &:first-child {
-            border-top: none;
-        }
-    }
-
+    
     .tbl-betdetail {
         width: 100%;
         margin-top: 16px;
 
-       tbody td {
-           width: auto;
-           padding-top: 0;
-           padding-bottom: 0;
-       }
+        tbody td {
+            width: auto;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
 
-       tbody td:first-child {
-           min-width: 50px;
-       }
+        tbody td:first-child {
+            min-width: 50px;
+        }
 
-       .values {
-           float: none;
-       }
+        .values {
+            float: none;
+        }
 
-       .values .value-detail {
+        .values .value-detail {
             line-height: $height-large/2;
         }
     }
     
-   .item-lbl {
-        float: left;
-    }
-
-    .values {
-        float: right;
-        text-align: right;
-    }
-
-    .list-item {
-        .item-lbl {
-            line-height: $height-large;
-        }
-
-       .value-detail {
-            line-height: $height-large/2;
-        }
-    }
-
-    .group-title {
-        .item-lbl {
-            line-height: $height-small;
-        }
-
-        .value-detail {
-            line-height: $height-small/2;
-        }
-    }
 }

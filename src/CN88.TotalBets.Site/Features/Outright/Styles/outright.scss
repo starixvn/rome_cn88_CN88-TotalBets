@@ -5,13 +5,13 @@
 
     tr.group {
         .group-name-wrapper {
-            width: calc(100% - 150px - 8px);    
-            display: inline-block;        
+            width: calc(100% - 150px - 8px);
+            display: inline-block;
         }
     }
     .team {
         width: 50%;
-        
+
         .team-name, .index {
             display: inline-block;
             vertical-align: middle;
@@ -31,12 +31,11 @@
             border-right: 1px solid #d9d9d9;
         }
     }
-    
+
     /*> tbody > tr > td {
-        border: 1px solid #d9d9d9;        
+        border: 1px solid #d9d9d9;
     }*/
 
-    
     .stake {
         display: block;
     }
@@ -66,7 +65,7 @@ body.phone {
             height: 42px;
         }
 
-        tr.group td  {      
+        tr.group td  {
             height: 36px;
         }
 
@@ -96,7 +95,3 @@ body.phone {
         }
     }
 }
-
-
-
-

@@ -20,12 +20,11 @@ class LinkBuilderComponent {
     };
 
     updateParam = (name: string, value: string) => {
-        let me = this;
         this.options.linkClasses.forEach((className: string) => {
-            let $linkClass = this.$(className);
+            const $linkClass = this.$(className);
 
             $linkClass.each((index: number, element: Element) => {
-                let $link = me.$(element);
+                const $link = this.$(element);
                 let currentUrl = $link.attr("href");
 
                 currentUrl = this.replaceQueryStringValue(currentUrl, name, value);
@@ -35,15 +34,15 @@ class LinkBuilderComponent {
         });
     };
 
-    replaceQueryStringValue = (queryString: string, paramName: string, paramValue: any) => {
+    replaceQueryStringValue = (queryString: string, paramName: string, paramValue) => {
         if (typeof queryString === "undefined"
             || queryString === null) {
             return "";
         }
 
-        var regex = new RegExp("([?&])" + paramName + "=[^&]*", "i");
+        const regex = new RegExp("([?&])" + paramName + "=[^&]*", "i");
 
-        var newQueryString = regex.test(queryString)
+        const newQueryString = regex.test(queryString)
             ? queryString.replace(regex, "$1" + paramName + "=" + paramValue)
             : queryString + (queryString.indexOf("?") >= 0 ? "&" : "?") + paramName + "=" + paramValue;
 

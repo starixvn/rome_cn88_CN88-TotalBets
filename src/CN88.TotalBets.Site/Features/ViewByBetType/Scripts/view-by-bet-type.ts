@@ -4,14 +4,15 @@
 class ViewByBetType extends BaseTotalBets {
     marketSelectionComponent: SingleSelectionDropdownComponent;
     isMobile: boolean;
-    $topWindow: any;
+    $topWindow: Window;
+    iconChevronDownClass = "icon-chevron-down";
+    iconChevronRightClass = "icon-chevron-right";
 
     constructor(
         $: JQueryStatic,
-        topWindow: any,
+        topWindow: Window,
         summaryMenu: SummaryMenu,
         stakeConditionSelectionComponent: SingleSelectionDropdownComponent,
-        dateTypeSelectionComponent: SingleSelectionDropdownComponent,
         possTypeSelectionComponent: SingleSelectionDropdownComponent,
         marketSelectionComponent: SingleSelectionDropdownComponent) {
         super($, summaryMenu, stakeConditionSelectionComponent, possTypeSelectionComponent, null);
@@ -37,7 +38,7 @@ class ViewByBetType extends BaseTotalBets {
             this.marketSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-market", "Market"));
         }
 
-        this.isMobile = this.$("#IsDevice").val() == "1";
+        this.isMobile = this.$("#IsDevice").val() === "1";
     }
 
     onSubmit(): void {
@@ -48,58 +49,59 @@ class ViewByBetType extends BaseTotalBets {
     bindEvents(): void {
         super.bindEvents();
 
-        let reloadInSeconds: number = <number>this.$("#ReloadTimeInSeconds").val();
-        let autoRefresh: RefreshCountDown = new RefreshCountDown($, new LinkBuilderComponent($));
+        const reloadInSeconds: number = this.$("#ReloadTimeInSeconds").val() as number;
+        const autoRefresh: RefreshCountDown = new RefreshCountDown($, new LinkBuilderComponent($));
 
         autoRefresh.render(new RefreshCountDownOptions("CountDownMenu", "", reloadInSeconds, () => {
             this.onSubmit();
             this.$filterForm.trigger("submit");
         }));
 
-        this.summaryMenu.$summaryMenuItems.find(".league-wrapper").click(function (): void {
-            let $this: JQuery = $(this);
-            let icon = $this.children().last();
-            let child = $this.siblings(`.child-${$this.attr("id")}`);
+        this.summaryMenu.$summaryMenuItems.find(".league-wrapper").click((e: JQueryEventObject) => {
+            const $this: JQuery = this.$(e.currentTarget);
+            const icon = $this.children().last();
+            const child = $this.siblings(`.child-${$this.attr("id")}`);
 
-            if (icon.hasClass("icon-chevron-down")) {
-                icon.removeClass().addClass("icon-chevron-right");
+            if (icon.hasClass(this.iconChevronDownClass)) {
+                icon.removeClass().addClass(this.iconChevronRightClass);
                 child.addClass("hide");
             } else {
-                icon.removeClass().addClass("icon-chevron-down");
+                icon.removeClass().addClass(this.iconChevronDownClass);
                 child.removeClass("hide");
             }
         });
 
-        let me = this;
-        this.$tblTotalBets.find(".stake-link").click(function (e: any): void {
+        this.$tblTotalBets.find(".stake-link").click((e: JQueryEventObject) => {
             e.preventDefault();
             e.stopPropagation();
-            if (me.isMobile) {
-                window.open(this.href, "_blank");
+            const url = this.$(e.currentTarget).attr("href");
+
+            if (this.isMobile) {
+                window.open(url, "_blank");
             }
             else {
-                window.open(this.href, "WagerDetails", "width=1000, height=500");
+                window.open(url, "WagerDetails", "width=1000, height=500");
             }
         });
 
-        this.$(".sport").click(function (): void {
-            let $this: JQuery = $(this);
-            let icon = $this.children().last();
-            let listSports = $(".list-sports");
-            let leagues = $(".league-wrapper");
+        this.$(".sport").click((e: JQueryEventObject) => {
+            const $this: JQuery = this.$(e.currentTarget);
+            const icon = $this.children().last();
+            const listSports = $(".list-sports");
+            const leagues = $(".league-wrapper");
 
-            if (icon.hasClass("icon-chevron-down")) {
-                icon.removeClass().addClass("icon-chevron-right");
+            if (icon.hasClass(this.iconChevronDownClass)) {
+                icon.removeClass().addClass(this.iconChevronRightClass);
                 listSports.addClass("hide");
                 leagues.each(function () {
                     $(this).children().last().removeClass().addClass("icon-chevron-right");
-                })
+                });
             } else {
-                icon.removeClass().addClass("icon-chevron-down");
+                icon.removeClass().addClass(this.iconChevronDownClass);
                 listSports.removeClass("hide");
                 leagues.each(function () {
                     $(this).children().last().removeClass().addClass("icon-chevron-down");
-                })
+                });
             }
         });
     }
@@ -110,7 +112,6 @@ $(function (): void {
         $,
         top,
         new SummaryMenu($, top),
-        new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($)).init();

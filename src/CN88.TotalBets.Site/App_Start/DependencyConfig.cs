@@ -4,13 +4,10 @@
     using System.Diagnostics.CodeAnalysis;
     using System.Reflection;
     using System.Web.Mvc;
-    using CN88.TotalBets.Features.ViewByBetTypes;
-    using CN88.TotalBets.Features.ViewByBetTypes.BetOptionBuilders;
     using Fanex.Data.Repository;
     using Fanex.RemotingRef;
     using MediatR;
     using Shared.Controllers;
-    using Shared.Helpers;
     using Shared.Models;
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
@@ -24,9 +21,12 @@
     using TotalBets.Features.SportTypeGroup;
     using TotalBets.Features.Started;
     using TotalBets.Features.Summaries;
+    using TotalBets.Features.ViewByBetTypes;
+    using TotalBets.Features.ViewByBetTypes.BetOptionBuilders;
     using TotalBets.Features.WagerAccount;
     using TotalBets.Shared.Models;
     using TotalBets.Shared.Services;
+    using Web.Helpers;
 
     public static class DependencyConfig
     {
@@ -89,11 +89,7 @@
             container.RegisterSingleton(Fanex.Logging.Logger.Log);
             container.RegisterSingleton<IRemotingRefService, RemotingRefService>();
             container.RegisterSingleton<CacheRefService, CacheRefServiceImpl>();
-            container.Register<SportTypeGroupService>(
-                () => new SportTypeGroupServiceImpl(
-                    container.GetInstance<SportTypeGroupDataAccess>(),
-                    container.GetInstance<CacheRefService>().GetSportName),
-                Lifestyle.Singleton);
+            container.RegisterSingleton<SportTypeGroupService, SportTypeGroupServiceImpl>();
 
             container.RegisterSingleton<IOverViewService, OverViewService>();
             container.RegisterSingleton<EventService, EventServiceImpl>();

@@ -35,7 +35,7 @@
     <Setting Key="CS_TotalBets_WagerAccount_Outright_Agent" SpName="CS_TotalBets_WagerAccount_Outright_Agent" DbName="DB042.bodb02.BODBDownlineNetView" Plain="0" />
     <Setting Key="CS_TotalBets_WagerAccount_Outright_Master" SpName="CS_TotalBets_WagerAccount_Outright_Master" DbName="DB042.bodb02.BODBDownlineNetView" Plain="0" />
     <Setting Key="CS_TotalBets_WagerAccount_Outright_Member" SpName="CS_TotalBets_WagerAccount_Outright_Member" DbName="DB042.bodb02.BODBDownlineNetView" Plain="0" />
-    
+
     <Setting Key="CS_TotalBets_WagerAccount_Event_Agent" SpName="CS_TotalBets_WagerAccount_Event_Agent" DbName="DB042.bodb02.BODBDownlineNetView" Plain="0" />
     <Setting Key="CS_TotalBets_WagerAccount_Event_Master" SpName="CS_TotalBets_WagerAccount_Event_Master" DbName="DB042.bodb02.BODBDownlineNetView" Plain="0" />
     <Setting Key="CS_TotalBets_WagerAccount_Event_Member" SpName="CS_TotalBets_WagerAccount_Event_Member" DbName="DB042.bodb02.BODBDownlineNetView" Plain="0" />

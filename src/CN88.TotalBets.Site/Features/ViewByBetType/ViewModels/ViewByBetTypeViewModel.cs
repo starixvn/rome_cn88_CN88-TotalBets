@@ -10,6 +10,7 @@
     using TotalBets.Features.ViewByBetTypes.Models;
     using TotalBets.Shared.Constants;
     using TotalBets.Shared.Services;
+    using Web.Helpers;
 
     public class ViewByBetTypeViewModel : BaseViewModel
     {
@@ -69,7 +70,7 @@
 
         public bool IsShowKODate { get; }
 
-        public IEnumerable<int> CountDownSecs => new List<int> { 10, 20, 30, 40, 50, 60 };
+        public IEnumerable<int> CountDownSecs { get; } = new List<int> { 10, 20, 30, 40, 50, 60 };
 
         public object GetWagerAccountParams(int bettypeId, string betTeam, bool liveIndicator)
             => new
@@ -78,11 +79,11 @@
                 custLevelId = query.ViewerLevelId,
                 custName = query.ViewerName,
                 matchId = Match.MatchId,
-                Stake = FilterViewModel.Stake,
-                StakeCondition = FilterViewModel.StakeCondition,
+                FilterViewModel.Stake,
+                FilterViewModel.StakeCondition,
                 BetType = bettypeId,
                 liveIndicator = liveIndicator ? 1 : 0,
-                betTeam = betTeam,
+                betTeam,
                 type = filterQuery.Type
             };
 
@@ -91,44 +92,43 @@
 
         public bool IsDevices => browserHelper.IsMobile() && !browserHelper.IsTablet();
 
-
-        private string BuildSummaryPath(ViewByBetTypeQuery filterQuery)
+        private static string BuildSummaryPath(ViewByBetTypeQuery viewBetTypeQuery)
         {
-            if (filterQuery.Type == EventTypeConstants.Started)
+            if (viewBetTypeQuery.Type == EventTypeConstants.Started)
             {
-                return Shared.Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc(
-                    $"{filterQuery.AppPath}Started",
-                    GetRouteValues(filterQuery));
+                return UrlHelper.ReplaceOrAddQueryStringParamsFunc(
+                    $"{viewBetTypeQuery.AppPath}Started",
+                    GetRouteValues(viewBetTypeQuery));
             }
 
-            return Shared.Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc(
-                    $"{filterQuery.AppPath}Event",
-                    new Dictionary<string, object>(GetRouteValues(filterQuery))
+            return UrlHelper.ReplaceOrAddQueryStringParamsFunc(
+                    $"{viewBetTypeQuery.AppPath}Event",
+                    new Dictionary<string, object>(GetRouteValues(viewBetTypeQuery))
                     {
-                        [nameof(filterQuery.Type)] = filterQuery.Type
+                        [nameof(viewBetTypeQuery.Type)] = viewBetTypeQuery.Type
                     });
         }
 
-        private string BuildViewByBetTypePath(ViewByBetTypeQuery filterQuery)
-            => Shared.Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc(
-                $"{filterQuery.AppPath}ViewByBetType",
-                new Dictionary<string, object>(GetRouteValues(filterQuery))
+        private static string BuildViewByBetTypePath(ViewByBetTypeQuery viewBetTypeQuery)
+            => UrlHelper.ReplaceOrAddQueryStringParamsFunc(
+                $"{viewBetTypeQuery.AppPath}ViewByBetType",
+                new Dictionary<string, object>(GetRouteValues(viewBetTypeQuery))
                 {
-                    [nameof(filterQuery.Type)] = filterQuery.Type,
-                    [nameof(filterQuery.IsShowKODate)] = filterQuery.IsShowKODate
+                    [nameof(viewBetTypeQuery.Type)] = viewBetTypeQuery.Type,
+                    [nameof(viewBetTypeQuery.IsShowKODate)] = viewBetTypeQuery.IsShowKODate
                 });
 
-        private IDictionary<string, object> GetRouteValues(ViewByBetTypeQuery filterQuery)
+        private static IDictionary<string, object> GetRouteValues(ViewByBetTypeQuery viewBetTypeQuery)
             => new Dictionary<string, object>
             {
-                [nameof(filterQuery.SportTypeGroup)] = filterQuery.SportTypeGroup,
-                [nameof(filterQuery.PossType)] = filterQuery.PossType,
-                [nameof(filterQuery.Stake)] = filterQuery.Stake,
-                [nameof(filterQuery.StakeCondition)] = filterQuery.StakeCondition,
-                [nameof(filterQuery.Market)] = filterQuery.Market,
-                [nameof(filterQuery.LeagueId)] = filterQuery.LeagueId,
-                [nameof(filterQuery.DateType)] = filterQuery.DateType,
-                [nameof(filterQuery.IsAutoRefresh)] = filterQuery.IsAutoRefresh
+                [nameof(viewBetTypeQuery.SportTypeGroup)] = viewBetTypeQuery.SportTypeGroup,
+                [nameof(viewBetTypeQuery.PossType)] = viewBetTypeQuery.PossType,
+                [nameof(viewBetTypeQuery.Stake)] = viewBetTypeQuery.Stake,
+                [nameof(viewBetTypeQuery.StakeCondition)] = viewBetTypeQuery.StakeCondition,
+                [nameof(viewBetTypeQuery.Market)] = viewBetTypeQuery.Market,
+                [nameof(viewBetTypeQuery.LeagueId)] = viewBetTypeQuery.LeagueId,
+                [nameof(viewBetTypeQuery.DateType)] = viewBetTypeQuery.DateType,
+                [nameof(viewBetTypeQuery.IsAutoRefresh)] = viewBetTypeQuery.IsAutoRefresh
             };
     }
 }

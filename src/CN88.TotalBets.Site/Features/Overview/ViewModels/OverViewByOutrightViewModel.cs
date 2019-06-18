@@ -14,7 +14,7 @@
             foreach (var row in model)
             {
                 SportsColumn.Add(new OverViewItemModel(row.SportTypeGroup, row.OutrightWager, row.OutrightStake));
-            }            
+            }
         }
 
         public override string Text => Resources.ResourceManager.GetString("Outright");

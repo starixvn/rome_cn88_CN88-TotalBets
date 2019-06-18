@@ -8,7 +8,7 @@
     {
         public WagerAccountBaseQuery(IUser viewer)
             : base(viewer)
-        {            
+        {
         }
 
         public int MatchId { get; set; }

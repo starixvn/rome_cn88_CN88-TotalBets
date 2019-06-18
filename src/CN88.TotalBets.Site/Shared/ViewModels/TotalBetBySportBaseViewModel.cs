@@ -3,10 +3,10 @@
     using System.Collections.Generic;
     using System.Web.Mvc;
     using Filters;
-    using Helpers;
     using Requests;
     using TotalBets.Features.Summaries.Models;
     using TotalBets.Shared.Constants;
+    using Web.Helpers;
 
     public class TotalBetBySportBaseViewModel : BaseViewModel
     {
@@ -33,7 +33,6 @@
         public SummaryMenuViewModel SummaryMenuViewModel { get; }
 
         public bool IsDevices => browserHelper.IsMobile() && !browserHelper.IsTablet();
-
 
         public string BuildViewByBetTypeLink(byte type, int matchId)
             => Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc(
