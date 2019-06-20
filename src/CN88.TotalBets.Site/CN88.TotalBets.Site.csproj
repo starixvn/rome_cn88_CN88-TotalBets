@@ -61,8 +61,8 @@
       <HintPath>..\..\packages\Alpha.Web.1.0.1.6\lib\net40\Alpha.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CN88.Web, Version=1.0.0.9, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CN88.Web.1.0.0.9\lib\net461\CN88.Web.dll</HintPath>
+    <Reference Include="CN88.Web">
+      <HintPath>..\..\packages\CN88.Web.1.0.1.0-AccountStatus-03\lib\net461\CN88.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Couchbase, Version=1.2.7.0, Culture=neutral, PublicKeyToken=05e9c6b5a9ec94c2, processorArchitecture=MSIL">
@@ -316,14 +316,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\SPNames\Dev\DBCust.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBAGE.bodb02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Internal\DBCust.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Internal\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Dev\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Dev\DBAGE.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Dev\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Main\DB042.bodb02.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Main\DBAGE.bodb02.BODBDownlineNet.xml" />
+    <Content Include="App_Data\SPNames\Main\DBCust.CustDB.BODBDownlineNet.xml" />
     <Content Include="App_Data\SPNames\Main\DBONUSER.ON_USER.BODBDownlineNet.xml" />
     <Content Include="assets\bundles\events\event.css" />
     <Content Include="assets\bundles\events\event.min.css">
