@@ -45,18 +45,7 @@
         }
     }
 
-    &.collapsed {
-        width: 36px;
-        background-color: #7a301c;
-
-        .head-menu {
-            font-size: 0;
-
-            .icon-menu {
-                font-size: 13px;
-            }
-        }
-    }
+    
 
     .menu-item {
         padding: 7px 8px;
@@ -131,6 +120,7 @@
         padding-left: 4px;
     }
 }
+
 
 // Refresh count down
 
@@ -673,6 +663,19 @@ body.phone {
     .tbl-wager {
         .col-name {
             min-width: 40px;
+        }
+    }
+}
+
+.menu-container.collapsed {
+    width: 36px;
+    background-color: #7a301c;
+
+    .head-menu {
+        font-size: 0;
+
+        .icon-menu {
+            font-size: 13px;
         }
     }
 }

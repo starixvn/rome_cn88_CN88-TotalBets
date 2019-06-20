@@ -1,7 +1,9 @@
-﻿@import "../../../Shared/Styles/variables";
-
-.tbl-outright {
+﻿.tbl-outright {
     width: 1040px;
+
+    .stake {
+        display: block;
+    }
 
     tr.group {
         .group-name-wrapper {
@@ -30,14 +32,6 @@
         &:first-child {
             border-right: 1px solid #d9d9d9;
         }
-    }
-
-    /*> tbody > tr > td {
-        border: 1px solid #d9d9d9;
-    }*/
-
-    .stake {
-        display: block;
     }
 }
 
