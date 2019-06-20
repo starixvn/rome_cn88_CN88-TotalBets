@@ -15,7 +15,7 @@ class SummaryMenu {
     $summaryMenuItems: JQuery;
     $mainContent: JQuery;
     isDevice = false;
-    collapsedClass = "collapsed";
+    collapsedClass = "menu-container-collapsed";
     expandedClass = "expanded";
     clickTouchendEvents = "click touchend";
 
