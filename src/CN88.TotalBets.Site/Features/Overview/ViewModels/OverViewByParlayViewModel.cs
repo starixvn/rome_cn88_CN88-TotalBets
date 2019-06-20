@@ -1,11 +1,8 @@
 ﻿namespace CN88.TotalBets.Site.Features.Overview.ViewModels
 {
     using System.Collections.Generic;
-    using Alpha.Web.Helpers;
-    using AppResources;
     using Shared.Helpers;
     using TotalBets.Features.Overview.Models;
-    using TotalBets.Shared.Configurations;
     using TotalBets.Shared.Constants;
 
     public class OverViewByParlayViewModel
@@ -29,7 +26,7 @@
 
         public string Url(int possType, int sportGroupId)
             => UrlHelper.AddQueryStringParamsFunc(
-                AppPathHelper.GetAppPath(AppSettings.FeaturesAppPath, "~/BetLists/TotalBetParlay"),
+                UrlHelper.MapFeaturesPath("~/BetLists/TotalBetParlay"),
                 new Dictionary<string, object>
                 {
                     ["ViewMode"] = possType,

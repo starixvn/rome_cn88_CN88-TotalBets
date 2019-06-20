@@ -4,12 +4,12 @@ using System.Linq;
 using System.Web.Mvc;
 using CN88.TotalBets.Features.Started.Models;
 using CN88.TotalBets.Features.Summaries.Models;
-using CN88.TotalBets.Shared.Constants;
 using CN88.TotalBets.Shared.Models;
 using CN88.TotalBets.Site.Features.Started;
 using CN88.TotalBets.Site.Features.Started.ViewModels;
 using CN88.TotalBets.Site.Tests.Helpers;
 using CN88.Web.Helpers;
+using KellermanSoftware.CompareNetObjects;
 using NSubstitute;
 using Xunit;
 
@@ -50,13 +50,29 @@ namespace CN88.TotalBets.Site.Tests.Features.Started.ViewModels
 
             Site.Shared.Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc = Substitute.For<Func<string, IDictionary<string, object>, string>>();
 
+            var expectedRouteValues = new Dictionary<string, object>
+            {
+                ["type"] = (byte)5,
+                [nameof(matchId)] = matchId,
+                [nameof(query.Stake)] = query.Stake,
+                [nameof(query.StakeCondition)] = query.StakeCondition,
+                [nameof(query.SportTypeGroup)] = query.SportTypeGroup,
+                [nameof(query.PossType)] = query.PossType,
+                [nameof(query.LeagueId)] = query.LeagueId,
+                [nameof(query.IsAutoRefresh)] = query.IsAutoRefresh,
+                [nameof(query.Market)] = query.Market,
+                [nameof(query.DateType)] = query.DateType,
+                ["IsShowKODate"] = true
+            };
+
             // Act
-            startedViewModel.BuildViewByBetTypeLink(EventTypeConstants.Started, matchId);
+            startedViewModel.BuildViewByBetTypeLink(5, matchId);
 
             // Assert
             Site.Shared.Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc.Received().Invoke(
                 "TotalBetsPath",
-                Arg.Compat.Any<Dictionary<string, object>>());
+                Arg.Compat.Is<Dictionary<string, object>>(
+                    routeValues => new CompareLogic().Compare(expectedRouteValues, routeValues).AreEqual));
         }
     }
 }

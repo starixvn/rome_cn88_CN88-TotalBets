@@ -92,5 +92,25 @@ namespace CN88.TotalBets.Site.Tests.Features.WagerAccount
             wagerAccountService.GetByEvent(Arg.Compat.Is<WagerAccountByEventParam>(
                 x => compareLogic.Compare(x, param).AreEqual));
         }
+
+        [Fact]
+        public void HandleWagerAccountByEventQuery_Always_ReturnsCorrectViewModel()
+        {
+            // Arrange
+            var message = new WagerAccountByEventQuery(user);
+            browserHelper.IsMobile().Returns(false);
+            wagerAccountService.GetByEvent(Arg.Compat.Any<WagerAccountByEventParam>())
+                .Returns(Enumerable.Empty<WagerAccountModel>());
+            var expectedViewModel = new WagerAccountByEventViewModel(
+                Enumerable.Empty<WagerAccountModel>(),
+                message,
+                false);
+
+            // Act
+            var actualViewModel = handler.Handle(message).GetAwaiter().GetResult();
+
+            // Assert
+            Assert.True(compareLogic.Compare(expectedViewModel, actualViewModel).AreEqual);
+        }
     }
 }

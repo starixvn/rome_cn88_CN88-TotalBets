@@ -195,6 +195,11 @@
     <Compile Include="Features\Outright\OutrightViewModelTests.cs" />
     <Compile Include="Features\Overview\OverViewControllerTests.cs" />
     <Compile Include="Features\Overview\OverViewHandlerTests.cs" />
+    <Compile Include="Features\Overview\ViewModels\OverViewByEarlyViewModelTests.cs" />
+    <Compile Include="Features\Overview\ViewModels\OverViewByInPlayViewModelTests.cs" />
+    <Compile Include="Features\Overview\ViewModels\OverViewByOutrightViewModelTests.cs" />
+    <Compile Include="Features\Overview\ViewModels\OverViewByParlayViewModelTests.cs" />
+    <Compile Include="Features\Overview\ViewModels\OverViewByTodayViewModelTests.cs" />
     <Compile Include="Features\Shared\Models\UserTests.cs" />
     <Compile Include="Features\Started\StartedControllerTest.cs" />
     <Compile Include="Features\Started\StartedHandlerTest.cs" />

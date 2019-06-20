@@ -51,7 +51,6 @@ namespace CN88.TotalBets.Site.Tests.Features.Events.ViewModels
                 Enumerable.Empty<SelectListItem>(),
                 Substitute.For<BrowserHelper>());
 
-            Site.Shared.Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc = Substitute.For<Func<string, IDictionary<string, object>, string>>();
             var expectedRouteValues = new Dictionary<string, object>
             {
                 ["type"] = query.Type,
