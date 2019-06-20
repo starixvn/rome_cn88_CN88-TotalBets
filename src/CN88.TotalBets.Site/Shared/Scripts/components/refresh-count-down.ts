@@ -55,7 +55,7 @@ class RefreshCountDown {
             return false;
         });
         this.$countDownOptions.on(this.clickTouchendEvents, (event) => {
-            this.saveOption(this.$(event.currentTarget).attr("data-value"));
+            this.saveOption(parseInt(this.$(event.currentTarget).attr("data-value")));
             event.stopPropagation();
             return false;
         });
@@ -74,7 +74,7 @@ class RefreshCountDown {
             this.$countDownMenu.addClass("hide");
         });
     };
-    
+
     showOptions = () => {
         if (this.$countDownMenu.hasClass("hide")) {
             this.$countDownMenu.removeClass("hide");
@@ -83,9 +83,9 @@ class RefreshCountDown {
         }
     };
 
-    saveOption = (option) => {
+    saveOption = (option: number) => {
         cn88TotalBets.localStorage.set(this.countDownOptionCookie, option);
-        if (option === "-1") {
+        if (option === -1) {
             return;
         }
 
@@ -104,7 +104,7 @@ class RefreshCountDown {
         this.countDownTick();
     };
 
-    setCountDown = (option) => {
+    setCountDown = (option: number) => {
         this.options.reloadInSeconds = option;
         this.currentCountDown = option;
         this.activeSelectedOption();
