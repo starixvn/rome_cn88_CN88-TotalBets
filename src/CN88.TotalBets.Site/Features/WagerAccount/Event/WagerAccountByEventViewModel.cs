@@ -46,7 +46,7 @@
                 : "~/BetLists/EventWagerDetails";
 
             return UrlHelper.AddQueryStringParamsFunc(
-                AppPathHelper.GetAppPath(AppSettings.FeaturesAppPath, virtualPath),
+                UrlHelper.MapFeaturesPath(virtualPath),
                 new Dictionary<string, object>
                 {
                     ["CustId"] = Message.ViewerId,

@@ -6,6 +6,10 @@
 
     public class WagerAccountBaseQuery : BaseQuery
     {
+        internal WagerAccountBaseQuery()
+        {
+        }
+
         public WagerAccountBaseQuery(IUser viewer)
             : base(viewer)
         {

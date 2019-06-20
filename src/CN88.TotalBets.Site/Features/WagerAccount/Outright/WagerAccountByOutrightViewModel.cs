@@ -40,7 +40,7 @@
         public string GetWagerDetailUrl()
         {
             return UrlHelper.AddQueryStringParamsFunc(
-                AppPathHelper.GetAppPath(AppSettings.FeaturesAppPath, "~/BetLists/OutrightWagerDetails"),
+                UrlHelper.MapFeaturesPath("~/BetLists/OutrightWagerDetails"),
                 new Dictionary<string, object>
                 {
                     ["CustId"] = Message.ViewerId,

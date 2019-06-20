@@ -162,6 +162,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\Configurations\AppSettingsTests.cs" />
     <Compile Include="Shared\Models\CustInfoTests.cs" />
+    <Compile Include="Shared\Models\EnumerationTests.cs" />
     <Compile Include="Shared\Models\UserLevelTestCases.cs" />
     <Compile Include="Shared\Models\UserLevelTests.cs" />
     <Compile Include="Shared\Services\CacheRefServiceImplTests.cs" />
