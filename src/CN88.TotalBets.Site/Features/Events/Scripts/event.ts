@@ -48,7 +48,7 @@ class EventTotalBets extends BaseTotalBets {
         super.bindEvents();
 
         const reloadInSeconds: number = this.$("#ReloadTimeInSeconds").val() as number;
-        const autoRefresh: RefreshCountDown = new RefreshCountDown($, new LinkBuilderComponent($));
+        const autoRefresh: RefreshCountDown = new RefreshCountDown($);
         if (this.$(".btnCountDown").length) {
             const eventType = this.$("#Type");
 

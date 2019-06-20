@@ -11,7 +11,6 @@ class RefreshCountDownOptions {
 
 class RefreshCountDown {
     $: JQueryStatic;
-    linkBuilderComponent: LinkBuilderComponent;
     options = new RefreshCountDownOptions();
     $btnRefresh: JQuery;
     $countDownMenu: JQuery;
@@ -25,9 +24,8 @@ class RefreshCountDown {
     loadingText = "";
     clickTouchendEvents = "click touchend";
 
-    constructor($: JQueryStatic, linkBuilderComponent: LinkBuilderComponent) {
+    constructor($: JQueryStatic) {
         this.$ = $;
-        this.linkBuilderComponent = linkBuilderComponent;
     }
 
     render = (options: RefreshCountDownOptions = new RefreshCountDownOptions()) => {
