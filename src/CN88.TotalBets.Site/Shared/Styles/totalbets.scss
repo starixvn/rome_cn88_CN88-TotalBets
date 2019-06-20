@@ -122,6 +122,19 @@
 }
 
 
+.menu-container.collapsed {
+    width: 36px;
+    background-color: #7a301c;
+
+    .head-menu {
+        font-size: 0;
+
+        .icon-menu {
+            font-size: 13px;
+        }
+    }
+}
+
 // Refresh count down
 
 .dropdown-refresh {
@@ -663,19 +676,6 @@ body.phone {
     .tbl-wager {
         .col-name {
             min-width: 40px;
-        }
-    }
-}
-
-.menu-container.collapsed {
-    width: 36px;
-    background-color: #7a301c;
-
-    .head-menu {
-        font-size: 0;
-
-        .icon-menu {
-            font-size: 13px;
         }
     }
 }
