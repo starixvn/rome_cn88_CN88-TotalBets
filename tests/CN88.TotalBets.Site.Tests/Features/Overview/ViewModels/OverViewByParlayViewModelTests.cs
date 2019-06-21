@@ -17,7 +17,7 @@ namespace CN88.TotalBets.Site.Tests.Features.Overview.ViewModels
         public OverViewByParlayViewModelTests()
         {
             UrlHelperTestSetUp.SetUp();
-            overViewByParlayViewModel = new OverViewByParlayViewModel(new OverViewByParlayModel());
+            overViewByParlayViewModel = new OverViewByParlayViewModel(new OverViewByParlayModel(1, 2, 1, 2, 100, 200, 300));
         }
 
         [Fact]

@@ -2,11 +2,9 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using Alpha.Web.Helpers;
     using AppResources;
     using CN88.TotalBets.Features.Overview.Models;
     using CN88.TotalBets.Features.WagerAccount;
-    using CN88.TotalBets.Shared.Configurations;
     using CN88.TotalBets.Shared.Models;
     using CN88.TotalBets.Site.Shared.Helpers;
     using CN88.TotalBets.Site.Shared.ViewModels;
@@ -79,14 +77,14 @@
                 ["Type"] = Message.Type,
                 ["BreadcrumbLevelJson"] = JsonHelper.ToJsonFunc(breadscrumbToDonwline)
             };
-            var url = AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/WagerAccount/GetByEvent");
+            var url = UrlHelper.MapTotalBetsPath("~/WagerAccount/GetByEvent");
             if (Message.CustLevel.GetDirectDownLineLevel().IsMemberLevel())
             {
                 var virtualPath = Message.Type == EventTypeConstants.Started
                     ? "~/BetLists/StartedWagerByAccount"
                     : "~/BetLists/EventWagerByAccount";
 
-                url = AppPathHelper.GetAppPath(AppSettings.FeaturesAppPath, virtualPath);
+                url = UrlHelper.MapFeaturesPath(virtualPath);
             }
 
             return UrlHelper.AddQueryStringParamsFunc(url, param);

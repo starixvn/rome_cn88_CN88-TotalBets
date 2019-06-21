@@ -2,10 +2,8 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using Alpha.Web.Helpers;
     using CN88.TotalBets.Features.Overview.Models;
     using CN88.TotalBets.Features.WagerAccount;
-    using CN88.TotalBets.Shared.Configurations;
     using CN88.TotalBets.Shared.Models;
     using CN88.TotalBets.Site.Shared.Helpers;
     using CN88.TotalBets.Site.Shared.ViewModels;
@@ -66,10 +64,10 @@
                 ["CustLevelId"] = Message.CustLevel.GetDirectDownLineLevel().Value,
                 ["BreadcrumbLevelJson"] = JsonHelper.ToJsonFunc(breadscrumbToDonwline)
             };
-            var url = AppPathHelper.GetAppPath(AppSettings.TotalBetsAppPath, "~/WagerAccount/GetByOutright");
+            var url = UrlHelper.MapTotalBetsPath("~/WagerAccount/GetByOutright");
             if (Message.CustLevel.GetDirectDownLineLevel().IsMemberLevel())
             {
-                url = AppPathHelper.GetAppPath(AppSettings.FeaturesAppPath, "~/BetLists/OutrightWagerByAccount");
+                url = UrlHelper.MapFeaturesPath("~/BetLists/OutrightWagerByAccount");
             }
 
             return UrlHelper.AddQueryStringParamsFunc(url, param);

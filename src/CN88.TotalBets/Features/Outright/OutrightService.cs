@@ -51,10 +51,12 @@
                 item.TeamName = cacheRefService.GetTeamName(item.TeamId);
             }
 
+            var orderedGroup = groupLeague.OrderByDescending(item => item.Stake);
+
             return new TeamLeague(
                 groupLeague.Key,
                 cacheRefService.GetLeagueName(groupLeague.Key),
-                groupLeague.OrderByDescending(item => item.Stake),
+                orderedGroup,
                 totalWager,
                 totalStake);
         }
