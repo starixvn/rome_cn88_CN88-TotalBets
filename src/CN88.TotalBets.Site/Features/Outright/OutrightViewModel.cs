@@ -25,8 +25,6 @@
             SubTitle = Resources.Outright;
         }
 
-        public string SportGroupName { get; }
-
         public IEnumerable<TeamLeague> TeamLeagues { get; }
 
         public object GetWagerAccountParams(int matchId)

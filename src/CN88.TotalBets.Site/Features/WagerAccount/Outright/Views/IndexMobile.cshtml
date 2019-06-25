@@ -6,17 +6,13 @@
 @section Styles {
     @StaticResources.RenderStyles("~/assets/bundles/outright/outright")
 }
-@section Scripts {
-    @StaticResources.RenderScripts("~/assets/bundles/wageraccount/wager-account")
-}
 @model WagerAccountByOutrightViewModel
-
 <div class="new-page-header">
     @Resources.WagerDetails
 </div>
 <div class="wager-account-page window-page">
     <ul id="nav-tabs" class="nav nav-tabs" role="tablist">
-        <li class="lnk-changetab" role="presentation">
+        <li class="lnk-changetab active" role="presentation">
             <a href="#by-account">@Resources.ViewByAccount</a>
         </li>
         <li class="lnk-changetab">
@@ -28,7 +24,6 @@
             @if (Model.IsMobile && !string.IsNullOrWhiteSpace(backLink.Text))
             {
                 <div class="page-title-mobile">
-
                     @if (string.IsNullOrWhiteSpace(backLink.Link))
                     {
                         <div id="btn-back">

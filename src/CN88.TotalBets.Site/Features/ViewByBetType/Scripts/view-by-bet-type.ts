@@ -3,6 +3,7 @@
 
 class ViewByBetType extends BaseTotalBets {
     marketSelectionComponent: SingleSelectionDropdownComponent;
+    autoRefresh: RefreshCountDown;
     isMobile: boolean;
     $topWindow: Window;
     iconChevronDownClass = "icon-chevron-down";
@@ -14,14 +15,20 @@ class ViewByBetType extends BaseTotalBets {
         summaryMenu: SummaryMenu,
         stakeConditionSelectionComponent: SingleSelectionDropdownComponent,
         possTypeSelectionComponent: SingleSelectionDropdownComponent,
-        marketSelectionComponent: SingleSelectionDropdownComponent) {
+        marketSelectionComponent: SingleSelectionDropdownComponent,
+        autoRefresh: RefreshCountDown) {
         super($, summaryMenu, stakeConditionSelectionComponent, possTypeSelectionComponent, null);
 
         this.marketSelectionComponent = marketSelectionComponent;
         this.$topWindow = topWindow;
+        this.autoRefresh = autoRefresh;
     }
 
     init(): void {
+        if (!this.checkReady()) {
+            return;
+        }
+
         this.$.blockUI();
 
         this.cacheDOMElements();
@@ -34,7 +41,7 @@ class ViewByBetType extends BaseTotalBets {
 
     renderComponents(): void {
         super.renderComponents();
-        if (cn88TotalBets.convertAttributeToBool($("#IsShowMarketSelection").val())) {
+        if (cn88TotalBets.convertAttributeToBool(this.$("#IsShowMarketSelection").val())) {
             this.marketSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-market", "Market"));
         }
 
@@ -49,13 +56,8 @@ class ViewByBetType extends BaseTotalBets {
     bindEvents(): void {
         super.bindEvents();
 
-        const reloadInSeconds: number = this.$("#ReloadTimeInSeconds").val() as number;
-        const autoRefresh: RefreshCountDown = new RefreshCountDown($);
-
-        autoRefresh.render(new RefreshCountDownOptions("CountDownMenu", "", reloadInSeconds, () => {
-            this.onSubmit();
-            this.$filterForm.trigger("submit");
-        }));
+        const reloadInSeconds: number = parseInt(this.$("#ReloadTimeInSeconds").val());
+        this.autoRefresh.render(new RefreshCountDownOptions("CountDownMenu", "", reloadInSeconds, this.doRefresh));
 
         this.summaryMenu.$summaryMenuItems.find(".league-wrapper").click((e: JQueryEventObject) => {
             const $this: JQuery = this.$(e.currentTarget);
@@ -105,6 +107,11 @@ class ViewByBetType extends BaseTotalBets {
             }
         });
     }
+
+    doRefresh = () => {
+        this.onSubmit();
+        this.$filterForm.trigger("submit");
+    };
 }
 
 $(function (): void {
@@ -114,5 +121,6 @@ $(function (): void {
         new SummaryMenu($, top),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),
-        new SingleSelectionDropdownComponent($)).init();
+        new SingleSelectionDropdownComponent($),
+        new RefreshCountDown($)).init();
 });

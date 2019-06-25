@@ -49,3 +49,4 @@ bundles
 *.js
 *.ncrunchsolution.*
 *.ncrunchproject.*
+/_Chutzpah.coverage.html

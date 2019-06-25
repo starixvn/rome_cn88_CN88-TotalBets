@@ -19,6 +19,20 @@ namespace CN88.TotalBets.Tests.Features.Started.Models
         }
 
         [Fact]
+        public void LeagueId_Always_ReturnsCorrectValue()
+        {
+            // Act & Assert
+            Assert.Equal(1, league.LeagueId);
+        }
+
+        [Fact]
+        public void LeagueName_Always_ReturnsCorrectValue()
+        {
+            // Act & Assert
+            Assert.Equal("V-League", league.LeagueName);
+        }
+
+        [Fact]
         public void TotalPMWager_Always_ReturnsCorrectValue()
         {
             // Act & Assert

@@ -12,6 +12,10 @@ class Outright extends BaseTotalBets {
     }
 
     init(): void {
+        if (!this.checkReady()) {
+            return;
+        }
+
         this.$.blockUI();
 
         this.renderComponents();

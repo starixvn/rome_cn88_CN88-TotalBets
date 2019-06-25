@@ -56,12 +56,6 @@
     ]
   },
   {
-    "outputFileName": "assets/bundles/wageraccount/wager-account.js",
-    "inputFiles": [
-      "Features/WagerAccount/Scripts/wager-account.js"
-    ]
-  },
-  {
     "outputFileName": "assets/bundles/viewbybettype/index.js",
     "inputFiles": [
       "Shared/Scripts/core.js",
