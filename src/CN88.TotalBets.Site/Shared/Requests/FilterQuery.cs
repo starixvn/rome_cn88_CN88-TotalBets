@@ -6,6 +6,8 @@
 
     public abstract class FilterQuery : BaseQuery
     {
+        private const long maxStakeLimit = 10000000000;
+
         protected FilterQuery(IUser viewer)
             : base(viewer)
         {
@@ -33,5 +35,8 @@
         public string AppPath { get; }
 
         public bool IsAutoRefresh { get; set; } = true;
+
+        public override bool IsValid()
+            => base.IsValid() && Stake < maxStakeLimit;
     }
 }

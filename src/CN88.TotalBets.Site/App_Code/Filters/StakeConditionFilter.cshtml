@@ -10,6 +10,6 @@
             <option value="@StakeConditionConstants.Equal" @(StakeConditionConstants.Equal == stakeCondition ? " selected=\"selected\"" : string.Empty)>=</option>
         </select>
         <input type="hidden" name="StakeCondition" id="StakeCondition" value="@stakeCondition" />
-        <input type="text" name="Stake" id="Stake" value="@stake" min="0" />
+        <input type="text" name="Stake" id="Stake" value="@stake" min="0" maxlength="16" />
     </div>
 }
