@@ -1,13 +1,21 @@
-﻿using CN88.TotalBets.Features.Leagues;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using CN88.TotalBets.Features.Leagues;
+using CN88.TotalBets.Features.Leagues.Models;
 using CN88.TotalBets.Features.SportTypeGroup;
 using CN88.TotalBets.Features.Started;
+using CN88.TotalBets.Features.Started.Models;
 using CN88.TotalBets.Features.Started.Params;
 using CN88.TotalBets.Features.Summaries;
+using CN88.TotalBets.Features.Summaries.Models;
 using CN88.TotalBets.Shared.Constants;
 using CN88.TotalBets.Shared.Models;
 using CN88.TotalBets.Site.Features.Started;
+using CN88.TotalBets.Site.Features.Started.ViewModels;
 using CN88.TotalBets.Site.Tests.Helpers;
 using CN88.Web.Helpers;
+using KellermanSoftware.CompareNetObjects;
 using NSubstitute;
 using Xunit;
 
@@ -94,6 +102,41 @@ namespace CN88.TotalBets.Site.Tests.Features.Started
 
             // Assert
             summaryService.Received().GetSportGroupSummaries(message.ViewerId, message.ActorLevel, EventTypeConstants.Started);
+        }
+
+        [Fact]
+        public void HandlerStartedQuery_Always_ReturnsCorrectViewModel()
+        {
+            // Arrange
+            var message = new StartedQuery(user);
+            message.SportTypeGroup = 1;
+            sportTypeGroupService.GetSportTypeGroupName(Arg.Compat.Any<int>())
+                .Returns("SportTypeGroupName");
+            var data = new List<StartedLeague>
+            {
+                new StartedLeague(1,"LeagueName",Enumerable.Empty<StartedMatch>())
+            };
+            startedService.GetStarted(Arg.Compat.Any<StartedParam>())
+                .Returns(data);
+            summaryService.GetSportGroupSummaries(message.ViewerId, message.ActorLevel, EventTypeConstants.Started)
+                .Returns(Enumerable.Empty<SportGroupSummary>());
+            leagueService.GetLeagues(message.SportTypeGroup, EventTypeConstants.Started)
+                .Returns(Enumerable.Empty<League>());
+            var expectedViewModel = new StartedViewModel(
+                message,
+                "SportTypeGroupName",
+                data,
+                Enumerable.Empty<SportGroupSummary>(),
+                new List<SelectListItem> {
+                    new SelectListItem { Value = "0", Text = "All Leagues", Selected = true }
+                },
+                browserHelper);
+
+            // Act
+            var actualViewModel = handler.Handle(message).GetAwaiter().GetResult();
+
+            // Assert
+            Assert.True(new CompareLogic().Compare(expectedViewModel, actualViewModel).AreEqual);
         }
     }
 }

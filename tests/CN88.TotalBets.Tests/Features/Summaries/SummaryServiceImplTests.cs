@@ -115,5 +115,63 @@ namespace CN88.TotalBets.Tests.Features.Summaries
             // Assert
             Assert.True(compareLogic.Compare(summaries, actualResult).AreEqual);
         }
+
+        [Fact]
+        public void GetSportGroupSummary_NoDataReturnsFromDb_ReturnsCorrectResult()
+        {
+            // Arrange
+            var custId = Util.RandomValidCustId(fixture);
+            var custLevel = Util.RandomSMALevel(fixture);
+            byte eventType = EventTypeConstants.Early;
+            var sportGroup = fixture.Create<Generator<byte>>().First(x => x > 0);
+            dynamicRepository.FetchAsync<SummaryByMatchDto>(Arg.Compat.Any<GetSummaryBySportTypeGroupCriteria>())
+                .Returns(Enumerable.Empty<SummaryByMatchDto>());
+            var expectedResult = new SportGroupSummary(0, string.Empty, Enumerable.Empty<LeagueSummary>());
+
+            // Act
+            var actualResult = summaryService.GetSportGroupSummary(custId, custLevel, eventType, sportGroup)
+                .GetAwaiter().GetResult();
+
+            // Assert
+            Assert.True(compareLogic.Compare(expectedResult, actualResult).AreEqual);
+        }
+
+        [Fact]
+        public void GetSportGroupSummary_HasDataReturnsFromDb_ReturnsCorrectResult()
+        {
+            // Arrange
+            var custId = Util.RandomValidCustId(fixture);
+            var custLevel = Util.RandomSMALevel(fixture);
+            byte eventType = EventTypeConstants.Early;
+            var sportGroup = fixture.Create<Generator<byte>>().First(x => x > 0);
+
+            var dtos = new List<SummaryByMatchDto>
+            {
+                new SummaryByMatchDto( 1, 1, 1, 2, 5, 5000, true),
+                new SummaryByMatchDto( 1, 2, 3, 4, 5, 5000, false)
+            };
+            dynamicRepository.FetchAsync<SummaryByMatchDto>(Arg.Compat.Any<GetSummaryBySportTypeGroupCriteria>())
+                .Returns(dtos);
+
+            cacheRefService.GetTeamName(Arg.Compat.Any<int>()).Returns("TeamName");
+            cacheRefService.GetLeagueName(Arg.Compat.Any<int>()).Returns("LeagueName");
+            sportTypeGroupService.GetSportTypeGroupName(sportGroup).Returns("SportTypeGroupName");
+            var matchSummaries = new List<MatchSummary> {
+                new MatchSummary(1,1,"TeamName (N)",2,"TeamName",5,5000),
+                new MatchSummary(1,3,"TeamName",4,"TeamName",5,5000)
+            };
+            var leagueSummaries = new List<LeagueSummary>
+            {
+                new LeagueSummary(1,"LeagueName", matchSummaries.OrderByDescending(x=>x.Stake))
+            };
+            var expectedResult = new SportGroupSummary(sportGroup, "SportTypeGroupName", leagueSummaries.OrderBy(item => item.LeagueName));
+
+            // Act
+            var actualResult = summaryService.GetSportGroupSummary(custId, custLevel, eventType, sportGroup)
+                .GetAwaiter().GetResult();
+
+            // Assert
+            Assert.True(compareLogic.Compare(expectedResult, actualResult).AreEqual);
+        }
     }
 }

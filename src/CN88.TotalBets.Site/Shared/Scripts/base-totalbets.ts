@@ -44,7 +44,8 @@ abstract class BaseTotalBets {
             numeral: true,
             numeralPositiveOnly: true,
             numeralDecimalMark: '.',
-            delimiter: ','
+            delimiter: ',',
+            numeralIntegerScale: 10
         });
     }
 

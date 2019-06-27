@@ -36,7 +36,7 @@
 
         public string BuildViewByBetTypeLink(byte type, int matchId)
             => Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc(
-                Helpers.UrlHelper.GetTotalBetsAppPath("~/ViewByBetType/Index"),
+                Helpers.UrlHelper.MapTotalBetsPath("~/ViewByBetType/Index"),
                 GetViewByBetTypeRoutesValues(type, matchId));
 
         protected virtual IDictionary<string, object> GetViewByBetTypeRoutesValues(byte type, int matchId)

@@ -13,6 +13,9 @@
         [ThreadStatic]
         private static Func<string, string> mapTotalBetsPath;
 
+        [ThreadStatic]
+        private static Func<string, string> mapFeaturesPath;
+
         public static Func<string, string> MapTotalBetsPath
         {
             get
@@ -23,6 +26,19 @@
             internal set
             {
                 mapTotalBetsPath = value;
+            }
+        }
+
+        public static Func<string, string> MapFeaturesPath
+        {
+            get
+            {
+                return mapFeaturesPath ?? GetFeaturesPath;
+            }
+
+            internal set
+            {
+                mapFeaturesPath = value;
             }
         }
 
@@ -113,5 +129,8 @@
 
         internal static string GetLink(string action, string currentQuery)
             => GetTotalBetsAppPath(action + currentQuery);
+
+        internal static string GetFeaturesPath(string virtualPath = "~/")
+            => AppPathHelper.GetAppPath(AppSettings.FeaturesAppPath, virtualPath);
     }
 }

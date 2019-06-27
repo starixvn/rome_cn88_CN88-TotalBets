@@ -35,3 +35,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: InternalsVisibleTo("CN88.TotalBets.Tests")]
+[assembly: InternalsVisibleTo("CN88.TotalBets.Site.Tests")]

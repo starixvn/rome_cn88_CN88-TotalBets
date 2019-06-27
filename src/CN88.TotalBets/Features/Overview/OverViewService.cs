@@ -34,8 +34,7 @@
         private static IEnumerable<OverViewBySportTypeModel> OrderBy(IEnumerable<OverViewBySportTypeModel> list)
         {
             var orderBySportTypeGroupInOverviewPage = AppSettings.OrderBySportTypeGroupInOverviewPage;
-            var sportTypeHasConfigurate = list.Where(i => orderBySportTypeGroupInOverviewPage.ContainsKey(i.SportTypeGroup))
-                .OrderBy(i => orderBySportTypeGroupInOverviewPage[i.SportTypeGroup]).ToList();
+            var sportTypeHasConfigurate = list.Where(i => orderBySportTypeGroupInOverviewPage.ContainsKey(i.SportTypeGroup)).OrderBy(i => orderBySportTypeGroupInOverviewPage[i.SportTypeGroup]).ToList();
             var newSportType = list.Where(i => !orderBySportTypeGroupInOverviewPage.ContainsKey(i.SportTypeGroup));
 
             sportTypeHasConfigurate.AddRange(newSportType);

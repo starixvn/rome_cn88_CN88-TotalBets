@@ -4,6 +4,10 @@
 
     public class BaseQuery
     {
+        internal BaseQuery()
+        {
+        }
+
         protected BaseQuery(IUser viewer)
         {
             ViewerId = viewer.Id;

@@ -134,6 +134,7 @@
     <Compile Include="Features\Events\Criteria\GetEventCriteriaTests.cs" />
     <Compile Include="Features\Events\Criteria\GetEventInfoCriteriaTests.cs" />
     <Compile Include="Features\Events\EventServiceImplTests.cs" />
+    <Compile Include="Features\Events\Models\MatchTests.cs" />
     <Compile Include="Features\Leagues\Criteria\GetLeagueCriteriaTests.cs" />
     <Compile Include="Features\Leagues\LeagueServiceImplTests.cs" />
     <Compile Include="Features\Outright\Criteria\GetOutrightCriteriaTests.cs" />
@@ -145,6 +146,8 @@
     <Compile Include="Features\SportTypeGroup\SportTypeGroupDataAccessImplTests.cs" />
     <Compile Include="Features\SportTypeGroup\SportTypeGroupServiceImplTests.cs" />
     <Compile Include="Features\Started\Criteria\GetStartedCriteriaTests.cs" />
+    <Compile Include="Features\Started\Models\StartedLeagueTests.cs" />
+    <Compile Include="Features\Started\Models\StartedMatchTests.cs" />
     <Compile Include="Features\Started\StartedServiceImplTests.cs" />
     <Compile Include="Features\Summaries\Criteria\GetSummaryBySportTypeGroupCriteria.cs" />
     <Compile Include="Features\Summaries\Criteria\GetSummaryByEventCriteriaTests.cs" />
@@ -159,6 +162,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\Configurations\AppSettingsTests.cs" />
     <Compile Include="Shared\Models\CustInfoTests.cs" />
+    <Compile Include="Shared\Models\EnumerationTests.cs" />
     <Compile Include="Shared\Models\UserLevelTestCases.cs" />
     <Compile Include="Shared\Models\UserLevelTests.cs" />
     <Compile Include="Shared\Services\CacheRefServiceImplTests.cs" />

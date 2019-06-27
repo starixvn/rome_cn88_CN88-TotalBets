@@ -63,10 +63,12 @@
             totalWager += totalWagerInLeague;
             totalStake += totalStakeInLeague;
 
+            var orderedGroup = groupLeague.OrderByDescending(item => item.Stake);
+
             return new MatchLeague(
                 groupLeague.Key,
                 cacheRefService.GetLeagueName(groupLeague.Key),
-                groupLeague.OrderByDescending(item => item.Stake),
+                orderedGroup,
                 totalWagerInLeague,
                 totalStakeInLeague);
         }

@@ -45,18 +45,7 @@
         }
     }
 
-    &.collapsed {
-        width: 36px;
-        background-color: #7a301c;
-
-        .head-menu {
-            font-size: 0;
-
-            .icon-menu {
-                font-size: 13px;
-            }
-        }
-    }
+    
 
     .menu-item {
         padding: 7px 8px;
@@ -129,6 +118,20 @@
 
     .number-second {
         padding-left: 4px;
+    }
+}
+
+
+.menu-container-collapsed {
+    width: 36px;
+    background-color: #7a301c;
+
+    .head-menu {
+        font-size: 0;
+
+        .icon-menu {
+            font-size: 13px;
+        }
     }
 }
 
