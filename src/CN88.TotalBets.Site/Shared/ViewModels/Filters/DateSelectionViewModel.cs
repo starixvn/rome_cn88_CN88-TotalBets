@@ -18,7 +18,7 @@
 
         public IEnumerable<SelectListItem> Items { get; }
 
-        private IEnumerable<SelectListItem> BuildSelectListItems(byte selectedItem)
+        private static IEnumerable<SelectListItem> BuildSelectListItems(byte selectedItem)
             => new List<SelectListItem>
             {
                 new SelectListItem { Text = Resources.AllDates, Value = DateTypeConstants.AllDates.ToString() },

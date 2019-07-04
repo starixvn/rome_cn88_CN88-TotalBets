@@ -2,6 +2,24 @@
 {
     public class WagerAccountModel
     {
+        public WagerAccountModel()
+        {
+        }
+
+        public WagerAccountModel(
+            int custId,
+            string userName,
+            string firstName,
+            int wager,
+            decimal stake)
+        {
+            CustId = custId;
+            UserName = userName;
+            FirstName = firstName;
+            Wager = wager;
+            Stake = stake;
+        }
+
         public int CustId { get; }
 
         public string UserName { get; }

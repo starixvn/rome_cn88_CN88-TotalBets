@@ -1,12 +1,11 @@
 ﻿"use strict";
-declare var Cleave: any;
-abstract class BaseTotalBets {
+class BaseTotalBets {
     $: JQueryStatic;
     $filterForm: JQuery;
     $tblTotalBets: JQuery;
     $stake: JQuery;
     $filterToggleIcon: JQuery;
-    cleaveStake: any;
+    cleaveStake: Cleave;
     isMobile: boolean;
 
     summaryMenu: SummaryMenu;
@@ -19,7 +18,7 @@ abstract class BaseTotalBets {
     filterFormSlideDuration = 200;
     tblSlideDuration = 210;
 
-    protected constructor(
+    constructor(
         $: JQueryStatic,
         summaryMenu: SummaryMenu,
         stakeConditionSelectionComponent: SingleSelectionDropdownComponent,
@@ -32,7 +31,7 @@ abstract class BaseTotalBets {
         this.leagueSelectionComponent = leagueSelectionComponent;
     }
 
-    protected renderComponents(): void {
+    public renderComponents(): void {
         this.summaryMenu.render();
         this.stakeConditionSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-stake-condition", "StakeCondition"));
         this.possTypeSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-poss-type", "PossType"));
@@ -49,7 +48,7 @@ abstract class BaseTotalBets {
         });
     }
 
-    protected cacheDOMElements(): void {
+    public cacheDOMElements(): void {
         this.$filterForm = this.$("#filter-form");
         this.$tblTotalBets = this.$("#tblTotalBets");
         this.$stake = this.$("#Stake");
@@ -57,7 +56,11 @@ abstract class BaseTotalBets {
         this.isMobile = this.$("#IsDevice").val() === "1";
     }
 
-    protected bindEvents(): void {
+    public checkReady(): boolean {
+        return this.$("#Stake").length > 0;
+    }
+
+    public bindEvents(): void {
         this.$tblTotalBets.find(".group").click(function (): void {
             const $this: JQuery = $(this);
             const icon: JQuery = $this.find(".group-name-wrapper").children().first();
@@ -98,7 +101,7 @@ abstract class BaseTotalBets {
         });
     }
 
-    protected onSubmit(): void {
+    public onSubmit(): void {
         this.stakeConditionSelectionComponent.updateSelectedValue();
         this.updateStakeValue();
         this.possTypeSelectionComponent.updateSelectedValue();

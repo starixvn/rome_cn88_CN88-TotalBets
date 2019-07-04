@@ -1,0 +1,50 @@
+﻿{
+  "Framework": "jasmine",
+  "EnableCodeCoverage": "true",
+  "Compile": {
+    "Mode": "External",
+    "Extensions": [ ".ts" ]
+  },
+  "CodeCoverageExcludes": [
+    "*\\libs\\*"
+  ],
+  "CodeCoverageIgnores": [
+    "*\\tests\\*"
+  ],
+  "CodeCoverageExecutionMode": "Manual",
+  "TestHarnessLocationMode": "SettingsFileAdjacent",
+  "References": [
+    { "Path": "libs/jquery.js" },
+    { "Path": "libs/jquery-blockui.js" },
+    { "Path": "libs/jasmine.js" },
+    { "Path": "libs/jasmine-jquery.js" },
+    { "Path": "libs/cookie.js" },
+    { "Path": "libs/bootstrap-modal.js" },
+    { "Path": "libs/multiselect.js" },
+    { "Path": "libs/store.js" },
+    { "Path": "libs/tooltip.js" },
+    { "Path": "libs/cleave.js" },
+
+    { "Path": "../../Shared/Scripts/core.ts" },
+    { "Path": "../../Shared/Scripts/base-totalbets.ts" },
+    { "Path": "../../Shared/Scripts/summary-menu.ts" },
+    { "Path": "../../Shared/Scripts/components/refresh-count-down.ts" },
+    { "Path": "../../Shared/Scripts/components/single-selection-dropdown.ts" },
+
+    { "Path": "../../Features/Events/Scripts/event.ts" },
+    { "Path": "../../Features/Outright/Scripts/outright.ts" },
+    { "Path": "../../Features/Overview/Scripts/overview.ts" },
+    { "Path": "../../Features/Started/Scripts/started.ts" },
+    { "Path": "../../Features/ViewByBetType/Scripts/view-by-bet-type.ts" }
+  ],
+  "Tests": [
+    {
+      "Path": "apps/shared",
+      "Excludes": [ "**.js.map", "**.js" ]
+    },
+    {
+      "Path": "apps/features",
+      "Excludes": [ "**.js.map", "**.js" ]
+    }
+  ]
+}

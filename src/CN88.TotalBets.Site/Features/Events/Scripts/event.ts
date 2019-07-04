@@ -2,6 +2,7 @@
 "use strict";
 class EventTotalBets extends BaseTotalBets {
     marketSelectionComponent: SingleSelectionDropdownComponent;
+    autoRefresh: RefreshCountDown;
 
     isShowMarketSelection: boolean;
 
@@ -11,13 +12,19 @@ class EventTotalBets extends BaseTotalBets {
         stakeConditionSelectionComponent: SingleSelectionDropdownComponent,
         possTypeSelectionComponent: SingleSelectionDropdownComponent,
         marketSelectionComponent: SingleSelectionDropdownComponent,
-        leagueSelectionComponent: SingleSelectionDropdownComponent) {
+        leagueSelectionComponent: SingleSelectionDropdownComponent,
+        autoRefresh: RefreshCountDown) {
         super($, summaryMenu, stakeConditionSelectionComponent, possTypeSelectionComponent, leagueSelectionComponent);
 
         this.marketSelectionComponent = marketSelectionComponent;
+        this.autoRefresh = autoRefresh;
     }
 
     init(): void {
+        if (!this.checkReady()) {
+            return;
+        }
+
         this.$.blockUI();
 
         this.cacheDOMElements();
@@ -47,15 +54,16 @@ class EventTotalBets extends BaseTotalBets {
     bindEvents(): void {
         super.bindEvents();
 
-        const reloadInSeconds: number = this.$("#ReloadTimeInSeconds").val() as number;
-        const autoRefresh: RefreshCountDown = new RefreshCountDown($);
+        const reloadInSeconds = parseInt(this.$("#ReloadTimeInSeconds").val());
         if (this.$(".btnCountDown").length) {
             const eventType = this.$("#Type");
 
-            autoRefresh.render(new RefreshCountDownOptions("CountDownMenu", eventType.length ? `event${eventType.val()}` : "event0", reloadInSeconds, () => {
-                this.onSubmit();
-                this.$filterForm.trigger("submit");
-            }));
+            this.autoRefresh.render(new RefreshCountDownOptions("CountDownMenu", eventType.length ? `event${eventType.val()}` : "event0", reloadInSeconds, this.doRefresh));
         }
     }
+
+    doRefresh = () => {
+        this.onSubmit();
+        this.$filterForm.trigger("submit");
+    };
 }

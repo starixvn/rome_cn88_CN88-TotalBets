@@ -6,41 +6,34 @@
 @section Styles {
     @StaticResources.RenderStyles("~/assets/bundles/outright/outright")
 }
-@section Scripts {
-    @StaticResources.RenderScripts("~/assets/bundles/wageraccount/wager-account")
-}
 @model WagerAccountByEventViewModel
-
 <div class="wager-account-page window-page">
     <div class="page-title">@Resources.WagerDetails</div>
     <ul id="nav-tabs" class="nav nav-tabs-style2" role="tablist">
-
-        <li class="lnk-changetab" role="presentation">
+        <li class="lnk-changetab active" role="presentation">
             <a href="#by-account">@Resources.ViewByAccount</a>
         </li>
-
         <li class="lnk-changetab">
             <a href="@Model.GetWagerDetailUrl()">@Resources.ViewWagerDetails</a>
         </li>
     </ul>
-
     <div class="tab-content">
         <div class="tab-pane active" role="tabpanel" id="by-account">
             @if (Model.IsMobile && !string.IsNullOrWhiteSpace(backLink.Text))
             {
-            <span id="btn-back" class="back-area">
-                @if (string.IsNullOrWhiteSpace(backLink.Link))
-                {
-                    @backLink.Text
-                }
-                else
-                {
-                    <a href="@backLink.Link">
-                        <span class="icon-chevron-left back-step"></span>
+                <span id="btn-back" class="back-area">
+                    @if (string.IsNullOrWhiteSpace(backLink.Link))
+                    {
                         @backLink.Text
-                    </a>
-                }
-            </span>
+                    }
+                    else
+                    {
+                        <a href="@backLink.Link">
+                            <span class="icon-chevron-left back-step"></span>
+                            @backLink.Text
+                        </a>
+                    }
+                </span>
             }
             else
             {
