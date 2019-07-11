@@ -5,7 +5,6 @@ class OverView {
     $reportForm: JQuery;
     $tooltip: JQuery;
     $topWindow: Window;
-    $sportGroups: JQuery;
     isScrolling = false;
 
     constructor(
@@ -32,7 +31,6 @@ class OverView {
             this.$topWindow["indexManager"].subMenuClick(subMenuId);
         });
 
-        this.$sportGroups = this.$("#sport-groups .group");
         this.$("#sport-groups .group-title").on("click touchend", (event: JQueryEventObject) => {
             if (this.isScrolling) {
                 this.isScrolling = false;

@@ -53,8 +53,6 @@ class SummaryMenu {
                 event.stopPropagation();
             });
 
-            this.calculateMenuHeight();
-
             this.$(window).resize(this.calculateMenuHeight);
         }
     }
@@ -74,9 +72,9 @@ class SummaryMenu {
     }
 
     collapseMenuMobile(): void {
-        const isCollapsed = this.$summaryMenu.hasClass(this.expandedClass);
+        const isExpanded = this.$summaryMenu.hasClass(this.expandedClass);
 
-        if (isCollapsed) {
+        if (isExpanded) {
             this.$summaryMenu.removeClass(this.expandedClass);
             this.$mainContent.removeClass(this.expandedClass);
         } else {
@@ -86,8 +84,8 @@ class SummaryMenu {
     }
 
     hideMenuMobile = () => {
-        const isCollapsed = this.$summaryMenu.hasClass(this.expandedClass);
-        if (!isCollapsed) {
+        const isExpanded = this.$summaryMenu.hasClass(this.expandedClass);
+        if (!isExpanded) {
             return;
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace CN88.TotalBets.Tests.Features.ViewByBetTypes.BetOptionBuilders
 {
-    using CN88.TotalBets.Features.ViewByBetTypes.BetOptionBuilders;
+    using TotalBets.Features.ViewByBetTypes.BetOptionBuilders;
     using Xunit;
 
     [Trait("Category", "ViewByBetTypes")]
@@ -87,6 +87,39 @@
             var builder = betOptionBuilderFactory.CreateBetOptionBuilder(betType);
 
             Assert.IsType<DefaultBetOptionBuilder>(builder);
+        }
+
+        [Fact]
+        public void IsUseDefaultBetOptionBuider_BetTypeIsNotConstainsInContainer_RetrunsTrue()
+        {
+            // Arrange
+            int betType = 13;
+
+            // Act & Assert
+            Assert.True(betOptionBuilderFactory.IsUseDefaultBetOptionBuider(betType));
+        }
+
+        [Theory]
+        [InlineData(1)]
+        [InlineData(7)]
+        [InlineData(17)]
+        [InlineData(20)]
+        [InlineData(21)]
+        [InlineData(2)]
+        [InlineData(12)]
+        [InlineData(184)]
+        [InlineData(428)]
+        [InlineData(3)]
+        [InlineData(8)]
+        [InlineData(18)]
+        [InlineData(5)]
+        [InlineData(15)]
+        [InlineData(177)]
+        [InlineData(430)]
+        public void IsUseDefaultBetOptionBuider_BetTypeIsConstainsInContainer_RetrunsFalse(int betType)
+        {
+            // Act & Assert
+            Assert.False(betOptionBuilderFactory.IsUseDefaultBetOptionBuider(betType));
         }
     }
 }

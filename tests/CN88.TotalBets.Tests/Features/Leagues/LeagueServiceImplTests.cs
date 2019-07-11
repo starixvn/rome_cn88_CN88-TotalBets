@@ -29,7 +29,7 @@ namespace CN88.TotalBets.Tests.Features.Leagues
         public LeagueServiceImplTests(CacheFixture cacheFixture)
         {
             this.cacheFixture = cacheFixture;
-            dataInCache = new List<League>() { new League(1, "V League") };
+            dataInCache = new List<League>() { new League() };
             cacheFixture.CacheForTesting.TryGetAsync<IEnumerable<League>>($"{LeagueCacheKey}.{type}.{sportTypeGroup}")
                 .Returns(_ => { return Tuple.Create(dataInCache != null, dataInCache); });
             ConfiguredCacheService.Remove($"{LeagueCacheKey}.{type}.{sportTypeGroup}");

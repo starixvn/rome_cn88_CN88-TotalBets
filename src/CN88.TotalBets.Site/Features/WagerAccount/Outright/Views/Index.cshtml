@@ -6,14 +6,11 @@
 @section Styles {
     @StaticResources.RenderStyles("~/assets/bundles/outright/outright")
 }
-@section Scripts {
-    @StaticResources.RenderScripts("~/assets/bundles/wageraccount/wager-account")
-}
 @model WagerAccountByOutrightViewModel
 <div class="wager-account-page window-page">
     <div class="page-title">@Resources.WagerDetails</div>
     <ul id="nav-tabs" class="nav nav-tabs-style2" role="tablist">
-        <li class="lnk-changetab" role="presentation">
+        <li class="lnk-changetab active" role="presentation">
             <a href="#by-account">@Resources.ViewByAccount</a>
         </li>
         <li class="lnk-changetab">

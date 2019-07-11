@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\packages\Microsoft.Net.Compilers.1.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\..\packages\Microsoft.Net.Compilers.1.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -61,8 +61,8 @@
       <HintPath>..\..\packages\Alpha.Web.1.0.1.6\lib\net40\Alpha.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CN88.Web, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CN88.Web.1.0.1.0\lib\net461\CN88.Web.dll</HintPath>
+    <Reference Include="CN88.Web, Version=1.0.1.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CN88.Web.1.0.1.3\lib\net461\CN88.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Couchbase, Version=1.2.7.0, Culture=neutral, PublicKeyToken=05e9c6b5a9ec94c2, processorArchitecture=MSIL">
@@ -368,10 +368,7 @@
     <Content Include="assets\bundles\viewbybettype\viewbybettype.min.css">
       <DependentUpon>viewbybettype.css</DependentUpon>
     </Content>
-    <Content Include="assets\bundles\wageraccount\wager-account.js" />
-    <Content Include="assets\bundles\wageraccount\wager-account.min.js">
-      <DependentUpon>wager-account.js</DependentUpon>
-    </Content>
+    <Content Include="assets\tests\libs\cleave.js" />
     <Content Include="Features\Started\Styles\started.css">
       <DependentUpon>started.scss</DependentUpon>
     </Content>
@@ -406,6 +403,15 @@
     <Content Include="Features\Overview\Styles\overview.min.css">
       <DependentUpon>overview.css</DependentUpon>
     </Content>
+    <Content Include="assets\tests\libs\bootstrap-modal.js" />
+    <Content Include="assets\tests\libs\cookie.js" />
+    <Content Include="assets\tests\libs\jasmine-jquery.js" />
+    <Content Include="assets\tests\libs\jasmine.js" />
+    <Content Include="assets\tests\libs\jquery-blockui.js" />
+    <Content Include="assets\tests\libs\jquery.js" />
+    <Content Include="assets\tests\libs\multiselect.js" />
+    <Content Include="assets\tests\libs\store.js" />
+    <Content Include="assets\tests\libs\tooltip.js" />
     <Content Include="Shared\Styles\totalbets.css">
       <DependentUpon>totalbets.scss</DependentUpon>
     </Content>
@@ -540,6 +546,7 @@
     <Content Include="App_Code\Filters\RefreshCountDown.cshtml" />
     <Content Include="App_Data\SPNames\Dev\DBARC.bodb_Archive.BODBDownlineNet" />
     <Content Include="CN88.TotalBets.Site.ruleset" />
+    <Content Include="assets\tests\chutzpah.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
@@ -595,6 +602,9 @@
     <Content Include="Features\WagerAccount\Outright\Views\IndexMobile.cshtml" />
     <Content Include="Shared\Styles\_variables.scss" />
     <Content Include="tsconfig.json" />
+    <Content Include="typings\globals\cleave.js\LICENSE" />
+    <Content Include="typings\globals\cleave.js\package.json" />
+    <Content Include="typings\globals\cleave.js\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\Overview\Views\Index.cshtml" />
@@ -623,6 +633,13 @@
     <Content Include="App_Code\Filters\StakeConditionFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="assets\tests\apps\features\event-tests.ts" />
+    <TypeScriptCompile Include="assets\tests\apps\features\outright-tests.ts" />
+    <TypeScriptCompile Include="assets\tests\apps\features\overview-tests.ts" />
+    <TypeScriptCompile Include="assets\tests\apps\features\started-tests.ts" />
+    <TypeScriptCompile Include="assets\tests\apps\features\view-by-bet-type-tests.ts" />
+    <TypeScriptCompile Include="assets\tests\apps\shared\base-totalbets-tests.ts" />
+    <TypeScriptCompile Include="assets\tests\apps\shared\summary-menu-tests.ts" />
     <TypeScriptCompile Include="Features\Events\Scripts\event-init.ts" />
     <TypeScriptCompile Include="Features\Started\Scripts\started.ts" />
     <TypeScriptCompile Include="Shared\Scripts\base-totalbets.ts" />
@@ -631,10 +648,14 @@
     <TypeScriptCompile Include="Shared\Scripts\core.ts" />
     <TypeScriptCompile Include="Shared\Scripts\summary-menu.ts" />
     <TypeScriptCompile Include="Features\Events\Scripts\event.ts" />
-    <TypeScriptCompile Include="Features\WagerAccount\Scripts\wager-account.ts" />
     <TypeScriptCompile Include="Features\Overview\Scripts\overview.ts" />
     <TypeScriptCompile Include="Features\ViewByBetType\Scripts\view-by-bet-type.ts" />
+    <TypeScriptCompile Include="assets\tests\apps\shared\single-selection-dropdown-tests.ts" />
+    <TypeScriptCompile Include="assets\tests\apps\shared\core-tests.ts" />
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\cleave.js\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\cleave.js\options\creditCard.d.ts" />
+    <TypeScriptCompile Include="typings\globals\cleave.js\options\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine-jquery\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jasmine\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jquery.blockui\index.d.ts" />
@@ -647,6 +668,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Features\Outright\Scripts\outright.ts" />
@@ -664,6 +686,7 @@
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.14.0.8411\analyzers\SonarAnalyzer.CSharp.dll" />
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.14.0.8411\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -696,7 +719,8 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets'))" />
     <Error Condition="!Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-    <Error Condition="!Exists('..\..\packages\Microsoft.Net.Compilers.1.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Net.Compilers.1.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\..\packages\Fanex.Chutzpah.4.3.3\build\Fanex.Chutzpah.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Fanex.Chutzpah.4.3.3\build\Fanex.Chutzpah.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
   </Target>
   <Import Project="..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets" Condition="Exists('..\..\packages\Fanex.Visual-StyleCop.MSBuild.4.7.59.2\build\Fanex.Visual-StyleCop.MSBuild.Targets')" />
   <PropertyGroup>
@@ -710,6 +734,7 @@
       start /MIN xcopy /s /y /R "$(OutDir)roslyn\*.*" "$(WebProjectOutputDir)\bin\Roslyn"
     </PostBuildEvent>
   </PropertyGroup>
+  <Import Project="..\..\packages\Fanex.Chutzpah.4.3.3\build\Fanex.Chutzpah.targets" Condition="Exists('..\..\packages\Fanex.Chutzpah.4.3.3\build\Fanex.Chutzpah.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

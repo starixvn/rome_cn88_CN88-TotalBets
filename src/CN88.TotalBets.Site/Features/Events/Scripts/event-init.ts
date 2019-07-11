@@ -5,5 +5,6 @@
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),
-        new SingleSelectionDropdownComponent($)).init();
+        new SingleSelectionDropdownComponent($),
+        new RefreshCountDown($)).init();
 });

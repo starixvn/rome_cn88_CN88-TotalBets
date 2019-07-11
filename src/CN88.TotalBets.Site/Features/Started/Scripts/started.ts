@@ -9,8 +9,9 @@ class StartedTotalBets extends EventTotalBets {
         possTypeSelectionComponent: SingleSelectionDropdownComponent,
         dateTypeSelectionComponent: SingleSelectionDropdownComponent,
         marketSelectionComponent: SingleSelectionDropdownComponent,
-        leagueSelectionComponent: SingleSelectionDropdownComponent) {
-        super($, summaryMenu, stakeConditionSelectionComponent, possTypeSelectionComponent, marketSelectionComponent, leagueSelectionComponent);
+        leagueSelectionComponent: SingleSelectionDropdownComponent,
+        autoRefresh: RefreshCountDown) {
+        super($, summaryMenu, stakeConditionSelectionComponent, possTypeSelectionComponent, marketSelectionComponent, leagueSelectionComponent, autoRefresh);
         this.dateTypeSelectionComponent = dateTypeSelectionComponent;
     }
 
@@ -33,5 +34,6 @@ $(function (): void {
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),
         new SingleSelectionDropdownComponent($),
-        new SingleSelectionDropdownComponent($)).init();
+        new SingleSelectionDropdownComponent($),
+        new RefreshCountDown($)).init();
 });
