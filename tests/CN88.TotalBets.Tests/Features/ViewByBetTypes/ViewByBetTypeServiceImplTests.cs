@@ -33,6 +33,8 @@ namespace CN88.TotalBets.Tests.Features.ViewByBetTypes
             // Arrange
             var param = new ViewByBetTypeParam(
                 Util.RandomValidCustId(fixture),
+                0,
+                false,
                 Util.RandomSMALevel(fixture),
                 fixture.Create<int>(),
                 fixture.Create<byte>(),

@@ -8,6 +8,7 @@
     using TotalBets.Features.Started;
     using TotalBets.Features.Started.Params;
     using TotalBets.Features.Summaries;
+    using TotalBets.Features.Summaries.Params;
     using TotalBets.Shared.Constants;
     using ViewModels;
     using Web.Helpers;
@@ -39,6 +40,8 @@
             var data = await startedService.GetStarted(
                 new StartedParam(
                     message.ViewerId,
+                    message.SubAccountId,
+                    message.IsAllDownline,
                     message.ActorLevel,
                     message.SportTypeGroup,
                     message.LeagueId,
@@ -49,7 +52,13 @@
                     message.Market));
 
             var leagues = await leagueService.GetLeagues(message.SportTypeGroup, EventTypeConstants.Started);
-            var summaries = await summaryService.GetSportGroupSummaries(message.ViewerId, message.ActorLevel, EventTypeConstants.Started);
+            var summaries = await summaryService.GetSportGroupSummaries(
+                new SummaryByEventParam(
+                    message.ViewerId,
+                    message.SubAccountId,
+                    message.IsAllDownline,
+                    EventTypeConstants.Started,
+                    message.ActorLevel));
 
             return new StartedViewModel(
                 message,

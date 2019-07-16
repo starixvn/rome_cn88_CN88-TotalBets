@@ -24,6 +24,8 @@ namespace CN88.TotalBets.Tests.Features.WagerAccount
             // Arrange
             var param = new WagerAccountParam(
                 custId: Util.RandomValidCustId(fixture),
+                subAccId: 0,
+                isAllDownline: false,
                 matchId: fixture.Create<int>(),
                 stakeCondition: StakeConditionConstants.GreaterThan,
                 stake: fixture.Create<decimal>(),
@@ -42,6 +44,8 @@ namespace CN88.TotalBets.Tests.Features.WagerAccount
         {
             var param = new WagerAccountParam(
                 custId: custId,
+                subAccId: 0,
+                isAllDownline: false,
                 matchId: fixture.Create<int>(),
                 stakeCondition: StakeConditionConstants.GreaterThan,
                 stake: fixture.Create<Generator<decimal>>().First(x => x >= 0),
@@ -58,6 +62,8 @@ namespace CN88.TotalBets.Tests.Features.WagerAccount
         {
             var param = new WagerAccountParam(
                 custId: Util.RandomValidCustId(fixture),
+                subAccId: 0,
+                isAllDownline: false,
                 matchId: fixture.Create<int>(),
                 stakeCondition: StakeConditionConstants.GreaterThan,
                 stake: -1,
@@ -76,6 +82,8 @@ namespace CN88.TotalBets.Tests.Features.WagerAccount
         {
             var param = new WagerAccountParam(
                 custId: Util.RandomValidCustId(fixture),
+                subAccId: 0,
+                isAllDownline: false,
                 matchId: matchId,
                 stakeCondition: StakeConditionConstants.GreaterThan,
                 stake: fixture.Create<Generator<decimal>>().First(x => x >= 0),
@@ -92,6 +100,8 @@ namespace CN88.TotalBets.Tests.Features.WagerAccount
         {
             var param = new WagerAccountParam(
                 custId: Util.RandomValidCustId(fixture),
+                subAccId: 0,
+                isAllDownline: false,
                 matchId: fixture.Create<int>(),
                 stakeCondition: fixture.Create<Generator<int>>().First(x => !StakeConditionConstants.Conditions.ContainsKey(x)),
                 stake: fixture.Create<Generator<decimal>>().First(x => x >= 0),
@@ -108,6 +118,8 @@ namespace CN88.TotalBets.Tests.Features.WagerAccount
         {
             var param = new WagerAccountParam(
                 custId: Util.RandomValidCustId(fixture),
+                subAccId: 0,
+                isAllDownline: false,
                 matchId: fixture.Create<int>(),
                 stakeCondition: fixture.Create<Generator<int>>().First(x => StakeConditionConstants.Conditions.ContainsKey(x)),
                 stake: fixture.Create<Generator<decimal>>().First(x => x >= 0),

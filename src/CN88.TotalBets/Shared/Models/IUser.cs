@@ -18,6 +18,8 @@
 
         int SubAccountId { get; }
 
+        bool IsAllDownline { get; }
+
         string IP { get; }
 
         bool IsAdminCanViewVNIP { get; }

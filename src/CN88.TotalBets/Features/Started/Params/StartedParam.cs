@@ -7,6 +7,8 @@
     {
         public StartedParam(
             int custId,
+            int subAccId,
+            bool isAllDownline,
             UserLevel userLevel,
             int sportTypeGroup,
             int leagueId,
@@ -15,7 +17,7 @@
             byte possType,
             byte dateType,
             byte market)
-            : base(custId, userLevel, sportTypeGroup, leagueId, stakeCondition, stake, possType)
+            : base(custId, subAccId, isAllDownline, userLevel, sportTypeGroup, leagueId, stakeCondition, stake, possType)
         {
             DateType = dateType;
             Market = market;

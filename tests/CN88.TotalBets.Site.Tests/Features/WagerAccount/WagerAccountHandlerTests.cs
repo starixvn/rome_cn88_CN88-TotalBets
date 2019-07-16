@@ -36,6 +36,8 @@ namespace CN88.TotalBets.Site.Tests.Features.WagerAccount
             var message = new WagerAccountByOutrightQuery(user);
             var param = new WagerAccountParam(
                 message.CustId,
+                message.SubAccountId,
+                false,
                 message.MatchId,
                 message.Stake,
                 message.StakeCondition,
@@ -76,6 +78,8 @@ namespace CN88.TotalBets.Site.Tests.Features.WagerAccount
             var message = new WagerAccountByEventQuery(user);
             var param = new WagerAccountByEventParam(
                 message.CustId,
+                message.SubAccountId,
+                false,
                 message.MatchId,
                 message.Stake,
                 message.StakeCondition,

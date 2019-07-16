@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions>
   <Function Name="OverView">
-    <Setting Key="CS_TotalBets_Overview_Super" SpName="CS_TotalBets_Overview_Super" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="CS_TotalBets_Overview_Master" SpName="CS_TotalBets_Overview_Master" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="CS_TotalBets_Overview_Agent" SpName="CS_TotalBets_Overview_Agent" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Overview_Super" SpName="CS_TotalBets_Overview_Super_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Overview_Master" SpName="CS_TotalBets_Overview_Master_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Overview_Agent" SpName="CS_TotalBets_Overview_Agent_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
   </Function>
   <Function Name="Events">
     <Setting Key="CS_TotalBets_EventInfo" SpName="CS_TotalBets_EventInfo" DbName="DB042.bodb02.BODBDownlineNet" Plain="0">
       <Mapping DataField="sporttype" ObjectProperty="SportTypeId"></Mapping>
     </Setting>
-    <Setting Key="CS_TotalBets_Event_Super" SpName="CS_TotalBets_Event_Super" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="CS_TotalBets_Event_Master" SpName="CS_TotalBets_Event_Master" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="CS_TotalBets_Event_Agent" SpName="CS_TotalBets_Event_Agent" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Event_Super" SpName="CS_TotalBets_Event_Super_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Event_Master" SpName="CS_TotalBets_Event_Master_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Event_Agent" SpName="CS_TotalBets_Event_Agent_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
   </Function>
   <Function Name="Outright">
-    <Setting Key="CS_TotalBets_Outright_Super" SpName="CS_TotalBets_Outright_Super" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="CS_TotalBets_Outright_Master" SpName="CS_TotalBets_Outright_Master" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="CS_TotalBets_Outright_Agent" SpName="CS_TotalBets_Outright_Agent" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Outright_Super" SpName="CS_TotalBets_Outright_Super_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Outright_Master" SpName="CS_TotalBets_Outright_Master_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Outright_Agent" SpName="CS_TotalBets_Outright_Agent_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
   </Function>
   <Function Name="League">
     <Setting Key="CS_TotalBets_League_Sel" SpName="CS_TotalBets_League_Sel" DbName="DB042.bodb02.BODBDownlineNet" Plain="0">
@@ -24,33 +24,33 @@
     </Setting>
   </Function>
   <Function Name="Summary">
-    <Setting Key="CS_TotalBets_Summary_Agent" SpName="CS_TotalBets_Summary_Agent" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="CS_TotalBets_Summary_Master" SpName="CS_TotalBets_Summary_Master" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="CS_TotalBets_Summary_Super" SpName="CS_TotalBets_Summary_Super" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="CS_TotalBets_Detail_Agent" SpName="CS_TotalBets_Detail_Agent" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="CS_TotalBets_Detail_Master" SpName="CS_TotalBets_Detail_Master" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="CS_TotalBets_Detail_Super" SpName="CS_TotalBets_Detail_Super" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Summary_Agent" SpName="CS_TotalBets_Summary_Agent_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Summary_Master" SpName="CS_TotalBets_Summary_Master_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Summary_Super" SpName="CS_TotalBets_Summary_Super_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Detail_Agent" SpName="CS_TotalBets_Detail_Agent_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Detail_Master" SpName="CS_TotalBets_Detail_Master_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_Detail_Super" SpName="CS_TotalBets_Detail_Super_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
   </Function>
   <Function Name="Wager By Account">
-    <Setting Key="CS_TotalBets_WagerAccount_Outright_Agent" SpName="CS_TotalBets_WagerAccount_Outright_Agent" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="CS_TotalBets_WagerAccount_Outright_Master" SpName="CS_TotalBets_WagerAccount_Outright_Master" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="CS_TotalBets_WagerAccount_Outright_Member" SpName="CS_TotalBets_WagerAccount_Outright_Member" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_WagerAccount_Outright_Agent" SpName="CS_TotalBets_WagerAccount_Outright_Agent_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_WagerAccount_Outright_Master" SpName="CS_TotalBets_WagerAccount_Outright_Master_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_WagerAccount_Outright_Member" SpName="CS_TotalBets_WagerAccount_Outright_Member_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
 
-    <Setting Key="CS_TotalBets_WagerAccount_Event_Agent" SpName="CS_TotalBets_WagerAccount_Event_Agent" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="CS_TotalBets_WagerAccount_Event_Master" SpName="CS_TotalBets_WagerAccount_Event_Master" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
-    <Setting Key="CS_TotalBets_WagerAccount_Event_Member" SpName="CS_TotalBets_WagerAccount_Event_Member" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_WagerAccount_Event_Agent" SpName="CS_TotalBets_WagerAccount_Event_Agent_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_WagerAccount_Event_Master" SpName="CS_TotalBets_WagerAccount_Event_Master_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
+    <Setting Key="CS_TotalBets_WagerAccount_Event_Member" SpName="CS_TotalBets_WagerAccount_Event_Member_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0" />
   </Function>
 
   <Function Name="ViewByBetType">
-    <Setting Key="CS_TotalBets_Bettype_Super" SpName="CS_TotalBets_Bettype_Super" DbName="DB042.bodb02.BODBDownlineNet" Plain="0">
+    <Setting Key="CS_TotalBets_Bettype_Super" SpName="CS_TotalBets_Bettype_Super_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0">
       <Mapping DataField="liveindicator" ObjectProperty="IsLive"></Mapping>
       <Mapping DataField="bettypegroup" ObjectProperty="BetTypeId"></Mapping>
     </Setting>
-    <Setting Key="CS_TotalBets_Bettype_Master" SpName="CS_TotalBets_Bettype_Master" DbName="DB042.bodb02.BODBDownlineNet" Plain="0">
+    <Setting Key="CS_TotalBets_Bettype_Master" SpName="CS_TotalBets_Bettype_Master_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0">
       <Mapping DataField="liveindicator" ObjectProperty="IsLive"></Mapping>
       <Mapping DataField="bettypegroup" ObjectProperty="BetTypeId"></Mapping>
     </Setting>
-    <Setting Key="CS_TotalBets_Bettype_Agent" SpName="CS_TotalBets_Bettype_Agent" DbName="DB042.bodb02.BODBDownlineNet" Plain="0">
+    <Setting Key="CS_TotalBets_Bettype_Agent" SpName="CS_TotalBets_Bettype_Agent_xtest" DbName="DB042.bodb02.BODBDownlineNet" Plain="0">
       <Mapping DataField="liveindicator" ObjectProperty="IsLive"></Mapping>
       <Mapping DataField="bettypegroup" ObjectProperty="BetTypeId"></Mapping>
     </Setting>

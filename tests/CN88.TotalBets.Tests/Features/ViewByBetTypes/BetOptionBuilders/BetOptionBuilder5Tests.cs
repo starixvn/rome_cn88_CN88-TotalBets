@@ -24,9 +24,10 @@ namespace CN88.TotalBets.Tests.Features.ViewByBetTypes.BetOptionBuilders
         {
             // Arrange
             var betOption = new BetOption((int)BetTypes.FT_1X2, BetTeamValue.NumberOne, true);
+            var homeId = 1;
             var expectedResult = "HomeName";
-            CacheRefManager.CacheRefInstance.GetTeamName(Arg.Compat.Any<int>()).Returns(expectedResult);
-            var match = new Match(1, 1, DateTime.Now, 1, 2, 1, 2, 5, 500, 2, 1, false, true);
+            CacheRefManager.CacheRefInstance.GetTeamName(homeId).Returns(expectedResult);
+            var match = new Match(1, 1, DateTime.Now, homeId, 2, 1, 2, 5, 500, 2, 1, false, true);
 
             // Act
             var actualResult = betOptionBuilder.BuildBetChoice(betOption, match);
@@ -40,9 +41,10 @@ namespace CN88.TotalBets.Tests.Features.ViewByBetTypes.BetOptionBuilders
         {
             // Arrange
             var betOption = new BetOption((int)BetTypes.FT_1X2, BetTeamValue.NumberTwo, true);
+            var awayId = 2;
             var expectedResult = "AwayName";
-            CacheRefManager.CacheRefInstance.GetTeamName(Arg.Compat.Any<int>()).Returns(expectedResult);
-            var match = new Match(1, 1, DateTime.Now, 1, 2, 1, 2, 5, 500, 2, 1, false, true);
+            CacheRefManager.CacheRefInstance.GetTeamName(awayId).Returns(expectedResult);
+            var match = new Match(1, 1, DateTime.Now, 1, awayId, 1, 2, 5, 500, 2, 1, false, true);
 
             // Act
             var actualResult = betOptionBuilder.BuildBetChoice(betOption, match);

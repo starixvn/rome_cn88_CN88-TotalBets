@@ -10,12 +10,15 @@ namespace CN88.TotalBets.Tests.Features.ViewByBetTypes.BetOptionBuilders
 {
     public class DefaultBetOptionBuilderTests
     {
+        private readonly string betTypeName;
         private readonly DefaultBetOptionBuilder defaultBetOptionBuilder;
 
         public DefaultBetOptionBuilderTests()
         {
             defaultBetOptionBuilder = new DefaultBetOptionBuilder();
+            betTypeName = "BetTypeName";
             CacheRefManager.CacheRefInstance = Substitute.For<CacheRefService>();
+            CacheRefManager.CacheRefInstance.GetBetTypeName(Arg.Compat.Any<int>()).Returns(betTypeName);
         }
 
         [Fact]
@@ -23,9 +26,6 @@ namespace CN88.TotalBets.Tests.Features.ViewByBetTypes.BetOptionBuilders
         {
             // Arrange
             var betOption = new BetOption(1, BetTeamValue.A, false);
-            var betTypeName = "BetTypeName";
-            CacheRefManager.CacheRefInstance.GetBetTypeName(betOption.BetTypeId).Returns(betTypeName);
-
             // Act
             var actualResult = defaultBetOptionBuilder.BuildBetChoice(betOption, new Match());
 
@@ -42,8 +42,6 @@ namespace CN88.TotalBets.Tests.Features.ViewByBetTypes.BetOptionBuilders
                 ["isShowMarketStatus"] = true
             };
             var betOption = new BetOption(1, BetTeamValue.A, true);
-            var betTypeName = "BetTypeName";
-            CacheRefManager.CacheRefInstance.GetBetTypeName(betOption.BetTypeId).Returns(betTypeName);
             var expectedResult = "BetTypeName (In-Play)";
 
             // Act
@@ -62,8 +60,6 @@ namespace CN88.TotalBets.Tests.Features.ViewByBetTypes.BetOptionBuilders
                 ["isShowMarketStatus"] = true
             };
             var betOption = new BetOption(1, BetTeamValue.A, false);
-            var betTypeName = "BetTypeName";
-            CacheRefManager.CacheRefInstance.GetBetTypeName(Arg.Compat.Any<int>()).Returns(betTypeName);
             var expectedResult = "BetTypeName (Pre-Match)";
 
             // Act

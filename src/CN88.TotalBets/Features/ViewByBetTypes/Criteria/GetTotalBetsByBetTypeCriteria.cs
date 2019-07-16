@@ -9,6 +9,8 @@
     {
         public GetTotalBetsByBetTypeCriteria(
             int custId,
+            int subAccId,
+            bool isAllDownline,
             UserLevel userLevel,
             int matchId,
             byte stakeCondition,
@@ -18,6 +20,8 @@
             byte eventType)
         {
             CustId = custId;
+            SubAccId = subAccId;
+            IsAllDownline = isAllDownline;
             UserLevel = userLevel;
             StakeCondition = stakeCondition;
             MarketType = marketType;
@@ -28,6 +32,10 @@
         }
 
         public int CustId { get; }
+
+        public int SubAccId { get; }
+
+        public bool IsAllDownline { get; }
 
         public int MatchId { get; }
 

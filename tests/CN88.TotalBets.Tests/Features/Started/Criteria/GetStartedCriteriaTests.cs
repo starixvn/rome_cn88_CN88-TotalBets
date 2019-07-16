@@ -26,6 +26,8 @@ namespace CN88.TotalBets.Tests.Features.Started.Criteria
             // Arrange
             var param = new StartedParam(
                 Util.RandomValidCustId(fixture),
+                0,
+                false,
                 Enumeration.FromValue<UserLevel>(userLevel),
                 fixture.Create<int>(),
                 fixture.Create<int>(),

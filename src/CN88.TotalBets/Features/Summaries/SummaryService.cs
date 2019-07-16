@@ -6,15 +6,15 @@
     using Criteria;
     using Fanex.Data.Repository;
     using Models;
-    using Shared.Models;
+    using Params;
     using Shared.Services;
     using SportTypeGroup;
 
     public interface SummaryService
     {
-        Task<IEnumerable<SportGroupSummary>> GetSportGroupSummaries(int custId, UserLevel custLevel, byte eventType);
+        Task<IEnumerable<SportGroupSummary>> GetSportGroupSummaries(SummaryByEventParam param);
 
-        Task<SportGroupSummary> GetSportGroupSummary(int custId, UserLevel custLevel, byte eventType, byte sportGroup);
+        Task<SportGroupSummary> GetSportGroupSummary(SummaryBySportGroupParam param);
     }
 
     public class SummaryServiceImpl : SummaryService
@@ -33,9 +33,15 @@
             this.sportTypeGroupService = sportTypeGroupService;
         }
 
-        public async Task<IEnumerable<SportGroupSummary>> GetSportGroupSummaries(int custId, UserLevel custLevel, byte eventType)
+        public async Task<IEnumerable<SportGroupSummary>> GetSportGroupSummaries(SummaryByEventParam param)
         {
-            var summaries = await dynamicRepository.FetchAsync<SportGroupSummary>(new GetSummaryByEventCriteria(custId, eventType, custLevel));
+            var criteria = new GetSummaryByEventCriteria(
+                param.CustId,
+                param.SubAccId,
+                param.IsAllDownline,
+                param.EventType,
+                param.CustLevel);
+            var summaries = await dynamicRepository.FetchAsync<SportGroupSummary>(criteria);
 
             if (summaries == null || !summaries.Any())
             {
@@ -50,10 +56,16 @@
             return summaries;
         }
 
-        public async Task<SportGroupSummary> GetSportGroupSummary(int custId, UserLevel custLevel, byte eventType, byte sportGroup)
+        public async Task<SportGroupSummary> GetSportGroupSummary(SummaryBySportGroupParam param)
         {
-            var dtos = await dynamicRepository.FetchAsync<SummaryByMatchDto>(
-                new GetSummaryBySportTypeGroupCriteria(custId, eventType, sportGroup, custLevel));
+            var criteria = new GetSummaryBySportTypeGroupCriteria(
+                param.CustId,
+                param.SubAccId,
+                param.IsAllDownline,
+                param.EventType,
+                param.SportGroup,
+                param.CustLevel);
+            var dtos = await dynamicRepository.FetchAsync<SummaryByMatchDto>(criteria);
 
             if (!dtos.Any())
             {
@@ -82,8 +94,8 @@
             }
 
             return new SportGroupSummary(
-                sportGroup,
-                await sportTypeGroupService.GetSportTypeGroupName(sportGroup),
+                param.SportGroup,
+                await sportTypeGroupService.GetSportTypeGroupName(param.SportGroup),
                 leagueSummaries.OrderBy(item => item.LeagueName));
         }
     }

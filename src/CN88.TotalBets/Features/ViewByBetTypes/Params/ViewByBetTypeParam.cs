@@ -7,6 +7,8 @@
     {
         public ViewByBetTypeParam(
             int custId,
+            int subAccId,
+            bool isAllDownline,
             UserLevel userLevel,
             int matchId,
             byte stakeCondition,
@@ -14,7 +16,7 @@
             byte possType,
             byte marketType,
             byte eventType)
-            : base(custId, userLevel, 0, 0, stakeCondition, stake, possType)
+            : base(custId, subAccId, isAllDownline, userLevel, 0, 0, stakeCondition, stake, possType)
         {
             MarketType = marketType;
             MatchId = matchId;

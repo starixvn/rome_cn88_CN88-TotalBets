@@ -25,6 +25,8 @@ namespace CN88.TotalBets.Tests.Features.ViewByBetTypes.Criteria
             // Arrange
             var criteria = new GetTotalBetsByBetTypeCriteria(
                 Util.RandomValidCustId(fixture),
+                0,
+                false,
                 Enumeration.FromValue<UserLevel>(userLevel),
                 fixture.Create<int>(),
                 fixture.Create<byte>(),
@@ -46,6 +48,8 @@ namespace CN88.TotalBets.Tests.Features.ViewByBetTypes.Criteria
             // Arrange
             var criteria = new GetTotalBetsByBetTypeCriteria(
                 Util.RandomValidCustId(fixture),
+                0,
+                false,
                 Enumeration.FromValue<UserLevel>(userLevel),
                 fixture.Create<int>(),
                 fixture.Create<byte>(),
@@ -66,6 +70,8 @@ namespace CN88.TotalBets.Tests.Features.ViewByBetTypes.Criteria
             // Arrange
             var criteria = new GetTotalBetsByBetTypeCriteria(
                 custId,
+                0,
+                false,
                 Util.RandomSMALevel(fixture),
                 fixture.Create<int>(),
                 fixture.Create<byte>(),
@@ -86,6 +92,8 @@ namespace CN88.TotalBets.Tests.Features.ViewByBetTypes.Criteria
             // Arrange
             var criteria = new GetTotalBetsByBetTypeCriteria(
                 Util.RandomValidCustId(fixture),
+                0,
+                false,
                 Util.RandomSMALevel(fixture),
                 matchId,
                 fixture.Create<byte>(),
@@ -104,6 +112,8 @@ namespace CN88.TotalBets.Tests.Features.ViewByBetTypes.Criteria
             // Arrange
             var criteria = new GetTotalBetsByBetTypeCriteria(
                 Util.RandomValidCustId(fixture),
+                0,
+                false,
                 Util.RandomSMALevel(fixture),
                 fixture.Create<Generator<int>>().First(x => x > 0),
                 fixture.Create<byte>(),

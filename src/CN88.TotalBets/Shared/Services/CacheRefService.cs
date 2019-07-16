@@ -1,5 +1,6 @@
 ﻿namespace CN88.TotalBets.Shared.Services
 {
+    using System;
     using System.Threading;
     using Fanex.RemotingRef;
 
@@ -16,6 +17,7 @@
 
     public static class CacheRefManager
     {
+        [ThreadStatic]
         private static CacheRefService remotingRefService;
 
         public static CacheRefService CacheRefInstance

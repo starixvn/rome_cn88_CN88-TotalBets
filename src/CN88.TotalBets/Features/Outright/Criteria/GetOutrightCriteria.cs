@@ -8,6 +8,8 @@
     {
         public GetOutrightCriteria(OutrightParam param) : base(
             param.CustId,
+            param.SubAccId,
+            param.IsAllDownline,
             param.UserLevel,
             param.SportTypeGroup,
             param.LeagueId,

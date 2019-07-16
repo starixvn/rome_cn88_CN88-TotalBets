@@ -10,6 +10,7 @@ using CN88.TotalBets.Features.Leagues.Models;
 using CN88.TotalBets.Features.SportTypeGroup;
 using CN88.TotalBets.Features.Summaries;
 using CN88.TotalBets.Features.Summaries.Models;
+using CN88.TotalBets.Features.Summaries.Params;
 using CN88.TotalBets.Shared.Constants;
 using CN88.TotalBets.Shared.Models;
 using CN88.TotalBets.Site.Features.Events;
@@ -32,6 +33,7 @@ namespace CN88.TotalBets.Site.Tests.Features.Events
         private readonly SportTypeGroupService sportTypeGroupService;
         private readonly BrowserHelper browserHelper;
         private readonly EventHandler handler;
+        private readonly CompareLogic compareLogic;
 
         public EventHandlerTests()
         {
@@ -53,6 +55,7 @@ namespace CN88.TotalBets.Site.Tests.Features.Events
             user.LevelId.Returns(UserLevel.Agent.Value);
 
             UrlHelperTestSetUp.SetUp();
+            compareLogic = new CompareLogic();
         }
 
         [Fact]
@@ -100,12 +103,19 @@ namespace CN88.TotalBets.Site.Tests.Features.Events
             var message = new EventQuery(user);
             message.SportTypeGroup = 1;
             message.Type = EventTypeConstants.InPlay;
+            var param = new SummaryByEventParam(
+                message.ViewerId,
+                message.SubAccountId,
+                message.IsAllDownline,
+                message.Type,
+                message.ActorLevel);
 
             // Act
             handler.Handle(message).ConfigureAwait(false);
 
             // Assert
-            summaryService.Received().GetSportGroupSummaries(message.ViewerId, message.ActorLevel, message.Type);
+            summaryService.Received().GetSportGroupSummaries(
+                Arg.Compat.Is<SummaryByEventParam>(x => compareLogic.Compare(x, param).AreEqual));
         }
 
         [Fact]
@@ -118,9 +128,8 @@ namespace CN88.TotalBets.Site.Tests.Features.Events
             sportTypeGroupService.GetSportTypeGroupName(Arg.Compat.Any<int>())
                 .Returns("SportTypeGroupName");
             var eventModel = new MatchLeagueTotal(message.Type, Enumerable.Empty<MatchLeague>(), 2, 2000);
-            eventService.GetEventsAsync(Arg.Compat.Any<EventParam>())
-                .Returns(Task.FromResult(eventModel));
-            summaryService.GetSportGroupSummaries(message.ViewerId, message.ActorLevel, message.Type)
+            eventService.GetEventsAsync(Arg.Compat.Any<EventParam>()).Returns(Task.FromResult(eventModel));
+            summaryService.GetSportGroupSummaries(Arg.Compat.Any<SummaryByEventParam>())
                 .Returns(Enumerable.Empty<SportGroupSummary>());
             leagueService.GetLeagues(message.SportTypeGroup, message.Type)
                 .Returns(Enumerable.Empty<League>());
@@ -138,7 +147,7 @@ namespace CN88.TotalBets.Site.Tests.Features.Events
             var actualViewModel = handler.Handle(message).GetAwaiter().GetResult();
 
             // Assert
-            Assert.True(new CompareLogic().Compare(expectedViewModel, actualViewModel).AreEqual);
+            Assert.True(compareLogic.Compare(expectedViewModel, actualViewModel).AreEqual);
         }
     }
 }

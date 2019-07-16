@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using AutoFixture;
 using CN88.TotalBets.Features.Summaries.Criteria;
@@ -25,7 +25,7 @@ namespace CN88.TotalBets.Tests.Features.Summaries.Criteria
             var custLevel = UserLevel.Member;
 
             Assert.Throws<ArgumentOutOfRangeException>(nameof(custLevel),
-                () => new GetSummaryByEventCriteria(custId, eventType, custLevel));
+                () => new GetSummaryByEventCriteria(custId, 0, false, eventType, custLevel));
         }
 
         [Theory]
@@ -38,7 +38,7 @@ namespace CN88.TotalBets.Tests.Features.Summaries.Criteria
             var custId = Fixture.Create<int>();
             var eventType = Fixture.Create<Generator<byte>>().First(x => x != EventTypeConstants.Started);
             var custLevel = Enumeration.FromValue<UserLevel>(custLevelValue);
-            var criteria = new GetSummaryByEventCriteria(custId, eventType, custLevel);
+            var criteria = new GetSummaryByEventCriteria(custId, 0, false, eventType, custLevel);
 
             // Act
             var result = criteria.GetSettingKey();
@@ -56,7 +56,7 @@ namespace CN88.TotalBets.Tests.Features.Summaries.Criteria
             // Arrange
             var custId = Fixture.Create<int>();
             var custLevel = Enumeration.FromValue<UserLevel>(custLevelValue);
-            var criteria = new GetSummaryByEventCriteria(custId, EventTypeConstants.Started, custLevel);
+            var criteria = new GetSummaryByEventCriteria(custId, 0, false, EventTypeConstants.Started, custLevel);
 
             // Act
             var result = criteria.GetSettingKey();
@@ -73,7 +73,7 @@ namespace CN88.TotalBets.Tests.Features.Summaries.Criteria
             // Arrange
             var eventType = Fixture.Create<byte>();
             var custLevel = Util.RandomSMALevel(Fixture);
-            var criteria = new GetSummaryByEventCriteria(custId, eventType, custLevel);
+            var criteria = new GetSummaryByEventCriteria(custId, 0, false, eventType, custLevel);
 
             // Act
             var result = criteria.IsValid();
@@ -89,7 +89,7 @@ namespace CN88.TotalBets.Tests.Features.Summaries.Criteria
             var eventType = Fixture.Create<byte>();
             var custId = Util.RandomValidCustId(Fixture);
             var custLevel = Util.RandomSMALevel(Fixture);
-            var criteria = new GetSummaryByEventCriteria(custId, eventType, custLevel);
+            var criteria = new GetSummaryByEventCriteria(custId, 0, false, eventType, custLevel);
 
             // Act
             var result = criteria.IsValid();

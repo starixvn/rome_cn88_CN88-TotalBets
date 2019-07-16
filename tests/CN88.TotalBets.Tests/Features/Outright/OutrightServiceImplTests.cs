@@ -36,6 +36,8 @@ namespace CN88.TotalBets.Tests.Features.Outright
             // Arrange
             var param = new OutrightParam(
                 custId: Util.RandomValidCustId(fixture),
+                subAccId: 0,
+                isAllDownline: false,
                 userLevel: Util.RandomSMALevel(fixture),
                 sportTypeGroup: fixture.Create<int>(),
                 leagueId: fixture.Create<int>(),
@@ -64,6 +66,8 @@ namespace CN88.TotalBets.Tests.Features.Outright
             // Arrange
             var param = new OutrightParam(
                 custId: Util.RandomValidCustId(fixture),
+                subAccId: 0,
+                isAllDownline: false,
                 userLevel: Util.RandomSMALevel(fixture),
                 sportTypeGroup: fixture.Create<int>(),
                 leagueId: fixture.Create<int>(),
@@ -89,6 +93,8 @@ namespace CN88.TotalBets.Tests.Features.Outright
             var compareLogic = new CompareLogic();
             var param = new OutrightParam(
                 custId: Util.RandomValidCustId(fixture),
+                subAccId: 0,
+                isAllDownline: false,
                 userLevel: Util.RandomSMALevel(fixture),
                 sportTypeGroup: fixture.Create<int>(),
                 leagueId: fixture.Create<int>(),

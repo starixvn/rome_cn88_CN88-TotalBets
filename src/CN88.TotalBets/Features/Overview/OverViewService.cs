@@ -6,11 +6,12 @@
     using Criteria;
     using Fanex.Data.Repository;
     using Models;
+    using Params;
     using Shared.Configurations;
 
     public interface IOverViewService
     {
-        Task<OverViewModel> Get(int custId, int viewMode, byte roleId);
+        Task<OverViewModel> Get(OverViewParam param);
     }
 
     public class OverViewService : IOverViewService
@@ -22,9 +23,14 @@
             this.dynamicRepository = dynamicRepository;
         }
 
-        public async Task<OverViewModel> Get(int custId, int viewMode, byte roleId)
+        public async Task<OverViewModel> Get(OverViewParam param)
         {
-            var criteria = new GetOverViewCriteria(custId, viewMode, roleId);
+            var criteria = new GetOverViewCriteria(
+                param.CustId,
+                param.SubAccId,
+                param.IsAllDownline,
+                param.PossType,
+                param.UserLevel);
             var overView = await dynamicRepository.FetchMultipleAsync<OverViewBySportTypeModel, OverViewByParlayModel, OverViewItemModel>(criteria);
             var overViewBySportType = OrderBy(overView.Item1);
 

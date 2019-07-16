@@ -528,7 +528,6 @@
     <Content Include="App_Data\AuthorizationSection.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\SPNames\Internal\DBARC.bodb_Archive.BODBDownlineNet" />
     <Content Include="bundleconfig.json" />
     <Content Include="compilerconfig.json" />
     <Content Include="App_Code\Filters\PossTypeSelection.cshtml" />
@@ -541,10 +540,8 @@
     <Content Include="Features\Events\Styles\event.scss" />
     <Content Include="App_Code\Breadcrumb.cshtml" />
     <Content Include="Features\ViewByBetType\Styles\viewbybettype.scss" />
-    <Content Include="App_Data\SPNames\Main\DBARC.bodb_Archive.BODBDownlineNet" />
     <Content Include="App_Code\Filters\DateSelection.cshtml" />
     <Content Include="App_Code\Filters\RefreshCountDown.cshtml" />
-    <Content Include="App_Data\SPNames\Dev\DBARC.bodb_Archive.BODBDownlineNet" />
     <Content Include="CN88.TotalBets.Site.ruleset" />
     <Content Include="assets\tests\chutzpah.json" />
     <None Include="compilerconfig.json.defaults">
@@ -605,6 +602,9 @@
     <Content Include="typings\globals\cleave.js\LICENSE" />
     <Content Include="typings\globals\cleave.js\package.json" />
     <Content Include="typings\globals\cleave.js\README.md" />
+    <Content Include="Web.AppSettings.local.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\Overview\Views\Index.cshtml" />

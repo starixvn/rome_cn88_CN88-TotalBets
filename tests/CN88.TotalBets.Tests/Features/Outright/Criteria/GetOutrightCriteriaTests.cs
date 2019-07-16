@@ -26,6 +26,8 @@ namespace CN88.TotalBets.Tests.Features.Outright.Criteria
             // Arrange
             var param = new OutrightParam(
                 custId: Util.RandomValidCustId(fixture),
+                subAccId: 0,
+                isAllDownline: false,
                 userLevel: Enumeration.FromValue<UserLevel>(userLevel),
                 sportTypeGroup: fixture.Create<int>(),
                 leagueId: fixture.Create<int>(),

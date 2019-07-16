@@ -4,6 +4,8 @@
     {
         public WagerAccountByEventParam(
             int custId,
+            int subAccId,
+            bool isAllDownline,
             int matchId,
             decimal stake,
             int stakeCondition,
@@ -12,7 +14,7 @@
             string betteam,
             int liveIndicator,
             byte eventType)
-            : base(custId, matchId, stake, stakeCondition, roleId)
+            : base(custId, subAccId, isAllDownline, matchId, stake, stakeCondition, roleId)
         {
             BettypeGroup = bettypeGroup;
             BetTeam = betteam;

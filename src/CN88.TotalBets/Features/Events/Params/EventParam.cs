@@ -7,6 +7,8 @@
     {
         public EventParam(
             int custId,
+            int subAccId,
+            bool isAllDownline,
             UserLevel userLevel,
             byte type,
             int sportTypeGroup,
@@ -15,7 +17,7 @@
             decimal stake,
             byte possType,
             byte market)
-            : base(custId, userLevel, sportTypeGroup, leagueId, stakeCondition, stake, possType)
+            : base(custId, subAccId, isAllDownline, userLevel, sportTypeGroup, leagueId, stakeCondition, stake, possType)
         {
             Type = type;
             Market = market;

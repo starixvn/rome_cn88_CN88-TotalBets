@@ -7,10 +7,12 @@
     {
         public GetSummaryBySportTypeGroupCriteria(
             int custId,
+            int subAccId,
+            bool isAllDownline,
             byte type,
             byte sportTypeGroup,
             UserLevel custLevel)
-            : base(custId, type, custLevel)
+            : base(custId, subAccId, isAllDownline, type, custLevel)
         {
             SportTypeGroup = sportTypeGroup;
         }

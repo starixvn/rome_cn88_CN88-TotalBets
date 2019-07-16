@@ -9,6 +9,7 @@ using CN88.TotalBets.Features.Started.Models;
 using CN88.TotalBets.Features.Started.Params;
 using CN88.TotalBets.Features.Summaries;
 using CN88.TotalBets.Features.Summaries.Models;
+using CN88.TotalBets.Features.Summaries.Params;
 using CN88.TotalBets.Shared.Constants;
 using CN88.TotalBets.Shared.Models;
 using CN88.TotalBets.Site.Features.Started;
@@ -101,7 +102,13 @@ namespace CN88.TotalBets.Site.Tests.Features.Started
             handler.Handle(message).ConfigureAwait(false);
 
             // Assert
-            summaryService.Received().GetSportGroupSummaries(message.ViewerId, message.ActorLevel, EventTypeConstants.Started);
+            summaryService.Received().GetSportGroupSummaries(
+                Arg.Compat.Is<SummaryByEventParam>(
+                    x => x.CustId == message.ViewerId
+                        && x.SubAccId == message.SubAccountId
+                        && x.IsAllDownline == message.IsAllDownline
+                        && x.CustLevel == message.ActorLevel
+                        && x.EventType == EventTypeConstants.Started));
         }
 
         [Fact]
@@ -118,8 +125,7 @@ namespace CN88.TotalBets.Site.Tests.Features.Started
             };
             startedService.GetStarted(Arg.Compat.Any<StartedParam>())
                 .Returns(data);
-            summaryService.GetSportGroupSummaries(message.ViewerId, message.ActorLevel, EventTypeConstants.Started)
-                .Returns(Enumerable.Empty<SportGroupSummary>());
+            summaryService.GetSportGroupSummaries(Arg.Compat.Any<SummaryByEventParam>()).Returns(Enumerable.Empty<SportGroupSummary>());
             leagueService.GetLeagues(message.SportTypeGroup, EventTypeConstants.Started)
                 .Returns(Enumerable.Empty<League>());
             var expectedViewModel = new StartedViewModel(

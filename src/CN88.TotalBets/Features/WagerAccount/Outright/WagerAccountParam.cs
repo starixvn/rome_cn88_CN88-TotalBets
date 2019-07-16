@@ -6,12 +6,16 @@
     {
         public WagerAccountParam(
             int custId,
+            int subAccId,
+            bool isAllDownline,
             int matchId,
             decimal stake,
             int stakeCondition,
             byte roleId)
         {
             CustId = custId;
+            SubAccId = subAccId;
+            IsAllDownline = isAllDownline;
             MatchId = matchId;
             Stake = stake;
             Role = Enumeration.FromValue<UserLevel>(roleId);
@@ -19,6 +23,10 @@
         }
 
         public int CustId { get; }
+
+        public int SubAccId { get; }
+
+        public bool IsAllDownline { get; }
 
         public int MatchId { get; }
 

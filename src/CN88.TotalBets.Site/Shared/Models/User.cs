@@ -33,5 +33,7 @@
         public bool IsAdminCanViewVNIP => userSession.IsAdminCanViewVNIP;
 
         public int AdminId => userSession.AdminId;
+
+        public bool IsAllDownline => userSession.GetProperty<bool>("ISALLDOWNLINE");
     }
 }

@@ -10,6 +10,8 @@
     {
         public GetSummaryByEventCriteria(
             int custId,
+            int subAccId,
+            bool isAllDownline,
             byte eventType,
             UserLevel custLevel)
         {
@@ -19,11 +21,17 @@
             }
 
             CustId = custId;
+            SubAccId = subAccId;
+            IsAllDownline = isAllDownline;
             EventType = eventType;
             CustLevel = custLevel;
         }
 
         public int CustId { get; }
+
+        public int SubAccId { get; }
+
+        public bool IsAllDownline { get; }
 
         [SpParam(SqlParamName = "Type")]
         public byte EventType { get; }

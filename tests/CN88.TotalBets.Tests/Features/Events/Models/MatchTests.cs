@@ -8,22 +8,27 @@ namespace CN88.TotalBets.Tests.Features.Events.Models
 {
     public class MatchTests
     {
+        private readonly int homeId;
+        private readonly int awayId;
+
         public MatchTests()
         {
+            homeId = 1;
+            awayId = 2;
             CacheRefManager.CacheRefInstance = Substitute.For<CacheRefService>();
+            CacheRefManager.CacheRefInstance.GetTeamName(homeId).Returns("HomeName");
+            CacheRefManager.CacheRefInstance.GetTeamName(awayId).Returns("AwayName");
         }
 
         [Fact]
         public void HomeName_IsNeutral_ReturnsCorrectValue()
         {
             // Arrange
-            CacheRefManager.CacheRefInstance.GetTeamName(Arg.Compat.Any<int>()).Returns("HomeName");
-
             var match = new Match(
                 leagueId: 1,
                 matchId: 1,
                 showTimeDT: DateTime.Now,
-                homeId: 1,
+                homeId: homeId,
                 awayId: 2,
                 liveAwayScore: 0,
                 liveHomeScore: 0,
@@ -42,12 +47,11 @@ namespace CN88.TotalBets.Tests.Features.Events.Models
         public void HomeName_IsNotNeutral_ReturnsCorrectValue()
         {
             // Arrange
-            CacheRefManager.CacheRefInstance.GetTeamName(Arg.Compat.Any<int>()).Returns("HomeName");
             var match = new Match(
                 leagueId: 1,
                 matchId: 1,
                 showTimeDT: DateTime.Now,
-                homeId: 1,
+                homeId: homeId,
                 awayId: 2,
                 liveAwayScore: 0,
                 liveHomeScore: 0,
@@ -66,14 +70,12 @@ namespace CN88.TotalBets.Tests.Features.Events.Models
         public void AwayName_Always_ReturnsCorrectValue()
         {
             // Arrange
-            CacheRefManager.CacheRefInstance.GetTeamName(Arg.Compat.Any<int>()).Returns("AwayName");
-
             var match = new Match(
                 leagueId: 1,
                 matchId: 1,
                 showTimeDT: DateTime.Now,
                 homeId: 1,
-                awayId: 2,
+                awayId: awayId,
                 liveAwayScore: 0,
                 liveHomeScore: 0,
                 wager: 10,

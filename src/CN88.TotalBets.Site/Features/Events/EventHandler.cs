@@ -8,6 +8,7 @@
     using TotalBets.Features.Leagues;
     using TotalBets.Features.SportTypeGroup;
     using TotalBets.Features.Summaries;
+    using TotalBets.Features.Summaries.Params;
     using ViewModels;
     using Web.Helpers;
 
@@ -37,7 +38,13 @@
         {
             var eventModel = await eventService.GetEventsAsync(ToEventParam(message));
             var leagues = await leagueService.GetLeagues(message.SportTypeGroup, message.Type);
-            var summaries = await summaryService.GetSportGroupSummaries(message.ViewerId, message.ActorLevel, message.Type);
+            var summaries = await summaryService.GetSportGroupSummaries(
+                new SummaryByEventParam(
+                    message.ViewerId,
+                    message.SubAccountId,
+                    message.IsAllDownline,
+                    message.Type,
+                    message.ActorLevel));
 
             return new EventViewModel(
                 message,
@@ -51,6 +58,8 @@
         private static EventParam ToEventParam(EventQuery message)
             => new EventParam(
                 message.ViewerId,
+                message.SubAccountId,
+                message.IsAllDownline,
                 message.ActorLevel,
                 message.Type,
                 message.SportTypeGroup,
