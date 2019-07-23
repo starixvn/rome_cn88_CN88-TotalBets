@@ -90,7 +90,7 @@
         public bool ShowScore(int sportTypeId)
             => sportTypeId == SportTypeConstants.Soccer && IsShowMarketStatus;
 
-        public bool IsDevices => browserHelper.IsMobile() && !browserHelper.IsTablet();
+        public bool IsDevices => browserHelper.IsMobileTablet() && !browserHelper.IsMobileTablet(true);
 
         private static string BuildSummaryPath(ViewByBetTypeQuery viewBetTypeQuery)
         {
