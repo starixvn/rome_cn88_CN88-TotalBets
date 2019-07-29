@@ -56,7 +56,7 @@ namespace CN88.TotalBets.Site.Tests.Features.WagerAccount
         {
             // Arrange
             var message = new WagerAccountByOutrightQuery(user);
-            browserHelper.IsMobileTablet().Returns(false);
+            browserHelper.IsMobile().Returns(false);
             wagerAccountService.GetByOutright(Arg.Compat.Any<WagerAccountParam>())
                 .Returns(Enumerable.Empty<WagerAccountModel>());
             var expectedViewModel = new WagerAccountByOutrightViewModel(
@@ -102,7 +102,7 @@ namespace CN88.TotalBets.Site.Tests.Features.WagerAccount
         {
             // Arrange
             var message = new WagerAccountByEventQuery(user);
-            browserHelper.IsMobileTablet().Returns(false);
+            browserHelper.IsMobile().Returns(false);
             wagerAccountService.GetByEvent(Arg.Compat.Any<WagerAccountByEventParam>())
                 .Returns(Enumerable.Empty<WagerAccountModel>());
             var expectedViewModel = new WagerAccountByEventViewModel(

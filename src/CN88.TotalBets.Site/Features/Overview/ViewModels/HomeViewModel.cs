@@ -61,7 +61,7 @@
 
         public SingleSelectionViewModel PossTypeSelectionViewModel { get; }
 
-        public bool IsDevices => browserHelper.IsMobileTablet() && !browserHelper.IsMobileTablet(true);
+        public bool IsDevices => browserHelper.IsMobile();
 
         public OverViewItemModel GetTotal(int colIndex)
         {

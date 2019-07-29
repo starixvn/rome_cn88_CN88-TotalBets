@@ -32,7 +32,7 @@
 
         public SummaryMenuViewModel SummaryMenuViewModel { get; }
 
-        public bool IsDevices => browserHelper.IsMobileTablet() && !browserHelper.IsMobileTablet(true);
+        public bool IsDevices => browserHelper.IsMobile();
 
         public string BuildViewByBetTypeLink(byte type, int matchId)
             => Helpers.UrlHelper.ReplaceOrAddQueryStringParamsFunc(
