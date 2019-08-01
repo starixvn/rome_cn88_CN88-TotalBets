@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using CN88.TotalBets.Features.Overview;
 using CN88.TotalBets.Features.Overview.Models;
+using CN88.TotalBets.Features.Overview.Params;
 using CN88.TotalBets.Features.SportTypeGroup;
 using CN88.TotalBets.Features.SportTypeGroup.Models;
 using CN88.TotalBets.Shared.Constants;
@@ -21,6 +22,7 @@ namespace CN88.TotalBets.Site.Tests.Features.Overview
         private readonly SportTypeGroupService sportTypeGroupService;
         private readonly BrowserHelper browserHelper;
         private readonly OverViewHandler handler;
+        private readonly CompareLogic compareLogic;
 
         public OverViewHandlerTests()
         {
@@ -31,6 +33,7 @@ namespace CN88.TotalBets.Site.Tests.Features.Overview
             sportTypeGroupService = Substitute.For<SportTypeGroupService>();
             browserHelper = Substitute.For<BrowserHelper>();
             handler = new OverViewHandler(overViewService, sportTypeGroupService, browserHelper);
+            compareLogic = new CompareLogic();
         }
 
         [Fact]
@@ -39,12 +42,18 @@ namespace CN88.TotalBets.Site.Tests.Features.Overview
             // Arrange
             var message = new OverViewQuery(user);
             message.PossType = PossTypeConstants.Agent_Percentage;
+            var param = new OverViewParam(
+                message.ViewerId,
+                message.SubAccountId,
+                message.IsAllDownline,
+                message.PossType,
+                message.ActorLevel);
 
             // Act
             handler.Handle(message).ConfigureAwait(false);
 
             // Assert
-            overViewService.Received().Get(message.ViewerId, message.PossType, message.ViewerLevelId);
+            overViewService.Received().Get(Arg.Compat.Is<OverViewParam>(x => compareLogic.Compare(x, param).AreEqual));
         }
 
         [Fact]
@@ -72,7 +81,7 @@ namespace CN88.TotalBets.Site.Tests.Features.Overview
                 },
                 new OverViewByParlayModel(),
                 new OverViewItemModel());
-            overViewService.Get(message.ViewerId, message.PossType, message.ViewerLevelId).Returns(overview);
+            overViewService.Get(Arg.Compat.Any<OverViewParam>()).Returns(overview);
             var sportGroups = new List<SportGroup>
             {
                 new SportGroup(1,new List<int> { 1},(id)=> "SportGroupName")
@@ -84,7 +93,7 @@ namespace CN88.TotalBets.Site.Tests.Features.Overview
             var actualViewModel = handler.Handle(message).GetAwaiter().GetResult();
 
             // Assert
-            Assert.True(new CompareLogic().Compare(expectedViewModel, actualViewModel).AreEqual);
+            Assert.True(compareLogic.Compare(expectedViewModel, actualViewModel).AreEqual);
         }
     }
 }

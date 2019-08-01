@@ -5,6 +5,7 @@ using CN88.TotalBets.Features.Events.Models;
 using CN88.TotalBets.Features.SportTypeGroup;
 using CN88.TotalBets.Features.Summaries;
 using CN88.TotalBets.Features.Summaries.Models;
+using CN88.TotalBets.Features.Summaries.Params;
 using CN88.TotalBets.Features.ViewByBetTypes;
 using CN88.TotalBets.Features.ViewByBetTypes.Models;
 using CN88.TotalBets.Features.ViewByBetTypes.Params;
@@ -101,7 +102,14 @@ namespace CN88.TotalBets.Site.Tests.Features.ViewByBetType
             handler.Handle(message).ConfigureAwait(false);
 
             // Assert
-            summaryService.Received().GetSportGroupSummary(message.ViewerId, message.ActorLevel, message.Type, message.SportTypeGroup);
+            summaryService.Received().GetSportGroupSummary(
+                Arg.Compat.Is<SummaryBySportGroupParam>(
+                    x => x.CustId == message.ViewerId
+                        && x.SubAccId == message.SubAccountId
+                        && x.IsAllDownline == message.IsAllDownline
+                        && x.CustLevel == message.ActorLevel
+                        && x.EventType == message.Type
+                        && x.SportGroup == message.SportTypeGroup));
         }
 
         [Fact]
@@ -124,8 +132,7 @@ namespace CN88.TotalBets.Site.Tests.Features.ViewByBetType
                 .Returns(totalBetByBetTypes);
 
             var sportGroupSummary = new SportGroupSummary();
-            summaryService.GetSportGroupSummary(message.ViewerId, message.ActorLevel, message.Type, message.SportTypeGroup)
-                .Returns(sportGroupSummary);
+            summaryService.GetSportGroupSummary(Arg.Compat.Any<SummaryBySportGroupParam>()).Returns(sportGroupSummary);
 
             sportTypeGroupService.GetSportTypeGroupName(message.SportTypeGroup).Returns("SportTypeGroupName");
 

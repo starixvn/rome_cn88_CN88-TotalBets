@@ -114,6 +114,7 @@
     <Compile Include="Features\Events\Models\MatchLeague.cs" />
     <Compile Include="Features\Events\Models\MatchLeagueTotal.cs" />
     <Compile Include="Features\Events\Params\EventParam.cs" />
+    <Compile Include="Features\Overview\Params\OverViewParam.cs" />
     <Compile Include="Features\Started\Criteria\GetStartedCriteria.cs" />
     <Compile Include="Features\Started\Models\StartedLeague.cs" />
     <Compile Include="Features\Started\Models\StartedMatch.cs" />
@@ -126,6 +127,8 @@
     <Compile Include="Features\Summaries\Models\MatchSummary.cs" />
     <Compile Include="Features\Summaries\Models\SummaryByMatchDto.cs" />
     <Compile Include="Features\Summaries\Models\SportGroupSummary.cs" />
+    <Compile Include="Features\Summaries\Params\SummaryByEventParam.cs" />
+    <Compile Include="Features\Summaries\Params\SummaryBySportGroupParam.cs" />
     <Compile Include="Features\Summaries\SummaryService.cs" />
     <Compile Include="Features\ViewByBetTypes\BetOptionBuilders\DefaultBetOptionBuilder.cs" />
     <Compile Include="Features\ViewByBetTypes\BetOptionBuilders\BetOptionBuilder18.cs" />

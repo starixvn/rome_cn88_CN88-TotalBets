@@ -39,6 +39,8 @@ namespace CN88.TotalBets.Tests.Features.Events
             // Arrange
             var param = new EventParam(
                 custId: Util.RandomValidCustId(fixture),
+                subAccId: 0,
+                isAllDownline: false,
                 userLevel: Util.RandomSMALevel(fixture),
                 type: EventTypeConstants.InPlay,
                 sportTypeGroup: fixture.Create<int>(),
@@ -71,6 +73,8 @@ namespace CN88.TotalBets.Tests.Features.Events
             // Arrange
             var param = new EventParam(
                 custId: Util.RandomValidCustId(fixture),
+                subAccId: 0,
+                isAllDownline: false,
                 userLevel: Util.RandomSMALevel(fixture),
                 type: EventTypeConstants.InPlay,
                 sportTypeGroup: fixture.Create<int>(),
@@ -97,6 +101,8 @@ namespace CN88.TotalBets.Tests.Features.Events
             // Arrange
             var param = new EventParam(
                 custId: Util.RandomValidCustId(fixture),
+                subAccId: 0,
+                isAllDownline: false,
                 userLevel: Util.RandomSMALevel(fixture),
                 type: EventTypeConstants.InPlay,
                 sportTypeGroup: fixture.Create<int>(),

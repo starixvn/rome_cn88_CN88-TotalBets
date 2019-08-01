@@ -6,6 +6,8 @@
     {
         protected FilterParam(
             int custId,
+            int subAccId,
+            bool isAllDownline,
             UserLevel userLevel,
             int sportTypeGroup,
             int leagueId,
@@ -14,6 +16,8 @@
             byte possType)
         {
             CustId = custId;
+            SubAccId = subAccId;
+            IsAllDownline = isAllDownline;
             UserLevel = userLevel;
             SportTypeGroup = sportTypeGroup;
             LeagueId = leagueId;
@@ -23,6 +27,10 @@
         }
 
         public int CustId { get; }
+
+        public int SubAccId { get; }
+
+        public bool IsAllDownline { get; }
 
         public UserLevel UserLevel { get; }
 

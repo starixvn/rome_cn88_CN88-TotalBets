@@ -3,6 +3,7 @@ using CN88.TotalBets.Features.Outright;
 using CN88.TotalBets.Features.Outright.Params;
 using CN88.TotalBets.Features.SportTypeGroup;
 using CN88.TotalBets.Features.Summaries;
+using CN88.TotalBets.Features.Summaries.Params;
 using CN88.TotalBets.Shared.Constants;
 using CN88.TotalBets.Shared.Models;
 using CN88.TotalBets.Site.Features.Outright;
@@ -91,7 +92,13 @@ namespace CN88.TotalBets.Site.Tests.Features.Outright
             handler.Handle(message).ConfigureAwait(false);
 
             // Assert
-            summaryService.Received().GetSportGroupSummaries(message.ViewerId, message.ActorLevel, EventTypeConstants.Outright);
+            summaryService.Received().GetSportGroupSummaries(
+                Arg.Compat.Is<SummaryByEventParam>(
+                    x => x.CustId == message.ViewerId
+                        && x.SubAccId == message.SubAccountId
+                        && x.IsAllDownline == message.IsAllDownline
+                        && x.CustLevel == message.ActorLevel
+                        && x.EventType == EventTypeConstants.Outright));
         }
     }
 }

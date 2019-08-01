@@ -5,6 +5,7 @@
     using TotalBets.Features.Events;
     using TotalBets.Features.SportTypeGroup;
     using TotalBets.Features.Summaries;
+    using TotalBets.Features.Summaries.Params;
     using TotalBets.Features.ViewByBetTypes;
     using TotalBets.Features.ViewByBetTypes.Params;
     using ViewModels;
@@ -39,6 +40,8 @@
             var totalBetByBetTypes = await viewByBetTypeService.GetTotalBetsByBetTypes(
                 new ViewByBetTypeParam(
                 message.ViewerId,
+                message.SubAccountId,
+                message.IsAllDownline,
                 message.ActorLevel,
                 message.MatchId,
                 message.StakeCondition,
@@ -47,8 +50,14 @@
                 message.Market,
                 message.Type));
 
-            var summary = await summaryService
-                .GetSportGroupSummary(message.ViewerId, message.ActorLevel, message.Type, message.SportTypeGroup);
+            var summary = await summaryService.GetSportGroupSummary(
+                new SummaryBySportGroupParam(
+                    message.ViewerId,
+                    message.SubAccountId,
+                    message.IsAllDownline,
+                    message.Type,
+                    message.SportTypeGroup,
+                    message.ActorLevel));
 
             return new ViewByBetTypeViewModel(
                 await sportTypeGroupService.GetSportTypeGroupName(message.SportTypeGroup),

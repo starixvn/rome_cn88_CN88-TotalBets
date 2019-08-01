@@ -24,8 +24,12 @@
         public async Task<WagerAccountByOutrightViewModel> Handle(WagerAccountByOutrightQuery message)
         {
             var isMobile = browserHelper.IsMobile();
+            var isAllDownline = message.IsAllDownline
+                || message.ActorLevel > message.CustLevel;
             var param = new WagerAccountParam(
                 message.CustId,
+                message.SubAccountId,
+                isAllDownline,
                 message.MatchId,
                 message.Stake,
                 message.StakeCondition,
@@ -39,8 +43,12 @@
         public async Task<WagerAccountByEventViewModel> Handle(WagerAccountByEventQuery message)
         {
             var isMobile = browserHelper.IsMobile();
+            var isAllDownline = message.IsAllDownline
+                || message.ActorLevel > message.CustLevel;
             var param = new WagerAccountByEventParam(
                 message.CustId,
+                message.SubAccountId,
+                isAllDownline,
                 message.MatchId,
                 message.Stake,
                 message.StakeCondition,

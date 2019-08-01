@@ -13,6 +13,8 @@
             ViewerId = viewer.Id;
             ViewerLevelId = viewer.LevelId;
             ViewerName = viewer.Name;
+            SubAccountId = viewer.SubAccountId;
+            IsAllDownline = viewer.IsAllDownline;
             Language = viewer.Language;
         }
 
@@ -29,6 +31,10 @@
         public byte ViewerLevelId { get; }
 
         public string ViewerName { get; }
+
+        public int SubAccountId { get; }
+
+        public bool IsAllDownline { get; }
 
         public virtual UserLevel ActorLevel => Enumeration.FromValue<UserLevel>(ViewerLevelId);
 

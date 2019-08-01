@@ -1,6 +1,7 @@
 ﻿using AutoFixture;
 using CN88.TotalBets.Criteria;
 using CN88.TotalBets.Shared.Constants;
+using CN88.TotalBets.Shared.Models;
 using Xunit;
 
 namespace CN88.TotalBets.Tests.Features.Overview.Criteria
@@ -24,8 +25,10 @@ namespace CN88.TotalBets.Tests.Features.Overview.Criteria
             // Arrange
             var criteria = new GetOverViewCriteria(
                 Util.RandomValidCustId(fixture),
+                0,
+                false,
                 PossTypeConstants.Agent_Percentage,
-                roleId);
+                Enumeration.FromValue<UserLevel>(roleId));
 
             // Act & Assert
             Assert.Equal(expectedSettingKey, criteria.GetSettingKey());
@@ -39,8 +42,10 @@ namespace CN88.TotalBets.Tests.Features.Overview.Criteria
             // Arrange
             var criteria = new GetOverViewCriteria(
                 custId,
+                0,
+                false,
                 PossTypeConstants.Agent_Percentage,
-                Util.RandomSMALevel(fixture).Value);
+                Util.RandomSMALevel(fixture));
 
             // Act & Assert
             Assert.False(criteria.IsValid());
@@ -52,8 +57,10 @@ namespace CN88.TotalBets.Tests.Features.Overview.Criteria
             // Arrange
             var criteria = new GetOverViewCriteria(
                 Util.RandomValidCustId(fixture),
+                0,
+                false,
                 -1,
-                Util.RandomSMALevel(fixture).Value);
+                Util.RandomSMALevel(fixture));
 
             // Act & Assert
             Assert.False(criteria.IsValid());
@@ -65,8 +72,10 @@ namespace CN88.TotalBets.Tests.Features.Overview.Criteria
             // Arrange
             var criteria = new GetOverViewCriteria(
                 Util.RandomValidCustId(fixture),
+                0,
+                false,
                 1,
-                Util.RandomSMALevel(fixture).Value);
+                Util.RandomSMALevel(fixture));
 
             // Act & Assert
             Assert.True(criteria.IsValid());

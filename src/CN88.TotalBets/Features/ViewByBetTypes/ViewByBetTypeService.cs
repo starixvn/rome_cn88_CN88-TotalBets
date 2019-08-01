@@ -33,6 +33,8 @@
             var betOptions = await dynamicRepository.FetchAsync<BetOption>(
                 new GetTotalBetsByBetTypeCriteria(
                 param.CustId,
+                param.SubAccId,
+                param.IsAllDownline,
                 param.UserLevel,
                 param.MatchId,
                 param.StakeCondition,

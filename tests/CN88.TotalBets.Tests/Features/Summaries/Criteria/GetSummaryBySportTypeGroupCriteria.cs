@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 using AutoFixture;
 using CN88.TotalBets.Features.Summaries.Criteria;
 using CN88.TotalBets.Shared.Constants;
@@ -27,7 +27,7 @@ namespace CN88.TotalBets.Tests.Features.Summaries.Criteria
             var eventType = Fixture.Create<Generator<byte>>().First(x => x != EventTypeConstants.Started);
             var sportTypeGroup = Fixture.Create<byte>();
             var custLevel = Enumeration.FromValue<UserLevel>(custLevelValue);
-            var criteria = new GetSummaryBySportTypeGroupCriteria(custId, eventType, sportTypeGroup, custLevel);
+            var criteria = new GetSummaryBySportTypeGroupCriteria(custId, 0, false, eventType, sportTypeGroup, custLevel);
 
             // Act
             var result = criteria.GetSettingKey();
@@ -46,7 +46,7 @@ namespace CN88.TotalBets.Tests.Features.Summaries.Criteria
             var custId = Fixture.Create<int>();
             var custLevel = Enumeration.FromValue<UserLevel>(custLevelValue);
             var sportTypeGroup = Fixture.Create<byte>();
-            var criteria = new GetSummaryBySportTypeGroupCriteria(custId, EventTypeConstants.Started, sportTypeGroup, custLevel);
+            var criteria = new GetSummaryBySportTypeGroupCriteria(custId, 0, false, EventTypeConstants.Started, sportTypeGroup, custLevel);
 
             // Act
             var result = criteria.GetSettingKey();
@@ -64,7 +64,7 @@ namespace CN88.TotalBets.Tests.Features.Summaries.Criteria
             var eventType = Fixture.Create<byte>();
             var custLevel = Util.RandomSMALevel(Fixture);
             var sportTypeGroup = Fixture.Create<byte>();
-            var criteria = new GetSummaryBySportTypeGroupCriteria(custId, eventType, sportTypeGroup, custLevel);
+            var criteria = new GetSummaryBySportTypeGroupCriteria(custId, 0, false, eventType, sportTypeGroup, custLevel);
 
             // Act
             var result = criteria.IsValid();
@@ -81,7 +81,7 @@ namespace CN88.TotalBets.Tests.Features.Summaries.Criteria
             var custId = Util.RandomValidCustId(Fixture);
             var custLevel = Util.RandomSMALevel(Fixture);
             var sportTypeGroup = Fixture.Create<byte>();
-            var criteria = new GetSummaryBySportTypeGroupCriteria(custId, eventType, sportTypeGroup, custLevel);
+            var criteria = new GetSummaryBySportTypeGroupCriteria(custId, 0, false, eventType, sportTypeGroup, custLevel);
 
             // Act
             var result = criteria.IsValid();
@@ -98,7 +98,7 @@ namespace CN88.TotalBets.Tests.Features.Summaries.Criteria
             var custId = Util.RandomValidCustId(Fixture);
             var custLevel = Util.RandomSMALevel(Fixture);
             var sportTypeGroup = Fixture.Create<byte>();
-            var criteria = new GetSummaryBySportTypeGroupCriteria(custId, eventType, sportTypeGroup, custLevel);
+            var criteria = new GetSummaryBySportTypeGroupCriteria(custId, 0, false, eventType, sportTypeGroup, custLevel);
 
             // Act
             var result = criteria.SportTypeGroup;

@@ -10,6 +10,8 @@
         public GetWagerAccountCriteria(WagerAccountParam param)
         {
             CustId = param.CustId;
+            SubAccId = param.SubAccId;
+            IsAllDownline = param.IsAllDownline;
             MatchId = param.MatchId;
             StakeCondition = param.StakeCondition;
             Stake = param.Stake;
@@ -17,6 +19,10 @@
         }
 
         public int CustId { get; }
+
+        public int SubAccId { get; }
+
+        public bool IsAllDownline { get; }
 
         public int MatchId { get; }
 

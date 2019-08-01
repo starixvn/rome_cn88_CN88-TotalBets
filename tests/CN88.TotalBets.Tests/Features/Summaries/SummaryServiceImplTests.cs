@@ -5,6 +5,7 @@ using CN88.TotalBets.Features.SportTypeGroup;
 using CN88.TotalBets.Features.Summaries;
 using CN88.TotalBets.Features.Summaries.Criteria;
 using CN88.TotalBets.Features.Summaries.Models;
+using CN88.TotalBets.Features.Summaries.Params;
 using CN88.TotalBets.Shared.Constants;
 using CN88.TotalBets.Shared.Services;
 using Fanex.Data.Repository;
@@ -37,55 +38,68 @@ namespace CN88.TotalBets.Tests.Features.Summaries
         public void GetSportGroupSummaries_Always_CallsDynamicRepositoryFetchAsync()
         {
             // Arrange
-            var custId = Util.RandomValidCustId(fixture);
-            var custLevel = Util.RandomSMALevel(fixture);
-            byte eventType = EventTypeConstants.Early;
+            var param = new SummaryByEventParam(
+                Util.RandomValidCustId(fixture),
+                0,
+                false,
+                EventTypeConstants.Early,
+                Util.RandomSMALevel(fixture));
 
             // Act
-            summaryService.GetSportGroupSummaries(custId, custLevel, eventType).ConfigureAwait(false);
+            summaryService.GetSportGroupSummaries(param).ConfigureAwait(false);
 
             // Assert
             dynamicRepository.Received().FetchAsync<SportGroupSummary>(
                 Arg.Compat.Is<GetSummaryByEventCriteria>(
-                    x => x.CustId == custId
-                        && x.CustLevel == custLevel
-                        && x.EventType == eventType));
+                    x => x.CustId == param.CustId
+                        && x.CustLevel == param.CustLevel
+                        && x.IsAllDownline == param.IsAllDownline
+                        && x.SubAccId == param.SubAccId
+                        && x.EventType == param.EventType));
         }
 
         [Fact]
         public void GetSportGroupSummary_Always_CallsCallsDynamicRepositoryFetchAsync()
         {
             // Arrange
-            var custId = Util.RandomValidCustId(fixture);
-            var custLevel = Util.RandomSMALevel(fixture);
-            byte eventType = EventTypeConstants.Early;
-            var sportGroup = fixture.Create<Generator<byte>>().First(x => x > 0);
+            var param = new SummaryBySportGroupParam(
+                Util.RandomValidCustId(fixture),
+                0,
+                false,
+                EventTypeConstants.Early,
+                fixture.Create<Generator<byte>>().First(x => x > 0),
+                Util.RandomSMALevel(fixture));
 
             // Act
-            summaryService.GetSportGroupSummary(custId, custLevel, eventType, sportGroup).ConfigureAwait(false);
+            summaryService.GetSportGroupSummary(param).ConfigureAwait(false);
 
             // Assert
             dynamicRepository.Received().FetchAsync<SummaryByMatchDto>(
                 Arg.Compat.Is<GetSummaryBySportTypeGroupCriteria>(
-                    x => x.CustId == custId
-                        && x.CustLevel == custLevel
-                        && x.EventType == eventType
-                        && x.SportTypeGroup == sportGroup));
+                    x => x.CustId == param.CustId
+                        && x.SubAccId == param.SubAccId
+                        && x.IsAllDownline == param.IsAllDownline
+                        && x.CustLevel == param.CustLevel
+                        && x.EventType == param.EventType
+                        && x.SportTypeGroup == param.SportGroup));
         }
 
         [Fact]
         public void GetSportGroupSummary_NoDataReturnFromDb_ReturnsCorrectResult()
         {
             // Arrange
-            var custId = Util.RandomValidCustId(fixture);
-            var custLevel = Util.RandomSMALevel(fixture);
-            byte eventType = EventTypeConstants.Early;
+            var param = new SummaryByEventParam(
+                Util.RandomValidCustId(fixture),
+                0,
+                false,
+                EventTypeConstants.Early,
+                Util.RandomSMALevel(fixture));
             dynamicRepository.FetchAsync<SportGroupSummary>(Arg.Compat.Any<GetSummaryByEventCriteria>())
                 .Returns(Enumerable.Empty<SportGroupSummary>());
             var expectedResult = Enumerable.Empty<SportGroupSummary>();
 
             // Act
-            var actualResult = summaryService.GetSportGroupSummaries(custId, custLevel, eventType)
+            var actualResult = summaryService.GetSportGroupSummaries(param)
                 .GetAwaiter().GetResult();
 
             // Assert
@@ -96,9 +110,12 @@ namespace CN88.TotalBets.Tests.Features.Summaries
         public void GetSportGroupSummary_HasDataReturnFromDb_ReturnsCorrectResult()
         {
             // Arrange
-            var custId = Util.RandomValidCustId(fixture);
-            var custLevel = Util.RandomSMALevel(fixture);
-            byte eventType = EventTypeConstants.Early;
+            var param = new SummaryByEventParam(
+                Util.RandomValidCustId(fixture),
+                0,
+                false,
+                EventTypeConstants.Early,
+                Util.RandomSMALevel(fixture));
             var summaries = new List<SportGroupSummary>
             {
                 new SportGroupSummary(1,10,10000)
@@ -109,7 +126,7 @@ namespace CN88.TotalBets.Tests.Features.Summaries
                 .Returns(string.Empty);
 
             // Act
-            var actualResult = summaryService.GetSportGroupSummaries(custId, custLevel, eventType)
+            var actualResult = summaryService.GetSportGroupSummaries(param)
                 .GetAwaiter().GetResult();
 
             // Assert
@@ -120,16 +137,19 @@ namespace CN88.TotalBets.Tests.Features.Summaries
         public void GetSportGroupSummary_NoDataReturnsFromDb_ReturnsCorrectResult()
         {
             // Arrange
-            var custId = Util.RandomValidCustId(fixture);
-            var custLevel = Util.RandomSMALevel(fixture);
-            byte eventType = EventTypeConstants.Early;
-            var sportGroup = fixture.Create<Generator<byte>>().First(x => x > 0);
+            var param = new SummaryBySportGroupParam(
+                Util.RandomValidCustId(fixture),
+                0,
+                false,
+                EventTypeConstants.Early,
+                fixture.Create<Generator<byte>>().First(x => x > 0),
+                Util.RandomSMALevel(fixture));
             dynamicRepository.FetchAsync<SummaryByMatchDto>(Arg.Compat.Any<GetSummaryBySportTypeGroupCriteria>())
                 .Returns(Enumerable.Empty<SummaryByMatchDto>());
             var expectedResult = new SportGroupSummary(0, string.Empty, Enumerable.Empty<LeagueSummary>());
 
             // Act
-            var actualResult = summaryService.GetSportGroupSummary(custId, custLevel, eventType, sportGroup)
+            var actualResult = summaryService.GetSportGroupSummary(param)
                 .GetAwaiter().GetResult();
 
             // Assert
@@ -140,11 +160,13 @@ namespace CN88.TotalBets.Tests.Features.Summaries
         public void GetSportGroupSummary_HasDataReturnsFromDb_ReturnsCorrectResult()
         {
             // Arrange
-            var custId = Util.RandomValidCustId(fixture);
-            var custLevel = Util.RandomSMALevel(fixture);
-            byte eventType = EventTypeConstants.Early;
-            var sportGroup = fixture.Create<Generator<byte>>().First(x => x > 0);
-
+            var param = new SummaryBySportGroupParam(
+                Util.RandomValidCustId(fixture),
+                0,
+                false,
+                EventTypeConstants.Early,
+                fixture.Create<Generator<byte>>().First(x => x > 0),
+                Util.RandomSMALevel(fixture));
             var dtos = new List<SummaryByMatchDto>
             {
                 new SummaryByMatchDto( 1, 1, 1, 2, 5, 5000, true),
@@ -155,7 +177,7 @@ namespace CN88.TotalBets.Tests.Features.Summaries
 
             cacheRefService.GetTeamName(Arg.Compat.Any<int>()).Returns("TeamName");
             cacheRefService.GetLeagueName(Arg.Compat.Any<int>()).Returns("LeagueName");
-            sportTypeGroupService.GetSportTypeGroupName(sportGroup).Returns("SportTypeGroupName");
+            sportTypeGroupService.GetSportTypeGroupName(param.SportGroup).Returns("SportTypeGroupName");
             var matchSummaries = new List<MatchSummary> {
                 new MatchSummary(1,1,"TeamName (N)",2,"TeamName",5,5000),
                 new MatchSummary(1,3,"TeamName",4,"TeamName",5,5000)
@@ -164,10 +186,10 @@ namespace CN88.TotalBets.Tests.Features.Summaries
             {
                 new LeagueSummary(1,"LeagueName", matchSummaries.OrderByDescending(x=>x.Stake))
             };
-            var expectedResult = new SportGroupSummary(sportGroup, "SportTypeGroupName", leagueSummaries.OrderBy(item => item.LeagueName));
+            var expectedResult = new SportGroupSummary(param.SportGroup, "SportTypeGroupName", leagueSummaries.OrderBy(item => item.LeagueName));
 
             // Act
-            var actualResult = summaryService.GetSportGroupSummary(custId, custLevel, eventType, sportGroup)
+            var actualResult = summaryService.GetSportGroupSummary(param)
                 .GetAwaiter().GetResult();
 
             // Assert

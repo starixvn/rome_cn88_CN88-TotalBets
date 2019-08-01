@@ -5,10 +5,9 @@
     <Setting Key="CS_SportType_Sel" SpName="CS_SportType_Sel" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
   </Function>
   <Function Name="Check Belonging">
-    <Setting Key="Age_CustomerSelCheckBelonging" SpName="Age_CustomerSelCheckBelonging" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
+    <Setting Key="CS_CustomerSelCheckBelonging" SpName="CS_CustomerSelCheckBelonging" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
     <Setting Key="Age_CustSubPageAccessSel" SpName="Age_CustSubPageAccessSel" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
     <Setting Key="Age_Rpt_CustomerConsolidatedGroup_CheckBelonging" SpName="Age_Rpt_CustomerConsolidatedGroup_CheckBelonging" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
-    <Setting Key="Age_CustomerStatusSel" SpName="Age_CustomerStatusSel" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />
   </Function>
   <Function Name="Started">
     <Setting Key="CS_TotalBets_Started_Super" SpName="CS_TotalBets_Started_Super" DbName="DBAGE.bodb02.BODBDownlineNetView" Plain="0" />

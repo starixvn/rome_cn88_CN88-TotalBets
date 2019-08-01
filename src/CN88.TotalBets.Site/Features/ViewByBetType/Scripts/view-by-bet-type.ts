@@ -5,6 +5,7 @@ class ViewByBetType extends BaseTotalBets {
     marketSelectionComponent: SingleSelectionDropdownComponent;
     autoRefresh: RefreshCountDown;
     isMobile: boolean;
+    isShowMarket: boolean;
     $topWindow: Window;
     iconChevronDownClass = "icon-chevron-down";
     iconChevronRightClass = "icon-chevron-right";
@@ -31,6 +32,7 @@ class ViewByBetType extends BaseTotalBets {
 
         this.$.blockUI();
 
+        this.isShowMarket = cn88TotalBets.convertAttributeToBool(this.$("#IsShowMarketSelection").val());
         this.cacheDOMElements();
         this.renderComponents();
         this.bindEvents();
@@ -41,7 +43,8 @@ class ViewByBetType extends BaseTotalBets {
 
     renderComponents(): void {
         super.renderComponents();
-        if (cn88TotalBets.convertAttributeToBool(this.$("#IsShowMarketSelection").val())) {
+
+        if (this.isShowMarket) {
             this.marketSelectionComponent.render(new SingleSelectionDropdownOption("dropdown-market", "Market"));
         }
 
@@ -56,8 +59,10 @@ class ViewByBetType extends BaseTotalBets {
     bindEvents(): void {
         super.bindEvents();
 
-        const reloadInSeconds: number = parseInt(this.$("#ReloadTimeInSeconds").val());
-        this.autoRefresh.render(new RefreshCountDownOptions("CountDownMenu", "", reloadInSeconds, this.doRefresh));
+        if (this.isShowMarket) {
+            const reloadInSeconds: number = parseInt(this.$("#ReloadTimeInSeconds").val());
+            this.autoRefresh.render(new RefreshCountDownOptions("CountDownMenu", "", reloadInSeconds, this.doRefresh));
+        }
 
         this.summaryMenu.$summaryMenuItems.find(".league-wrapper").click((e: JQueryEventObject) => {
             const $this: JQuery = this.$(e.currentTarget);

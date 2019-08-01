@@ -37,6 +37,8 @@ namespace CN88.TotalBets.Tests.Features.Started
             // Arrange
             var param = new StartedParam(
                 Util.RandomValidCustId(fixture),
+                0,
+                false,
                 Util.RandomSMALevel(fixture),
                 fixture.Create<int>(),
                 fixture.Create<int>(),
@@ -69,6 +71,8 @@ namespace CN88.TotalBets.Tests.Features.Started
             // Arrange
             var param = new StartedParam(
                 Util.RandomValidCustId(fixture),
+                0,
+                false,
                 Util.RandomSMALevel(fixture),
                 fixture.Create<int>(),
                 fixture.Create<int>(),
@@ -95,6 +99,8 @@ namespace CN88.TotalBets.Tests.Features.Started
             var compareLogic = new CompareLogic();
             var param = new StartedParam(
                 Util.RandomValidCustId(fixture),
+                0,
+                false,
                 Util.RandomSMALevel(fixture),
                 fixture.Create<int>(),
                 fixture.Create<int>(),

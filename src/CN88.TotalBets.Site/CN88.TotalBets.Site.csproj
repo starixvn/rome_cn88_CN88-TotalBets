@@ -61,8 +61,8 @@
       <HintPath>..\..\packages\Alpha.Web.1.0.1.6\lib\net40\Alpha.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CN88.Web, Version=1.0.1.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CN88.Web.1.0.1.4\lib\net461\CN88.Web.dll</HintPath>
+    <Reference Include="CN88.Web, Version=1.0.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CN88.Web.1.0.1.5\lib\net461\CN88.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Couchbase, Version=1.2.7.0, Culture=neutral, PublicKeyToken=05e9c6b5a9ec94c2, processorArchitecture=MSIL">
@@ -528,7 +528,6 @@
     <Content Include="App_Data\AuthorizationSection.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\SPNames\Internal\DBARC.bodb_Archive.BODBDownlineNet" />
     <Content Include="bundleconfig.json" />
     <Content Include="compilerconfig.json" />
     <Content Include="App_Code\Filters\PossTypeSelection.cshtml" />
@@ -541,10 +540,8 @@
     <Content Include="Features\Events\Styles\event.scss" />
     <Content Include="App_Code\Breadcrumb.cshtml" />
     <Content Include="Features\ViewByBetType\Styles\viewbybettype.scss" />
-    <Content Include="App_Data\SPNames\Main\DBARC.bodb_Archive.BODBDownlineNet" />
     <Content Include="App_Code\Filters\DateSelection.cshtml" />
     <Content Include="App_Code\Filters\RefreshCountDown.cshtml" />
-    <Content Include="App_Data\SPNames\Dev\DBARC.bodb_Archive.BODBDownlineNet" />
     <Content Include="CN88.TotalBets.Site.ruleset" />
     <Content Include="assets\tests\chutzpah.json" />
     <None Include="compilerconfig.json.defaults">
@@ -605,6 +602,9 @@
     <Content Include="typings\globals\cleave.js\LICENSE" />
     <Content Include="typings\globals\cleave.js\package.json" />
     <Content Include="typings\globals\cleave.js\README.md" />
+    <Content Include="Web.AppSettings.local.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\Overview\Views\Index.cshtml" />
