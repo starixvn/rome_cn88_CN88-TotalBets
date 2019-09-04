@@ -7,13 +7,12 @@
     using System.Reflection;
     using System.Web.Mvc;
     using System.Web.Routing;
-    using Alpha.Web;
-    using Alpha.Web.Filters;
-    using Alpha.Web.Helpers;
+    using Alpha.Logging;
     using App_Start;
     using Fanex.Data;
     using Fanex.Data.CrossCutting.WrappingException;
     using Fanex.Data.OldConnectionStringProvider;
+    using Fanex.Logging.Extensions.Database;
     using Fanex.Logging.Extensions.Web;
     using Fanex.RemotingRef;
     using ONEbook.UM.Filters;
@@ -21,6 +20,7 @@
     using Sunplus.Agent.Model.Entities;
     using TotalBets.Shared.Configurations;
     using Web.Filters;
+    using Web.Helpers;
     using CN88CheckBelongingFilter = Web.Filters.CheckBelongingFilter;
 
     public class MvcApplication : System.Web.HttpApplication
@@ -33,9 +33,10 @@
 
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            LoggingManager.Init();
-            DependencyConfig.Init();
 
+            var sensitivteInfo = new[] { "password", "seccode", "securitycode" };
+            LoggingConfig.Init(sensitivteInfo, DatabaseInfoGetters.GetDbExceptionInfo);
+            DependencyConfig.Init();
             AppSettings.Verify();
 
             DbSettingProviderManager
@@ -50,7 +51,7 @@
             GlobalFilters.Filters.Add(new CheckUMFilter());
             GlobalFilters.Filters.Add(new AfterLoginFlowFilter());
             GlobalFilters.Filters.Add(new CN88CheckBelongingFilter());
-            GlobalFilters.Filters.Add(new NoCacheFilter());
+            GlobalFilters.Filters.Add(new NoCacheFilterAttribute());
 
             StaticResources.Init(GetBuildVersion());
 

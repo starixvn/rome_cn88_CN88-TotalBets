@@ -5,8 +5,8 @@
     using System.Linq;
     using System.Text.RegularExpressions;
     using System.Web;
-    using Alpha.Web.Helpers;
     using TotalBets.Shared.Configurations;
+    using Web.Helpers;
 
     public static class UrlHelper
     {
