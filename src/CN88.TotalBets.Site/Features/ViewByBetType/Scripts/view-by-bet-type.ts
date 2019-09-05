@@ -32,13 +32,17 @@ class ViewByBetType extends BaseTotalBets {
 
         this.$.blockUI();
 
-        this.isShowMarket = cn88TotalBets.convertAttributeToBool(this.$("#IsShowMarketSelection").val());
         this.cacheDOMElements();
         this.renderComponents();
         this.bindEvents();
 
         this.$.unblockUI();
         this.$topWindow.$("body").scrollTop(0);
+    }
+
+    cacheDOMElements(): void {
+        super.cacheDOMElements();
+        this.isShowMarket = cn88TotalBets.convertAttributeToBool(this.$("#IsShowMarketSelection").val());
     }
 
     renderComponents(): void {
