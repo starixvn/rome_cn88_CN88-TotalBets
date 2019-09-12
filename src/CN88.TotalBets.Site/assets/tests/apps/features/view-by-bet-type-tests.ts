@@ -77,10 +77,13 @@
     });
 
     describe("_renderComponents_Always", () => {
+        beforeEach(() => {
+            viewByBetType.cacheDOMElements();
+        });
+
         describe("_Always", () => {
             beforeEach(() => {
                 // arrange
-
                 spyOn(ViewByBetType.prototype, "renderComponents").and.callThrough();
 
                 // act

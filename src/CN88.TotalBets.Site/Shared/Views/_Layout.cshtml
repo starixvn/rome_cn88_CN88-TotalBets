@@ -7,7 +7,7 @@
     @StaticResources.AssetStyles.Render("/bundles/site-totalbets/totalbets")
     @RenderSection("Styles", required: false)
 </head>
-<body @Html.Raw(CN88.Web.Helpers.BrowserManager.BuildMobileHtmlClass())>
+<body @Html.Raw(BrowserManager.BuildMobileHtmlClass())>
     @RenderBody()
     @StaticResources.AssetScripts.RenderCommon("/bundles/common/common")
     @StaticResources.AssetScripts.Render("/bundles/site-totalbets/default")
